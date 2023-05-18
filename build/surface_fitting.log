@@ -1,5 +1,5 @@
-﻿  Deprecated command line option: -py3. Ignored, this option is no longer supported.
-  Swig compile ../interface/surface_fitting.i for python
+﻿  Swig compile ../interface/surface_fitting.i for python
+  Deprecated command line option: -py3. Ignored, this option is no longer supported.
   Building Custom Rule D:/a/lungsim/lungsim/lungsim/src/bindings/python/CMakeLists.txt
   surface_fittingPYTHON_wrap.c
      Creating library D:/a/lungsim/lungsim/build-lungsim/src/bindings/python/Release/surface_fitting.lib and object D:/a/lungsim/lungsim/build-lungsim/src/bindings/python/Release/surface_fitting.exp
