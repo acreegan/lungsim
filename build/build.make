@@ -85,15 +85,15 @@ src/lib/CMakeFiles/aether.dir/arrays.f90.s: cmake_force
 src/lib/CMakeFiles/aether.dir/capillaryflow.f90.o: src/lib/CMakeFiles/aether.dir/flags.make
 src/lib/CMakeFiles/aether.dir/capillaryflow.f90.o: /home/runner/work/lungsim/lungsim/lungsim/src/lib/capillaryflow.f90
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/runner/work/lungsim/lungsim/build-lungsim/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building Fortran object src/lib/CMakeFiles/aether.dir/capillaryflow.f90.o"
-	cd /home/runner/work/lungsim/lungsim/build-lungsim/src/lib && /usr/bin/gfortran $(Fortran_DEFINES) -DHAVE_SUPERLU $(Fortran_INCLUDES) $(Fortran_FLAGS) -cpp -c /home/runner/work/lungsim/lungsim/lungsim/src/lib/capillaryflow.f90 -o CMakeFiles/aether.dir/capillaryflow.f90.o
+	cd /home/runner/work/lungsim/lungsim/build-lungsim/src/lib && /usr/bin/gfortran $(Fortran_DEFINES) $(Fortran_INCLUDES) $(Fortran_FLAGS) -cpp -c /home/runner/work/lungsim/lungsim/lungsim/src/lib/capillaryflow.f90 -o CMakeFiles/aether.dir/capillaryflow.f90.o
 
 src/lib/CMakeFiles/aether.dir/capillaryflow.f90.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing Fortran source to CMakeFiles/aether.dir/capillaryflow.f90.i"
-	cd /home/runner/work/lungsim/lungsim/build-lungsim/src/lib && /usr/bin/gfortran $(Fortran_DEFINES) -DHAVE_SUPERLU $(Fortran_INCLUDES) $(Fortran_FLAGS) -cpp -E /home/runner/work/lungsim/lungsim/lungsim/src/lib/capillaryflow.f90 > CMakeFiles/aether.dir/capillaryflow.f90.i
+	cd /home/runner/work/lungsim/lungsim/build-lungsim/src/lib && /usr/bin/gfortran $(Fortran_DEFINES) $(Fortran_INCLUDES) $(Fortran_FLAGS) -cpp -E /home/runner/work/lungsim/lungsim/lungsim/src/lib/capillaryflow.f90 > CMakeFiles/aether.dir/capillaryflow.f90.i
 
 src/lib/CMakeFiles/aether.dir/capillaryflow.f90.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling Fortran source to assembly CMakeFiles/aether.dir/capillaryflow.f90.s"
-	cd /home/runner/work/lungsim/lungsim/build-lungsim/src/lib && /usr/bin/gfortran $(Fortran_DEFINES) -DHAVE_SUPERLU $(Fortran_INCLUDES) $(Fortran_FLAGS) -cpp -S /home/runner/work/lungsim/lungsim/lungsim/src/lib/capillaryflow.f90 -o CMakeFiles/aether.dir/capillaryflow.f90.s
+	cd /home/runner/work/lungsim/lungsim/build-lungsim/src/lib && /usr/bin/gfortran $(Fortran_DEFINES) $(Fortran_INCLUDES) $(Fortran_FLAGS) -cpp -S /home/runner/work/lungsim/lungsim/lungsim/src/lib/capillaryflow.f90 -o CMakeFiles/aether.dir/capillaryflow.f90.s
 
 src/lib/CMakeFiles/aether.dir/diagnostics.f90.o: src/lib/CMakeFiles/aether.dir/flags.make
 src/lib/CMakeFiles/aether.dir/diagnostics.f90.o: /home/runner/work/lungsim/lungsim/lungsim/src/lib/diagnostics.f90
@@ -355,20 +355,6 @@ src/lib/CMakeFiles/aether.dir/wave_transmission.f90.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling Fortran source to assembly CMakeFiles/aether.dir/wave_transmission.f90.s"
 	cd /home/runner/work/lungsim/lungsim/build-lungsim/src/lib && /usr/bin/gfortran $(Fortran_DEFINES) $(Fortran_INCLUDES) $(Fortran_FLAGS) -S /home/runner/work/lungsim/lungsim/lungsim/src/lib/wave_transmission.f90 -o CMakeFiles/aether.dir/wave_transmission.f90.s
 
-src/lib/CMakeFiles/aether.dir/c_fortran_dgssv.c.o: src/lib/CMakeFiles/aether.dir/flags.make
-src/lib/CMakeFiles/aether.dir/c_fortran_dgssv.c.o: /home/runner/work/lungsim/lungsim/lungsim/src/lib/c_fortran_dgssv.c
-src/lib/CMakeFiles/aether.dir/c_fortran_dgssv.c.o: src/lib/CMakeFiles/aether.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/runner/work/lungsim/lungsim/build-lungsim/CMakeFiles --progress-num=$(CMAKE_PROGRESS_23) "Building C object src/lib/CMakeFiles/aether.dir/c_fortran_dgssv.c.o"
-	cd /home/runner/work/lungsim/lungsim/build-lungsim/src/lib && /usr/bin/cc $(C_DEFINES) -DSUPERLU_HAS_GLOBALLU_T $(C_INCLUDES) $(C_FLAGS) -MD -MT src/lib/CMakeFiles/aether.dir/c_fortran_dgssv.c.o -MF CMakeFiles/aether.dir/c_fortran_dgssv.c.o.d -o CMakeFiles/aether.dir/c_fortran_dgssv.c.o -c /home/runner/work/lungsim/lungsim/lungsim/src/lib/c_fortran_dgssv.c
-
-src/lib/CMakeFiles/aether.dir/c_fortran_dgssv.c.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/aether.dir/c_fortran_dgssv.c.i"
-	cd /home/runner/work/lungsim/lungsim/build-lungsim/src/lib && /usr/bin/cc $(C_DEFINES) -DSUPERLU_HAS_GLOBALLU_T $(C_INCLUDES) $(C_FLAGS) -E /home/runner/work/lungsim/lungsim/lungsim/src/lib/c_fortran_dgssv.c > CMakeFiles/aether.dir/c_fortran_dgssv.c.i
-
-src/lib/CMakeFiles/aether.dir/c_fortran_dgssv.c.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/aether.dir/c_fortran_dgssv.c.s"
-	cd /home/runner/work/lungsim/lungsim/build-lungsim/src/lib && /usr/bin/cc $(C_DEFINES) -DSUPERLU_HAS_GLOBALLU_T $(C_INCLUDES) $(C_FLAGS) -S /home/runner/work/lungsim/lungsim/lungsim/src/lib/c_fortran_dgssv.c -o CMakeFiles/aether.dir/c_fortran_dgssv.c.s
-
 # Object files for target aether
 aether_OBJECTS = \
 "CMakeFiles/aether.dir/arrays.f90.o" \
@@ -392,8 +378,7 @@ aether_OBJECTS = \
 "CMakeFiles/aether.dir/species_transport.f90.o" \
 "CMakeFiles/aether.dir/surface_fitting.f90.o" \
 "CMakeFiles/aether.dir/ventilation.f90.o" \
-"CMakeFiles/aether.dir/wave_transmission.f90.o" \
-"CMakeFiles/aether.dir/c_fortran_dgssv.c.o"
+"CMakeFiles/aether.dir/wave_transmission.f90.o"
 
 # External object files for target aether
 aether_EXTERNAL_OBJECTS =
@@ -420,10 +405,9 @@ src/lib/libaether.a: src/lib/CMakeFiles/aether.dir/species_transport.f90.o
 src/lib/libaether.a: src/lib/CMakeFiles/aether.dir/surface_fitting.f90.o
 src/lib/libaether.a: src/lib/CMakeFiles/aether.dir/ventilation.f90.o
 src/lib/libaether.a: src/lib/CMakeFiles/aether.dir/wave_transmission.f90.o
-src/lib/libaether.a: src/lib/CMakeFiles/aether.dir/c_fortran_dgssv.c.o
 src/lib/libaether.a: src/lib/CMakeFiles/aether.dir/build.make
 src/lib/libaether.a: src/lib/CMakeFiles/aether.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/runner/work/lungsim/lungsim/build-lungsim/CMakeFiles --progress-num=$(CMAKE_PROGRESS_24) "Linking Fortran static library libaether.a"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/runner/work/lungsim/lungsim/build-lungsim/CMakeFiles --progress-num=$(CMAKE_PROGRESS_23) "Linking Fortran static library libaether.a"
 	cd /home/runner/work/lungsim/lungsim/build-lungsim/src/lib && $(CMAKE_COMMAND) -P CMakeFiles/aether.dir/cmake_clean_target.cmake
 	cd /home/runner/work/lungsim/lungsim/build-lungsim/src/lib && $(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/aether.dir/link.txt --verbose=$(VERBOSE)
 

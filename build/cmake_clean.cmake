@@ -1,7 +1,5 @@
 file(REMOVE_RECURSE
   "CMakeFiles/aether.dir/arrays.f90.o"
-  "CMakeFiles/aether.dir/c_fortran_dgssv.c.o"
-  "CMakeFiles/aether.dir/c_fortran_dgssv.c.o.d"
   "CMakeFiles/aether.dir/capillaryflow.f90.o"
   "CMakeFiles/aether.dir/diagnostics.f90.o"
   "CMakeFiles/aether.dir/exports.f90.o"
@@ -28,6 +26,6 @@ file(REMOVE_RECURSE
 )
 
 # Per-language clean rules from dependency scanning.
-foreach(lang C Fortran)
+foreach(lang Fortran)
   include(CMakeFiles/aether.dir/cmake_clean_${lang}.cmake OPTIONAL)
 endforeach()
