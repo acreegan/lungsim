@@ -199,6 +199,30 @@ arrays.f90.s:
 	cd /home/runner/work/lungsim/lungsim/build-lungsim && $(MAKE) $(MAKESILENT) -f src/lib/CMakeFiles/aether.dir/build.make src/lib/CMakeFiles/aether.dir/arrays.f90.s
 .PHONY : arrays.f90.s
 
+c_fortran_dgssv.o: c_fortran_dgssv.c.o
+.PHONY : c_fortran_dgssv.o
+
+# target to build an object file
+c_fortran_dgssv.c.o:
+	cd /home/runner/work/lungsim/lungsim/build-lungsim && $(MAKE) $(MAKESILENT) -f src/lib/CMakeFiles/aether.dir/build.make src/lib/CMakeFiles/aether.dir/c_fortran_dgssv.c.o
+.PHONY : c_fortran_dgssv.c.o
+
+c_fortran_dgssv.i: c_fortran_dgssv.c.i
+.PHONY : c_fortran_dgssv.i
+
+# target to preprocess a source file
+c_fortran_dgssv.c.i:
+	cd /home/runner/work/lungsim/lungsim/build-lungsim && $(MAKE) $(MAKESILENT) -f src/lib/CMakeFiles/aether.dir/build.make src/lib/CMakeFiles/aether.dir/c_fortran_dgssv.c.i
+.PHONY : c_fortran_dgssv.c.i
+
+c_fortran_dgssv.s: c_fortran_dgssv.c.s
+.PHONY : c_fortran_dgssv.s
+
+# target to generate assembly for a file
+c_fortran_dgssv.c.s:
+	cd /home/runner/work/lungsim/lungsim/build-lungsim && $(MAKE) $(MAKESILENT) -f src/lib/CMakeFiles/aether.dir/build.make src/lib/CMakeFiles/aether.dir/c_fortran_dgssv.c.s
+.PHONY : c_fortran_dgssv.c.s
+
 capillaryflow.o: capillaryflow.f90.o
 .PHONY : capillaryflow.o
 
@@ -719,6 +743,9 @@ help:
 	@echo "... arrays.o"
 	@echo "... arrays.i"
 	@echo "... arrays.s"
+	@echo "... c_fortran_dgssv.o"
+	@echo "... c_fortran_dgssv.i"
+	@echo "... c_fortran_dgssv.s"
 	@echo "... capillaryflow.o"
 	@echo "... capillaryflow.i"
 	@echo "... capillaryflow.s"

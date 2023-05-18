@@ -215,12 +215,12 @@ src/lib/clean: src/lib/CMakeFiles/aether.dir/clean
 src/lib/CMakeFiles/aether.dir/all:
 	$(MAKE) $(MAKESILENT) -f src/lib/CMakeFiles/aether.dir/build.make src/lib/CMakeFiles/aether.dir/depend
 	$(MAKE) $(MAKESILENT) -f src/lib/CMakeFiles/aether.dir/build.make src/lib/CMakeFiles/aether.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/runner/work/lungsim/lungsim/build-lungsim/CMakeFiles --progress-num=1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21 "Built target aether"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/runner/work/lungsim/lungsim/build-lungsim/CMakeFiles --progress-num=1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22 "Built target aether"
 .PHONY : src/lib/CMakeFiles/aether.dir/all
 
 # Build rule for subdir invocation for target.
 src/lib/CMakeFiles/aether.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/runner/work/lungsim/lungsim/build-lungsim/CMakeFiles 21
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/runner/work/lungsim/lungsim/build-lungsim/CMakeFiles 22
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 src/lib/CMakeFiles/aether.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/runner/work/lungsim/lungsim/build-lungsim/CMakeFiles 0
 .PHONY : src/lib/CMakeFiles/aether.dir/rule
@@ -246,7 +246,7 @@ src/bindings/c/CMakeFiles/aether_c_fortran.dir/all: src/lib/CMakeFiles/aether.di
 
 # Build rule for subdir invocation for target.
 src/bindings/c/CMakeFiles/aether_c_fortran.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/runner/work/lungsim/lungsim/build-lungsim/CMakeFiles 38
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/runner/work/lungsim/lungsim/build-lungsim/CMakeFiles 39
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 src/bindings/c/CMakeFiles/aether_c_fortran.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/runner/work/lungsim/lungsim/build-lungsim/CMakeFiles 0
 .PHONY : src/bindings/c/CMakeFiles/aether_c_fortran.dir/rule
@@ -268,7 +268,7 @@ src/bindings/c/CMakeFiles/aether_c.dir/all: src/lib/CMakeFiles/aether.dir/all
 src/bindings/c/CMakeFiles/aether_c.dir/all: src/bindings/c/CMakeFiles/aether_c_fortran.dir/all
 	$(MAKE) $(MAKESILENT) -f src/bindings/c/CMakeFiles/aether_c.dir/build.make src/bindings/c/CMakeFiles/aether_c.dir/depend
 	$(MAKE) $(MAKESILENT) -f src/bindings/c/CMakeFiles/aether_c.dir/build.make src/bindings/c/CMakeFiles/aether_c.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/runner/work/lungsim/lungsim/build-lungsim/CMakeFiles --progress-num=22,23,24,25,26,27,28,29,30,31,32,33,34,35,36,37,38 "Built target aether_c"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/runner/work/lungsim/lungsim/build-lungsim/CMakeFiles --progress-num=23,24,25,26,27,28,29,30,31,32,33,34,35,36,37,38 "Built target aether_c"
 .PHONY : src/bindings/c/CMakeFiles/aether_c.dir/all
 
 # Build rule for subdir invocation for target.
@@ -328,7 +328,7 @@ src/bindings/python/CMakeFiles/arrays.dir/all: src/bindings/python/CMakeFiles/ar
 
 # Build rule for subdir invocation for target.
 src/bindings/python/CMakeFiles/arrays.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/runner/work/lungsim/lungsim/build-lungsim/CMakeFiles 57
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/runner/work/lungsim/lungsim/build-lungsim/CMakeFiles 58
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 src/bindings/python/CMakeFiles/arrays.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/runner/work/lungsim/lungsim/build-lungsim/CMakeFiles 0
 .PHONY : src/bindings/python/CMakeFiles/arrays.dir/rule
@@ -349,12 +349,12 @@ src/bindings/python/CMakeFiles/arrays.dir/clean:
 src/bindings/python/CMakeFiles/arrays_swig_compilation.dir/all:
 	$(MAKE) $(MAKESILENT) -f src/bindings/python/CMakeFiles/arrays_swig_compilation.dir/build.make src/bindings/python/CMakeFiles/arrays_swig_compilation.dir/depend
 	$(MAKE) $(MAKESILENT) -f src/bindings/python/CMakeFiles/arrays_swig_compilation.dir/build.make src/bindings/python/CMakeFiles/arrays_swig_compilation.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/runner/work/lungsim/lungsim/build-lungsim/CMakeFiles --progress-num= "Built target arrays_swig_compilation"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/runner/work/lungsim/lungsim/build-lungsim/CMakeFiles --progress-num=58 "Built target arrays_swig_compilation"
 .PHONY : src/bindings/python/CMakeFiles/arrays_swig_compilation.dir/all
 
 # Build rule for subdir invocation for target.
 src/bindings/python/CMakeFiles/arrays_swig_compilation.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/runner/work/lungsim/lungsim/build-lungsim/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/runner/work/lungsim/lungsim/build-lungsim/CMakeFiles 1
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 src/bindings/python/CMakeFiles/arrays_swig_compilation.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/runner/work/lungsim/lungsim/build-lungsim/CMakeFiles 0
 .PHONY : src/bindings/python/CMakeFiles/arrays_swig_compilation.dir/rule
@@ -378,7 +378,7 @@ src/bindings/python/CMakeFiles/diagnostics.dir/all: src/bindings/c/CMakeFiles/ae
 src/bindings/python/CMakeFiles/diagnostics.dir/all: src/bindings/python/CMakeFiles/diagnostics_swig_compilation.dir/all
 	$(MAKE) $(MAKESILENT) -f src/bindings/python/CMakeFiles/diagnostics.dir/build.make src/bindings/python/CMakeFiles/diagnostics.dir/depend
 	$(MAKE) $(MAKESILENT) -f src/bindings/python/CMakeFiles/diagnostics.dir/build.make src/bindings/python/CMakeFiles/diagnostics.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/runner/work/lungsim/lungsim/build-lungsim/CMakeFiles --progress-num=58,59 "Built target diagnostics"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/runner/work/lungsim/lungsim/build-lungsim/CMakeFiles --progress-num=59,60 "Built target diagnostics"
 .PHONY : src/bindings/python/CMakeFiles/diagnostics.dir/all
 
 # Build rule for subdir invocation for target.
@@ -404,7 +404,7 @@ src/bindings/python/CMakeFiles/diagnostics.dir/clean:
 src/bindings/python/CMakeFiles/diagnostics_swig_compilation.dir/all:
 	$(MAKE) $(MAKESILENT) -f src/bindings/python/CMakeFiles/diagnostics_swig_compilation.dir/build.make src/bindings/python/CMakeFiles/diagnostics_swig_compilation.dir/depend
 	$(MAKE) $(MAKESILENT) -f src/bindings/python/CMakeFiles/diagnostics_swig_compilation.dir/build.make src/bindings/python/CMakeFiles/diagnostics_swig_compilation.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/runner/work/lungsim/lungsim/build-lungsim/CMakeFiles --progress-num=60 "Built target diagnostics_swig_compilation"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/runner/work/lungsim/lungsim/build-lungsim/CMakeFiles --progress-num=61 "Built target diagnostics_swig_compilation"
 .PHONY : src/bindings/python/CMakeFiles/diagnostics_swig_compilation.dir/all
 
 # Build rule for subdir invocation for target.
@@ -433,12 +433,12 @@ src/bindings/python/CMakeFiles/exports.dir/all: src/bindings/c/CMakeFiles/aether
 src/bindings/python/CMakeFiles/exports.dir/all: src/bindings/python/CMakeFiles/exports_swig_compilation.dir/all
 	$(MAKE) $(MAKESILENT) -f src/bindings/python/CMakeFiles/exports.dir/build.make src/bindings/python/CMakeFiles/exports.dir/depend
 	$(MAKE) $(MAKESILENT) -f src/bindings/python/CMakeFiles/exports.dir/build.make src/bindings/python/CMakeFiles/exports.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/runner/work/lungsim/lungsim/build-lungsim/CMakeFiles --progress-num=61,62 "Built target exports"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/runner/work/lungsim/lungsim/build-lungsim/CMakeFiles --progress-num=62 "Built target exports"
 .PHONY : src/bindings/python/CMakeFiles/exports.dir/all
 
 # Build rule for subdir invocation for target.
 src/bindings/python/CMakeFiles/exports.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/runner/work/lungsim/lungsim/build-lungsim/CMakeFiles 58
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/runner/work/lungsim/lungsim/build-lungsim/CMakeFiles 57
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 src/bindings/python/CMakeFiles/exports.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/runner/work/lungsim/lungsim/build-lungsim/CMakeFiles 0
 .PHONY : src/bindings/python/CMakeFiles/exports.dir/rule
@@ -603,7 +603,7 @@ src/bindings/python/CMakeFiles/gas_exchange.dir/all: src/bindings/python/CMakeFi
 
 # Build rule for subdir invocation for target.
 src/bindings/python/CMakeFiles/gas_exchange.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/runner/work/lungsim/lungsim/build-lungsim/CMakeFiles 57
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/runner/work/lungsim/lungsim/build-lungsim/CMakeFiles 58
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 src/bindings/python/CMakeFiles/gas_exchange.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/runner/work/lungsim/lungsim/build-lungsim/CMakeFiles 0
 .PHONY : src/bindings/python/CMakeFiles/gas_exchange.dir/rule
@@ -624,12 +624,12 @@ src/bindings/python/CMakeFiles/gas_exchange.dir/clean:
 src/bindings/python/CMakeFiles/gas_exchange_swig_compilation.dir/all:
 	$(MAKE) $(MAKESILENT) -f src/bindings/python/CMakeFiles/gas_exchange_swig_compilation.dir/build.make src/bindings/python/CMakeFiles/gas_exchange_swig_compilation.dir/depend
 	$(MAKE) $(MAKESILENT) -f src/bindings/python/CMakeFiles/gas_exchange_swig_compilation.dir/build.make src/bindings/python/CMakeFiles/gas_exchange_swig_compilation.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/runner/work/lungsim/lungsim/build-lungsim/CMakeFiles --progress-num= "Built target gas_exchange_swig_compilation"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/runner/work/lungsim/lungsim/build-lungsim/CMakeFiles --progress-num=72 "Built target gas_exchange_swig_compilation"
 .PHONY : src/bindings/python/CMakeFiles/gas_exchange_swig_compilation.dir/all
 
 # Build rule for subdir invocation for target.
 src/bindings/python/CMakeFiles/gas_exchange_swig_compilation.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/runner/work/lungsim/lungsim/build-lungsim/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/runner/work/lungsim/lungsim/build-lungsim/CMakeFiles 1
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 src/bindings/python/CMakeFiles/gas_exchange_swig_compilation.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/runner/work/lungsim/lungsim/build-lungsim/CMakeFiles 0
 .PHONY : src/bindings/python/CMakeFiles/gas_exchange_swig_compilation.dir/rule
@@ -653,7 +653,7 @@ src/bindings/python/CMakeFiles/gasmix.dir/all: src/bindings/c/CMakeFiles/aether_
 src/bindings/python/CMakeFiles/gasmix.dir/all: src/bindings/python/CMakeFiles/gasmix_swig_compilation.dir/all
 	$(MAKE) $(MAKESILENT) -f src/bindings/python/CMakeFiles/gasmix.dir/build.make src/bindings/python/CMakeFiles/gasmix.dir/depend
 	$(MAKE) $(MAKESILENT) -f src/bindings/python/CMakeFiles/gasmix.dir/build.make src/bindings/python/CMakeFiles/gasmix.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/runner/work/lungsim/lungsim/build-lungsim/CMakeFiles --progress-num=72,73 "Built target gasmix"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/runner/work/lungsim/lungsim/build-lungsim/CMakeFiles --progress-num=73,74 "Built target gasmix"
 .PHONY : src/bindings/python/CMakeFiles/gasmix.dir/all
 
 # Build rule for subdir invocation for target.
@@ -679,7 +679,7 @@ src/bindings/python/CMakeFiles/gasmix.dir/clean:
 src/bindings/python/CMakeFiles/gasmix_swig_compilation.dir/all:
 	$(MAKE) $(MAKESILENT) -f src/bindings/python/CMakeFiles/gasmix_swig_compilation.dir/build.make src/bindings/python/CMakeFiles/gasmix_swig_compilation.dir/depend
 	$(MAKE) $(MAKESILENT) -f src/bindings/python/CMakeFiles/gasmix_swig_compilation.dir/build.make src/bindings/python/CMakeFiles/gasmix_swig_compilation.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/runner/work/lungsim/lungsim/build-lungsim/CMakeFiles --progress-num=74 "Built target gasmix_swig_compilation"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/runner/work/lungsim/lungsim/build-lungsim/CMakeFiles --progress-num=75 "Built target gasmix_swig_compilation"
 .PHONY : src/bindings/python/CMakeFiles/gasmix_swig_compilation.dir/all
 
 # Build rule for subdir invocation for target.
@@ -708,12 +708,12 @@ src/bindings/python/CMakeFiles/geometry.dir/all: src/bindings/c/CMakeFiles/aethe
 src/bindings/python/CMakeFiles/geometry.dir/all: src/bindings/python/CMakeFiles/geometry_swig_compilation.dir/all
 	$(MAKE) $(MAKESILENT) -f src/bindings/python/CMakeFiles/geometry.dir/build.make src/bindings/python/CMakeFiles/geometry.dir/depend
 	$(MAKE) $(MAKESILENT) -f src/bindings/python/CMakeFiles/geometry.dir/build.make src/bindings/python/CMakeFiles/geometry.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/runner/work/lungsim/lungsim/build-lungsim/CMakeFiles --progress-num=75,76 "Built target geometry"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/runner/work/lungsim/lungsim/build-lungsim/CMakeFiles --progress-num=76 "Built target geometry"
 .PHONY : src/bindings/python/CMakeFiles/geometry.dir/all
 
 # Build rule for subdir invocation for target.
 src/bindings/python/CMakeFiles/geometry.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/runner/work/lungsim/lungsim/build-lungsim/CMakeFiles 58
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/runner/work/lungsim/lungsim/build-lungsim/CMakeFiles 57
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 src/bindings/python/CMakeFiles/geometry.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/runner/work/lungsim/lungsim/build-lungsim/CMakeFiles 0
 .PHONY : src/bindings/python/CMakeFiles/geometry.dir/rule
@@ -823,7 +823,7 @@ src/bindings/python/CMakeFiles/indices.dir/all: src/bindings/python/CMakeFiles/i
 
 # Build rule for subdir invocation for target.
 src/bindings/python/CMakeFiles/indices.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/runner/work/lungsim/lungsim/build-lungsim/CMakeFiles 57
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/runner/work/lungsim/lungsim/build-lungsim/CMakeFiles 58
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 src/bindings/python/CMakeFiles/indices.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/runner/work/lungsim/lungsim/build-lungsim/CMakeFiles 0
 .PHONY : src/bindings/python/CMakeFiles/indices.dir/rule
@@ -844,12 +844,12 @@ src/bindings/python/CMakeFiles/indices.dir/clean:
 src/bindings/python/CMakeFiles/indices_swig_compilation.dir/all:
 	$(MAKE) $(MAKESILENT) -f src/bindings/python/CMakeFiles/indices_swig_compilation.dir/build.make src/bindings/python/CMakeFiles/indices_swig_compilation.dir/depend
 	$(MAKE) $(MAKESILENT) -f src/bindings/python/CMakeFiles/indices_swig_compilation.dir/build.make src/bindings/python/CMakeFiles/indices_swig_compilation.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/runner/work/lungsim/lungsim/build-lungsim/CMakeFiles --progress-num= "Built target indices_swig_compilation"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/runner/work/lungsim/lungsim/build-lungsim/CMakeFiles --progress-num=86 "Built target indices_swig_compilation"
 .PHONY : src/bindings/python/CMakeFiles/indices_swig_compilation.dir/all
 
 # Build rule for subdir invocation for target.
 src/bindings/python/CMakeFiles/indices_swig_compilation.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/runner/work/lungsim/lungsim/build-lungsim/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/runner/work/lungsim/lungsim/build-lungsim/CMakeFiles 1
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 src/bindings/python/CMakeFiles/indices_swig_compilation.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/runner/work/lungsim/lungsim/build-lungsim/CMakeFiles 0
 .PHONY : src/bindings/python/CMakeFiles/indices_swig_compilation.dir/rule
@@ -928,12 +928,12 @@ src/bindings/python/CMakeFiles/pressure_resistance_flow.dir/all: src/bindings/c/
 src/bindings/python/CMakeFiles/pressure_resistance_flow.dir/all: src/bindings/python/CMakeFiles/pressure_resistance_flow_swig_compilation.dir/all
 	$(MAKE) $(MAKESILENT) -f src/bindings/python/CMakeFiles/pressure_resistance_flow.dir/build.make src/bindings/python/CMakeFiles/pressure_resistance_flow.dir/depend
 	$(MAKE) $(MAKESILENT) -f src/bindings/python/CMakeFiles/pressure_resistance_flow.dir/build.make src/bindings/python/CMakeFiles/pressure_resistance_flow.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/runner/work/lungsim/lungsim/build-lungsim/CMakeFiles --progress-num=86,87 "Built target pressure_resistance_flow"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/runner/work/lungsim/lungsim/build-lungsim/CMakeFiles --progress-num=87 "Built target pressure_resistance_flow"
 .PHONY : src/bindings/python/CMakeFiles/pressure_resistance_flow.dir/all
 
 # Build rule for subdir invocation for target.
 src/bindings/python/CMakeFiles/pressure_resistance_flow.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/runner/work/lungsim/lungsim/build-lungsim/CMakeFiles 58
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/runner/work/lungsim/lungsim/build-lungsim/CMakeFiles 57
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 src/bindings/python/CMakeFiles/pressure_resistance_flow.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/runner/work/lungsim/lungsim/build-lungsim/CMakeFiles 0
 .PHONY : src/bindings/python/CMakeFiles/pressure_resistance_flow.dir/rule
