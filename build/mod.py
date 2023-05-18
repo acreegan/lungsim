@@ -1,149 +1,147 @@
+from typing import Any
 import numpy as np
 
-f8 = np.float64(1)
-i8 = np.int64(1)
-u8 = np.uint64(1)
+f8 = np.float64()
+i8 = np.int64()
+u8 = np.uint64()
 
-f4 = np.float32(1)
-i4 = np.int32(1)
-u4 = np.uint32(1)
+f4 = np.float32()
+i4 = np.int32()
+u4 = np.uint32()
 
-td = np.timedelta64(1, "D")
-b_ = np.bool_(1)
+td = np.timedelta64(0, "D")
+b_ = np.bool_()
 
-b = bool(1)
-f = float(1)
-i = int(1)
+b = bool()
+f = float()
+i = int()
 
-AR = np.array([1], dtype=np.bool_)
-AR.setflags(write=False)
-
-AR2 = np.array([1], dtype=np.timedelta64)
-AR2.setflags(write=False)
+AR_b: np.ndarray[Any, np.dtype[np.bool_]]
+AR_m: np.ndarray[Any, np.dtype[np.timedelta64]]
 
 # Time structures
 
-td % td
-td % AR2
-AR2 % td
+reveal_type(td % td)  # E: numpy.timedelta64
+reveal_type(AR_m % td)  # E: Any
+reveal_type(td % AR_m)  # E: Any
 
-divmod(td, td)
-divmod(td, AR2)
-divmod(AR2, td)
+reveal_type(divmod(td, td))  # E: Tuple[{int64}, numpy.timedelta64]
+reveal_type(divmod(AR_m, td))  # E: Tuple[numpy.ndarray[Any, numpy.dtype[numpy.signedinteger[numpy.typing._64Bit]]], numpy.ndarray[Any, numpy.dtype[numpy.timedelta64]]]
+reveal_type(divmod(td, AR_m))  # E: Tuple[numpy.ndarray[Any, numpy.dtype[numpy.signedinteger[numpy.typing._64Bit]]], numpy.ndarray[Any, numpy.dtype[numpy.timedelta64]]]
 
 # Bool
 
-b_ % b
-b_ % i
-b_ % f
-b_ % b_
-b_ % i8
-b_ % u8
-b_ % f8
-b_ % AR
+reveal_type(b_ % b)  # E: {int8}
+reveal_type(b_ % i)  # E: {int_}
+reveal_type(b_ % f)  # E: {float64}
+reveal_type(b_ % b_)  # E: {int8}
+reveal_type(b_ % i8)  # E: {int64}
+reveal_type(b_ % u8)  # E: {uint64}
+reveal_type(b_ % f8)  # E: {float64}
+reveal_type(b_ % AR_b)  # E: numpy.ndarray[Any, numpy.dtype[{int8}]]
 
-divmod(b_, b)
-divmod(b_, i)
-divmod(b_, f)
-divmod(b_, b_)
-divmod(b_, i8)
-divmod(b_, u8)
-divmod(b_, f8)
-divmod(b_, AR)
+reveal_type(divmod(b_, b))  # E: Tuple[{int8}, {int8}]
+reveal_type(divmod(b_, i))  # E: Tuple[{int_}, {int_}]
+reveal_type(divmod(b_, f))  # E: Tuple[{float64}, {float64}]
+reveal_type(divmod(b_, b_))  # E: Tuple[{int8}, {int8}]
+reveal_type(divmod(b_, i8))  # E: Tuple[{int64}, {int64}]
+reveal_type(divmod(b_, u8))  # E: Tuple[{uint64}, {uint64}]
+reveal_type(divmod(b_, f8))  # E: Tuple[{float64}, {float64}]
+reveal_type(divmod(b_, AR_b))  # E: numpy.ndarray[Any, numpy.dtype[{int8}]], numpy.ndarray[Any, numpy.dtype[{int8}]]]
 
-b % b_
-i % b_
-f % b_
-b_ % b_
-i8 % b_
-u8 % b_
-f8 % b_
-AR % b_
+reveal_type(b % b_)  # E: {int8}
+reveal_type(i % b_)  # E: {int_}
+reveal_type(f % b_)  # E: {float64}
+reveal_type(b_ % b_)  # E: {int8}
+reveal_type(i8 % b_)  # E: {int64}
+reveal_type(u8 % b_)  # E: {uint64}
+reveal_type(f8 % b_)  # E: {float64}
+reveal_type(AR_b % b_)  # E: numpy.ndarray[Any, numpy.dtype[{int8}]]
 
-divmod(b, b_)
-divmod(i, b_)
-divmod(f, b_)
-divmod(b_, b_)
-divmod(i8, b_)
-divmod(u8, b_)
-divmod(f8, b_)
-divmod(AR, b_)
+reveal_type(divmod(b, b_))  # E: Tuple[{int8}, {int8}]
+reveal_type(divmod(i, b_))  # E: Tuple[{int_}, {int_}]
+reveal_type(divmod(f, b_))  # E: Tuple[{float64}, {float64}]
+reveal_type(divmod(b_, b_))  # E: Tuple[{int8}, {int8}]
+reveal_type(divmod(i8, b_))  # E: Tuple[{int64}, {int64}]
+reveal_type(divmod(u8, b_))  # E: Tuple[{uint64}, {uint64}]
+reveal_type(divmod(f8, b_))  # E: Tuple[{float64}, {float64}]
+reveal_type(divmod(AR_b, b_))  # E: numpy.ndarray[Any, numpy.dtype[{int8}]], numpy.ndarray[Any, numpy.dtype[{int8}]]]
 
 # int
 
-i8 % b
-i8 % i
-i8 % f
-i8 % i8
-i8 % f8
-i4 % i8
-i4 % f8
-i4 % i4
-i4 % f4
-i8 % AR
+reveal_type(i8 % b)  # E: {int64}
+reveal_type(i8 % i)  # E: {int64}
+reveal_type(i8 % f)  # E: {float64}
+reveal_type(i8 % i8)  # E: {int64}
+reveal_type(i8 % f8)  # E: {float64}
+reveal_type(i4 % i8)  # E: {int64}
+reveal_type(i4 % f8)  # E: {float64}
+reveal_type(i4 % i4)  # E: {int32}
+reveal_type(i4 % f4)  # E: {float32}
+reveal_type(i8 % AR_b)  # E: numpy.ndarray[Any, numpy.dtype[numpy.signedinteger[Any]]]
 
-divmod(i8, b)
-divmod(i8, i)
-divmod(i8, f)
-divmod(i8, i8)
-divmod(i8, f8)
-divmod(i8, i4)
-divmod(i8, f4)
-divmod(i4, i4)
-divmod(i4, f4)
-divmod(i8, AR)
+reveal_type(divmod(i8, b))  # E: Tuple[{int64}, {int64}]
+reveal_type(divmod(i8, i))  # E: Tuple[{int64}, {int64}]
+reveal_type(divmod(i8, f))  # E: Tuple[{float64}, {float64}]
+reveal_type(divmod(i8, i8))  # E: Tuple[{int64}, {int64}]
+reveal_type(divmod(i8, f8))  # E: Tuple[{float64}, {float64}]
+reveal_type(divmod(i8, i4))  # E: Tuple[{int64}, {int64}]
+reveal_type(divmod(i8, f4))  # E: Tuple[{float64}, {float64}]
+reveal_type(divmod(i4, i4))  # E: Tuple[{int32}, {int32}]
+reveal_type(divmod(i4, f4))  # E: Tuple[{float32}, {float32}]
+reveal_type(divmod(i8, AR_b))  # E: Tuple[numpy.ndarray[Any, numpy.dtype[numpy.signedinteger[Any]]], numpy.ndarray[Any, numpy.dtype[numpy.signedinteger[Any]]]]
 
-b % i8
-i % i8
-f % i8
-i8 % i8
-f8 % i8
-i8 % i4
-f8 % i4
-i4 % i4
-f4 % i4
-AR % i8
+reveal_type(b % i8)  # E: {int64}
+reveal_type(i % i8)  # E: {int64}
+reveal_type(f % i8)  # E: {float64}
+reveal_type(i8 % i8)  # E: {int64}
+reveal_type(f8 % i8)  # E: {float64}
+reveal_type(i8 % i4)  # E: {int64}
+reveal_type(f8 % i4)  # E: {float64}
+reveal_type(i4 % i4)  # E: {int32}
+reveal_type(f4 % i4)  # E: {float32}
+reveal_type(AR_b % i8)  # E: numpy.ndarray[Any, numpy.dtype[numpy.signedinteger[Any]]]
 
-divmod(b, i8)
-divmod(i, i8)
-divmod(f, i8)
-divmod(i8, i8)
-divmod(f8, i8)
-divmod(i4, i8)
-divmod(f4, i8)
-divmod(i4, i4)
-divmod(f4, i4)
-divmod(AR, i8)
+reveal_type(divmod(b, i8))  # E: Tuple[{int64}, {int64}]
+reveal_type(divmod(i, i8))  # E: Tuple[{int64}, {int64}]
+reveal_type(divmod(f, i8))  # E: Tuple[{float64}, {float64}]
+reveal_type(divmod(i8, i8))  # E: Tuple[{int64}, {int64}]
+reveal_type(divmod(f8, i8))  # E: Tuple[{float64}, {float64}]
+reveal_type(divmod(i4, i8))  # E: Tuple[{int64}, {int64}]
+reveal_type(divmod(f4, i8))  # E: Tuple[{float64}, {float64}]
+reveal_type(divmod(i4, i4))  # E: Tuple[{int32}, {int32}]
+reveal_type(divmod(f4, i4))  # E: Tuple[{float32}, {float32}]
+reveal_type(divmod(AR_b, i8))  # E: Tuple[numpy.ndarray[Any, numpy.dtype[numpy.signedinteger[Any]]], numpy.ndarray[Any, numpy.dtype[numpy.signedinteger[Any]]]]
 
 # float
 
-f8 % b
-f8 % i
-f8 % f
-i8 % f4
-f4 % f4
-f8 % AR
+reveal_type(f8 % b)  # E: {float64}
+reveal_type(f8 % i)  # E: {float64}
+reveal_type(f8 % f)  # E: {float64}
+reveal_type(i8 % f4)  # E: {float64}
+reveal_type(f4 % f4)  # E: {float32}
+reveal_type(f8 % AR_b)  # E: numpy.ndarray[Any, numpy.dtype[numpy.floating[Any]]]
 
-divmod(f8, b)
-divmod(f8, i)
-divmod(f8, f)
-divmod(f8, f8)
-divmod(f8, f4)
-divmod(f4, f4)
-divmod(f8, AR)
+reveal_type(divmod(f8, b))  # E: Tuple[{float64}, {float64}]
+reveal_type(divmod(f8, i))  # E: Tuple[{float64}, {float64}]
+reveal_type(divmod(f8, f))  # E: Tuple[{float64}, {float64}]
+reveal_type(divmod(f8, f8))  # E: Tuple[{float64}, {float64}]
+reveal_type(divmod(f8, f4))  # E: Tuple[{float64}, {float64}]
+reveal_type(divmod(f4, f4))  # E: Tuple[{float32}, {float32}]
+reveal_type(divmod(f8, AR_b))  # E: Tuple[numpy.ndarray[Any, numpy.dtype[numpy.floating[Any]]], numpy.ndarray[Any, numpy.dtype[numpy.floating[Any]]]]
 
-b % f8
-i % f8
-f % f8
-f8 % f8
-f8 % f8
-f4 % f4
-AR % f8
+reveal_type(b % f8)  # E: {float64}
+reveal_type(i % f8)  # E: {float64}
+reveal_type(f % f8)  # E: {float64}
+reveal_type(f8 % f8)  # E: {float64}
+reveal_type(f8 % f8)  # E: {float64}
+reveal_type(f4 % f4)  # E: {float32}
+reveal_type(AR_b % f8)  # E: numpy.ndarray[Any, numpy.dtype[numpy.floating[Any]]]
 
-divmod(b, f8)
-divmod(i, f8)
-divmod(f, f8)
-divmod(f8, f8)
-divmod(f4, f8)
-divmod(f4, f4)
-divmod(AR, f8)
+reveal_type(divmod(b, f8))  # E: Tuple[{float64}, {float64}]
+reveal_type(divmod(i, f8))  # E: Tuple[{float64}, {float64}]
+reveal_type(divmod(f, f8))  # E: Tuple[{float64}, {float64}]
+reveal_type(divmod(f8, f8))  # E: Tuple[{float64}, {float64}]
+reveal_type(divmod(f4, f8))  # E: Tuple[{float64}, {float64}]
+reveal_type(divmod(f4, f4))  # E: Tuple[{float32}, {float32}]
+reveal_type(divmod(AR_b, f8))  # E: Tuple[numpy.ndarray[Any, numpy.dtype[numpy.floating[Any]]], numpy.ndarray[Any, numpy.dtype[numpy.floating[Any]]]]

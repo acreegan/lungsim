@@ -6,180 +6,186 @@ function-based counterpart in `../from_numeric.py`.
 
 """
 
-from __future__ import annotations
-
 import operator
-from typing import cast, Any
+import ctypes as ct
+from typing import Any
 
 import numpy as np
 
 class SubClass(np.ndarray): ...
 
-i4 = np.int32(1)
-A: np.ndarray[Any, np.dtype[np.int32]] = np.array([[1]], dtype=np.int32)
-B0 = np.empty((), dtype=np.int32).view(SubClass)
-B1 = np.empty((1,), dtype=np.int32).view(SubClass)
-B2 = np.empty((1, 1), dtype=np.int32).view(SubClass)
-C: np.ndarray[Any, np.dtype[np.int32]] = np.array([0, 1, 2], dtype=np.int32)
-D = np.ones(3).view(SubClass)
+f8: np.float64
+B: SubClass
+AR_f8: np.ndarray[Any, np.dtype[np.float64]]
+AR_i8: np.ndarray[Any, np.dtype[np.int64]]
+AR_U: np.ndarray[Any, np.dtype[np.str_]]
 
-i4.all()
-A.all()
-A.all(axis=0)
-A.all(keepdims=True)
-A.all(out=B0)
+ctypes_obj = AR_f8.ctypes
 
-i4.any()
-A.any()
-A.any(axis=0)
-A.any(keepdims=True)
-A.any(out=B0)
+reveal_type(ctypes_obj.data)  # E: int
+reveal_type(ctypes_obj.shape)  # E: ctypes.Array[ctypes.c_int64]
+reveal_type(ctypes_obj.strides)  # E: ctypes.Array[ctypes.c_int64]
+reveal_type(ctypes_obj._as_parameter_)  # E: ctypes.c_void_p
 
-i4.argmax()
-A.argmax()
-A.argmax(axis=0)
-A.argmax(out=B0)
+reveal_type(ctypes_obj.data_as(ct.c_void_p))  # E: ctypes.c_void_p
+reveal_type(ctypes_obj.shape_as(ct.c_longlong))  # E: ctypes.Array[ctypes.c_longlong]
+reveal_type(ctypes_obj.strides_as(ct.c_ubyte))  # E: ctypes.Array[ctypes.c_ubyte]
 
-i4.argmin()
-A.argmin()
-A.argmin(axis=0)
-A.argmin(out=B0)
+reveal_type(f8.all())  # E: numpy.bool_
+reveal_type(AR_f8.all())  # E: numpy.bool_
+reveal_type(AR_f8.all(axis=0))  # E: Any
+reveal_type(AR_f8.all(keepdims=True))  # E: Any
+reveal_type(AR_f8.all(out=B))  # E: SubClass
 
-i4.argsort()
-A.argsort()
+reveal_type(f8.any())  # E: numpy.bool_
+reveal_type(AR_f8.any())  # E: numpy.bool_
+reveal_type(AR_f8.any(axis=0))  # E: Any
+reveal_type(AR_f8.any(keepdims=True))  # E: Any
+reveal_type(AR_f8.any(out=B))  # E: SubClass
 
-i4.choose([()])
-_choices = np.array([[0, 1, 2], [3, 4, 5], [6, 7, 8]], dtype=np.int32)
-C.choose(_choices)
-C.choose(_choices, out=D)
+reveal_type(f8.argmax())  # E: {intp}
+reveal_type(AR_f8.argmax())  # E: {intp}
+reveal_type(AR_f8.argmax(axis=0))  # E: Any
+reveal_type(AR_f8.argmax(out=B))  # E: SubClass
 
-i4.clip(1)
-A.clip(1)
-A.clip(None, 1)
-A.clip(1, out=B2)
-A.clip(None, 1, out=B2)
+reveal_type(f8.argmin())  # E: {intp}
+reveal_type(AR_f8.argmin())  # E: {intp}
+reveal_type(AR_f8.argmin(axis=0))  # E: Any
+reveal_type(AR_f8.argmin(out=B))  # E: SubClass
 
-i4.compress([1])
-A.compress([1])
-A.compress([1], out=B1)
+reveal_type(f8.argsort())  # E: numpy.ndarray[Any, Any]
+reveal_type(AR_f8.argsort())  # E: numpy.ndarray[Any, Any]
 
-i4.conj()
-A.conj()
-B0.conj()
+reveal_type(f8.astype(np.int64).choose([()]))  # E: numpy.ndarray[Any, Any]
+reveal_type(AR_f8.choose([0]))  # E: numpy.ndarray[Any, Any]
+reveal_type(AR_f8.choose([0], out=B))  # E: SubClass
 
-i4.conjugate()
-A.conjugate()
-B0.conjugate()
+reveal_type(f8.clip(1))  # E: Any
+reveal_type(AR_f8.clip(1))  # E: Any
+reveal_type(AR_f8.clip(None, 1))  # E: Any
+reveal_type(AR_f8.clip(1, out=B))  # E: SubClass
+reveal_type(AR_f8.clip(None, 1, out=B))  # E: SubClass
 
-i4.cumprod()
-A.cumprod()
-A.cumprod(out=B1)
+reveal_type(f8.compress([0]))  # E: numpy.ndarray[Any, Any]
+reveal_type(AR_f8.compress([0]))  # E: numpy.ndarray[Any, Any]
+reveal_type(AR_f8.compress([0], out=B))  # E: SubClass
 
-i4.cumsum()
-A.cumsum()
-A.cumsum(out=B1)
+reveal_type(f8.conj())  # E: {float64}
+reveal_type(AR_f8.conj())  # E: numpy.ndarray[Any, numpy.dtype[{float64}]]
+reveal_type(B.conj())  # E: SubClass
 
-i4.max()
-A.max()
-A.max(axis=0)
-A.max(keepdims=True)
-A.max(out=B0)
+reveal_type(f8.conjugate())  # E: {float64}
+reveal_type(AR_f8.conjugate())  # E: numpy.ndarray[Any, numpy.dtype[{float64}]]
+reveal_type(B.conjugate())  # E: SubClass
 
-i4.mean()
-A.mean()
-A.mean(axis=0)
-A.mean(keepdims=True)
-A.mean(out=B0)
+reveal_type(f8.cumprod())  # E: numpy.ndarray[Any, Any]
+reveal_type(AR_f8.cumprod())  # E: numpy.ndarray[Any, Any]
+reveal_type(AR_f8.cumprod(out=B))  # E: SubClass
 
-i4.min()
-A.min()
-A.min(axis=0)
-A.min(keepdims=True)
-A.min(out=B0)
+reveal_type(f8.cumsum())  # E: numpy.ndarray[Any, Any]
+reveal_type(AR_f8.cumsum())  # E: numpy.ndarray[Any, Any]
+reveal_type(AR_f8.cumsum(out=B))  # E: SubClass
 
-i4.newbyteorder()
-A.newbyteorder()
-B0.newbyteorder('|')
+reveal_type(f8.max())  # E: Any
+reveal_type(AR_f8.max())  # E: Any
+reveal_type(AR_f8.max(axis=0))  # E: Any
+reveal_type(AR_f8.max(keepdims=True))  # E: Any
+reveal_type(AR_f8.max(out=B))  # E: SubClass
 
-i4.prod()
-A.prod()
-A.prod(axis=0)
-A.prod(keepdims=True)
-A.prod(out=B0)
+reveal_type(f8.mean())  # E: Any
+reveal_type(AR_f8.mean())  # E: Any
+reveal_type(AR_f8.mean(axis=0))  # E: Any
+reveal_type(AR_f8.mean(keepdims=True))  # E: Any
+reveal_type(AR_f8.mean(out=B))  # E: SubClass
 
-i4.ptp()
-A.ptp()
-A.ptp(axis=0)
-A.ptp(keepdims=True)
-A.astype(int).ptp(out=B0)
+reveal_type(f8.min())  # E: Any
+reveal_type(AR_f8.min())  # E: Any
+reveal_type(AR_f8.min(axis=0))  # E: Any
+reveal_type(AR_f8.min(keepdims=True))  # E: Any
+reveal_type(AR_f8.min(out=B))  # E: SubClass
 
-i4.round()
-A.round()
-A.round(out=B2)
+reveal_type(f8.newbyteorder())  # E: {float64}
+reveal_type(AR_f8.newbyteorder())  # E: numpy.ndarray[Any, numpy.dtype[{float64}]]
+reveal_type(B.newbyteorder('|'))  # E: SubClass
 
-i4.repeat(1)
-A.repeat(1)
-B0.repeat(1)
+reveal_type(f8.prod())  # E: Any
+reveal_type(AR_f8.prod())  # E: Any
+reveal_type(AR_f8.prod(axis=0))  # E: Any
+reveal_type(AR_f8.prod(keepdims=True))  # E: Any
+reveal_type(AR_f8.prod(out=B))  # E: SubClass
 
-i4.std()
-A.std()
-A.std(axis=0)
-A.std(keepdims=True)
-A.std(out=B0.astype(np.float64))
+reveal_type(f8.ptp())  # E: Any
+reveal_type(AR_f8.ptp())  # E: Any
+reveal_type(AR_f8.ptp(axis=0))  # E: Any
+reveal_type(AR_f8.ptp(keepdims=True))  # E: Any
+reveal_type(AR_f8.ptp(out=B))  # E: SubClass
 
-i4.sum()
-A.sum()
-A.sum(axis=0)
-A.sum(keepdims=True)
-A.sum(out=B0)
+reveal_type(f8.round())  # E: {float64}
+reveal_type(AR_f8.round())  # E: numpy.ndarray[Any, numpy.dtype[{float64}]]
+reveal_type(AR_f8.round(out=B))  # E: SubClass
 
-i4.take(0)
-A.take(0)
-A.take([0])
-A.take(0, out=B0)
-A.take([0], out=B1)
+reveal_type(f8.repeat(1))  # E: numpy.ndarray[Any, numpy.dtype[{float64}]]
+reveal_type(AR_f8.repeat(1))  # E: numpy.ndarray[Any, numpy.dtype[{float64}]]
+reveal_type(B.repeat(1))  # E: numpy.ndarray[Any, Any]
 
-i4.var()
-A.var()
-A.var(axis=0)
-A.var(keepdims=True)
-A.var(out=B0)
+reveal_type(f8.std())  # E: Any
+reveal_type(AR_f8.std())  # E: Any
+reveal_type(AR_f8.std(axis=0))  # E: Any
+reveal_type(AR_f8.std(keepdims=True))  # E: Any
+reveal_type(AR_f8.std(out=B))  # E: SubClass
 
-A.argpartition([0])
+reveal_type(f8.sum())  # E: Any
+reveal_type(AR_f8.sum())  # E: Any
+reveal_type(AR_f8.sum(axis=0))  # E: Any
+reveal_type(AR_f8.sum(keepdims=True))  # E: Any
+reveal_type(AR_f8.sum(out=B))  # E: SubClass
 
-A.diagonal()
+reveal_type(f8.take(0))  # E: {float64}
+reveal_type(AR_f8.take(0))  # E: {float64}
+reveal_type(AR_f8.take([0]))  # E: numpy.ndarray[Any, numpy.dtype[{float64}]]
+reveal_type(AR_f8.take(0, out=B))  # E: SubClass
+reveal_type(AR_f8.take([0], out=B))  # E: SubClass
 
-A.dot(1)
-A.dot(1, out=B0)
+reveal_type(f8.var())  # E: Any
+reveal_type(AR_f8.var())  # E: Any
+reveal_type(AR_f8.var(axis=0))  # E: Any
+reveal_type(AR_f8.var(keepdims=True))  # E: Any
+reveal_type(AR_f8.var(out=B))  # E: SubClass
 
-A.nonzero()
+reveal_type(AR_f8.argpartition([0]))  # E: numpy.ndarray[Any, numpy.dtype[{intp}]]
 
-C.searchsorted(1)
+reveal_type(AR_f8.diagonal())  # E: numpy.ndarray[Any, numpy.dtype[{float64}]]
 
-A.trace()
-A.trace(out=B0)
+reveal_type(AR_f8.dot(1))  # E: numpy.ndarray[Any, Any]
+reveal_type(AR_f8.dot([1]))  # E: Any
+reveal_type(AR_f8.dot(1, out=B))  # E: SubClass
 
-void = cast(np.void, np.array(1, dtype=[("f", np.float64)]).take(0))
-void.setfield(10, np.float64)
+reveal_type(AR_f8.nonzero())  # E: tuple[numpy.ndarray[Any, numpy.dtype[{intp}]]]
 
-A.item(0)
-C.item(0)
+reveal_type(AR_f8.searchsorted(1))  # E: {intp}
+reveal_type(AR_f8.searchsorted([1]))  # E: numpy.ndarray[Any, numpy.dtype[{intp}]]
 
-A.ravel()
-C.ravel()
+reveal_type(AR_f8.trace())  # E: Any
+reveal_type(AR_f8.trace(out=B))  # E: SubClass
 
-A.flatten()
-C.flatten()
+reveal_type(AR_f8.item())  # E: float
+reveal_type(AR_U.item())  # E: str
 
-A.reshape(1)
-C.reshape(3)
+reveal_type(AR_f8.ravel())  # E: numpy.ndarray[Any, numpy.dtype[{float64}]]
+reveal_type(AR_U.ravel())  # E: numpy.ndarray[Any, numpy.dtype[numpy.str_]]
 
-int(np.array(1.0, dtype=np.float64))
-int(np.array("1", dtype=np.str_))
+reveal_type(AR_f8.flatten())  # E: numpy.ndarray[Any, numpy.dtype[{float64}]]
+reveal_type(AR_U.flatten())  # E: numpy.ndarray[Any, numpy.dtype[numpy.str_]]
 
-float(np.array(1.0, dtype=np.float64))
-float(np.array("1", dtype=np.str_))
+reveal_type(AR_f8.reshape(1))  # E: numpy.ndarray[Any, numpy.dtype[{float64}]]
+reveal_type(AR_U.reshape(1))  # E: numpy.ndarray[Any, numpy.dtype[numpy.str_]]
 
-complex(np.array(1.0, dtype=np.float64))
+reveal_type(int(AR_f8))  # E: int
+reveal_type(int(AR_U))  # E: int
 
-operator.index(np.array(1, dtype=np.int64))
+reveal_type(float(AR_f8))  # E: float
+reveal_type(float(AR_U))  # E: float
+
+reveal_type(complex(AR_f8))  # E: complex
+
+reveal_type(operator.index(AR_i8))  # E: int

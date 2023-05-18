@@ -1,36 +1,32 @@
-from __future__ import annotations
-
-from typing import Any
-
+from typing import List, Any
 import numpy as np
 
-AR_LIKE_b = [True, True, True]
-AR_LIKE_u = [np.uint32(1), np.uint32(2), np.uint32(3)]
-AR_LIKE_i = [1, 2, 3]
-AR_LIKE_f = [1.0, 2.0, 3.0]
-AR_LIKE_c = [1j, 2j, 3j]
-AR_LIKE_U = ["1", "2", "3"]
+AR_LIKE_b: List[bool]
+AR_LIKE_u: List[np.uint32]
+AR_LIKE_i: List[int]
+AR_LIKE_f: List[float]
+AR_LIKE_c: List[complex]
+AR_LIKE_U: List[str]
 
-OUT_f: np.ndarray[Any, np.dtype[np.float64]] = np.empty(3, dtype=np.float64)
-OUT_c: np.ndarray[Any, np.dtype[np.complex128]] = np.empty(3, dtype=np.complex128)
+OUT_f: np.ndarray[Any, np.dtype[np.float64]]
 
-np.einsum("i,i->i", AR_LIKE_b, AR_LIKE_b)
-np.einsum("i,i->i", AR_LIKE_u, AR_LIKE_u)
-np.einsum("i,i->i", AR_LIKE_i, AR_LIKE_i)
-np.einsum("i,i->i", AR_LIKE_f, AR_LIKE_f)
-np.einsum("i,i->i", AR_LIKE_c, AR_LIKE_c)
-np.einsum("i,i->i", AR_LIKE_b, AR_LIKE_i)
-np.einsum("i,i,i,i->i", AR_LIKE_b, AR_LIKE_u, AR_LIKE_i, AR_LIKE_c)
+reveal_type(np.einsum("i,i->i", AR_LIKE_b, AR_LIKE_b))  # E: Any
+reveal_type(np.einsum("i,i->i", AR_LIKE_u, AR_LIKE_u))  # E: Any
+reveal_type(np.einsum("i,i->i", AR_LIKE_i, AR_LIKE_i))  # E: Any
+reveal_type(np.einsum("i,i->i", AR_LIKE_f, AR_LIKE_f))  # E: Any
+reveal_type(np.einsum("i,i->i", AR_LIKE_c, AR_LIKE_c))  # E: Any
+reveal_type(np.einsum("i,i->i", AR_LIKE_b, AR_LIKE_i))  # E: Any
+reveal_type(np.einsum("i,i,i,i->i", AR_LIKE_b, AR_LIKE_u, AR_LIKE_i, AR_LIKE_c))  # E: Any
 
-np.einsum("i,i->i", AR_LIKE_f, AR_LIKE_f, dtype="c16")
-np.einsum("i,i->i", AR_LIKE_U, AR_LIKE_U, dtype=bool, casting="unsafe")
-np.einsum("i,i->i", AR_LIKE_f, AR_LIKE_f, out=OUT_c)
-np.einsum("i,i->i", AR_LIKE_U, AR_LIKE_U, dtype=int, casting="unsafe", out=OUT_f)
+reveal_type(np.einsum("i,i->i", AR_LIKE_c, AR_LIKE_c, out=OUT_f))  # E: numpy.ndarray[Any, numpy.dtype[{float64}]
+reveal_type(np.einsum("i,i->i", AR_LIKE_U, AR_LIKE_U, dtype=bool, casting="unsafe", out=OUT_f))  # E: numpy.ndarray[Any, numpy.dtype[{float64}]
+reveal_type(np.einsum("i,i->i", AR_LIKE_f, AR_LIKE_f, dtype="c16"))  # E: Any
+reveal_type(np.einsum("i,i->i", AR_LIKE_U, AR_LIKE_U, dtype=bool, casting="unsafe"))  # E: Any
 
-np.einsum_path("i,i->i", AR_LIKE_b, AR_LIKE_b)
-np.einsum_path("i,i->i", AR_LIKE_u, AR_LIKE_u)
-np.einsum_path("i,i->i", AR_LIKE_i, AR_LIKE_i)
-np.einsum_path("i,i->i", AR_LIKE_f, AR_LIKE_f)
-np.einsum_path("i,i->i", AR_LIKE_c, AR_LIKE_c)
-np.einsum_path("i,i->i", AR_LIKE_b, AR_LIKE_i)
-np.einsum_path("i,i,i,i->i", AR_LIKE_b, AR_LIKE_u, AR_LIKE_i, AR_LIKE_c)
+reveal_type(np.einsum_path("i,i->i", AR_LIKE_b, AR_LIKE_b))  # E: Tuple[builtins.list[Any], builtins.str]
+reveal_type(np.einsum_path("i,i->i", AR_LIKE_u, AR_LIKE_u))  # E: Tuple[builtins.list[Any], builtins.str]
+reveal_type(np.einsum_path("i,i->i", AR_LIKE_i, AR_LIKE_i))  # E: Tuple[builtins.list[Any], builtins.str]
+reveal_type(np.einsum_path("i,i->i", AR_LIKE_f, AR_LIKE_f))  # E: Tuple[builtins.list[Any], builtins.str]
+reveal_type(np.einsum_path("i,i->i", AR_LIKE_c, AR_LIKE_c))  # E: Tuple[builtins.list[Any], builtins.str]
+reveal_type(np.einsum_path("i,i->i", AR_LIKE_b, AR_LIKE_i))  # E: Tuple[builtins.list[Any], builtins.str]
+reveal_type(np.einsum_path("i,i,i,i->i", AR_LIKE_b, AR_LIKE_u, AR_LIKE_i, AR_LIKE_c))  # E: Tuple[builtins.list[Any], builtins.str]

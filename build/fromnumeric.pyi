@@ -1,297 +1,361 @@
-"""Tests for :mod:`core.fromnumeric`."""
+import sys
+import datetime as dt
+from typing import Optional, Union, Sequence, Tuple, Any, overload, TypeVar
 
-import numpy as np
-import numpy.typing as npt
+from numpy import (
+    ndarray,
+    number,
+    integer,
+    intp,
+    bool_,
+    generic,
+    _OrderKACF,
+    _OrderACF,
+    _ModeKind,
+    _PartitionKind,
+    _SortKind,
+    _SortSide,
+)
+from numpy.typing import (
+    DTypeLike,
+    ArrayLike,
+    _ShapeLike,
+    _Shape,
+    _ArrayLikeBool_co,
+    _ArrayLikeInt_co,
+    _NumberLike_co,
+)
 
-class NDArraySubclass(npt.NDArray[np.complex128]):
-    ...
+if sys.version_info >= (3, 8):
+    from typing import Literal
+else:
+    from typing_extensions import Literal
 
-AR_b: npt.NDArray[np.bool_]
-AR_f4: npt.NDArray[np.float32]
-AR_c16: npt.NDArray[np.complex128]
-AR_u8: npt.NDArray[np.uint64]
-AR_i8: npt.NDArray[np.int64]
-AR_O: npt.NDArray[np.object_]
-AR_subclass: NDArraySubclass
+# Various annotations for scalars
 
-b: np.bool_
-f4: np.float32
-i8: np.int64
-f: float
+# While dt.datetime and dt.timedelta are not technically part of NumPy,
+# they are one of the rare few builtin scalars which serve as valid return types.
+# See https://github.com/numpy/numpy-stubs/pull/67#discussion_r412604113.
+_ScalarNumpy = Union[generic, dt.datetime, dt.timedelta]
+_ScalarBuiltin = Union[str, bytes, dt.date, dt.timedelta, bool, int, float, complex]
+_Scalar = Union[_ScalarBuiltin, _ScalarNumpy]
 
-reveal_type(np.take(b, 0))  # E: bool_
-reveal_type(np.take(f4, 0))  # E: {float32}
-reveal_type(np.take(f, 0))  # E: Any
-reveal_type(np.take(AR_b, 0))  # E: bool_
-reveal_type(np.take(AR_f4, 0))  # E: {float32}
-reveal_type(np.take(AR_b, [0]))  # E: ndarray[Any, dtype[bool_]]
-reveal_type(np.take(AR_f4, [0]))  # E: ndarray[Any, dtype[{float32}]]
-reveal_type(np.take([1], [0]))  # E: ndarray[Any, dtype[Any]]
-reveal_type(np.take(AR_f4, [0], out=AR_subclass))  # E: NDArraySubclass
+# Integers and booleans can generally be used interchangeably
+_ScalarGeneric = TypeVar("_ScalarGeneric", bound=generic)
 
-reveal_type(np.reshape(b, 1))  # E: ndarray[Any, dtype[bool_]]
-reveal_type(np.reshape(f4, 1))  # E: ndarray[Any, dtype[{float32}]]
-reveal_type(np.reshape(f, 1))  # E: ndarray[Any, dtype[Any]]
-reveal_type(np.reshape(AR_b, 1))  # E: ndarray[Any, dtype[bool_]]
-reveal_type(np.reshape(AR_f4, 1))  # E: ndarray[Any, dtype[{float32}]]
+_Number = TypeVar("_Number", bound=number)
 
-reveal_type(np.choose(1, [True, True]))  # E: Any
-reveal_type(np.choose([1], [True, True]))  # E: ndarray[Any, dtype[Any]]
-reveal_type(np.choose([1], AR_b))  # E: ndarray[Any, dtype[bool_]]
-reveal_type(np.choose([1], AR_b, out=AR_f4))  # E: ndarray[Any, dtype[{float32}]]
+# The signature of take() follows a common theme with its overloads:
+# 1. A generic comes in; the same generic comes out
+# 2. A scalar comes in; a generic comes out
+# 3. An array-like object comes in; some keyword ensures that a generic comes out
+# 4. An array-like object comes in; an ndarray or generic comes out
+def take(
+    a: ArrayLike,
+    indices: _ArrayLikeInt_co,
+    axis: Optional[int] = ...,
+    out: Optional[ndarray] = ...,
+    mode: _ModeKind = ...,
+) -> Any: ...
 
-reveal_type(np.repeat(b, 1))  # E: ndarray[Any, dtype[bool_]]
-reveal_type(np.repeat(f4, 1))  # E: ndarray[Any, dtype[{float32}]]
-reveal_type(np.repeat(f, 1))  # E: ndarray[Any, dtype[Any]]
-reveal_type(np.repeat(AR_b, 1))  # E: ndarray[Any, dtype[bool_]]
-reveal_type(np.repeat(AR_f4, 1))  # E: ndarray[Any, dtype[{float32}]]
+def reshape(
+    a: ArrayLike,
+    newshape: _ShapeLike,
+    order: _OrderACF = ...,
+) -> ndarray: ...
 
-# TODO: array_bdd tests for np.put()
+def choose(
+    a: _ArrayLikeInt_co,
+    choices: ArrayLike,
+    out: Optional[ndarray] = ...,
+    mode: _ModeKind = ...,
+) -> Any: ...
 
-reveal_type(np.swapaxes([[0, 1]], 0, 0))  # E: ndarray[Any, dtype[Any]]
-reveal_type(np.swapaxes(AR_b, 0, 0))  # E: ndarray[Any, dtype[bool_]]
-reveal_type(np.swapaxes(AR_f4, 0, 0))  # E: ndarray[Any, dtype[{float32}]]
+def repeat(
+    a: ArrayLike,
+    repeats: _ArrayLikeInt_co,
+    axis: Optional[int] = ...,
+) -> ndarray: ...
 
-reveal_type(np.transpose(b))  # E: ndarray[Any, dtype[bool_]]
-reveal_type(np.transpose(f4))  # E: ndarray[Any, dtype[{float32}]]
-reveal_type(np.transpose(f))  # E: ndarray[Any, dtype[Any]]
-reveal_type(np.transpose(AR_b))  # E: ndarray[Any, dtype[bool_]]
-reveal_type(np.transpose(AR_f4))  # E: ndarray[Any, dtype[{float32}]]
+def put(
+    a: ndarray,
+    ind: _ArrayLikeInt_co,
+    v: ArrayLike,
+    mode: _ModeKind = ...,
+) -> None: ...
 
-reveal_type(np.partition(b, 0, axis=None))  # E: ndarray[Any, dtype[bool_]]
-reveal_type(np.partition(f4, 0, axis=None))  # E: ndarray[Any, dtype[{float32}]]
-reveal_type(np.partition(f, 0, axis=None))  # E: ndarray[Any, dtype[Any]]
-reveal_type(np.partition(AR_b, 0))  # E: ndarray[Any, dtype[bool_]]
-reveal_type(np.partition(AR_f4, 0))  # E: ndarray[Any, dtype[{float32}]]
+def swapaxes(
+    a: ArrayLike,
+    axis1: int,
+    axis2: int,
+) -> ndarray: ...
 
-reveal_type(np.argpartition(b, 0))  # E: ndarray[Any, dtype[{intp}]]
-reveal_type(np.argpartition(f4, 0))  # E: ndarray[Any, dtype[{intp}]]
-reveal_type(np.argpartition(f, 0))  # E: ndarray[Any, dtype[{intp}]]
-reveal_type(np.argpartition(AR_b, 0))  # E: ndarray[Any, dtype[{intp}]]
-reveal_type(np.argpartition(AR_f4, 0))  # E: ndarray[Any, dtype[{intp}]]
+def transpose(
+    a: ArrayLike,
+    axes: Union[None, Sequence[int], ndarray] = ...
+) -> ndarray: ...
 
-reveal_type(np.sort([2, 1], 0))  # E: ndarray[Any, dtype[Any]]
-reveal_type(np.sort(AR_b, 0))  # E: ndarray[Any, dtype[bool_]]
-reveal_type(np.sort(AR_f4, 0))  # E: ndarray[Any, dtype[{float32}]]
+def partition(
+    a: ArrayLike,
+    kth: _ArrayLikeInt_co,
+    axis: Optional[int] = ...,
+    kind: _PartitionKind = ...,
+    order: Union[None, str, Sequence[str]] = ...,
+) -> ndarray: ...
 
-reveal_type(np.argsort(AR_b, 0))  # E: ndarray[Any, dtype[{intp}]]
-reveal_type(np.argsort(AR_f4, 0))  # E: ndarray[Any, dtype[{intp}]]
+def argpartition(
+    a: ArrayLike,
+    kth: _ArrayLikeInt_co,
+    axis: Optional[int] = ...,
+    kind: _PartitionKind = ...,
+    order: Union[None, str, Sequence[str]] = ...,
+) -> Any: ...
 
-reveal_type(np.argmax(AR_b))  # E: {intp}
-reveal_type(np.argmax(AR_f4))  # E: {intp}
-reveal_type(np.argmax(AR_b, axis=0))  # E: Any
-reveal_type(np.argmax(AR_f4, axis=0))  # E: Any
-reveal_type(np.argmax(AR_f4, out=AR_subclass))  # E: NDArraySubclass
+def sort(
+    a: ArrayLike,
+    axis: Optional[int] = ...,
+    kind: Optional[_SortKind] = ...,
+    order: Union[None, str, Sequence[str]] = ...,
+) -> ndarray: ...
 
-reveal_type(np.argmin(AR_b))  # E: {intp}
-reveal_type(np.argmin(AR_f4))  # E: {intp}
-reveal_type(np.argmin(AR_b, axis=0))  # E: Any
-reveal_type(np.argmin(AR_f4, axis=0))  # E: Any
-reveal_type(np.argmin(AR_f4, out=AR_subclass))  # E: NDArraySubclass
+def argsort(
+    a: ArrayLike,
+    axis: Optional[int] = ...,
+    kind: Optional[_SortKind] = ...,
+    order: Union[None, str, Sequence[str]] = ...,
+) -> ndarray: ...
 
-reveal_type(np.searchsorted(AR_b[0], 0))  # E: {intp}
-reveal_type(np.searchsorted(AR_f4[0], 0))  # E: {intp}
-reveal_type(np.searchsorted(AR_b[0], [0]))  # E: ndarray[Any, dtype[{intp}]]
-reveal_type(np.searchsorted(AR_f4[0], [0]))  # E: ndarray[Any, dtype[{intp}]]
+@overload
+def argmax(
+    a: ArrayLike,
+    axis: None = ...,
+    out: Optional[ndarray] = ...,
+) -> intp: ...
+@overload
+def argmax(
+    a: ArrayLike,
+    axis: Optional[int] = ...,
+    out: Optional[ndarray] = ...,
+) -> Any: ...
 
-reveal_type(np.resize(b, (5, 5)))  # E: ndarray[Any, dtype[bool_]]
-reveal_type(np.resize(f4, (5, 5)))  # E: ndarray[Any, dtype[{float32}]]
-reveal_type(np.resize(f, (5, 5)))  # E: ndarray[Any, dtype[Any]]
-reveal_type(np.resize(AR_b, (5, 5)))  # E: ndarray[Any, dtype[bool_]]
-reveal_type(np.resize(AR_f4, (5, 5)))  # E: ndarray[Any, dtype[{float32}]]
+@overload
+def argmin(
+    a: ArrayLike,
+    axis: None = ...,
+    out: Optional[ndarray] = ...,
+) -> intp: ...
+@overload
+def argmin(
+    a: ArrayLike,
+    axis: Optional[int] = ...,
+    out: Optional[ndarray] = ...,
+) -> Any: ...
 
-reveal_type(np.squeeze(b))  # E: bool_
-reveal_type(np.squeeze(f4))  # E: {float32}
-reveal_type(np.squeeze(f))  # E: ndarray[Any, dtype[Any]]
-reveal_type(np.squeeze(AR_b))  # E: ndarray[Any, dtype[bool_]]
-reveal_type(np.squeeze(AR_f4))  # E: ndarray[Any, dtype[{float32}]]
+@overload
+def searchsorted(
+    a: ArrayLike,
+    v: _Scalar,
+    side: _SortSide = ...,
+    sorter: Optional[_ArrayLikeInt_co] = ...,  # 1D int array
+) -> intp: ...
+@overload
+def searchsorted(
+    a: ArrayLike,
+    v: ArrayLike,
+    side: _SortSide = ...,
+    sorter: Optional[_ArrayLikeInt_co] = ...,  # 1D int array
+) -> ndarray: ...
 
-reveal_type(np.diagonal(AR_b))  # E: ndarray[Any, dtype[bool_]]
-reveal_type(np.diagonal(AR_f4))  # E: ndarray[Any, dtype[{float32}]]
+def resize(
+    a: ArrayLike,
+    new_shape: _ShapeLike,
+) -> ndarray: ...
 
-reveal_type(np.trace(AR_b))  # E: Any
-reveal_type(np.trace(AR_f4))  # E: Any
-reveal_type(np.trace(AR_f4, out=AR_subclass))  # E: NDArraySubclass
+@overload
+def squeeze(
+    a: _ScalarGeneric,
+    axis: Optional[_ShapeLike] = ...,
+) -> _ScalarGeneric: ...
+@overload
+def squeeze(
+    a: ArrayLike,
+    axis: Optional[_ShapeLike] = ...,
+) -> ndarray: ...
 
-reveal_type(np.ravel(b))  # E: ndarray[Any, dtype[bool_]]
-reveal_type(np.ravel(f4))  # E: ndarray[Any, dtype[{float32}]]
-reveal_type(np.ravel(f))  # E: ndarray[Any, dtype[Any]]
-reveal_type(np.ravel(AR_b))  # E: ndarray[Any, dtype[bool_]]
-reveal_type(np.ravel(AR_f4))  # E: ndarray[Any, dtype[{float32}]]
+def diagonal(
+    a: ArrayLike,
+    offset: int = ...,
+    axis1: int = ...,
+    axis2: int = ...,  # >= 2D array
+) -> ndarray: ...
 
-reveal_type(np.nonzero(b))  # E: tuple[ndarray[Any, dtype[{intp}]], ...]
-reveal_type(np.nonzero(f4))  # E: tuple[ndarray[Any, dtype[{intp}]], ...]
-reveal_type(np.nonzero(f))  # E: tuple[ndarray[Any, dtype[{intp}]], ...]
-reveal_type(np.nonzero(AR_b))  # E: tuple[ndarray[Any, dtype[{intp}]], ...]
-reveal_type(np.nonzero(AR_f4))  # E: tuple[ndarray[Any, dtype[{intp}]], ...]
+def trace(
+    a: ArrayLike,  # >= 2D array
+    offset: int = ...,
+    axis1: int = ...,
+    axis2: int = ...,
+    dtype: DTypeLike = ...,
+    out: Optional[ndarray] = ...,
+) -> Any: ...
 
-reveal_type(np.shape(b))  # E: tuple[builtins.int, ...]
-reveal_type(np.shape(f4))  # E: tuple[builtins.int, ...]
-reveal_type(np.shape(f))  # E: tuple[builtins.int, ...]
-reveal_type(np.shape(AR_b))  # E: tuple[builtins.int, ...]
-reveal_type(np.shape(AR_f4))  # E: tuple[builtins.int, ...]
+def ravel(a: ArrayLike, order: _OrderKACF = ...) -> ndarray: ...
 
-reveal_type(np.compress([True], b))  # E: ndarray[Any, dtype[bool_]]
-reveal_type(np.compress([True], f4))  # E: ndarray[Any, dtype[{float32}]]
-reveal_type(np.compress([True], f))  # E: ndarray[Any, dtype[Any]]
-reveal_type(np.compress([True], AR_b))  # E: ndarray[Any, dtype[bool_]]
-reveal_type(np.compress([True], AR_f4))  # E: ndarray[Any, dtype[{float32}]]
+def nonzero(a: ArrayLike) -> Tuple[ndarray, ...]: ...
 
-reveal_type(np.clip(b, 0, 1.0))  # E: bool_
-reveal_type(np.clip(f4, -1, 1))  # E: {float32}
-reveal_type(np.clip(f, 0, 1))  # E: Any
-reveal_type(np.clip(AR_b, 0, 1))  # E: ndarray[Any, dtype[bool_]]
-reveal_type(np.clip(AR_f4, 0, 1))  # E: ndarray[Any, dtype[{float32}]]
-reveal_type(np.clip([0], 0, 1))  # E: ndarray[Any, dtype[Any]]
-reveal_type(np.clip(AR_b, 0, 1, out=AR_subclass))  # E: NDArraySubclass
+def shape(a: ArrayLike) -> _Shape: ...
 
-reveal_type(np.sum(b))  # E: bool_
-reveal_type(np.sum(f4))  # E: {float32}
-reveal_type(np.sum(f))  # E: Any
-reveal_type(np.sum(AR_b))  # E: bool_
-reveal_type(np.sum(AR_f4))  # E: {float32}
-reveal_type(np.sum(AR_b, axis=0))  # E: Any
-reveal_type(np.sum(AR_f4, axis=0))  # E: Any
-reveal_type(np.sum(AR_f4, out=AR_subclass))  # E: NDArraySubclass
+def compress(
+    condition: ArrayLike,  # 1D bool array
+    a: ArrayLike,
+    axis: Optional[int] = ...,
+    out: Optional[ndarray] = ...,
+) -> ndarray: ...
 
-reveal_type(np.all(b))  # E: bool_
-reveal_type(np.all(f4))  # E: bool_
-reveal_type(np.all(f))  # E: bool_
-reveal_type(np.all(AR_b))  # E: bool_
-reveal_type(np.all(AR_f4))  # E: bool_
-reveal_type(np.all(AR_b, axis=0))  # E: Any
-reveal_type(np.all(AR_f4, axis=0))  # E: Any
-reveal_type(np.all(AR_b, keepdims=True))  # E: Any
-reveal_type(np.all(AR_f4, keepdims=True))  # E: Any
-reveal_type(np.all(AR_f4, out=AR_subclass))  # E: NDArraySubclass
+@overload
+def clip(
+    a: ArrayLike,
+    a_min: ArrayLike,
+    a_max: Optional[ArrayLike],
+    out: Optional[ndarray] = ...,
+    **kwargs: Any,
+) -> Any: ...
+@overload
+def clip(
+    a: ArrayLike,
+    a_min: None,
+    a_max: ArrayLike,
+    out: Optional[ndarray] = ...,
+    **kwargs: Any,
+) -> Any: ...
 
-reveal_type(np.any(b))  # E: bool_
-reveal_type(np.any(f4))  # E: bool_
-reveal_type(np.any(f))  # E: bool_
-reveal_type(np.any(AR_b))  # E: bool_
-reveal_type(np.any(AR_f4))  # E: bool_
-reveal_type(np.any(AR_b, axis=0))  # E: Any
-reveal_type(np.any(AR_f4, axis=0))  # E: Any
-reveal_type(np.any(AR_b, keepdims=True))  # E: Any
-reveal_type(np.any(AR_f4, keepdims=True))  # E: Any
-reveal_type(np.any(AR_f4, out=AR_subclass))  # E: NDArraySubclass
+def sum(
+    a: ArrayLike,
+    axis: _ShapeLike = ...,
+    dtype: DTypeLike = ...,
+    out: Optional[ndarray] = ...,
+    keepdims: bool = ...,
+    initial: _NumberLike_co = ...,
+    where: _ArrayLikeBool_co = ...,
+) -> Any: ...
 
-reveal_type(np.cumsum(b))  # E: ndarray[Any, dtype[bool_]]
-reveal_type(np.cumsum(f4))  # E: ndarray[Any, dtype[{float32}]]
-reveal_type(np.cumsum(f))  # E: ndarray[Any, dtype[Any]]
-reveal_type(np.cumsum(AR_b))  # E: ndarray[Any, dtype[bool_]]
-reveal_type(np.cumsum(AR_f4))  # E: ndarray[Any, dtype[{float32}]]
-reveal_type(np.cumsum(f, dtype=float))  # E: ndarray[Any, dtype[Any]]
-reveal_type(np.cumsum(f, dtype=np.float64))  # E: ndarray[Any, dtype[{float64}]]
-reveal_type(np.cumsum(AR_f4, out=AR_subclass))  # E: NDArraySubclass
+@overload
+def all(
+    a: ArrayLike,
+    axis: None = ...,
+    out: None = ...,
+    keepdims: Literal[False] = ...,
+) -> bool_: ...
+@overload
+def all(
+    a: ArrayLike,
+    axis: Optional[_ShapeLike] = ...,
+    out: Optional[ndarray] = ...,
+    keepdims: bool = ...,
+) -> Any: ...
 
-reveal_type(np.ptp(b))  # E: bool_
-reveal_type(np.ptp(f4))  # E: {float32}
-reveal_type(np.ptp(f))  # E: Any
-reveal_type(np.ptp(AR_b))  # E: bool_
-reveal_type(np.ptp(AR_f4))  # E: {float32}
-reveal_type(np.ptp(AR_b, axis=0))  # E: Any
-reveal_type(np.ptp(AR_f4, axis=0))  # E: Any
-reveal_type(np.ptp(AR_b, keepdims=True))  # E: Any
-reveal_type(np.ptp(AR_f4, keepdims=True))  # E: Any
-reveal_type(np.ptp(AR_f4, out=AR_subclass))  # E: NDArraySubclass
+@overload
+def any(
+    a: ArrayLike,
+    axis: None = ...,
+    out: None = ...,
+    keepdims: Literal[False] = ...,
+) -> bool_: ...
+@overload
+def any(
+    a: ArrayLike,
+    axis: Optional[_ShapeLike] = ...,
+    out: Optional[ndarray] = ...,
+    keepdims: bool = ...,
+) -> Any: ...
 
-reveal_type(np.amax(b))  # E: bool_
-reveal_type(np.amax(f4))  # E: {float32}
-reveal_type(np.amax(f))  # E: Any
-reveal_type(np.amax(AR_b))  # E: bool_
-reveal_type(np.amax(AR_f4))  # E: {float32}
-reveal_type(np.amax(AR_b, axis=0))  # E: Any
-reveal_type(np.amax(AR_f4, axis=0))  # E: Any
-reveal_type(np.amax(AR_b, keepdims=True))  # E: Any
-reveal_type(np.amax(AR_f4, keepdims=True))  # E: Any
-reveal_type(np.amax(AR_f4, out=AR_subclass))  # E: NDArraySubclass
+def cumsum(
+    a: ArrayLike,
+    axis: Optional[int] = ...,
+    dtype: DTypeLike = ...,
+    out: Optional[ndarray] = ...,
+) -> ndarray: ...
 
-reveal_type(np.amin(b))  # E: bool_
-reveal_type(np.amin(f4))  # E: {float32}
-reveal_type(np.amin(f))  # E: Any
-reveal_type(np.amin(AR_b))  # E: bool_
-reveal_type(np.amin(AR_f4))  # E: {float32}
-reveal_type(np.amin(AR_b, axis=0))  # E: Any
-reveal_type(np.amin(AR_f4, axis=0))  # E: Any
-reveal_type(np.amin(AR_b, keepdims=True))  # E: Any
-reveal_type(np.amin(AR_f4, keepdims=True))  # E: Any
-reveal_type(np.amin(AR_f4, out=AR_subclass))  # E: NDArraySubclass
+def ptp(
+    a: ArrayLike,
+    axis: Optional[_ShapeLike] = ...,
+    out: Optional[ndarray] = ...,
+    keepdims: bool = ...,
+) -> Any: ...
 
-reveal_type(np.prod(AR_b))  # E: {int_}
-reveal_type(np.prod(AR_u8))  # E: {uint64}
-reveal_type(np.prod(AR_i8))  # E: {int64}
-reveal_type(np.prod(AR_f4))  # E: floating[Any]
-reveal_type(np.prod(AR_c16))  # E: complexfloating[Any, Any]
-reveal_type(np.prod(AR_O))  # E: Any
-reveal_type(np.prod(AR_f4, axis=0))  # E: Any
-reveal_type(np.prod(AR_f4, keepdims=True))  # E: Any
-reveal_type(np.prod(AR_f4, dtype=np.float64))  # E: {float64}
-reveal_type(np.prod(AR_f4, dtype=float))  # E: Any
-reveal_type(np.prod(AR_f4, out=AR_subclass))  # E: NDArraySubclass
+def amax(
+    a: ArrayLike,
+    axis: Optional[_ShapeLike] = ...,
+    out: Optional[ndarray] = ...,
+    keepdims: bool = ...,
+    initial: _NumberLike_co = ...,
+    where: _ArrayLikeBool_co = ...,
+) -> Any: ...
 
-reveal_type(np.cumprod(AR_b))  # E: ndarray[Any, dtype[{int_}]]
-reveal_type(np.cumprod(AR_u8))  # E: ndarray[Any, dtype[{uint64}]]
-reveal_type(np.cumprod(AR_i8))  # E: ndarray[Any, dtype[{int64}]]
-reveal_type(np.cumprod(AR_f4))  # E: ndarray[Any, dtype[floating[Any]]]
-reveal_type(np.cumprod(AR_c16))  # E: ndarray[Any, dtype[complexfloating[Any, Any]]]
-reveal_type(np.cumprod(AR_O))  # E: ndarray[Any, dtype[object_]]
-reveal_type(np.cumprod(AR_f4, axis=0))  # E: ndarray[Any, dtype[floating[Any]]]
-reveal_type(np.cumprod(AR_f4, dtype=np.float64))  # E: ndarray[Any, dtype[{float64}]]
-reveal_type(np.cumprod(AR_f4, dtype=float))  # E: ndarray[Any, dtype[Any]]
-reveal_type(np.cumprod(AR_f4, out=AR_subclass))  # E: NDArraySubclass
+def amin(
+    a: ArrayLike,
+    axis: Optional[_ShapeLike] = ...,
+    out: Optional[ndarray] = ...,
+    keepdims: bool = ...,
+    initial: _NumberLike_co = ...,
+    where: _ArrayLikeBool_co = ...,
+) -> Any: ...
 
-reveal_type(np.ndim(b))  # E: int
-reveal_type(np.ndim(f4))  # E: int
-reveal_type(np.ndim(f))  # E: int
-reveal_type(np.ndim(AR_b))  # E: int
-reveal_type(np.ndim(AR_f4))  # E: int
+# TODO: `np.prod()``: For object arrays `initial` does not necessarily
+# have to be a numerical scalar.
+# The only requirement is that it is compatible
+# with the `.__mul__()` method(s) of the passed array's elements.
 
-reveal_type(np.size(b))  # E: int
-reveal_type(np.size(f4))  # E: int
-reveal_type(np.size(f))  # E: int
-reveal_type(np.size(AR_b))  # E: int
-reveal_type(np.size(AR_f4))  # E: int
+# Note that the same situation holds for all wrappers around
+# `np.ufunc.reduce`, e.g. `np.sum()` (`.__add__()`).
+def prod(
+    a: ArrayLike,
+    axis: Optional[_ShapeLike] = ...,
+    dtype: DTypeLike = ...,
+    out: Optional[ndarray] = ...,
+    keepdims: bool = ...,
+    initial: _NumberLike_co = ...,
+    where: _ArrayLikeBool_co = ...,
+) -> Any: ...
 
-reveal_type(np.around(b))  # E: {float16}
-reveal_type(np.around(f))  # E: Any
-reveal_type(np.around(i8))  # E: {int64}
-reveal_type(np.around(f4))  # E: {float32}
-reveal_type(np.around(AR_b))  # E: ndarray[Any, dtype[{float16}]]
-reveal_type(np.around(AR_i8))  # E: ndarray[Any, dtype[{int64}]]
-reveal_type(np.around(AR_f4))  # E: ndarray[Any, dtype[{float32}]]
-reveal_type(np.around([1.5]))  # E: ndarray[Any, dtype[Any]]
-reveal_type(np.around(AR_f4, out=AR_subclass))  # E: NDArraySubclass
+def cumprod(
+    a: ArrayLike,
+    axis: Optional[int] = ...,
+    dtype: DTypeLike = ...,
+    out: Optional[ndarray] = ...,
+) -> ndarray: ...
 
-reveal_type(np.mean(AR_b))  # E: floating[Any]
-reveal_type(np.mean(AR_i8))  # E: floating[Any]
-reveal_type(np.mean(AR_f4))  # E: floating[Any]
-reveal_type(np.mean(AR_c16))  # E: complexfloating[Any, Any]
-reveal_type(np.mean(AR_O))  # E: Any
-reveal_type(np.mean(AR_f4, axis=0))  # E: Any
-reveal_type(np.mean(AR_f4, keepdims=True))  # E: Any
-reveal_type(np.mean(AR_f4, dtype=float))  # E: Any
-reveal_type(np.mean(AR_f4, dtype=np.float64))  # E: {float64}
-reveal_type(np.mean(AR_f4, out=AR_subclass))  # E: NDArraySubclass
+def ndim(a: ArrayLike) -> int: ...
 
-reveal_type(np.std(AR_b))  # E: floating[Any]
-reveal_type(np.std(AR_i8))  # E: floating[Any]
-reveal_type(np.std(AR_f4))  # E: floating[Any]
-reveal_type(np.std(AR_c16))  # E: floating[Any]
-reveal_type(np.std(AR_O))  # E: Any
-reveal_type(np.std(AR_f4, axis=0))  # E: Any
-reveal_type(np.std(AR_f4, keepdims=True))  # E: Any
-reveal_type(np.std(AR_f4, dtype=float))  # E: Any
-reveal_type(np.std(AR_f4, dtype=np.float64))  # E: {float64}
-reveal_type(np.std(AR_f4, out=AR_subclass))  # E: NDArraySubclass
+def size(a: ArrayLike, axis: Optional[int] = ...) -> int: ...
 
-reveal_type(np.var(AR_b))  # E: floating[Any]
-reveal_type(np.var(AR_i8))  # E: floating[Any]
-reveal_type(np.var(AR_f4))  # E: floating[Any]
-reveal_type(np.var(AR_c16))  # E: floating[Any]
-reveal_type(np.var(AR_O))  # E: Any
-reveal_type(np.var(AR_f4, axis=0))  # E: Any
-reveal_type(np.var(AR_f4, keepdims=True))  # E: Any
-reveal_type(np.var(AR_f4, dtype=float))  # E: Any
-reveal_type(np.var(AR_f4, dtype=np.float64))  # E: {float64}
-reveal_type(np.var(AR_f4, out=AR_subclass))  # E: NDArraySubclass
+def around(
+    a: ArrayLike,
+    decimals: int = ...,
+    out: Optional[ndarray] = ...,
+) -> Any: ...
+
+def mean(
+    a: ArrayLike,
+    axis: Optional[_ShapeLike] = ...,
+    dtype: DTypeLike = ...,
+    out: Optional[ndarray] = ...,
+    keepdims: bool = ...,
+) -> Any: ...
+
+def std(
+    a: ArrayLike,
+    axis: Optional[_ShapeLike] = ...,
+    dtype: DTypeLike = ...,
+    out: Optional[ndarray] = ...,
+    ddof: int = ...,
+    keepdims: bool = ...,
+) -> Any: ...
+
+def var(
+    a: ArrayLike,
+    axis: Optional[_ShapeLike] = ...,
+    dtype: DTypeLike = ...,
+    out: Optional[ndarray] = ...,
+    ddof: int = ...,
+    keepdims: bool = ...,
+) -> Any: ...

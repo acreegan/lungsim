@@ -1,47 +1,35 @@
 import numpy as np
 
-nd1 = np.array([[1, 2], [3, 4]])
+nd = np.array([[1, 2], [3, 4]])
 
 # reshape
-nd1.reshape(4)
-nd1.reshape(2, 2)
-nd1.reshape((2, 2))
+reveal_type(nd.reshape())  # E: numpy.ndarray
+reveal_type(nd.reshape(4))  # E: numpy.ndarray
+reveal_type(nd.reshape(2, 2))  # E: numpy.ndarray
+reveal_type(nd.reshape((2, 2)))  # E: numpy.ndarray
 
-nd1.reshape((2, 2), order="C")
-nd1.reshape(4, order="C")
+reveal_type(nd.reshape((2, 2), order="C"))  # E: numpy.ndarray
+reveal_type(nd.reshape(4, order="C"))  # E: numpy.ndarray
 
-# resize
-nd1.resize()
-nd1.resize(4)
-nd1.resize(2, 2)
-nd1.resize((2, 2))
-
-nd1.resize((2, 2), refcheck=True)
-nd1.resize(4, refcheck=True)
-
-nd2 = np.array([[1, 2], [3, 4]])
+# resize does not return a value
 
 # transpose
-nd2.transpose()
-nd2.transpose(1, 0)
-nd2.transpose((1, 0))
+reveal_type(nd.transpose())  # E: numpy.ndarray
+reveal_type(nd.transpose(1, 0))  # E: numpy.ndarray
+reveal_type(nd.transpose((1, 0)))  # E: numpy.ndarray
 
 # swapaxes
-nd2.swapaxes(0, 1)
+reveal_type(nd.swapaxes(0, 1))  # E: numpy.ndarray
 
 # flatten
-nd2.flatten()
-nd2.flatten("C")
+reveal_type(nd.flatten())  # E: numpy.ndarray
+reveal_type(nd.flatten("C"))  # E: numpy.ndarray
 
 # ravel
-nd2.ravel()
-nd2.ravel("C")
+reveal_type(nd.ravel())  # E: numpy.ndarray
+reveal_type(nd.ravel("C"))  # E: numpy.ndarray
 
 # squeeze
-nd2.squeeze()
-
-nd3 = np.array([[1, 2]])
-nd3.squeeze(0)
-
-nd4 = np.array([[[1, 2]]])
-nd4.squeeze((0, 1))
+reveal_type(nd.squeeze())  # E: numpy.ndarray
+reveal_type(nd.squeeze(0))  # E: numpy.ndarray
+reveal_type(nd.squeeze((0, 2)))  # E: numpy.ndarray

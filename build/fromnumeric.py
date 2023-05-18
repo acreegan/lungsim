@@ -12,249 +12,253 @@ b = np.float32(1.0)
 c = 1.0
 d = np.array(1.0, dtype=np.float32)  # writeable
 
-np.take(a, 0)
-np.take(b, 0)
-np.take(c, 0)
-np.take(A, 0)
-np.take(B, 0)
-np.take(A, [0])
-np.take(B, [0])
+reveal_type(np.take(a, 0))  # E: Any
+reveal_type(np.take(b, 0))  # E: Any
+reveal_type(np.take(c, 0))  # E: Any
+reveal_type(np.take(A, 0))  # E: Any
+reveal_type(np.take(B, 0))  # E: Any
+reveal_type(np.take(A, [0]))  # E: Any
+reveal_type(np.take(B, [0]))  # E: Any
 
-np.reshape(a, 1)
-np.reshape(b, 1)
-np.reshape(c, 1)
-np.reshape(A, 1)
-np.reshape(B, 1)
+reveal_type(np.reshape(a, 1))  # E: numpy.ndarray[Any, Any]
+reveal_type(np.reshape(b, 1))  # E: numpy.ndarray[Any, Any]
+reveal_type(np.reshape(c, 1))  # E: numpy.ndarray[Any, Any]
+reveal_type(np.reshape(A, 1))  # E: numpy.ndarray[Any, Any]
+reveal_type(np.reshape(B, 1))  # E: numpy.ndarray[Any, Any]
 
-np.choose(a, [True, True])
-np.choose(A, [1.0, 1.0])
+reveal_type(np.choose(a, [True, True]))  # E: Any
+reveal_type(np.choose(A, [True, True]))  # E: Any
 
-np.repeat(a, 1)
-np.repeat(b, 1)
-np.repeat(c, 1)
-np.repeat(A, 1)
-np.repeat(B, 1)
+reveal_type(np.repeat(a, 1))  # E: numpy.ndarray[Any, Any]
+reveal_type(np.repeat(b, 1))  # E: numpy.ndarray[Any, Any]
+reveal_type(np.repeat(c, 1))  # E: numpy.ndarray[Any, Any]
+reveal_type(np.repeat(A, 1))  # E: numpy.ndarray[Any, Any]
+reveal_type(np.repeat(B, 1))  # E: numpy.ndarray[Any, Any]
 
-np.swapaxes(A, 0, 0)
-np.swapaxes(B, 0, 0)
+# TODO: Add tests for np.put()
 
-np.transpose(a)
-np.transpose(b)
-np.transpose(c)
-np.transpose(A)
-np.transpose(B)
+reveal_type(np.swapaxes(A, 0, 0))  # E: numpy.ndarray[Any, Any]
+reveal_type(np.swapaxes(B, 0, 0))  # E: numpy.ndarray[Any, Any]
 
-np.partition(a, 0, axis=None)
-np.partition(b, 0, axis=None)
-np.partition(c, 0, axis=None)
-np.partition(A, 0)
-np.partition(B, 0)
+reveal_type(np.transpose(a))  # E: numpy.ndarray[Any, Any]
+reveal_type(np.transpose(b))  # E: numpy.ndarray[Any, Any]
+reveal_type(np.transpose(c))  # E: numpy.ndarray[Any, Any]
+reveal_type(np.transpose(A))  # E: numpy.ndarray[Any, Any]
+reveal_type(np.transpose(B))  # E: numpy.ndarray[Any, Any]
 
-np.argpartition(a, 0)
-np.argpartition(b, 0)
-np.argpartition(c, 0)
-np.argpartition(A, 0)
-np.argpartition(B, 0)
+reveal_type(np.partition(a, 0, axis=None))  # E: numpy.ndarray[Any, Any]
+reveal_type(np.partition(b, 0, axis=None))  # E: numpy.ndarray[Any, Any]
+reveal_type(np.partition(c, 0, axis=None))  # E: numpy.ndarray[Any, Any]
+reveal_type(np.partition(A, 0))  # E: numpy.ndarray[Any, Any]
+reveal_type(np.partition(B, 0))  # E: numpy.ndarray[Any, Any]
 
-np.sort(A, 0)
-np.sort(B, 0)
+reveal_type(np.argpartition(a, 0))  # E: Any
+reveal_type(np.argpartition(b, 0))  # E: Any
+reveal_type(np.argpartition(c, 0))  # E: Any
+reveal_type(np.argpartition(A, 0))  # E: Any
+reveal_type(np.argpartition(B, 0))  # E: Any
 
-np.argsort(A, 0)
-np.argsort(B, 0)
+reveal_type(np.sort(A, 0))  # E: numpy.ndarray[Any, Any]
+reveal_type(np.sort(B, 0))  # E: numpy.ndarray[Any, Any]
 
-np.argmax(A)
-np.argmax(B)
-np.argmax(A, axis=0)
-np.argmax(B, axis=0)
+reveal_type(np.argsort(A, 0))  # E: numpy.ndarray[Any, Any]
+reveal_type(np.argsort(B, 0))  # E: numpy.ndarray[Any, Any]
 
-np.argmin(A)
-np.argmin(B)
-np.argmin(A, axis=0)
-np.argmin(B, axis=0)
+reveal_type(np.argmax(A))  # E: {intp}
+reveal_type(np.argmax(B))  # E: {intp}
+reveal_type(np.argmax(A, axis=0))  # E: Any
+reveal_type(np.argmax(B, axis=0))  # E: Any
 
-np.searchsorted(A[0], 0)
-np.searchsorted(B[0], 0)
-np.searchsorted(A[0], [0])
-np.searchsorted(B[0], [0])
+reveal_type(np.argmin(A))  # E: {intp}
+reveal_type(np.argmin(B))  # E: {intp}
+reveal_type(np.argmin(A, axis=0))  # E: Any
+reveal_type(np.argmin(B, axis=0))  # E: Any
 
-np.resize(a, (5, 5))
-np.resize(b, (5, 5))
-np.resize(c, (5, 5))
-np.resize(A, (5, 5))
-np.resize(B, (5, 5))
+reveal_type(np.searchsorted(A[0], 0))  # E: {intp}
+reveal_type(np.searchsorted(B[0], 0))  # E: {intp}
+reveal_type(np.searchsorted(A[0], [0]))  # E: numpy.ndarray[Any, Any]
+reveal_type(np.searchsorted(B[0], [0]))  # E: numpy.ndarray[Any, Any]
 
-np.squeeze(a)
-np.squeeze(b)
-np.squeeze(c)
-np.squeeze(A)
-np.squeeze(B)
+reveal_type(np.resize(a, (5, 5)))  # E: numpy.ndarray[Any, Any]
+reveal_type(np.resize(b, (5, 5)))  # E: numpy.ndarray[Any, Any]
+reveal_type(np.resize(c, (5, 5)))  # E: numpy.ndarray[Any, Any]
+reveal_type(np.resize(A, (5, 5)))  # E: numpy.ndarray[Any, Any]
+reveal_type(np.resize(B, (5, 5)))  # E: numpy.ndarray[Any, Any]
 
-np.diagonal(A)
-np.diagonal(B)
+reveal_type(np.squeeze(a))  # E: numpy.bool_
+reveal_type(np.squeeze(b))  # E: {float32}
+reveal_type(np.squeeze(c))  # E: numpy.ndarray[Any, Any]
+reveal_type(np.squeeze(A))  # E: numpy.ndarray[Any, Any]
+reveal_type(np.squeeze(B))  # E: numpy.ndarray[Any, Any]
 
-np.trace(A)
-np.trace(B)
+reveal_type(np.diagonal(A))  # E: numpy.ndarray[Any, Any]
+reveal_type(np.diagonal(B))  # E: numpy.ndarray[Any, Any]
 
-np.ravel(a)
-np.ravel(b)
-np.ravel(c)
-np.ravel(A)
-np.ravel(B)
+reveal_type(np.trace(A))  # E: Any
+reveal_type(np.trace(B))  # E: Any
 
-np.nonzero(A)
-np.nonzero(B)
+reveal_type(np.ravel(a))  # E: numpy.ndarray[Any, Any]
+reveal_type(np.ravel(b))  # E: numpy.ndarray[Any, Any]
+reveal_type(np.ravel(c))  # E: numpy.ndarray[Any, Any]
+reveal_type(np.ravel(A))  # E: numpy.ndarray[Any, Any]
+reveal_type(np.ravel(B))  # E: numpy.ndarray[Any, Any]
 
-np.shape(a)
-np.shape(b)
-np.shape(c)
-np.shape(A)
-np.shape(B)
+reveal_type(np.nonzero(a))  # E: tuple[numpy.ndarray[Any, Any]]
+reveal_type(np.nonzero(b))  # E: tuple[numpy.ndarray[Any, Any]]
+reveal_type(np.nonzero(c))  # E: tuple[numpy.ndarray[Any, Any]]
+reveal_type(np.nonzero(A))  # E: tuple[numpy.ndarray[Any, Any]]
+reveal_type(np.nonzero(B))  # E: tuple[numpy.ndarray[Any, Any]]
 
-np.compress([True], a)
-np.compress([True], b)
-np.compress([True], c)
-np.compress([True], A)
-np.compress([True], B)
+reveal_type(np.shape(a))  # E: tuple[builtins.int]
+reveal_type(np.shape(b))  # E: tuple[builtins.int]
+reveal_type(np.shape(c))  # E: tuple[builtins.int]
+reveal_type(np.shape(A))  # E: tuple[builtins.int]
+reveal_type(np.shape(B))  # E: tuple[builtins.int]
 
-np.clip(a, 0, 1.0)
-np.clip(b, -1, 1)
-np.clip(a, 0, None)
-np.clip(b, None, 1)
-np.clip(c, 0, 1)
-np.clip(A, 0, 1)
-np.clip(B, 0, 1)
-np.clip(B, [0, 1], [1, 2])
+reveal_type(np.compress([True], a))  # E: numpy.ndarray[Any, Any]
+reveal_type(np.compress([True], b))  # E: numpy.ndarray[Any, Any]
+reveal_type(np.compress([True], c))  # E: numpy.ndarray[Any, Any]
+reveal_type(np.compress([True], A))  # E: numpy.ndarray[Any, Any]
+reveal_type(np.compress([True], B))  # E: numpy.ndarray[Any, Any]
 
-np.sum(a)
-np.sum(b)
-np.sum(c)
-np.sum(A)
-np.sum(B)
-np.sum(A, axis=0)
-np.sum(B, axis=0)
+reveal_type(np.clip(a, 0, 1.0))  # E: Any
+reveal_type(np.clip(b, -1, 1))  # E: Any
+reveal_type(np.clip(c, 0, 1))  # E: Any
+reveal_type(np.clip(A, 0, 1))  # E: Any
+reveal_type(np.clip(B, 0, 1))  # E: Any
 
-np.all(a)
-np.all(b)
-np.all(c)
-np.all(A)
-np.all(B)
-np.all(A, axis=0)
-np.all(B, axis=0)
-np.all(A, keepdims=True)
-np.all(B, keepdims=True)
+reveal_type(np.sum(a))  # E: Any
+reveal_type(np.sum(b))  # E: Any
+reveal_type(np.sum(c))  # E: Any
+reveal_type(np.sum(A))  # E: Any
+reveal_type(np.sum(B))  # E: Any
+reveal_type(np.sum(A, axis=0))  # E: Any
+reveal_type(np.sum(B, axis=0))  # E: Any
 
-np.any(a)
-np.any(b)
-np.any(c)
-np.any(A)
-np.any(B)
-np.any(A, axis=0)
-np.any(B, axis=0)
-np.any(A, keepdims=True)
-np.any(B, keepdims=True)
+reveal_type(np.all(a))  # E: numpy.bool_
+reveal_type(np.all(b))  # E: numpy.bool_
+reveal_type(np.all(c))  # E: numpy.bool_
+reveal_type(np.all(A))  # E: numpy.bool_
+reveal_type(np.all(B))  # E: numpy.bool_
+reveal_type(np.all(A, axis=0))  # E: Any
+reveal_type(np.all(B, axis=0))  # E: Any
+reveal_type(np.all(A, keepdims=True))  # E: Any
+reveal_type(np.all(B, keepdims=True))  # E: Any
 
-np.cumsum(a)
-np.cumsum(b)
-np.cumsum(c)
-np.cumsum(A)
-np.cumsum(B)
+reveal_type(np.any(a))  # E: numpy.bool_
+reveal_type(np.any(b))  # E: numpy.bool_
+reveal_type(np.any(c))  # E: numpy.bool_
+reveal_type(np.any(A))  # E: numpy.bool_
+reveal_type(np.any(B))  # E: numpy.bool_
+reveal_type(np.any(A, axis=0))  # E: Any
+reveal_type(np.any(B, axis=0))  # E: Any
+reveal_type(np.any(A, keepdims=True))  # E: Any
+reveal_type(np.any(B, keepdims=True))  # E: Any
 
-np.ptp(b)
-np.ptp(c)
-np.ptp(B)
-np.ptp(B, axis=0)
-np.ptp(B, keepdims=True)
+reveal_type(np.cumsum(a))  # E: numpy.ndarray[Any, Any]
+reveal_type(np.cumsum(b))  # E: numpy.ndarray[Any, Any]
+reveal_type(np.cumsum(c))  # E: numpy.ndarray[Any, Any]
+reveal_type(np.cumsum(A))  # E: numpy.ndarray[Any, Any]
+reveal_type(np.cumsum(B))  # E: numpy.ndarray[Any, Any]
 
-np.amax(a)
-np.amax(b)
-np.amax(c)
-np.amax(A)
-np.amax(B)
-np.amax(A, axis=0)
-np.amax(B, axis=0)
-np.amax(A, keepdims=True)
-np.amax(B, keepdims=True)
+reveal_type(np.ptp(a))  # E: Any
+reveal_type(np.ptp(b))  # E: Any
+reveal_type(np.ptp(c))  # E: Any
+reveal_type(np.ptp(A))  # E: Any
+reveal_type(np.ptp(B))  # E: Any
+reveal_type(np.ptp(A, axis=0))  # E: Any
+reveal_type(np.ptp(B, axis=0))  # E: Any
+reveal_type(np.ptp(A, keepdims=True))  # E: Any
+reveal_type(np.ptp(B, keepdims=True))  # E: Any
 
-np.amin(a)
-np.amin(b)
-np.amin(c)
-np.amin(A)
-np.amin(B)
-np.amin(A, axis=0)
-np.amin(B, axis=0)
-np.amin(A, keepdims=True)
-np.amin(B, keepdims=True)
+reveal_type(np.amax(a))  # E: Any
+reveal_type(np.amax(b))  # E: Any
+reveal_type(np.amax(c))  # E: Any
+reveal_type(np.amax(A))  # E: Any
+reveal_type(np.amax(B))  # E: Any
+reveal_type(np.amax(A, axis=0))  # E: Any
+reveal_type(np.amax(B, axis=0))  # E: Any
+reveal_type(np.amax(A, keepdims=True))  # E: Any
+reveal_type(np.amax(B, keepdims=True))  # E: Any
 
-np.prod(a)
-np.prod(b)
-np.prod(c)
-np.prod(A)
-np.prod(B)
-np.prod(a, dtype=None)
-np.prod(A, dtype=None)
-np.prod(A, axis=0)
-np.prod(B, axis=0)
-np.prod(A, keepdims=True)
-np.prod(B, keepdims=True)
-np.prod(b, out=d)
-np.prod(B, out=d)
+reveal_type(np.amin(a))  # E: Any
+reveal_type(np.amin(b))  # E: Any
+reveal_type(np.amin(c))  # E: Any
+reveal_type(np.amin(A))  # E: Any
+reveal_type(np.amin(B))  # E: Any
+reveal_type(np.amin(A, axis=0))  # E: Any
+reveal_type(np.amin(B, axis=0))  # E: Any
+reveal_type(np.amin(A, keepdims=True))  # E: Any
+reveal_type(np.amin(B, keepdims=True))  # E: Any
 
-np.cumprod(a)
-np.cumprod(b)
-np.cumprod(c)
-np.cumprod(A)
-np.cumprod(B)
+reveal_type(np.prod(a))  # E: Any
+reveal_type(np.prod(b))  # E: Any
+reveal_type(np.prod(c))  # E: Any
+reveal_type(np.prod(A))  # E: Any
+reveal_type(np.prod(B))  # E: Any
+reveal_type(np.prod(A, axis=0))  # E: Any
+reveal_type(np.prod(B, axis=0))  # E: Any
+reveal_type(np.prod(A, keepdims=True))  # E: Any
+reveal_type(np.prod(B, keepdims=True))  # E: Any
+reveal_type(np.prod(b, out=d))  # E: Any
+reveal_type(np.prod(B, out=d))  # E: Any
 
-np.ndim(a)
-np.ndim(b)
-np.ndim(c)
-np.ndim(A)
-np.ndim(B)
+reveal_type(np.cumprod(a))  # E: numpy.ndarray[Any, Any]
+reveal_type(np.cumprod(b))  # E: numpy.ndarray[Any, Any]
+reveal_type(np.cumprod(c))  # E: numpy.ndarray[Any, Any]
+reveal_type(np.cumprod(A))  # E: numpy.ndarray[Any, Any]
+reveal_type(np.cumprod(B))  # E: numpy.ndarray[Any, Any]
 
-np.size(a)
-np.size(b)
-np.size(c)
-np.size(A)
-np.size(B)
+reveal_type(np.ndim(a))  # E: int
+reveal_type(np.ndim(b))  # E: int
+reveal_type(np.ndim(c))  # E: int
+reveal_type(np.ndim(A))  # E: int
+reveal_type(np.ndim(B))  # E: int
 
-np.around(a)
-np.around(b)
-np.around(c)
-np.around(A)
-np.around(B)
+reveal_type(np.size(a))  # E: int
+reveal_type(np.size(b))  # E: int
+reveal_type(np.size(c))  # E: int
+reveal_type(np.size(A))  # E: int
+reveal_type(np.size(B))  # E: int
 
-np.mean(a)
-np.mean(b)
-np.mean(c)
-np.mean(A)
-np.mean(B)
-np.mean(A, axis=0)
-np.mean(B, axis=0)
-np.mean(A, keepdims=True)
-np.mean(B, keepdims=True)
-np.mean(b, out=d)
-np.mean(B, out=d)
+reveal_type(np.around(a))  # E: Any
+reveal_type(np.around(b))  # E: Any
+reveal_type(np.around(c))  # E: Any
+reveal_type(np.around(A))  # E: Any
+reveal_type(np.around(B))  # E: Any
 
-np.std(a)
-np.std(b)
-np.std(c)
-np.std(A)
-np.std(B)
-np.std(A, axis=0)
-np.std(B, axis=0)
-np.std(A, keepdims=True)
-np.std(B, keepdims=True)
-np.std(b, out=d)
-np.std(B, out=d)
+reveal_type(np.mean(a))  # E: Any
+reveal_type(np.mean(b))  # E: Any
+reveal_type(np.mean(c))  # E: Any
+reveal_type(np.mean(A))  # E: Any
+reveal_type(np.mean(B))  # E: Any
+reveal_type(np.mean(A, axis=0))  # E: Any
+reveal_type(np.mean(B, axis=0))  # E: Any
+reveal_type(np.mean(A, keepdims=True))  # E: Any
+reveal_type(np.mean(B, keepdims=True))  # E: Any
+reveal_type(np.mean(b, out=d))  # E: Any
+reveal_type(np.mean(B, out=d))  # E: Any
 
-np.var(a)
-np.var(b)
-np.var(c)
-np.var(A)
-np.var(B)
-np.var(A, axis=0)
-np.var(B, axis=0)
-np.var(A, keepdims=True)
-np.var(B, keepdims=True)
-np.var(b, out=d)
-np.var(B, out=d)
+reveal_type(np.std(a))  # E: Any
+reveal_type(np.std(b))  # E: Any
+reveal_type(np.std(c))  # E: Any
+reveal_type(np.std(A))  # E: Any
+reveal_type(np.std(B))  # E: Any
+reveal_type(np.std(A, axis=0))  # E: Any
+reveal_type(np.std(B, axis=0))  # E: Any
+reveal_type(np.std(A, keepdims=True))  # E: Any
+reveal_type(np.std(B, keepdims=True))  # E: Any
+reveal_type(np.std(b, out=d))  # E: Any
+reveal_type(np.std(B, out=d))  # E: Any
+
+reveal_type(np.var(a))  # E: Any
+reveal_type(np.var(b))  # E: Any
+reveal_type(np.var(c))  # E: Any
+reveal_type(np.var(A))  # E: Any
+reveal_type(np.var(B))  # E: Any
+reveal_type(np.var(A, axis=0))  # E: Any
+reveal_type(np.var(B, axis=0))  # E: Any
+reveal_type(np.var(A, keepdims=True))  # E: Any
+reveal_type(np.var(B, keepdims=True))  # E: Any
+reveal_type(np.var(b, out=d))  # E: Any
+reveal_type(np.var(B, out=d))  # E: Any

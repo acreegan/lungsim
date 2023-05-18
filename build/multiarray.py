@@ -1,76 +1,35 @@
+from typing import Any
 import numpy as np
-import numpy.typing as npt
 
-AR_f8: npt.NDArray[np.float64] = np.array([1.0])
-AR_i4 = np.array([1], dtype=np.int32)
-AR_u1 = np.array([1], dtype=np.uint8)
-
-AR_LIKE_f = [1.5]
-AR_LIKE_i = [1]
+AR_f8: np.ndarray[Any, np.dtype[np.float64]]
+AR_i8: np.ndarray[Any, np.dtype[np.int64]]
 
 b_f8 = np.broadcast(AR_f8)
-b_i4_f8_f8 = np.broadcast(AR_i4, AR_f8, AR_f8)
+b_i8_f8_f8 = np.broadcast(AR_i8, AR_f8, AR_f8)
 
-next(b_f8)
-b_f8.reset()
-b_f8.index
-b_f8.iters
-b_f8.nd
-b_f8.ndim
-b_f8.numiter
-b_f8.shape
-b_f8.size
+reveal_type(next(b_f8))  # E: tuple[Any]
+reveal_type(next(b_i8_f8_f8))  # E: tuple[Any]
 
-next(b_i4_f8_f8)
-b_i4_f8_f8.reset()
-b_i4_f8_f8.ndim
-b_i4_f8_f8.index
-b_i4_f8_f8.iters
-b_i4_f8_f8.nd
-b_i4_f8_f8.numiter
-b_i4_f8_f8.shape
-b_i4_f8_f8.size
+reveal_type(b_f8.reset())  # E: None
+reveal_type(b_i8_f8_f8.reset())  # E: None
 
-np.inner(AR_f8, AR_i4)
+reveal_type(b_f8.index)  # E: int
+reveal_type(b_i8_f8_f8.index)  # E: int
 
-np.where([True, True, False])
-np.where([True, True, False], 1, 0)
+reveal_type(b_f8.iters)  # E: tuple[numpy.flatiter[Any]]
+reveal_type(b_i8_f8_f8.iters)  # E: tuple[numpy.flatiter[Any]]
 
-np.lexsort([0, 1, 2])
+reveal_type(b_f8.nd)  # E: int
+reveal_type(b_i8_f8_f8.nd)  # E: int
 
-np.can_cast(np.dtype("i8"), int)
-np.can_cast(AR_f8, "f8")
-np.can_cast(AR_f8, np.complex128, casting="unsafe")
+reveal_type(b_f8.ndim)  # E: int
+reveal_type(b_i8_f8_f8.ndim)  # E: int
 
-np.min_scalar_type([1])
-np.min_scalar_type(AR_f8)
+reveal_type(b_f8.numiter)  # E: int
+reveal_type(b_i8_f8_f8.numiter)  # E: int
 
-np.result_type(int, AR_i4)
-np.result_type(AR_f8, AR_u1)
-np.result_type(AR_f8, np.complex128)
+reveal_type(b_f8.shape)  # E: tuple[builtins.int]
+reveal_type(b_i8_f8_f8.shape)  # E: tuple[builtins.int]
 
-np.dot(AR_LIKE_f, AR_i4)
-np.dot(AR_u1, 1)
-np.dot(1.5j, 1)
-np.dot(AR_u1, 1, out=AR_f8)
-
-np.vdot(AR_LIKE_f, AR_i4)
-np.vdot(AR_u1, 1)
-np.vdot(1.5j, 1)
-
-np.bincount(AR_i4)
-
-np.copyto(AR_f8, [1.6])
-
-np.putmask(AR_f8, [True], 1.5)
-
-np.packbits(AR_i4)
-np.packbits(AR_u1)
-
-np.unpackbits(AR_u1)
-
-np.shares_memory(1, 2)
-np.shares_memory(AR_f8, AR_f8, max_work=1)
-
-np.may_share_memory(1, 2)
-np.may_share_memory(AR_f8, AR_f8, max_work=1)
+reveal_type(b_f8.size)  # E: int
+reveal_type(b_i8_f8_f8.size)  # E: int

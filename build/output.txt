@@ -1,0 +1,20 @@
+Change Dir: D:/a/lungsim/lungsim/build-lungsim/CMakeFiles/IntelVSImplicitPath
+
+Run Build Command(s):C:/Program Files (x86)/Microsoft Visual Studio/2019/Enterprise/Common7/IDE/devenv.com IntelFortranImplicit.sln /build Debug /project ALL_BUILD && 
+Microsoft Visual Studio 2019 Version 16.11.26.
+Copyright (C) Microsoft Corp. All rights reserved.
+Build started...
+1>------ Build started: Project: ZERO_CHECK, Configuration: Debug x64 ------
+1>Checking Build System
+2>------ Build started: Project: FortranLib, Configuration: Debug x64 ------
+Generating output.cmake
+Compiling with Intel® Fortran Compiler Classic 2021.9.0 [Intel(R) 64]...
+hello.f
+Creating library...
+
+Build log written to  "file://D:/a/lungsim/lungsim/build-lungsim/CMakeFiles/IntelVSImplicitPath/FortranLib.dir/Debug/BuildLog.htm"
+FortranLib - 0 error(s), 0 warning(s)
+3>------ Build started: Project: ALL_BUILD, Configuration: Debug x64 ------
+3>Building Custom Rule C:/Program Files/CMake/share/cmake-3.26/Modules/IntelVSImplicitPath/CMakeLists.txt
+========== Build: 3 succeeded, 0 failed, 0 up-to-date, 0 skipped ==========
+

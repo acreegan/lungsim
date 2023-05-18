@@ -1,0 +1,6 @@
+﻿  Swig compile ../interface/arrays.i for python
+  Deprecated command line option: -py3. Ignored, this option is no longer supported.
+  Building Custom Rule D:/a/lungsim/lungsim/lungsim/src/bindings/python/CMakeLists.txt
+  arraysPYTHON_wrap.c
+     Creating library D:/a/lungsim/lungsim/build-lungsim/src/bindings/python/Release/arrays.lib and object D:/a/lungsim/lungsim/build-lungsim/src/bindings/python/Release/arrays.exp
+  arrays.vcxproj -> D:\a\lungsim\lungsim\build-lungsim\src\bindings\python\Release\aether\_arrays.pyd

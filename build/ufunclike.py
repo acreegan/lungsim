@@ -1,46 +1,29 @@
-from __future__ import annotations
-from typing import Any
+from typing import List, Any
 import numpy as np
 
+AR_LIKE_b: List[bool]
+AR_LIKE_u: List[np.uint32]
+AR_LIKE_i: List[int]
+AR_LIKE_f: List[float]
+AR_LIKE_O: List[np.object_]
 
-class Object:
-    def __ceil__(self) -> Object:
-        return self
+AR_U: np.ndarray[Any, np.dtype[np.str_]]
 
-    def __floor__(self) -> Object:
-        return self
+reveal_type(np.fix(AR_LIKE_b))  # E: numpy.ndarray[Any, numpy.dtype[numpy.floating[Any]]]
+reveal_type(np.fix(AR_LIKE_u))  # E: numpy.ndarray[Any, numpy.dtype[numpy.floating[Any]]]
+reveal_type(np.fix(AR_LIKE_i))  # E: numpy.ndarray[Any, numpy.dtype[numpy.floating[Any]]]
+reveal_type(np.fix(AR_LIKE_f))  # E: numpy.ndarray[Any, numpy.dtype[numpy.floating[Any]]]
+reveal_type(np.fix(AR_LIKE_O))  # E: Any
+reveal_type(np.fix(AR_LIKE_f, out=AR_U))  # E: numpy.ndarray[Any, numpy.dtype[numpy.str_]]
 
-    def __ge__(self, value: object) -> bool:
-        return True
+reveal_type(np.isposinf(AR_LIKE_b))  # E: numpy.ndarray[Any, numpy.dtype[numpy.bool_]]
+reveal_type(np.isposinf(AR_LIKE_u))  # E: numpy.ndarray[Any, numpy.dtype[numpy.bool_]]
+reveal_type(np.isposinf(AR_LIKE_i))  # E: numpy.ndarray[Any, numpy.dtype[numpy.bool_]]
+reveal_type(np.isposinf(AR_LIKE_f))  # E: numpy.ndarray[Any, numpy.dtype[numpy.bool_]]
+reveal_type(np.isposinf(AR_LIKE_f, out=AR_U))  # E: numpy.ndarray[Any, numpy.dtype[numpy.str_]]
 
-    def __array__(self) -> np.ndarray[Any, np.dtype[np.object_]]:
-        ret = np.empty((), dtype=object)
-        ret[()] = self
-        return ret
-
-
-AR_LIKE_b = [True, True, False]
-AR_LIKE_u = [np.uint32(1), np.uint32(2), np.uint32(3)]
-AR_LIKE_i = [1, 2, 3]
-AR_LIKE_f = [1.0, 2.0, 3.0]
-AR_LIKE_O = [Object(), Object(), Object()]
-AR_U: np.ndarray[Any, np.dtype[np.str_]] = np.zeros(3, dtype="U5")
-
-np.fix(AR_LIKE_b)
-np.fix(AR_LIKE_u)
-np.fix(AR_LIKE_i)
-np.fix(AR_LIKE_f)
-np.fix(AR_LIKE_O)
-np.fix(AR_LIKE_f, out=AR_U)
-
-np.isposinf(AR_LIKE_b)
-np.isposinf(AR_LIKE_u)
-np.isposinf(AR_LIKE_i)
-np.isposinf(AR_LIKE_f)
-np.isposinf(AR_LIKE_f, out=AR_U)
-
-np.isneginf(AR_LIKE_b)
-np.isneginf(AR_LIKE_u)
-np.isneginf(AR_LIKE_i)
-np.isneginf(AR_LIKE_f)
-np.isneginf(AR_LIKE_f, out=AR_U)
+reveal_type(np.isneginf(AR_LIKE_b))  # E: numpy.ndarray[Any, numpy.dtype[numpy.bool_]]
+reveal_type(np.isneginf(AR_LIKE_u))  # E: numpy.ndarray[Any, numpy.dtype[numpy.bool_]]
+reveal_type(np.isneginf(AR_LIKE_i))  # E: numpy.ndarray[Any, numpy.dtype[numpy.bool_]]
+reveal_type(np.isneginf(AR_LIKE_f))  # E: numpy.ndarray[Any, numpy.dtype[numpy.bool_]]
+reveal_type(np.isneginf(AR_LIKE_f, out=AR_U))  # E: numpy.ndarray[Any, numpy.dtype[numpy.str_]]

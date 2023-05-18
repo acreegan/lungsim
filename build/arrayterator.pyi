@@ -1,24 +1,53 @@
-from typing import Any
-import numpy as np
+import sys
+from typing import (
+    List,
+    Any,
+    TypeVar,
+    Generator,
+    List,
+    Union,
+    Tuple,
+    overload,
+)
 
-AR_i8: np.ndarray[Any, np.dtype[np.int64]]
-ar_iter = np.lib.Arrayterator(AR_i8)
+from numpy import ndarray, dtype, generic
+from numpy.typing import DTypeLike
 
-reveal_type(ar_iter.var)  # E: ndarray[Any, dtype[{int64}]]
-reveal_type(ar_iter.buf_size)  # E: Union[None, builtins.int]
-reveal_type(ar_iter.start)  # E: builtins.list[builtins.int]
-reveal_type(ar_iter.stop)  # E: builtins.list[builtins.int]
-reveal_type(ar_iter.step)  # E: builtins.list[builtins.int]
-reveal_type(ar_iter.shape)  # E: builtins.tuple[builtins.int, ...]
-reveal_type(ar_iter.flat)  # E: typing.Generator[{int64}, None, None]
+# TODO: Set a shape bound once we've got proper shape support
+_Shape = TypeVar("_Shape", bound=Any)
+_DType = TypeVar("_DType", bound=dtype[Any])
+_ScalarType = TypeVar("_ScalarType", bound=generic)
 
-reveal_type(ar_iter.__array__())  # E: ndarray[Any, dtype[{int64}]]
+_Index = Union[
+    Union[ellipsis, int, slice],
+    Tuple[Union[ellipsis, int, slice], ...],
+]
 
-for i in ar_iter:
-    reveal_type(i)  # E: ndarray[Any, dtype[{int64}]]
+__all__: List[str]
 
-reveal_type(ar_iter[0])  # E: lib.arrayterator.Arrayterator[Any, dtype[{int64}]]
-reveal_type(ar_iter[...])  # E: lib.arrayterator.Arrayterator[Any, dtype[{int64}]]
-reveal_type(ar_iter[:])  # E: lib.arrayterator.Arrayterator[Any, dtype[{int64}]]
-reveal_type(ar_iter[0, 0, 0])  # E: lib.arrayterator.Arrayterator[Any, dtype[{int64}]]
-reveal_type(ar_iter[..., 0, :])  # E: lib.arrayterator.Arrayterator[Any, dtype[{int64}]]
+# NOTE: In reality `Arrayterator` does not actually inherit from `ndarray`,
+# but its ``__getattr__` method does wrap around the former and thus has
+# access to all its methods
+
+class Arrayterator(ndarray[_Shape, _DType]):
+    var: ndarray[_Shape, _DType]  # type: ignore[assignment]
+    buf_size: None | int
+    start: List[int]
+    stop: List[int]
+    step: List[int]
+
+    @property  # type: ignore[misc]
+    def shape(self) -> Tuple[int, ...]: ...
+    @property
+    def flat(  # type: ignore[override]
+        self: ndarray[Any, dtype[_ScalarType]]
+    ) -> Generator[_ScalarType, None, None]: ...
+    def __init__(
+        self, var: ndarray[_Shape, _DType], buf_size: None | int = ...
+    ) -> None: ...
+    @overload
+    def __array__(self, dtype: None = ...) -> ndarray[Any, _DType]: ...
+    @overload
+    def __array__(self, dtype: DTypeLike) -> ndarray[Any, dtype[Any]]: ...
+    def __getitem__(self, index: _Index) -> Arrayterator[Any, _DType]: ...
+    def __iter__(self) -> Generator[ndarray[Any, _DType], None, None]: ...

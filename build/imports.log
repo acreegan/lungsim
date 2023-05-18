@@ -1,0 +1,6 @@
+﻿  Swig compile ../interface/imports.i for python
+  Deprecated command line option: -py3. Ignored, this option is no longer supported.
+  Building Custom Rule D:/a/lungsim/lungsim/lungsim/src/bindings/python/CMakeLists.txt
+  importsPYTHON_wrap.c
+     Creating library D:/a/lungsim/lungsim/build-lungsim/src/bindings/python/Release/imports.lib and object D:/a/lungsim/lungsim/build-lungsim/src/bindings/python/Release/imports.exp
+  imports.vcxproj -> D:\a\lungsim\lungsim\build-lungsim\src\bindings\python\Release\aether\_imports.pyd

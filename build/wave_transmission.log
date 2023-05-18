@@ -1,0 +1,9 @@
+﻿  Swig compile ../interface/wave_transmission.i for python
+  Deprecated command line option: -py3. Ignored, this option is no longer supported.
+  Building Custom Rule D:/a/lungsim/lungsim/lungsim/src/bindings/python/CMakeLists.txt
+  wave_transmissionPYTHON_wrap.c
+D:\a\lungsim\lungsim\build-lungsim\src\bindings\python\swig_intermediaries\wave_transmissionPYTHON_wrap.c(3617,33): warning C4267: '=': conversion from 'size_t' to 'int', possible loss of data
+D:\a\lungsim\lungsim\build-lungsim\src\bindings\python\swig_intermediaries\wave_transmissionPYTHON_wrap.c(3624,32): warning C4267: '=': conversion from 'size_t' to 'int', possible loss of data
+     Creating library D:/a/lungsim/lungsim/build-lungsim/src/bindings/python/Release/wave_transmission.lib and object D:/a/lungsim/lungsim/build-lungsim/src/bindings/python/Release/wave_transmission.exp
+  wave_transmission.vcxproj -> D:\a\lungsim\lungsim\build-lungsim\src\bindings\python\Release\aether\_wave_transmission.pyd
+  	Finalise preparation of Aether Python bindings.

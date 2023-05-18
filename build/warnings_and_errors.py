@@ -1,6 +1,10 @@
+from typing import Type
+
 import numpy as np
 
-np.AxisError("test")
-np.AxisError(1, ndim=2)
-np.AxisError(1, ndim=2, msg_prefix="error")
-np.AxisError(1, ndim=2, msg_prefix=None)
+reveal_type(np.ModuleDeprecationWarning())  # E: numpy.ModuleDeprecationWarning
+reveal_type(np.VisibleDeprecationWarning())  # E: numpy.VisibleDeprecationWarning
+reveal_type(np.ComplexWarning())  # E: numpy.ComplexWarning
+reveal_type(np.RankWarning())  # E: numpy.RankWarning
+reveal_type(np.TooHardError())  # E: numpy.TooHardError
+reveal_type(np.AxisError(1))  # E: numpy.AxisError

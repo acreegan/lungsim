@@ -1,0 +1,8 @@
+﻿  Swig compile ../interface/geometry.i for python
+  Deprecated command line option: -py3. Ignored, this option is no longer supported.
+  Building Custom Rule D:/a/lungsim/lungsim/lungsim/src/bindings/python/CMakeLists.txt
+  geometryPYTHON_wrap.c
+D:\a\lungsim\lungsim\build-lungsim\src\bindings\python\swig_intermediaries\geometryPYTHON_wrap.c(3771,36): warning C4244: '=': conversion from 'Py_ssize_t' to 'int', possible loss of data
+D:\a\lungsim\lungsim\build-lungsim\src\bindings\python\swig_intermediaries\geometryPYTHON_wrap.c(3835,36): warning C4244: '=': conversion from 'Py_ssize_t' to 'int', possible loss of data
+     Creating library D:/a/lungsim/lungsim/build-lungsim/src/bindings/python/Release/geometry.lib and object D:/a/lungsim/lungsim/build-lungsim/src/bindings/python/Release/geometry.exp
+  geometry.vcxproj -> D:\a\lungsim\lungsim\build-lungsim\src\bindings\python\Release\aether\_geometry.pyd

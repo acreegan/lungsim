@@ -1,47 +1,36 @@
 import numpy as np
 
-np.maximum_sctype("S8")
-np.maximum_sctype(object)
+reveal_type(np.issctype(np.generic))  # E: bool
+reveal_type(np.issctype("foo"))  # E: bool
 
-np.issctype(object)
-np.issctype("S8")
+reveal_type(np.obj2sctype("S8"))  # E: Union[numpy.generic, None]
+reveal_type(np.obj2sctype("S8", default=None))  # E: Union[numpy.generic, None]
+reveal_type(
+    np.obj2sctype("foo", default=int)  # E: Union[numpy.generic, Type[builtins.int*]]
+)
 
-np.obj2sctype(list)
-np.obj2sctype(list, default=None)
-np.obj2sctype(list, default=np.string_)
+reveal_type(np.issubclass_(np.float64, float))  # E: bool
+reveal_type(np.issubclass_(np.float64, (int, float)))  # E: bool
 
-np.issubclass_(np.int32, int)
-np.issubclass_(np.float64, float)
-np.issubclass_(np.float64, (int, float))
+reveal_type(np.sctype2char("S8"))  # E: str
+reveal_type(np.sctype2char(list))  # E: str
 
-np.issubsctype("int64", int)
-np.issubsctype(np.array([1]), np.array([1]))
+reveal_type(np.find_common_type([np.int64], [np.int64]))  # E: numpy.dtype
 
-np.issubdtype("S1", np.string_)
-np.issubdtype(np.float64, np.float32)
+reveal_type(np.cast[int])  # E: _CastFunc
+reveal_type(np.cast["i8"])  # E: _CastFunc
+reveal_type(np.cast[np.int64])  # E: _CastFunc
 
-np.sctype2char("S1")
-np.sctype2char(list)
+reveal_type(np.nbytes[int])  # E: int
+reveal_type(np.nbytes["i8"])  # E: int
+reveal_type(np.nbytes[np.int64])  # E: int
 
-np.find_common_type([], [np.int64, np.float32, complex])
-np.find_common_type((), (np.int64, np.float32, complex))
-np.find_common_type([np.int64, np.float32], [])
-np.find_common_type([np.float32], [np.int64, np.float64])
+reveal_type(np.ScalarType)  # E: Tuple
+reveal_type(np.ScalarType[0])  # E: Type[builtins.int]
+reveal_type(np.ScalarType[4])  # E: Type[builtins.bool]
+reveal_type(np.ScalarType[9])  # E: Type[{csingle}]
+reveal_type(np.ScalarType[11])  # E: Type[{clongdouble}]
 
-np.cast[int]
-np.cast["i8"]
-np.cast[np.int64]
-
-np.nbytes[int]
-np.nbytes["i8"]
-np.nbytes[np.int64]
-
-np.ScalarType
-np.ScalarType[0]
-np.ScalarType[3]
-np.ScalarType[8]
-np.ScalarType[10]
-
-np.typecodes["Character"]
-np.typecodes["Complex"]
-np.typecodes["All"]
+reveal_type(np.typecodes["Character"])  # E: Literal['c']
+reveal_type(np.typecodes["Complex"])  # E: Literal['FDG']
+reveal_type(np.typecodes["All"])  # E: Literal['?bhilqpBHILQPefdgFDGSUVOMm']

@@ -1,0 +1,123 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="16.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <ClCompile Include="D:\a\lungsim\lungsim\lungsim\src\bindings\c\arrays.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\a\lungsim\lungsim\lungsim\src\bindings\c\diagnostics.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\a\lungsim\lungsim\lungsim\src\bindings\c\exports.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\a\lungsim\lungsim\lungsim\src\bindings\c\filenames.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\a\lungsim\lungsim\lungsim\src\bindings\c\field_utilities.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\a\lungsim\lungsim\lungsim\src\bindings\c\gas_exchange.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\a\lungsim\lungsim\lungsim\src\bindings\c\gasmix.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\a\lungsim\lungsim\lungsim\src\bindings\c\geometry.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\a\lungsim\lungsim\lungsim\src\bindings\c\growtree.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\a\lungsim\lungsim\lungsim\src\bindings\c\indices.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\a\lungsim\lungsim\lungsim\src\bindings\c\imports.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\a\lungsim\lungsim\lungsim\src\bindings\c\pressure_resistance_flow.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\a\lungsim\lungsim\lungsim\src\bindings\c\species_transport.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\a\lungsim\lungsim\lungsim\src\bindings\c\surface_fitting.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\a\lungsim\lungsim\lungsim\src\bindings\c\utils.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\a\lungsim\lungsim\lungsim\src\bindings\c\ventilation.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\a\lungsim\lungsim\lungsim\src\bindings\c\wave_transmission.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="D:\a\lungsim\lungsim\lungsim\src\bindings\c\symbol_export.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\a\lungsim\lungsim\lungsim\src\bindings\c\arrays.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\a\lungsim\lungsim\lungsim\src\bindings\c\diagnostics.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\a\lungsim\lungsim\lungsim\src\bindings\c\exports.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\a\lungsim\lungsim\lungsim\src\bindings\c\filenames.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\a\lungsim\lungsim\lungsim\src\bindings\c\field_utilities.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\a\lungsim\lungsim\lungsim\src\bindings\c\gas_exchange.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\a\lungsim\lungsim\lungsim\src\bindings\c\gasmix.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\a\lungsim\lungsim\lungsim\src\bindings\c\geometry.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\a\lungsim\lungsim\lungsim\src\bindings\c\growtree.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\a\lungsim\lungsim\lungsim\src\bindings\c\indices.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\a\lungsim\lungsim\lungsim\src\bindings\c\imports.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\a\lungsim\lungsim\lungsim\src\bindings\c\pressure_resistance_flow.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\a\lungsim\lungsim\lungsim\src\bindings\c\species_transport.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\a\lungsim\lungsim\lungsim\src\bindings\c\surface_fitting.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\a\lungsim\lungsim\lungsim\src\bindings\c\utils.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\a\lungsim\lungsim\lungsim\src\bindings\c\ventilation.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\a\lungsim\lungsim\lungsim\src\bindings\c\wave_transmission.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <CustomBuild Include="D:\a\lungsim\lungsim\lungsim\src\bindings\c\CMakeLists.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="Header Files">
+      <UniqueIdentifier>{757CA233-C5EE-3716-8377-1766E453C449}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{68AC2C30-5753-3DE9-B3F9-521195CDBC5B}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+</Project>

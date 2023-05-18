@@ -10,14 +10,15 @@ four private subclasses, one for each combination of
 from typing import (
     Any,
     Generic,
+    List,
+    Optional,
     overload,
+    Tuple,
     TypeVar,
-    Literal,
-    SupportsIndex,
-    Protocol,
+    Union,
 )
 
-from numpy import ufunc, _CastingKind, _OrderKACF
+from numpy import ufunc, _Casting, _OrderKACF
 from numpy.typing import NDArray
 
 from ._shape import _ShapeLike
@@ -25,25 +26,16 @@ from ._scalars import _ScalarLike_co
 from ._array_like import ArrayLike, _ArrayLikeBool_co, _ArrayLikeInt_co
 from ._dtype_like import DTypeLike
 
+from typing_extensions import Literal, SupportsIndex
+
 _T = TypeVar("_T")
-_2Tuple = tuple[_T, _T]
-_3Tuple = tuple[_T, _T, _T]
-_4Tuple = tuple[_T, _T, _T, _T]
+_2Tuple = Tuple[_T, _T]
+_3Tuple = Tuple[_T, _T, _T]
+_4Tuple = Tuple[_T, _T, _T, _T]
 
 _NTypes = TypeVar("_NTypes", bound=int)
 _IDType = TypeVar("_IDType", bound=Any)
 _NameType = TypeVar("_NameType", bound=str)
-
-
-class _SupportsArrayUFunc(Protocol):
-    def __array_ufunc__(
-        self,
-        ufunc: ufunc,
-        method: Literal["__call__", "reduce", "reduceat", "accumulate", "outer", "inner"],
-        *inputs: Any,
-        **kwargs: Any,
-    ) -> Any: ...
-
 
 # NOTE: In reality `extobj` should be a length of list 3 containing an
 # int, an int, and a callable, but there's no way to properly express
@@ -60,7 +52,7 @@ class _SupportsArrayUFunc(Protocol):
 # NOTE: If 2 output types are returned then `out` must be a
 # 2-tuple of arrays. Otherwise `None` or a plain array are also acceptable
 
-class _UFunc_Nin1_Nout1(ufunc, Generic[_NameType, _NTypes, _IDType]):  # type: ignore[misc]
+class _UFunc_Nin1_Nout1(ufunc, Generic[_NameType, _NTypes, _IDType]):
     @property
     def __name__(self) -> _NameType: ...
     @property
@@ -90,51 +82,36 @@ class _UFunc_Nin1_Nout1(ufunc, Generic[_NameType, _NTypes, _IDType]):  # type: i
         __x1: _ScalarLike_co,
         out: None = ...,
         *,
-        where: None | _ArrayLikeBool_co = ...,
-        casting: _CastingKind = ...,
+        where: Optional[_ArrayLikeBool_co] = ...,
+        casting: _Casting = ...,
         order: _OrderKACF = ...,
         dtype: DTypeLike = ...,
         subok: bool = ...,
-        signature: str | _2Tuple[None | str] = ...,
-        extobj: list[Any] = ...,
+        signature: Union[str, _2Tuple[Optional[str]]] = ...,
+        extobj: List[Any] = ...,
     ) -> Any: ...
     @overload
     def __call__(
         self,
         __x1: ArrayLike,
-        out: None | NDArray[Any] | tuple[NDArray[Any]] = ...,
+        out: Union[None, NDArray[Any], Tuple[NDArray[Any]]] = ...,
         *,
-        where: None | _ArrayLikeBool_co = ...,
-        casting: _CastingKind = ...,
+        where: Optional[_ArrayLikeBool_co] = ...,
+        casting: _Casting = ...,
         order: _OrderKACF = ...,
         dtype: DTypeLike = ...,
         subok: bool = ...,
-        signature: str | _2Tuple[None | str] = ...,
-        extobj: list[Any] = ...,
+        signature: Union[str, _2Tuple[Optional[str]]] = ...,
+        extobj: List[Any] = ...,
     ) -> NDArray[Any]: ...
-    @overload
-    def __call__(
-        self,
-        __x1: _SupportsArrayUFunc,
-        out: None | NDArray[Any] | tuple[NDArray[Any]] = ...,
-        *,
-        where: None | _ArrayLikeBool_co = ...,
-        casting: _CastingKind = ...,
-        order: _OrderKACF = ...,
-        dtype: DTypeLike = ...,
-        subok: bool = ...,
-        signature: str | _2Tuple[None | str] = ...,
-        extobj: list[Any] = ...,
-    ) -> Any: ...
 
     def at(
         self,
-        a: _SupportsArrayUFunc,
-        indices: _ArrayLikeInt_co,
-        /,
+        __a: NDArray[Any],
+        __indices: _ArrayLikeInt_co,
     ) -> None: ...
 
-class _UFunc_Nin2_Nout1(ufunc, Generic[_NameType, _NTypes, _IDType]):  # type: ignore[misc]
+class _UFunc_Nin2_Nout1(ufunc, Generic[_NameType, _NTypes, _IDType]):
     @property
     def __name__(self) -> _NameType: ...
     @property
@@ -157,44 +134,43 @@ class _UFunc_Nin2_Nout1(ufunc, Generic[_NameType, _NTypes, _IDType]):  # type: i
         __x2: _ScalarLike_co,
         out: None = ...,
         *,
-        where: None | _ArrayLikeBool_co = ...,
-        casting: _CastingKind = ...,
+        where: Optional[_ArrayLikeBool_co] = ...,
+        casting: _Casting = ...,
         order: _OrderKACF = ...,
         dtype: DTypeLike = ...,
         subok: bool = ...,
-        signature: str | _3Tuple[None | str] = ...,
-        extobj: list[Any] = ...,
+        signature: Union[str, _3Tuple[Optional[str]]] = ...,
+        extobj: List[Any] = ...,
     ) -> Any: ...
     @overload
     def __call__(
         self,
         __x1: ArrayLike,
         __x2: ArrayLike,
-        out: None | NDArray[Any] | tuple[NDArray[Any]] = ...,
+        out: Union[None, NDArray[Any], Tuple[NDArray[Any]]] = ...,
         *,
-        where: None | _ArrayLikeBool_co = ...,
-        casting: _CastingKind = ...,
+        where: Optional[_ArrayLikeBool_co] = ...,
+        casting: _Casting = ...,
         order: _OrderKACF = ...,
         dtype: DTypeLike = ...,
         subok: bool = ...,
-        signature: str | _3Tuple[None | str] = ...,
-        extobj: list[Any] = ...,
+        signature: Union[str, _3Tuple[Optional[str]]] = ...,
+        extobj: List[Any] = ...,
     ) -> NDArray[Any]: ...
 
     def at(
         self,
-        a: NDArray[Any],
-        indices: _ArrayLikeInt_co,
-        b: ArrayLike,
-        /,
+        __a: NDArray[Any],
+        __indices: _ArrayLikeInt_co,
+        __b: ArrayLike,
     ) -> None: ...
 
     def reduce(
         self,
         array: ArrayLike,
-        axis: None | _ShapeLike = ...,
+        axis: Optional[_ShapeLike] = ...,
         dtype: DTypeLike = ...,
-        out: None | NDArray[Any] = ...,
+        out: Optional[NDArray[Any]] = ...,
         keepdims: bool = ...,
         initial: Any = ...,
         where: _ArrayLikeBool_co = ...,
@@ -205,7 +181,7 @@ class _UFunc_Nin2_Nout1(ufunc, Generic[_NameType, _NTypes, _IDType]):  # type: i
         array: ArrayLike,
         axis: SupportsIndex = ...,
         dtype: DTypeLike = ...,
-        out: None | NDArray[Any] = ...,
+        out: Optional[NDArray[Any]] = ...,
     ) -> NDArray[Any]: ...
 
     def reduceat(
@@ -214,42 +190,42 @@ class _UFunc_Nin2_Nout1(ufunc, Generic[_NameType, _NTypes, _IDType]):  # type: i
         indices: _ArrayLikeInt_co,
         axis: SupportsIndex = ...,
         dtype: DTypeLike = ...,
-        out: None | NDArray[Any] = ...,
+        out: Optional[NDArray[Any]] = ...,
     ) -> NDArray[Any]: ...
 
     # Expand `**kwargs` into explicit keyword-only arguments
     @overload
     def outer(
         self,
-        A: _ScalarLike_co,
-        B: _ScalarLike_co,
-        /, *,
+        __A: _ScalarLike_co,
+        __B: _ScalarLike_co,
+        *,
         out: None = ...,
-        where: None | _ArrayLikeBool_co = ...,
-        casting: _CastingKind = ...,
+        where: Optional[_ArrayLikeBool_co] = ...,
+        casting: _Casting = ...,
         order: _OrderKACF = ...,
         dtype: DTypeLike = ...,
         subok: bool = ...,
-        signature: str | _3Tuple[None | str] = ...,
-        extobj: list[Any] = ...,
+        signature: Union[str, _3Tuple[Optional[str]]] = ...,
+        extobj: List[Any] = ...,
     ) -> Any: ...
     @overload
     def outer(  # type: ignore[misc]
         self,
-        A: ArrayLike,
-        B: ArrayLike,
-        /, *,
-        out: None | NDArray[Any] | tuple[NDArray[Any]] = ...,
-        where: None | _ArrayLikeBool_co = ...,
-        casting: _CastingKind = ...,
+        __A: ArrayLike,
+        __B: ArrayLike,
+        *,
+        out: Union[None, NDArray[Any], Tuple[NDArray[Any]]] = ...,
+        where: Optional[_ArrayLikeBool_co] = ...,
+        casting: _Casting = ...,
         order: _OrderKACF = ...,
         dtype: DTypeLike = ...,
         subok: bool = ...,
-        signature: str | _3Tuple[None | str] = ...,
-        extobj: list[Any] = ...,
+        signature: Union[str, _3Tuple[Optional[str]]] = ...,
+        extobj: List[Any] = ...,
     ) -> NDArray[Any]: ...
 
-class _UFunc_Nin1_Nout2(ufunc, Generic[_NameType, _NTypes, _IDType]):  # type: ignore[misc]
+class _UFunc_Nin1_Nout2(ufunc, Generic[_NameType, _NTypes, _IDType]):
     @property
     def __name__(self) -> _NameType: ...
     @property
@@ -282,48 +258,32 @@ class _UFunc_Nin1_Nout2(ufunc, Generic[_NameType, _NTypes, _IDType]):  # type: i
         __out1: None = ...,
         __out2: None = ...,
         *,
-        where: None | _ArrayLikeBool_co = ...,
-        casting: _CastingKind = ...,
+        where: Optional[_ArrayLikeBool_co] = ...,
+        casting: _Casting = ...,
         order: _OrderKACF = ...,
         dtype: DTypeLike = ...,
         subok: bool = ...,
-        signature: str | _3Tuple[None | str] = ...,
-        extobj: list[Any] = ...,
+        signature: Union[str, _3Tuple[Optional[str]]] = ...,
+        extobj: List[Any] = ...,
     ) -> _2Tuple[Any]: ...
     @overload
     def __call__(
         self,
         __x1: ArrayLike,
-        __out1: None | NDArray[Any] = ...,
-        __out2: None | NDArray[Any] = ...,
+        __out1: Optional[NDArray[Any]] = ...,
+        __out2: Optional[NDArray[Any]] = ...,
         *,
         out: _2Tuple[NDArray[Any]] = ...,
-        where: None | _ArrayLikeBool_co = ...,
-        casting: _CastingKind = ...,
+        where: Optional[_ArrayLikeBool_co] = ...,
+        casting: _Casting = ...,
         order: _OrderKACF = ...,
         dtype: DTypeLike = ...,
         subok: bool = ...,
-        signature: str | _3Tuple[None | str] = ...,
-        extobj: list[Any] = ...,
+        signature: Union[str, _3Tuple[Optional[str]]] = ...,
+        extobj: List[Any] = ...,
     ) -> _2Tuple[NDArray[Any]]: ...
-    @overload
-    def __call__(
-        self,
-        __x1: _SupportsArrayUFunc,
-        __out1: None | NDArray[Any] = ...,
-        __out2: None | NDArray[Any] = ...,
-        *,
-        out: _2Tuple[NDArray[Any]] = ...,
-        where: None | _ArrayLikeBool_co = ...,
-        casting: _CastingKind = ...,
-        order: _OrderKACF = ...,
-        dtype: DTypeLike = ...,
-        subok: bool = ...,
-        signature: str | _3Tuple[None | str] = ...,
-        extobj: list[Any] = ...,
-    ) -> _2Tuple[Any]: ...
 
-class _UFunc_Nin2_Nout2(ufunc, Generic[_NameType, _NTypes, _IDType]):  # type: ignore[misc]
+class _UFunc_Nin2_Nout2(ufunc, Generic[_NameType, _NTypes, _IDType]):
     @property
     def __name__(self) -> _NameType: ...
     @property
@@ -357,33 +317,33 @@ class _UFunc_Nin2_Nout2(ufunc, Generic[_NameType, _NTypes, _IDType]):  # type: i
         __out1: None = ...,
         __out2: None = ...,
         *,
-        where: None | _ArrayLikeBool_co = ...,
-        casting: _CastingKind = ...,
+        where: Optional[_ArrayLikeBool_co] = ...,
+        casting: _Casting = ...,
         order: _OrderKACF = ...,
         dtype: DTypeLike = ...,
         subok: bool = ...,
-        signature: str | _4Tuple[None | str] = ...,
-        extobj: list[Any] = ...,
+        signature: Union[str, _4Tuple[Optional[str]]] = ...,
+        extobj: List[Any] = ...,
     ) -> _2Tuple[Any]: ...
     @overload
     def __call__(
         self,
         __x1: ArrayLike,
         __x2: ArrayLike,
-        __out1: None | NDArray[Any] = ...,
-        __out2: None | NDArray[Any] = ...,
+        __out1: Optional[NDArray[Any]] = ...,
+        __out2: Optional[NDArray[Any]] = ...,
         *,
         out: _2Tuple[NDArray[Any]] = ...,
-        where: None | _ArrayLikeBool_co = ...,
-        casting: _CastingKind = ...,
+        where: Optional[_ArrayLikeBool_co] = ...,
+        casting: _Casting = ...,
         order: _OrderKACF = ...,
         dtype: DTypeLike = ...,
         subok: bool = ...,
-        signature: str | _4Tuple[None | str] = ...,
-        extobj: list[Any] = ...,
+        signature: Union[str, _4Tuple[Optional[str]]] = ...,
+        extobj: List[Any] = ...,
     ) -> _2Tuple[NDArray[Any]]: ...
 
-class _GUFunc_Nin2_Nout1(ufunc, Generic[_NameType, _NTypes, _IDType]):  # type: ignore[misc]
+class _GUFunc_Nin2_Nout1(ufunc, Generic[_NameType, _NTypes, _IDType]):
     @property
     def __name__(self) -> _NameType: ...
     @property
@@ -397,7 +357,7 @@ class _GUFunc_Nin2_Nout1(ufunc, Generic[_NameType, _NTypes, _IDType]):  # type: 
     @property
     def nargs(self) -> Literal[3]: ...
 
-    # NOTE: In practice the only gufunc in the main namespace is `matmul`,
+    # NOTE: In practice the only gufunc in the main name is `matmul`,
     # so we can use its signature here
     @property
     def signature(self) -> Literal["(n?,k),(k,m?)->(n?,m?)"]: ...
@@ -420,26 +380,26 @@ class _GUFunc_Nin2_Nout1(ufunc, Generic[_NameType, _NTypes, _IDType]):  # type: 
         __x2: ArrayLike,
         out: None = ...,
         *,
-        casting: _CastingKind = ...,
+        casting: _Casting = ...,
         order: _OrderKACF = ...,
         dtype: DTypeLike = ...,
         subok: bool = ...,
-        signature: str | _3Tuple[None | str] = ...,
-        extobj: list[Any] = ...,
-        axes: list[_2Tuple[SupportsIndex]] = ...,
+        signature: Union[str, _3Tuple[Optional[str]]] = ...,
+        extobj: List[Any] = ...,
+        axes: List[_2Tuple[SupportsIndex]] = ...,
     ) -> Any: ...
     @overload
     def __call__(
         self,
         __x1: ArrayLike,
         __x2: ArrayLike,
-        out: NDArray[Any] | tuple[NDArray[Any]],
+        out: Union[NDArray[Any], Tuple[NDArray[Any]]],
         *,
-        casting: _CastingKind = ...,
+        casting: _Casting = ...,
         order: _OrderKACF = ...,
         dtype: DTypeLike = ...,
         subok: bool = ...,
-        signature: str | _3Tuple[None | str] = ...,
-        extobj: list[Any] = ...,
-        axes: list[_2Tuple[SupportsIndex]] = ...,
+        signature: Union[str, _3Tuple[Optional[str]]] = ...,
+        extobj: List[Any] = ...,
+        axes: List[_2Tuple[SupportsIndex]] = ...,
     ) -> NDArray[Any]: ...

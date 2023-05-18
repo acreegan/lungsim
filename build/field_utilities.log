@@ -1,0 +1,6 @@
+﻿  Swig compile ../interface/field_utilities.i for python
+  Deprecated command line option: -py3. Ignored, this option is no longer supported.
+  Building Custom Rule D:/a/lungsim/lungsim/lungsim/src/bindings/python/CMakeLists.txt
+  field_utilitiesPYTHON_wrap.c
+     Creating library D:/a/lungsim/lungsim/build-lungsim/src/bindings/python/Release/field_utilities.lib and object D:/a/lungsim/lungsim/build-lungsim/src/bindings/python/Release/field_utilities.exp
+  field_utilities.vcxproj -> D:\a\lungsim\lungsim\build-lungsim\src\bindings\python\Release\aether\_field_utilities.pyd

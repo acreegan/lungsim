@@ -1,62 +1,124 @@
+"""Build a project using PEP 517 hooks.
+"""
+import argparse
+import logging
 import os
-import sys
-from distutils.command.build import build as old_build
-from distutils.util import get_platform
-from numpy.distutils.command.config_compiler import show_fortran_compilers
+from pip._vendor import toml
+import shutil
 
-class build(old_build):
+from .envbuild import BuildEnvironment
+from .wrappers import Pep517HookCaller
+from .dirtools import tempdir, mkdir_p
+from .compat import FileNotFoundError
 
-    sub_commands = [('config_cc',     lambda *args: True),
-                    ('config_fc',     lambda *args: True),
-                    ('build_src',     old_build.has_ext_modules),
-                    ] + old_build.sub_commands
+log = logging.getLogger(__name__)
 
-    user_options = old_build.user_options + [
-        ('fcompiler=', None,
-         "specify the Fortran compiler type"),
-        ('warn-error', None,
-         "turn all warnings into errors (-Werror)"),
-        ('cpu-baseline=', None,
-         "specify a list of enabled baseline CPU optimizations"),
-        ('cpu-dispatch=', None,
-         "specify a list of dispatched CPU optimizations"),
-        ('disable-optimization', None,
-         "disable CPU optimized code(dispatch,simd,fast...)"),
-        ('simd-test=', None,
-         "specify a list of CPU optimizations to be tested against NumPy SIMD interface"),
-        ]
 
-    help_options = old_build.help_options + [
-        ('help-fcompiler', None, "list available Fortran compilers",
-         show_fortran_compilers),
-        ]
+def validate_system(system):
+    """
+    Ensure build system has the requisite fields.
+    """
+    required = {'requires', 'build-backend'}
+    if not (required <= set(system)):
+        message = "Missing required fields: {missing}".format(
+            missing=required-set(system),
+        )
+        raise ValueError(message)
 
-    def initialize_options(self):
-        old_build.initialize_options(self)
-        self.fcompiler = None
-        self.warn_error = False
-        self.cpu_baseline = "min"
-        self.cpu_dispatch = "max -xop -fma4" # drop AMD legacy features by default
-        self.disable_optimization = False
-        """
-        the '_simd' module is a very large. Adding more dispatched features
-        will increase binary size and compile time. By default we minimize
-        the targeted features to those most commonly used by the NumPy SIMD interface(NPYV),
-        NOTE: any specified features will be ignored if they're:
-            - part of the baseline(--cpu-baseline)
-            - not part of dispatch-able features(--cpu-dispatch)
-            - not supported by compiler or platform
-        """
-        self.simd_test = "BASELINE SSE2 SSE42 XOP FMA4 (FMA3 AVX2) AVX512F " \
-                         "AVX512_SKX VSX VSX2 VSX3 VSX4 NEON ASIMD VX VXE VXE2"
 
-    def finalize_options(self):
-        build_scripts = self.build_scripts
-        old_build.finalize_options(self)
-        plat_specifier = ".{}-{}.{}".format(get_platform(), *sys.version_info[:2])
-        if build_scripts is None:
-            self.build_scripts = os.path.join(self.build_base,
-                                              'scripts' + plat_specifier)
+def load_system(source_dir):
+    """
+    Load the build system from a source dir (pyproject.toml).
+    """
+    pyproject = os.path.join(source_dir, 'pyproject.toml')
+    with open(pyproject) as f:
+        pyproject_data = toml.load(f)
+    return pyproject_data['build-system']
 
-    def run(self):
-        old_build.run(self)
+
+def compat_system(source_dir):
+    """
+    Given a source dir, attempt to get a build system backend
+    and requirements from pyproject.toml. Fallback to
+    setuptools but only if the file was not found or a build
+    system was not indicated.
+    """
+    try:
+        system = load_system(source_dir)
+    except (FileNotFoundError, KeyError):
+        system = {}
+    system.setdefault(
+        'build-backend',
+        'setuptools.build_meta:__legacy__',
+    )
+    system.setdefault('requires', ['setuptools', 'wheel'])
+    return system
+
+
+def _do_build(hooks, env, dist, dest):
+    get_requires_name = 'get_requires_for_build_{dist}'.format(**locals())
+    get_requires = getattr(hooks, get_requires_name)
+    reqs = get_requires({})
+    log.info('Got build requires: %s', reqs)
+
+    env.pip_install(reqs)
+    log.info('Installed dynamic build dependencies')
+
+    with tempdir() as td:
+        log.info('Trying to build %s in %s', dist, td)
+        build_name = 'build_{dist}'.format(**locals())
+        build = getattr(hooks, build_name)
+        filename = build(td, {})
+        source = os.path.join(td, filename)
+        shutil.move(source, os.path.join(dest, os.path.basename(filename)))
+
+
+def build(source_dir, dist, dest=None, system=None):
+    system = system or load_system(source_dir)
+    dest = os.path.join(source_dir, dest or 'dist')
+    mkdir_p(dest)
+
+    validate_system(system)
+    hooks = Pep517HookCaller(
+        source_dir, system['build-backend'], system.get('backend-path')
+    )
+
+    with BuildEnvironment() as env:
+        env.pip_install(system['requires'])
+        _do_build(hooks, env, dist, dest)
+
+
+parser = argparse.ArgumentParser()
+parser.add_argument(
+    'source_dir',
+    help="A directory containing pyproject.toml",
+)
+parser.add_argument(
+    '--binary', '-b',
+    action='store_true',
+    default=False,
+)
+parser.add_argument(
+    '--source', '-s',
+    action='store_true',
+    default=False,
+)
+parser.add_argument(
+    '--out-dir', '-o',
+    help="Destination in which to save the builds relative to source dir",
+)
+
+
+def main(args):
+    # determine which dists to build
+    dists = list(filter(None, (
+        'sdist' if args.source or not args.binary else None,
+        'wheel' if args.binary or not args.source else None,
+    )))
+
+    for dist in dists:
+        build(args.source_dir, dist, args.out_dir)
+
+
+if __name__ == '__main__':
+    main(parser.parse_args())

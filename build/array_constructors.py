@@ -1,137 +1,102 @@
-import sys
-from typing import Any
+from typing import List, Any
 import numpy as np
 
+class SubClass(np.ndarray): ...
 
-class Index:
-    def __index__(self) -> int:
-        return 0
+i8: np.int64
 
+A: np.ndarray
+B: SubClass
+C: List[int]
 
-class SubClass(np.ndarray):
-    pass
+def func(i: int, j: int, **kwargs: Any) -> SubClass: ...
 
+reveal_type(np.asarray(A))  # E: numpy.ndarray[Any, Any]
+reveal_type(np.asarray(B))  # E: numpy.ndarray[Any, Any]
+reveal_type(np.asarray(C))  # E: numpy.ndarray[Any, Any]
 
-def func(i: int, j: int, **kwargs: Any) -> SubClass:
-    return B
+reveal_type(np.asanyarray(A))  # E: numpy.ndarray[Any, Any]
+reveal_type(np.asanyarray(B))  # E: SubClass
+reveal_type(np.asanyarray(B, dtype=int))  # E: numpy.ndarray[Any, Any]
+reveal_type(np.asanyarray(C))  # E: numpy.ndarray[Any, Any]
 
+reveal_type(np.ascontiguousarray(A))  # E: numpy.ndarray[Any, Any]
+reveal_type(np.ascontiguousarray(B))  # E: numpy.ndarray[Any, Any]
+reveal_type(np.ascontiguousarray(C))  # E: numpy.ndarray[Any, Any]
 
-i8 = np.int64(1)
+reveal_type(np.asfortranarray(A))  # E: numpy.ndarray[Any, Any]
+reveal_type(np.asfortranarray(B))  # E: numpy.ndarray[Any, Any]
+reveal_type(np.asfortranarray(C))  # E: numpy.ndarray[Any, Any]
 
-A = np.array([1])
-B = A.view(SubClass).copy()
-B_stack = np.array([[1], [1]]).view(SubClass)
-C = [1]
+reveal_type(np.require(A))  # E: numpy.ndarray[Any, Any]
+reveal_type(np.require(B))  # E: SubClass
+reveal_type(np.require(B, requirements=None))  # E: SubClass
+reveal_type(np.require(B, dtype=int))  # E: numpy.ndarray[Any, Any]
+reveal_type(np.require(B, requirements="E"))  # E: numpy.ndarray[Any, Any]
+reveal_type(np.require(B, requirements=["ENSUREARRAY"]))  # E: numpy.ndarray[Any, Any]
+reveal_type(np.require(B, requirements={"F", "E"}))  # E: numpy.ndarray[Any, Any]
+reveal_type(np.require(B, requirements=["C", "OWNDATA"]))  # E: SubClass
+reveal_type(np.require(B, requirements="W"))  # E: SubClass
+reveal_type(np.require(B, requirements="A"))  # E: SubClass
+reveal_type(np.require(C))  # E: numpy.ndarray[Any, Any]
 
-np.ndarray(Index())
-np.ndarray([Index()])
+reveal_type(np.linspace(0, 10))  # E: numpy.ndarray[Any, Any]
+reveal_type(np.linspace(0, 10, retstep=True))  # E: Tuple[numpy.ndarray[Any, Any], Any]
+reveal_type(np.logspace(0, 10))  # E: numpy.ndarray[Any, Any]
+reveal_type(np.geomspace(1, 10))  # E: numpy.ndarray[Any, Any]
 
-np.array(1, dtype=float)
-np.array(1, copy=False)
-np.array(1, order='F')
-np.array(1, order=None)
-np.array(1, subok=True)
-np.array(1, ndmin=3)
-np.array(1, str, copy=True, order='C', subok=False, ndmin=2)
+reveal_type(np.zeros_like(A))  # E: numpy.ndarray[Any, Any]
+reveal_type(np.zeros_like(C))  # E: numpy.ndarray[Any, Any]
+reveal_type(np.zeros_like(B))  # E: SubClass
+reveal_type(np.zeros_like(B, dtype=np.int64))  # E: numpy.ndarray[Any, Any]
 
-np.asarray(A)
-np.asarray(B)
-np.asarray(C)
+reveal_type(np.ones_like(A))  # E: numpy.ndarray[Any, Any]
+reveal_type(np.ones_like(C))  # E: numpy.ndarray[Any, Any]
+reveal_type(np.ones_like(B))  # E: SubClass
+reveal_type(np.ones_like(B, dtype=np.int64))  # E: numpy.ndarray[Any, Any]
 
-np.asanyarray(A)
-np.asanyarray(B)
-np.asanyarray(B, dtype=int)
-np.asanyarray(C)
+reveal_type(np.empty_like(A))  # E: numpy.ndarray[Any, Any]
+reveal_type(np.empty_like(C))  # E: numpy.ndarray[Any, Any]
+reveal_type(np.empty_like(B))  # E: SubClass
+reveal_type(np.empty_like(B, dtype=np.int64))  # E: numpy.ndarray[Any, Any]
 
-np.ascontiguousarray(A)
-np.ascontiguousarray(B)
-np.ascontiguousarray(C)
+reveal_type(np.full_like(A, i8))  # E: numpy.ndarray[Any, Any]
+reveal_type(np.full_like(C, i8))  # E: numpy.ndarray[Any, Any]
+reveal_type(np.full_like(B, i8))  # E: SubClass
+reveal_type(np.full_like(B, i8, dtype=np.int64))  # E: numpy.ndarray[Any, Any]
 
-np.asfortranarray(A)
-np.asfortranarray(B)
-np.asfortranarray(C)
+reveal_type(np.ones(1))  # E: numpy.ndarray[Any, Any]
+reveal_type(np.ones([1, 1, 1]))  # E: numpy.ndarray[Any, Any]
 
-np.require(A)
-np.require(B)
-np.require(B, dtype=int)
-np.require(B, requirements=None)
-np.require(B, requirements="E")
-np.require(B, requirements=["ENSUREARRAY"])
-np.require(B, requirements={"F", "E"})
-np.require(B, requirements=["C", "OWNDATA"])
-np.require(B, requirements="W")
-np.require(B, requirements="A")
-np.require(C)
+reveal_type(np.full(1, i8))  # E: numpy.ndarray[Any, Any]
+reveal_type(np.full([1, 1, 1], i8))  # E: numpy.ndarray[Any, Any]
 
-np.linspace(0, 2)
-np.linspace(0.5, [0, 1, 2])
-np.linspace([0, 1, 2], 3)
-np.linspace(0j, 2)
-np.linspace(0, 2, num=10)
-np.linspace(0, 2, endpoint=True)
-np.linspace(0, 2, retstep=True)
-np.linspace(0j, 2j, retstep=True)
-np.linspace(0, 2, dtype=bool)
-np.linspace([0, 1], [2, 3], axis=Index())
+reveal_type(np.indices([1, 2, 3]))  # E: numpy.ndarray[Any, Any]
+reveal_type(np.indices([1, 2, 3], sparse=True))  # E: tuple[numpy.ndarray[Any, Any]]
 
-np.logspace(0, 2, base=2)
-np.logspace(0, 2, base=2)
-np.logspace(0, 2, base=[1j, 2j], num=2)
+reveal_type(np.fromfunction(func, (3, 5)))  # E: SubClass
 
-np.geomspace(1, 2)
+reveal_type(np.identity(10))  # E: numpy.ndarray[Any, Any]
 
-np.zeros_like(A)
-np.zeros_like(C)
-np.zeros_like(B)
-np.zeros_like(B, dtype=np.int64)
+reveal_type(np.atleast_1d(A))  # E: numpy.ndarray[Any, Any]
+reveal_type(np.atleast_1d(C))  # E: numpy.ndarray[Any, Any]
+reveal_type(np.atleast_1d(A, A))  # E: list[numpy.ndarray[Any, Any]]
+reveal_type(np.atleast_1d(A, C))  # E: list[numpy.ndarray[Any, Any]]
+reveal_type(np.atleast_1d(C, C))  # E: list[numpy.ndarray[Any, Any]]
 
-np.ones_like(A)
-np.ones_like(C)
-np.ones_like(B)
-np.ones_like(B, dtype=np.int64)
+reveal_type(np.atleast_2d(A))  # E: numpy.ndarray[Any, Any]
 
-np.empty_like(A)
-np.empty_like(C)
-np.empty_like(B)
-np.empty_like(B, dtype=np.int64)
+reveal_type(np.atleast_3d(A))  # E: numpy.ndarray[Any, Any]
 
-np.full_like(A, i8)
-np.full_like(C, i8)
-np.full_like(B, i8)
-np.full_like(B, i8, dtype=np.int64)
+reveal_type(np.vstack([A, A]))  # E: numpy.ndarray[Any, Any]
+reveal_type(np.vstack([A, C]))  # E: numpy.ndarray[Any, Any]
+reveal_type(np.vstack([C, C]))  # E: numpy.ndarray[Any, Any]
 
-np.ones(1)
-np.ones([1, 1, 1])
+reveal_type(np.hstack([A, A]))  # E: numpy.ndarray[Any, Any]
 
-np.full(1, i8)
-np.full([1, 1, 1], i8)
+reveal_type(np.stack([A, A]))  # E: numpy.ndarray[Any, Any]
+reveal_type(np.stack([A, A], axis=0))  # E: numpy.ndarray[Any, Any]
+reveal_type(np.stack([A, A], out=B))  # E: SubClass
 
-np.indices([1, 2, 3])
-np.indices([1, 2, 3], sparse=True)
-
-np.fromfunction(func, (3, 5))
-
-np.identity(10)
-
-np.atleast_1d(C)
-np.atleast_1d(A)
-np.atleast_1d(C, C)
-np.atleast_1d(C, A)
-np.atleast_1d(A, A)
-
-np.atleast_2d(C)
-
-np.atleast_3d(C)
-
-np.vstack([C, C])
-np.vstack([C, A])
-np.vstack([A, A])
-
-np.hstack([C, C])
-
-np.stack([C, C])
-np.stack([C, C], axis=0)
-np.stack([C, C], out=B_stack)
-
-np.block([[C, C], [C, C]])
-np.block(A)
+reveal_type(np.block([[A, A], [A, A]]))  # E: numpy.ndarray[Any, Any]
+reveal_type(np.block(C))  # E: numpy.ndarray[Any, Any]

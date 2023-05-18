@@ -1,6 +1,3 @@
-from __future__ import annotations
-
-from typing import Any
 import numpy as np
 
 c16 = np.complex128()
@@ -23,279 +20,233 @@ c = complex()
 f = float()
 i = int()
 
+AR = np.array([0], dtype=np.int64)
+AR.setflags(write=False)
+
 SEQ = (0, 1, 2, 3, 4)
-
-AR_b: np.ndarray[Any, np.dtype[np.bool_]] = np.array([True])
-AR_u: np.ndarray[Any, np.dtype[np.uint32]] = np.array([1], dtype=np.uint32)
-AR_i: np.ndarray[Any, np.dtype[np.int_]] = np.array([1])
-AR_f: np.ndarray[Any, np.dtype[np.float_]] = np.array([1.0])
-AR_c: np.ndarray[Any, np.dtype[np.complex_]] = np.array([1.0j])
-AR_m: np.ndarray[Any, np.dtype[np.timedelta64]] = np.array([np.timedelta64("1")])
-AR_M: np.ndarray[Any, np.dtype[np.datetime64]] = np.array([np.datetime64("1")])
-AR_O: np.ndarray[Any, np.dtype[np.object_]] = np.array([1], dtype=object)
-
-# Arrays
-
-AR_b > AR_b
-AR_b > AR_u
-AR_b > AR_i
-AR_b > AR_f
-AR_b > AR_c
-
-AR_u > AR_b
-AR_u > AR_u
-AR_u > AR_i
-AR_u > AR_f
-AR_u > AR_c
-
-AR_i > AR_b
-AR_i > AR_u
-AR_i > AR_i
-AR_i > AR_f
-AR_i > AR_c
-
-AR_f > AR_b
-AR_f > AR_u
-AR_f > AR_i
-AR_f > AR_f
-AR_f > AR_c
-
-AR_c > AR_b
-AR_c > AR_u
-AR_c > AR_i
-AR_c > AR_f
-AR_c > AR_c
-
-AR_m > AR_b
-AR_m > AR_u
-AR_m > AR_i
-AR_b > AR_m
-AR_u > AR_m
-AR_i > AR_m
-
-AR_M > AR_M
-
-AR_O > AR_O
-1 > AR_O
-AR_O > 1
 
 # Time structures
 
-dt > dt
+reveal_type(dt > dt)  # E: numpy.bool_
 
-td > td
-td > i
-td > i4
-td > i8
-td > AR_i
-td > SEQ
+reveal_type(td > td)  # E: numpy.bool_
+reveal_type(td > i)  # E: numpy.bool_
+reveal_type(td > i4)  # E: numpy.bool_
+reveal_type(td > i8)  # E: numpy.bool_
+
+reveal_type(td > AR)  # E: numpy.ndarray[Any, numpy.dtype[numpy.bool_]]
+reveal_type(td > SEQ)  # E: numpy.ndarray[Any, numpy.dtype[numpy.bool_]]
+reveal_type(AR > SEQ)  # E: numpy.ndarray[Any, numpy.dtype[numpy.bool_]]
+reveal_type(AR > td)  # E: numpy.ndarray[Any, numpy.dtype[numpy.bool_]]
+reveal_type(SEQ > td)  # E: numpy.ndarray[Any, numpy.dtype[numpy.bool_]]
+reveal_type(SEQ > AR)  # E: numpy.ndarray[Any, numpy.dtype[numpy.bool_]]
 
 # boolean
 
-b_ > b
-b_ > b_
-b_ > i
-b_ > i8
-b_ > i4
-b_ > u8
-b_ > u4
-b_ > f
-b_ > f8
-b_ > f4
-b_ > c
-b_ > c16
-b_ > c8
-b_ > AR_i
-b_ > SEQ
+reveal_type(b_ > b)  # E: numpy.bool_
+reveal_type(b_ > b_)  # E: numpy.bool_
+reveal_type(b_ > i)  # E: numpy.bool_
+reveal_type(b_ > i8)  # E: numpy.bool_
+reveal_type(b_ > i4)  # E: numpy.bool_
+reveal_type(b_ > u8)  # E: numpy.bool_
+reveal_type(b_ > u4)  # E: numpy.bool_
+reveal_type(b_ > f)  # E: numpy.bool_
+reveal_type(b_ > f8)  # E: numpy.bool_
+reveal_type(b_ > f4)  # E: numpy.bool_
+reveal_type(b_ > c)  # E: numpy.bool_
+reveal_type(b_ > c16)  # E: numpy.bool_
+reveal_type(b_ > c8)  # E: numpy.bool_
+reveal_type(b_ > AR)  # E: numpy.ndarray[Any, numpy.dtype[numpy.bool_]]
+reveal_type(b_ > SEQ)  # E: numpy.ndarray[Any, numpy.dtype[numpy.bool_]]
 
 # Complex
 
-c16 > c16
-c16 > f8
-c16 > i8
-c16 > c8
-c16 > f4
-c16 > i4
-c16 > b_
-c16 > b
-c16 > c
-c16 > f
-c16 > i
-c16 > AR_i
-c16 > SEQ
+reveal_type(c16 > c16)  # E: numpy.bool_
+reveal_type(c16 > f8)  # E: numpy.bool_
+reveal_type(c16 > i8)  # E: numpy.bool_
+reveal_type(c16 > c8)  # E: numpy.bool_
+reveal_type(c16 > f4)  # E: numpy.bool_
+reveal_type(c16 > i4)  # E: numpy.bool_
+reveal_type(c16 > b_)  # E: numpy.bool_
+reveal_type(c16 > b)  # E: numpy.bool_
+reveal_type(c16 > c)  # E: numpy.bool_
+reveal_type(c16 > f)  # E: numpy.bool_
+reveal_type(c16 > i)  # E: numpy.bool_
+reveal_type(c16 > AR)  # E: numpy.ndarray[Any, numpy.dtype[numpy.bool_]]
+reveal_type(c16 > SEQ)  # E: numpy.ndarray[Any, numpy.dtype[numpy.bool_]]
 
-c16 > c16
-f8 > c16
-i8 > c16
-c8 > c16
-f4 > c16
-i4 > c16
-b_ > c16
-b > c16
-c > c16
-f > c16
-i > c16
-AR_i > c16
-SEQ > c16
+reveal_type(c16 > c16)  # E: numpy.bool_
+reveal_type(f8 > c16)  # E: numpy.bool_
+reveal_type(i8 > c16)  # E: numpy.bool_
+reveal_type(c8 > c16)  # E: numpy.bool_
+reveal_type(f4 > c16)  # E: numpy.bool_
+reveal_type(i4 > c16)  # E: numpy.bool_
+reveal_type(b_ > c16)  # E: numpy.bool_
+reveal_type(b > c16)  # E: numpy.bool_
+reveal_type(c > c16)  # E: numpy.bool_
+reveal_type(f > c16)  # E: numpy.bool_
+reveal_type(i > c16)  # E: numpy.bool_
+reveal_type(AR > c16)  # E: numpy.ndarray[Any, numpy.dtype[numpy.bool_]]
+reveal_type(SEQ > c16)  # E: numpy.ndarray[Any, numpy.dtype[numpy.bool_]]
 
-c8 > c16
-c8 > f8
-c8 > i8
-c8 > c8
-c8 > f4
-c8 > i4
-c8 > b_
-c8 > b
-c8 > c
-c8 > f
-c8 > i
-c8 > AR_i
-c8 > SEQ
+reveal_type(c8 > c16)  # E: numpy.bool_
+reveal_type(c8 > f8)  # E: numpy.bool_
+reveal_type(c8 > i8)  # E: numpy.bool_
+reveal_type(c8 > c8)  # E: numpy.bool_
+reveal_type(c8 > f4)  # E: numpy.bool_
+reveal_type(c8 > i4)  # E: numpy.bool_
+reveal_type(c8 > b_)  # E: numpy.bool_
+reveal_type(c8 > b)  # E: numpy.bool_
+reveal_type(c8 > c)  # E: numpy.bool_
+reveal_type(c8 > f)  # E: numpy.bool_
+reveal_type(c8 > i)  # E: numpy.bool_
+reveal_type(c8 > AR)  # E: numpy.ndarray[Any, numpy.dtype[numpy.bool_]]
+reveal_type(c8 > SEQ)  # E: numpy.ndarray[Any, numpy.dtype[numpy.bool_]]
 
-c16 > c8
-f8 > c8
-i8 > c8
-c8 > c8
-f4 > c8
-i4 > c8
-b_ > c8
-b > c8
-c > c8
-f > c8
-i > c8
-AR_i > c8
-SEQ > c8
+reveal_type(c16 > c8)  # E: numpy.bool_
+reveal_type(f8 > c8)  # E: numpy.bool_
+reveal_type(i8 > c8)  # E: numpy.bool_
+reveal_type(c8 > c8)  # E: numpy.bool_
+reveal_type(f4 > c8)  # E: numpy.bool_
+reveal_type(i4 > c8)  # E: numpy.bool_
+reveal_type(b_ > c8)  # E: numpy.bool_
+reveal_type(b > c8)  # E: numpy.bool_
+reveal_type(c > c8)  # E: numpy.bool_
+reveal_type(f > c8)  # E: numpy.bool_
+reveal_type(i > c8)  # E: numpy.bool_
+reveal_type(AR > c8)  # E: numpy.ndarray[Any, numpy.dtype[numpy.bool_]]
+reveal_type(SEQ > c8)  # E: numpy.ndarray[Any, numpy.dtype[numpy.bool_]]
 
 # Float
 
-f8 > f8
-f8 > i8
-f8 > f4
-f8 > i4
-f8 > b_
-f8 > b
-f8 > c
-f8 > f
-f8 > i
-f8 > AR_i
-f8 > SEQ
+reveal_type(f8 > f8)  # E: numpy.bool_
+reveal_type(f8 > i8)  # E: numpy.bool_
+reveal_type(f8 > f4)  # E: numpy.bool_
+reveal_type(f8 > i4)  # E: numpy.bool_
+reveal_type(f8 > b_)  # E: numpy.bool_
+reveal_type(f8 > b)  # E: numpy.bool_
+reveal_type(f8 > c)  # E: numpy.bool_
+reveal_type(f8 > f)  # E: numpy.bool_
+reveal_type(f8 > i)  # E: numpy.bool_
+reveal_type(f8 > AR)  # E: numpy.ndarray[Any, numpy.dtype[numpy.bool_]]
+reveal_type(f8 > SEQ)  # E: numpy.ndarray[Any, numpy.dtype[numpy.bool_]]
 
-f8 > f8
-i8 > f8
-f4 > f8
-i4 > f8
-b_ > f8
-b > f8
-c > f8
-f > f8
-i > f8
-AR_i > f8
-SEQ > f8
+reveal_type(f8 > f8)  # E: numpy.bool_
+reveal_type(i8 > f8)  # E: numpy.bool_
+reveal_type(f4 > f8)  # E: numpy.bool_
+reveal_type(i4 > f8)  # E: numpy.bool_
+reveal_type(b_ > f8)  # E: numpy.bool_
+reveal_type(b > f8)  # E: numpy.bool_
+reveal_type(c > f8)  # E: numpy.bool_
+reveal_type(f > f8)  # E: numpy.bool_
+reveal_type(i > f8)  # E: numpy.bool_
+reveal_type(AR > f8)  # E: numpy.ndarray[Any, numpy.dtype[numpy.bool_]]
+reveal_type(SEQ > f8)  # E: numpy.ndarray[Any, numpy.dtype[numpy.bool_]]
 
-f4 > f8
-f4 > i8
-f4 > f4
-f4 > i4
-f4 > b_
-f4 > b
-f4 > c
-f4 > f
-f4 > i
-f4 > AR_i
-f4 > SEQ
+reveal_type(f4 > f8)  # E: numpy.bool_
+reveal_type(f4 > i8)  # E: numpy.bool_
+reveal_type(f4 > f4)  # E: numpy.bool_
+reveal_type(f4 > i4)  # E: numpy.bool_
+reveal_type(f4 > b_)  # E: numpy.bool_
+reveal_type(f4 > b)  # E: numpy.bool_
+reveal_type(f4 > c)  # E: numpy.bool_
+reveal_type(f4 > f)  # E: numpy.bool_
+reveal_type(f4 > i)  # E: numpy.bool_
+reveal_type(f4 > AR)  # E: numpy.ndarray[Any, numpy.dtype[numpy.bool_]]
+reveal_type(f4 > SEQ)  # E: numpy.ndarray[Any, numpy.dtype[numpy.bool_]]
 
-f8 > f4
-i8 > f4
-f4 > f4
-i4 > f4
-b_ > f4
-b > f4
-c > f4
-f > f4
-i > f4
-AR_i > f4
-SEQ > f4
+reveal_type(f8 > f4)  # E: numpy.bool_
+reveal_type(i8 > f4)  # E: numpy.bool_
+reveal_type(f4 > f4)  # E: numpy.bool_
+reveal_type(i4 > f4)  # E: numpy.bool_
+reveal_type(b_ > f4)  # E: numpy.bool_
+reveal_type(b > f4)  # E: numpy.bool_
+reveal_type(c > f4)  # E: numpy.bool_
+reveal_type(f > f4)  # E: numpy.bool_
+reveal_type(i > f4)  # E: numpy.bool_
+reveal_type(AR > f4)  # E: numpy.ndarray[Any, numpy.dtype[numpy.bool_]]
+reveal_type(SEQ > f4)  # E: numpy.ndarray[Any, numpy.dtype[numpy.bool_]]
 
 # Int
 
-i8 > i8
-i8 > u8
-i8 > i4
-i8 > u4
-i8 > b_
-i8 > b
-i8 > c
-i8 > f
-i8 > i
-i8 > AR_i
-i8 > SEQ
+reveal_type(i8 > i8)  # E: numpy.bool_
+reveal_type(i8 > u8)  # E: numpy.bool_
+reveal_type(i8 > i4)  # E: numpy.bool_
+reveal_type(i8 > u4)  # E: numpy.bool_
+reveal_type(i8 > b_)  # E: numpy.bool_
+reveal_type(i8 > b)  # E: numpy.bool_
+reveal_type(i8 > c)  # E: numpy.bool_
+reveal_type(i8 > f)  # E: numpy.bool_
+reveal_type(i8 > i)  # E: numpy.bool_
+reveal_type(i8 > AR)  # E: numpy.ndarray[Any, numpy.dtype[numpy.bool_]]
+reveal_type(i8 > SEQ)  # E: numpy.ndarray[Any, numpy.dtype[numpy.bool_]]
 
-u8 > u8
-u8 > i4
-u8 > u4
-u8 > b_
-u8 > b
-u8 > c
-u8 > f
-u8 > i
-u8 > AR_i
-u8 > SEQ
+reveal_type(u8 > u8)  # E: numpy.bool_
+reveal_type(u8 > i4)  # E: numpy.bool_
+reveal_type(u8 > u4)  # E: numpy.bool_
+reveal_type(u8 > b_)  # E: numpy.bool_
+reveal_type(u8 > b)  # E: numpy.bool_
+reveal_type(u8 > c)  # E: numpy.bool_
+reveal_type(u8 > f)  # E: numpy.bool_
+reveal_type(u8 > i)  # E: numpy.bool_
+reveal_type(u8 > AR)  # E: numpy.ndarray[Any, numpy.dtype[numpy.bool_]]
+reveal_type(u8 > SEQ)  # E: numpy.ndarray[Any, numpy.dtype[numpy.bool_]]
 
-i8 > i8
-u8 > i8
-i4 > i8
-u4 > i8
-b_ > i8
-b > i8
-c > i8
-f > i8
-i > i8
-AR_i > i8
-SEQ > i8
+reveal_type(i8 > i8)  # E: numpy.bool_
+reveal_type(u8 > i8)  # E: numpy.bool_
+reveal_type(i4 > i8)  # E: numpy.bool_
+reveal_type(u4 > i8)  # E: numpy.bool_
+reveal_type(b_ > i8)  # E: numpy.bool_
+reveal_type(b > i8)  # E: numpy.bool_
+reveal_type(c > i8)  # E: numpy.bool_
+reveal_type(f > i8)  # E: numpy.bool_
+reveal_type(i > i8)  # E: numpy.bool_
+reveal_type(AR > i8)  # E: numpy.ndarray[Any, numpy.dtype[numpy.bool_]]
+reveal_type(SEQ > i8)  # E: numpy.ndarray[Any, numpy.dtype[numpy.bool_]]
 
-u8 > u8
-i4 > u8
-u4 > u8
-b_ > u8
-b > u8
-c > u8
-f > u8
-i > u8
-AR_i > u8
-SEQ > u8
+reveal_type(u8 > u8)  # E: numpy.bool_
+reveal_type(i4 > u8)  # E: numpy.bool_
+reveal_type(u4 > u8)  # E: numpy.bool_
+reveal_type(b_ > u8)  # E: numpy.bool_
+reveal_type(b > u8)  # E: numpy.bool_
+reveal_type(c > u8)  # E: numpy.bool_
+reveal_type(f > u8)  # E: numpy.bool_
+reveal_type(i > u8)  # E: numpy.bool_
+reveal_type(AR > u8)  # E: numpy.ndarray[Any, numpy.dtype[numpy.bool_]]
+reveal_type(SEQ > u8)  # E: numpy.ndarray[Any, numpy.dtype[numpy.bool_]]
 
-i4 > i8
-i4 > i4
-i4 > i
-i4 > b_
-i4 > b
-i4 > AR_i
-i4 > SEQ
+reveal_type(i4 > i8)  # E: numpy.bool_
+reveal_type(i4 > i4)  # E: numpy.bool_
+reveal_type(i4 > i)  # E: numpy.bool_
+reveal_type(i4 > b_)  # E: numpy.bool_
+reveal_type(i4 > b)  # E: numpy.bool_
+reveal_type(i4 > AR)  # E: numpy.ndarray[Any, numpy.dtype[numpy.bool_]]
+reveal_type(i4 > SEQ)  # E: numpy.ndarray[Any, numpy.dtype[numpy.bool_]]
 
-u4 > i8
-u4 > i4
-u4 > u8
-u4 > u4
-u4 > i
-u4 > b_
-u4 > b
-u4 > AR_i
-u4 > SEQ
+reveal_type(u4 > i8)  # E: numpy.bool_
+reveal_type(u4 > i4)  # E: numpy.bool_
+reveal_type(u4 > u8)  # E: numpy.bool_
+reveal_type(u4 > u4)  # E: numpy.bool_
+reveal_type(u4 > i)  # E: numpy.bool_
+reveal_type(u4 > b_)  # E: numpy.bool_
+reveal_type(u4 > b)  # E: numpy.bool_
+reveal_type(u4 > AR)  # E: numpy.ndarray[Any, numpy.dtype[numpy.bool_]]
+reveal_type(u4 > SEQ)  # E: numpy.ndarray[Any, numpy.dtype[numpy.bool_]]
 
-i8 > i4
-i4 > i4
-i > i4
-b_ > i4
-b > i4
-AR_i > i4
-SEQ > i4
+reveal_type(i8 > i4)  # E: numpy.bool_
+reveal_type(i4 > i4)  # E: numpy.bool_
+reveal_type(i > i4)  # E: numpy.bool_
+reveal_type(b_ > i4)  # E: numpy.bool_
+reveal_type(b > i4)  # E: numpy.bool_
+reveal_type(AR > i4)  # E: numpy.ndarray[Any, numpy.dtype[numpy.bool_]]
+reveal_type(SEQ > i4)  # E: numpy.ndarray[Any, numpy.dtype[numpy.bool_]]
 
-i8 > u4
-i4 > u4
-u8 > u4
-u4 > u4
-b_ > u4
-b > u4
-i > u4
-AR_i > u4
-SEQ > u4
+reveal_type(i8 > u4)  # E: numpy.bool_
+reveal_type(i4 > u4)  # E: numpy.bool_
+reveal_type(u8 > u4)  # E: numpy.bool_
+reveal_type(u4 > u4)  # E: numpy.bool_
+reveal_type(b_ > u4)  # E: numpy.bool_
+reveal_type(b > u4)  # E: numpy.bool_
+reveal_type(i > u4)  # E: numpy.bool_
+reveal_type(AR > u4)  # E: numpy.ndarray[Any, numpy.dtype[numpy.bool_]]
+reveal_type(SEQ > u4)  # E: numpy.ndarray[Any, numpy.dtype[numpy.bool_]]

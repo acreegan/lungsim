@@ -1,21 +1,21 @@
-set(CMAKE_Fortran_COMPILER "/usr/bin/gfortran")
+set(CMAKE_Fortran_COMPILER "C:/Program Files (x86)/Intel/oneAPI/compiler/2023.1.0/windows/bin/intel64/ifort.exe")
 set(CMAKE_Fortran_COMPILER_ARG1 "")
-set(CMAKE_Fortran_COMPILER_ID "GNU")
-set(CMAKE_Fortran_COMPILER_VERSION "9.4.0")
+set(CMAKE_Fortran_COMPILER_ID "Intel")
+set(CMAKE_Fortran_COMPILER_VERSION "2021.9.0.20230302")
 set(CMAKE_Fortran_COMPILER_WRAPPER "")
-set(CMAKE_Fortran_PLATFORM_ID "")
-set(CMAKE_Fortran_SIMULATE_ID "")
-set(CMAKE_Fortran_COMPILER_FRONTEND_VARIANT "GNU")
-set(CMAKE_Fortran_SIMULATE_VERSION "")
+set(CMAKE_Fortran_PLATFORM_ID "Windows")
+set(CMAKE_Fortran_SIMULATE_ID "MSVC")
+set(CMAKE_Fortran_COMPILER_FRONTEND_VARIANT "")
+set(CMAKE_Fortran_SIMULATE_VERSION "19.0")
 
+set(CMAKE_Fortran_COMPILER_ARCHITECTURE_ID x64)
 
-
-
-set(CMAKE_AR "/usr/bin/ar")
-set(CMAKE_Fortran_COMPILER_AR "/usr/bin/gcc-ar-9")
-set(CMAKE_RANLIB "/usr/bin/ranlib")
-set(CMAKE_Fortran_COMPILER_RANLIB "/usr/bin/gcc-ranlib-9")
-set(CMAKE_COMPILER_IS_GNUG77 1)
+set(MSVC_Fortran_ARCHITECTURE_ID x64)
+set(CMAKE_AR "C:/Program Files (x86)/Intel/oneAPI/compiler/2023.1.0/windows/bin/intel64/xilib.exe")
+set(CMAKE_Fortran_COMPILER_AR "")
+set(CMAKE_RANLIB ":")
+set(CMAKE_Fortran_COMPILER_RANLIB "")
+set(CMAKE_COMPILER_IS_GNUG77 )
 set(CMAKE_Fortran_COMPILER_LOADED 1)
 set(CMAKE_Fortran_COMPILER_WORKS TRUE)
 set(CMAKE_Fortran_ABI_COMPILED TRUE)
@@ -37,7 +37,7 @@ endif()
 # Save compiler ABI information.
 set(CMAKE_Fortran_SIZEOF_DATA_PTR "8")
 set(CMAKE_Fortran_COMPILER_ABI "")
-set(CMAKE_Fortran_LIBRARY_ARCHITECTURE "x86_64-linux-gnu")
+set(CMAKE_Fortran_LIBRARY_ARCHITECTURE "")
 
 if(CMAKE_Fortran_SIZEOF_DATA_PTR AND NOT CMAKE_SIZEOF_VOID_P)
   set(CMAKE_SIZEOF_VOID_P "${CMAKE_Fortran_SIZEOF_DATA_PTR}")
@@ -48,14 +48,14 @@ if(CMAKE_Fortran_COMPILER_ABI)
 endif()
 
 if(CMAKE_Fortran_LIBRARY_ARCHITECTURE)
-  set(CMAKE_LIBRARY_ARCHITECTURE "x86_64-linux-gnu")
+  set(CMAKE_LIBRARY_ARCHITECTURE "")
 endif()
 
 
 
 
 
-set(CMAKE_Fortran_IMPLICIT_INCLUDE_DIRECTORIES "/usr/lib/gcc/x86_64-linux-gnu/9/finclude;/usr/lib/gcc/x86_64-linux-gnu/9/include;/usr/local/include;/usr/include/x86_64-linux-gnu;/usr/include")
-set(CMAKE_Fortran_IMPLICIT_LINK_LIBRARIES "gfortran;m;gcc_s;gcc;quadmath;m;gcc_s;gcc;c;gcc_s;gcc")
-set(CMAKE_Fortran_IMPLICIT_LINK_DIRECTORIES "/usr/lib/gcc/x86_64-linux-gnu/9;/usr/lib/x86_64-linux-gnu;/usr/lib;/lib/x86_64-linux-gnu;/lib")
+set(CMAKE_Fortran_IMPLICIT_INCLUDE_DIRECTORIES "")
+set(CMAKE_Fortran_IMPLICIT_LINK_LIBRARIES "")
+set(CMAKE_Fortran_IMPLICIT_LINK_DIRECTORIES "C:/Program Files (x86)/Intel/oneAPI/compiler/2023.1.0/windows/compiler/lib/Intel64_win")
 set(CMAKE_Fortran_IMPLICIT_LINK_FRAMEWORK_DIRECTORIES "")

@@ -1,29 +1,66 @@
-from typing import Any
-import numpy as np
+from typing import Any, overload, TypeVar, List, Union
 
-AR_LIKE_b: list[bool]
-AR_LIKE_u: list[np.uint32]
-AR_LIKE_i: list[int]
-AR_LIKE_f: list[float]
-AR_LIKE_O: list[np.object_]
+from numpy import floating, bool_, object_, ndarray
+from numpy.typing import (
+    NDArray,
+    _FloatLike_co,
+    _ArrayLikeFloat_co,
+    _ArrayLikeObject_co,
+)
 
-AR_U: np.ndarray[Any, np.dtype[np.str_]]
+_ArrayType = TypeVar("_ArrayType", bound=ndarray[Any, Any])
 
-reveal_type(np.fix(AR_LIKE_b))  # E: ndarray[Any, dtype[floating[Any]]]
-reveal_type(np.fix(AR_LIKE_u))  # E: ndarray[Any, dtype[floating[Any]]]
-reveal_type(np.fix(AR_LIKE_i))  # E: ndarray[Any, dtype[floating[Any]]]
-reveal_type(np.fix(AR_LIKE_f))  # E: ndarray[Any, dtype[floating[Any]]]
-reveal_type(np.fix(AR_LIKE_O))  # E: Any
-reveal_type(np.fix(AR_LIKE_f, out=AR_U))  # E: ndarray[Any, dtype[str_]]
+__all__: List[str]
 
-reveal_type(np.isposinf(AR_LIKE_b))  # E: ndarray[Any, dtype[bool_]]
-reveal_type(np.isposinf(AR_LIKE_u))  # E: ndarray[Any, dtype[bool_]]
-reveal_type(np.isposinf(AR_LIKE_i))  # E: ndarray[Any, dtype[bool_]]
-reveal_type(np.isposinf(AR_LIKE_f))  # E: ndarray[Any, dtype[bool_]]
-reveal_type(np.isposinf(AR_LIKE_f, out=AR_U))  # E: ndarray[Any, dtype[str_]]
+@overload
+def fix(  # type: ignore[misc]
+    x: _FloatLike_co,
+    out: None = ...,
+) -> floating[Any]: ...
+@overload
+def fix(
+    x: _ArrayLikeFloat_co,
+    out: None = ...,
+) -> NDArray[floating[Any]]: ...
+@overload
+def fix(
+    x: _ArrayLikeObject_co,
+    out: None = ...,
+) -> NDArray[object_]: ...
+@overload
+def fix(
+    x: Union[_ArrayLikeFloat_co, _ArrayLikeObject_co],
+    out: _ArrayType,
+) -> _ArrayType: ...
 
-reveal_type(np.isneginf(AR_LIKE_b))  # E: ndarray[Any, dtype[bool_]]
-reveal_type(np.isneginf(AR_LIKE_u))  # E: ndarray[Any, dtype[bool_]]
-reveal_type(np.isneginf(AR_LIKE_i))  # E: ndarray[Any, dtype[bool_]]
-reveal_type(np.isneginf(AR_LIKE_f))  # E: ndarray[Any, dtype[bool_]]
-reveal_type(np.isneginf(AR_LIKE_f, out=AR_U))  # E: ndarray[Any, dtype[str_]]
+@overload
+def isposinf(  # type: ignore[misc]
+    x: _FloatLike_co,
+    out: None = ...,
+) -> bool_: ...
+@overload
+def isposinf(
+    x: _ArrayLikeFloat_co,
+    out: None = ...,
+) -> NDArray[bool_]: ...
+@overload
+def isposinf(
+    x: _ArrayLikeFloat_co,
+    out: _ArrayType,
+) -> _ArrayType: ...
+
+@overload
+def isneginf(  # type: ignore[misc]
+    x: _FloatLike_co,
+    out: None = ...,
+) -> bool_: ...
+@overload
+def isneginf(
+    x: _ArrayLikeFloat_co,
+    out: None = ...,
+) -> NDArray[bool_]: ...
+@overload
+def isneginf(
+    x: _ArrayLikeFloat_co,
+    out: _ArrayType,
+) -> _ArrayType: ...

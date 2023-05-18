@@ -1,42 +1,140 @@
-import numpy as np
+import sys
+from typing import (
+    TypeVar,
+    Optional,
+    Type,
+    Union,
+    Tuple,
+    Sequence,
+    overload,
+    Any,
+    TypeVar,
+    Dict,
+    List,
+)
 
-reveal_type(np.maximum_sctype(np.float64))  # E: Type[{float64}]
-reveal_type(np.maximum_sctype("f8"))  # E: Type[Any]
+from numpy import (
+    ndarray,
+    dtype,
+    generic,
+    bool_,
+    ubyte,
+    ushort,
+    uintc,
+    uint,
+    ulonglong,
+    byte,
+    short,
+    intc,
+    int_,
+    longlong,
+    half,
+    single,
+    double,
+    longdouble,
+    csingle,
+    cdouble,
+    clongdouble,
+    datetime64,
+    timedelta64,
+    object_,
+    str_,
+    bytes_,
+    void,
+)
 
-reveal_type(np.issctype(np.float64))  # E: bool
-reveal_type(np.issctype("foo"))  # E: Literal[False]
+from numpy.core._type_aliases import (
+    sctypeDict as sctypeDict,
+    sctypes as sctypes,
+)
 
-reveal_type(np.obj2sctype(np.float64))  # E: Union[None, Type[{float64}]]
-reveal_type(np.obj2sctype(np.float64, default=False))  # E: Union[builtins.bool, Type[{float64}]]
-reveal_type(np.obj2sctype("S8"))  # E: Union[None, Type[Any]]
-reveal_type(np.obj2sctype("S8", default=None))  # E: Union[None, Type[Any]]
-reveal_type(np.obj2sctype("foo", default=False))  # E: Union[builtins.bool, Type[Any]]
-reveal_type(np.obj2sctype(1))  # E: None
-reveal_type(np.obj2sctype(1, default=False))  # E: bool
+from numpy.typing import DTypeLike, ArrayLike
 
-reveal_type(np.issubclass_(np.float64, float))  # E: bool
-reveal_type(np.issubclass_(np.float64, (int, float)))  # E: bool
-reveal_type(np.issubclass_(1, 1))  # E: Literal[False]
+if sys.version_info >= (3, 8):
+    from typing import Literal, Protocol, TypedDict
+else:
+    from typing_extensions import Literal, Protocol, TypedDict
 
-reveal_type(np.sctype2char("S8"))  # E: str
-reveal_type(np.sctype2char(list))  # E: str
+_T = TypeVar("_T")
+_ScalarType = TypeVar("_ScalarType", bound=generic)
 
-reveal_type(np.find_common_type([np.int64], [np.int64]))  # E: dtype[Any]
+class _CastFunc(Protocol):
+    def __call__(
+        self, x: ArrayLike, k: DTypeLike = ...
+    ) -> ndarray[Any, dtype[Any]]: ...
 
-reveal_type(np.cast[int])  # E: _CastFunc
-reveal_type(np.cast["i8"])  # E: _CastFunc
-reveal_type(np.cast[np.int64])  # E: _CastFunc
+class _TypeCodes(TypedDict):
+    Character: Literal['c']
+    Integer: Literal['bhilqp']
+    UnsignedInteger: Literal['BHILQP']
+    Float: Literal['efdg']
+    Complex: Literal['FDG']
+    AllInteger: Literal['bBhHiIlLqQpP']
+    AllFloat: Literal['efdgFDG']
+    Datetime: Literal['Mm']
+    All: Literal['?bhilqpBHILQPefdgFDGSUVOMm']
 
-reveal_type(np.nbytes[int])  # E: int
-reveal_type(np.nbytes["i8"])  # E: int
-reveal_type(np.nbytes[np.int64])  # E: int
+class _typedict(Dict[Type[generic], _T]):
+    def __getitem__(self, key: DTypeLike) -> _T: ...
 
-reveal_type(np.ScalarType)  # E: Tuple
-reveal_type(np.ScalarType[0])  # E: Type[builtins.int]
-reveal_type(np.ScalarType[3])  # E: Type[builtins.bool]
-reveal_type(np.ScalarType[8])  # E: Type[{csingle}]
-reveal_type(np.ScalarType[10])  # E: Type[{clongdouble}]
+__all__: List[str]
 
-reveal_type(np.typecodes["Character"])  # E: Literal['c']
-reveal_type(np.typecodes["Complex"])  # E: Literal['FDG']
-reveal_type(np.typecodes["All"])  # E: Literal['?bhilqpBHILQPefdgFDGSUVOMm']
+# TODO: Clean up the annotations for the 7 functions below
+
+def maximum_sctype(t: DTypeLike) -> dtype: ...
+def issctype(rep: object) -> bool: ...
+@overload
+def obj2sctype(rep: object) -> Optional[generic]: ...
+@overload
+def obj2sctype(rep: object, default: None) -> Optional[generic]: ...
+@overload
+def obj2sctype(
+    rep: object, default: Type[_T]
+) -> Union[generic, Type[_T]]: ...
+def issubclass_(arg1: object, arg2: Union[object, Tuple[object, ...]]) -> bool: ...
+def issubsctype(
+    arg1: Union[ndarray, DTypeLike], arg2: Union[ndarray, DTypeLike]
+) -> bool: ...
+def issubdtype(arg1: DTypeLike, arg2: DTypeLike) -> bool: ...
+def sctype2char(sctype: object) -> str: ...
+def find_common_type(
+    array_types: Sequence[DTypeLike], scalar_types: Sequence[DTypeLike]
+) -> dtype: ...
+
+cast: _typedict[_CastFunc]
+nbytes: _typedict[int]
+typecodes: _TypeCodes
+ScalarType: Tuple[
+    Type[int],
+    Type[float],
+    Type[complex],
+    Type[int],
+    Type[bool],
+    Type[bytes],
+    Type[str],
+    Type[memoryview],
+    Type[bool_],
+    Type[csingle],
+    Type[cdouble],
+    Type[clongdouble],
+    Type[half],
+    Type[single],
+    Type[double],
+    Type[longdouble],
+    Type[byte],
+    Type[short],
+    Type[intc],
+    Type[int_],
+    Type[longlong],
+    Type[timedelta64],
+    Type[datetime64],
+    Type[object_],
+    Type[bytes_],
+    Type[str_],
+    Type[ubyte],
+    Type[ushort],
+    Type[uintc],
+    Type[uint],
+    Type[ulonglong],
+    Type[void],
+]

@@ -1,94 +1,51 @@
-import os
-import tempfile
-
 import numpy as np
+import numpy.typing as npt
 
-nd = np.array([[1, 2], [3, 4]])
-scalar_array = np.array(1)
+nd: npt.NDArray[np.int_] = np.array([[1, 2], [3, 4]])
 
 # item
-scalar_array.item()
-nd.item(1)
-nd.item(0, 1)
-nd.item((0, 1))
+reveal_type(nd.item())  # E: int
+reveal_type(nd.item(1))  # E: int
+reveal_type(nd.item(0, 1))  # E: int
+reveal_type(nd.item((0, 1)))  # E: int
 
-# tolist is pretty simple
+# tolist
+reveal_type(nd.tolist())  # E: Any
 
-# itemset
-scalar_array.itemset(3)
-nd.itemset(3, 0)
-nd.itemset((0, 0), 3)
-
-# tobytes
-nd.tobytes()
-nd.tobytes("C")
-nd.tobytes(None)
-
-# tofile
-if os.name != "nt":
-    with tempfile.NamedTemporaryFile(suffix=".txt") as tmp:
-        nd.tofile(tmp.name)
-        nd.tofile(tmp.name, "")
-        nd.tofile(tmp.name, sep="")
-
-        nd.tofile(tmp.name, "", "%s")
-        nd.tofile(tmp.name, format="%s")
-
-        nd.tofile(tmp)
-
-# dump is pretty simple
+# itemset does not return a value
+# tostring is pretty simple
+# tobytes is pretty simple
+# tofile does not return a value
+# dump does not return a value
 # dumps is pretty simple
 
 # astype
-nd.astype("float")
-nd.astype(float)
-
-nd.astype(float, "K")
-nd.astype(float, order="K")
-
-nd.astype(float, "K", "unsafe")
-nd.astype(float, casting="unsafe")
-
-nd.astype(float, "K", "unsafe", True)
-nd.astype(float, subok=True)
-
-nd.astype(float, "K", "unsafe", True, True)
-nd.astype(float, copy=True)
+reveal_type(nd.astype("float"))  # E: numpy.ndarray[Any, numpy.dtype[Any]]
+reveal_type(nd.astype(float))  # E: numpy.ndarray[Any, numpy.dtype[Any]]
+reveal_type(nd.astype(np.float64))  # E: numpy.ndarray[Any, numpy.dtype[{float64}]]
+reveal_type(nd.astype(np.float64, "K"))  # E: numpy.ndarray[Any, numpy.dtype[{float64}]]
+reveal_type(nd.astype(np.float64, "K", "unsafe"))  # E: numpy.ndarray[Any, numpy.dtype[{float64}]]
+reveal_type(nd.astype(np.float64, "K", "unsafe", True))  # E: numpy.ndarray[Any, numpy.dtype[{float64}]]
+reveal_type(nd.astype(np.float64, "K", "unsafe", True, True))  # E: numpy.ndarray[Any, numpy.dtype[{float64}]]
 
 # byteswap
-nd.byteswap()
-nd.byteswap(True)
+reveal_type(nd.byteswap())  # E: numpy.ndarray[Any, numpy.dtype[{int_}]]
+reveal_type(nd.byteswap(True))  # E: numpy.ndarray[Any, numpy.dtype[{int_}]]
 
 # copy
-nd.copy()
-nd.copy("C")
+reveal_type(nd.copy())  # E: numpy.ndarray[Any, numpy.dtype[{int_}]]
+reveal_type(nd.copy("C"))  # E: numpy.ndarray[Any, numpy.dtype[{int_}]]
 
-# view
-nd.view()
-nd.view(np.int64)
-nd.view(dtype=np.int64)
-nd.view(np.int64, np.matrix)
-nd.view(type=np.matrix)
+reveal_type(nd.view())  # E: numpy.ndarray[Any, numpy.dtype[{int_}]]
+reveal_type(nd.view(np.float64))  # E: numpy.ndarray[Any, numpy.dtype[{float64}]]
+reveal_type(nd.view(float))  # E: numpy.ndarray[Any, numpy.dtype[Any]]
+reveal_type(nd.view(np.float64, np.matrix))  # E: numpy.matrix[Any, Any]
 
 # getfield
-complex_array = np.array([[1 + 1j, 0], [0, 1 - 1j]], dtype=np.complex128)
+reveal_type(nd.getfield("float"))  # E: numpy.ndarray[Any, numpy.dtype[Any]]
+reveal_type(nd.getfield(float))  # E: numpy.ndarray[Any, numpy.dtype[Any]]
+reveal_type(nd.getfield(np.float64))  # E: numpy.ndarray[Any, numpy.dtype[{float64}]]
+reveal_type(nd.getfield(np.float64, 8))  # E: numpy.ndarray[Any, numpy.dtype[{float64}]]
 
-complex_array.getfield("float")
-complex_array.getfield(float)
-
-complex_array.getfield("float", 8)
-complex_array.getfield(float, offset=8)
-
-# setflags
-nd.setflags()
-
-nd.setflags(True)
-nd.setflags(write=True)
-
-nd.setflags(True, True)
-nd.setflags(write=True, align=True)
-
-nd.setflags(True, True, False)
-nd.setflags(write=True, align=True, uic=False)
-
-# fill is pretty simple
+# setflags does not return a value
+# fill does not return a value

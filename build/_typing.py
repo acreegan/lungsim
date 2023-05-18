@@ -1,74 +1,39 @@
+"""For neatly implementing static typing in packaging.
+
+`mypy` - the static type analysis tool we use - uses the `typing` module, which
+provides core functionality fundamental to mypy's functioning.
+
+Generally, `typing` would be imported at runtime and used in that fashion -
+it acts as a no-op at runtime and does not have any run-time overhead by
+design.
+
+As it turns out, `typing` is not vendorable - it uses separate sources for
+Python 2/Python 3. Thus, this codebase can not expect it to be present.
+To work around this, mypy allows the typing import to be behind a False-y
+optional to prevent it from running at runtime and type-comments can be used
+to remove the need for the types to be accessible directly during runtime.
+
+This module provides the False-y guard in a nicely named fashion so that a
+curious maintainer can reach here to read this.
+
+In packaging, all static-typing related imports should be guarded as follows:
+
+    from pip._vendor.packaging._typing import MYPY_CHECK_RUNNING
+
+    if MYPY_CHECK_RUNNING:
+        from typing import ...
+
+Ref: https://github.com/python/mypy/issues/3216
 """
-This file defines the types for type annotations.
 
-These names aren't part of the module namespace, but they are used in the
-annotations in the function signatures. The functions in the module are only
-valid for inputs that match the given type annotations.
-"""
+MYPY_CHECK_RUNNING = False
 
-from __future__ import annotations
+if MYPY_CHECK_RUNNING:  # pragma: no cover
+    import typing
 
-__all__ = [
-    "Array",
-    "Device",
-    "Dtype",
-    "SupportsDLPack",
-    "SupportsBufferProtocol",
-    "PyCapsule",
-]
-
-import sys
-from typing import (
-    Any,
-    Literal,
-    Sequence,
-    Type,
-    Union,
-    TYPE_CHECKING,
-    TypeVar,
-    Protocol,
-)
-
-from ._array_object import Array
-from numpy import (
-    dtype,
-    int8,
-    int16,
-    int32,
-    int64,
-    uint8,
-    uint16,
-    uint32,
-    uint64,
-    float32,
-    float64,
-)
-
-_T_co = TypeVar("_T_co", covariant=True)
-
-class NestedSequence(Protocol[_T_co]):
-    def __getitem__(self, key: int, /) -> _T_co | NestedSequence[_T_co]: ...
-    def __len__(self, /) -> int: ...
-
-Device = Literal["cpu"]
-if TYPE_CHECKING or sys.version_info >= (3, 9):
-    Dtype = dtype[Union[
-        int8,
-        int16,
-        int32,
-        int64,
-        uint8,
-        uint16,
-        uint32,
-        uint64,
-        float32,
-        float64,
-    ]]
+    cast = typing.cast
 else:
-    Dtype = dtype
-
-SupportsBufferProtocol = Any
-PyCapsule = Any
-
-class SupportsDLPack(Protocol):
-    def __dlpack__(self, /, *, stream: None = ...) -> PyCapsule: ...
+    # typing's cast() is needed at runtime, but we don't want to import typing.
+    # Thus, we use a dummy no-op version, which we tell mypy to ignore.
+    def cast(type_, value):  # type: ignore
+        return value

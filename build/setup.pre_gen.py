@@ -11,7 +11,7 @@ Intended Audience :: Science/Research
 License :: OSI Approved :: Apache Software License
 Programming Language :: Python
 Programming Language :: Python :: .
-Operating System :: Unix
+Operating System :: Microsoft :: Windows
 Topic :: Scientific/Engineering :: Medical Science Apps.
 Topic :: Software Development :: Libraries :: Python Modules
 """

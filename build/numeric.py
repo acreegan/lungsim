@@ -5,86 +5,85 @@ Does not include tests which fall under ``array_constructors``.
 
 """
 
-from __future__ import annotations
-
+from typing import List
 import numpy as np
 
 class SubClass(np.ndarray):
     ...
 
-i8 = np.int64(1)
+i8: np.int64
 
-A = np.arange(27).reshape(3, 3, 3)
-B: list[list[list[int]]] = A.tolist()
-C = np.empty((27, 27)).view(SubClass)
+A: np.ndarray
+B: List[int]
+C: SubClass
 
-np.count_nonzero(i8)
-np.count_nonzero(A)
-np.count_nonzero(B)
-np.count_nonzero(A, keepdims=True)
-np.count_nonzero(A, axis=0)
+reveal_type(np.count_nonzero(i8))  # E: int
+reveal_type(np.count_nonzero(A))  # E: int
+reveal_type(np.count_nonzero(B))  # E: int
+reveal_type(np.count_nonzero(A, keepdims=True))  # E: Any
+reveal_type(np.count_nonzero(A, axis=0))  # E: Any
 
-np.isfortran(i8)
-np.isfortran(A)
+reveal_type(np.isfortran(i8))  # E: bool
+reveal_type(np.isfortran(A))  # E: bool
 
-np.argwhere(i8)
-np.argwhere(A)
+reveal_type(np.argwhere(i8))  # E: numpy.ndarray[Any, Any]
+reveal_type(np.argwhere(A))  # E: numpy.ndarray[Any, Any]
 
-np.flatnonzero(i8)
-np.flatnonzero(A)
+reveal_type(np.flatnonzero(i8))  # E: numpy.ndarray[Any, Any]
+reveal_type(np.flatnonzero(A))  # E: numpy.ndarray[Any, Any]
 
-np.correlate(B[0][0], A.ravel(), mode="valid")
-np.correlate(A.ravel(), A.ravel(), mode="same")
+reveal_type(np.correlate(B, A, mode="valid"))  # E: numpy.ndarray[Any, Any]
+reveal_type(np.correlate(A, A, mode="same"))  # E: numpy.ndarray[Any, Any]
 
-np.convolve(B[0][0], A.ravel(), mode="valid")
-np.convolve(A.ravel(), A.ravel(), mode="same")
+reveal_type(np.convolve(B, A, mode="valid"))  # E: numpy.ndarray[Any, Any]
+reveal_type(np.convolve(A, A, mode="same"))  # E: numpy.ndarray[Any, Any]
 
-np.outer(i8, A)
-np.outer(B, A)
-np.outer(A, A)
-np.outer(A, A, out=C)
+reveal_type(np.outer(i8, A))  # E: numpy.ndarray[Any, Any]
+reveal_type(np.outer(B, A))  # E: numpy.ndarray[Any, Any]
+reveal_type(np.outer(A, A))  # E: numpy.ndarray[Any, Any]
+reveal_type(np.outer(A, A, out=C))  # E: SubClass
 
-np.tensordot(B, A)
-np.tensordot(A, A)
-np.tensordot(A, A, axes=0)
-np.tensordot(A, A, axes=(0, 1))
+reveal_type(np.tensordot(B, A))  # E: numpy.ndarray[Any, Any]
+reveal_type(np.tensordot(A, A))  # E: numpy.ndarray[Any, Any]
+reveal_type(np.tensordot(A, A, axes=0))  # E: numpy.ndarray[Any, Any]
+reveal_type(np.tensordot(A, A, axes=(0, 1)))  # E: numpy.ndarray[Any, Any]
 
-np.isscalar(i8)
-np.isscalar(A)
-np.isscalar(B)
+reveal_type(np.isscalar(i8))  # E: bool
+reveal_type(np.isscalar(A))  # E: bool
+reveal_type(np.isscalar(B))  # E: bool
 
-np.roll(A, 1)
-np.roll(A, (1, 2))
-np.roll(B, 1)
+reveal_type(np.roll(A, 1))  # E: numpy.ndarray[Any, Any]
+reveal_type(np.roll(A, (1, 2)))  # E: numpy.ndarray[Any, Any]
+reveal_type(np.roll(B, 1))  # E: numpy.ndarray[Any, Any]
 
-np.rollaxis(A, 0, 1)
+reveal_type(np.rollaxis(A, 0, 1))  # E: numpy.ndarray[Any, Any]
 
-np.moveaxis(A, 0, 1)
-np.moveaxis(A, (0, 1), (1, 2))
+reveal_type(np.moveaxis(A, 0, 1))  # E: numpy.ndarray[Any, Any]
+reveal_type(np.moveaxis(A, (0, 1), (1, 2)))  # E: numpy.ndarray[Any, Any]
 
-np.cross(B, A)
-np.cross(A, A)
+reveal_type(np.cross(B, A))  # E: numpy.ndarray[Any, Any]
+reveal_type(np.cross(A, A))  # E: numpy.ndarray[Any, Any]
 
-np.indices([0, 1, 2])
-np.indices([0, 1, 2], sparse=False)
-np.indices([0, 1, 2], sparse=True)
+reveal_type(np.indices([0, 1, 2]))  # E: numpy.ndarray[Any, Any]
+reveal_type(np.indices([0, 1, 2], sparse=False))  # E: numpy.ndarray[Any, Any]
+reveal_type(np.indices([0, 1, 2], sparse=True))  # E: tuple[numpy.ndarray[Any, Any]]
 
-np.binary_repr(1)
+reveal_type(np.binary_repr(1))  # E: str
 
-np.base_repr(1)
+reveal_type(np.base_repr(1))  # E: str
 
-np.allclose(i8, A)
-np.allclose(B, A)
-np.allclose(A, A)
+reveal_type(np.allclose(i8, A))  # E: bool
+reveal_type(np.allclose(B, A))  # E: bool
+reveal_type(np.allclose(A, A))  # E: bool
 
-np.isclose(i8, A)
-np.isclose(B, A)
-np.isclose(A, A)
+reveal_type(np.isclose(i8, A))  # E: Any
+reveal_type(np.isclose(B, A))  # E: Any
+reveal_type(np.isclose(A, A))  # E: Any
 
-np.array_equal(i8, A)
-np.array_equal(B, A)
-np.array_equal(A, A)
+reveal_type(np.array_equal(i8, A))  # E: bool
+reveal_type(np.array_equal(B, A))  # E: bool
+reveal_type(np.array_equal(A, A))  # E: bool
 
-np.array_equiv(i8, A)
-np.array_equiv(B, A)
-np.array_equiv(A, A)
+reveal_type(np.array_equiv(i8, A))  # E: bool
+reveal_type(np.array_equiv(B, A))  # E: bool
+reveal_type(np.array_equiv(A, A))  # E: bool

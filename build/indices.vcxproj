@@ -1,0 +1,412 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="16.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <PreferredToolArchitecture>x64</PreferredToolArchitecture>
+  </PropertyGroup>
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|x64">
+      <Configuration>Debug</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|x64">
+      <Configuration>Release</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="MinSizeRel|x64">
+      <Configuration>MinSizeRel</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="RelWithDebInfo|x64">
+      <Configuration>RelWithDebInfo</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{37EABBCD-5881-3BBB-B528-6C9A965B073C}</ProjectGuid>
+    <Keyword>Win32Proj</Keyword>
+    <WindowsTargetPlatformVersion>10.0.17763.0</WindowsTargetPlatformVersion>
+    <Platform>x64</Platform>
+    <ProjectName>indices</ProjectName>
+    <VCProjectUpgraderObjectName>NoUpgrade</VCProjectUpgraderObjectName>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <CharacterSet>MultiByte</CharacterSet>
+    <PlatformToolset>v142</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <CharacterSet>MultiByte</CharacterSet>
+    <PlatformToolset>v142</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <CharacterSet>MultiByte</CharacterSet>
+    <PlatformToolset>v142</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <CharacterSet>MultiByte</CharacterSet>
+    <PlatformToolset>v142</PlatformToolset>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup>
+    <_ProjectFileVersion>10.0.20506.1</_ProjectFileVersion>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">D:\a\lungsim\lungsim\build-lungsim\src\bindings\python\Debug\aether\</OutDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">indices.dir\Debug\</IntDir>
+    <TargetName Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">_indices</TargetName>
+    <TargetExt Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">.pyd</TargetExt>
+    <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</LinkIncremental>
+    <GenerateManifest Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</GenerateManifest>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='Release|x64'">D:\a\lungsim\lungsim\build-lungsim\src\bindings\python\Release\aether\</OutDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='Release|x64'">indices.dir\Release\</IntDir>
+    <TargetName Condition="'$(Configuration)|$(Platform)'=='Release|x64'">_indices</TargetName>
+    <TargetExt Condition="'$(Configuration)|$(Platform)'=='Release|x64'">.pyd</TargetExt>
+    <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</LinkIncremental>
+    <GenerateManifest Condition="'$(Configuration)|$(Platform)'=='Release|x64'">true</GenerateManifest>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">D:\a\lungsim\lungsim\build-lungsim\src\bindings\python\MinSizeRel\aether\</OutDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">indices.dir\MinSizeRel\</IntDir>
+    <TargetName Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">_indices</TargetName>
+    <TargetExt Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">.pyd</TargetExt>
+    <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">false</LinkIncremental>
+    <GenerateManifest Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">true</GenerateManifest>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">D:\a\lungsim\lungsim\build-lungsim\src\bindings\python\RelWithDebInfo\aether\</OutDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">indices.dir\RelWithDebInfo\</IntDir>
+    <TargetName Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">_indices</TargetName>
+    <TargetExt Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">.pyd</TargetExt>
+    <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">true</LinkIncremental>
+    <GenerateManifest Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">true</GenerateManifest>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <ClCompile>
+      <AdditionalIncludeDirectories>D:\a\lungsim\lungsim\lungsim\src\bindings\python\..\c;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalOptions>%(AdditionalOptions) /external:I "C:/hostedtoolcache/windows/Python/3.7.9/x64/include" /external:I "D:/a/lungsim/lungsim/venv/Lib/site-packages/numpy/core/include"</AdditionalOptions>
+      <AssemblerListingLocation>$(IntDir)</AssemblerListingLocation>
+      <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+      <ExceptionHandling>
+      </ExceptionHandling>
+      <ExternalWarningLevel>TurnOffAllWarnings</ExternalWarningLevel>
+      <InlineFunctionExpansion>Disabled</InlineFunctionExpansion>
+      <Optimization>Disabled</Optimization>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
+      <UseFullPaths>false</UseFullPaths>
+      <WarningLevel>Level3</WarningLevel>
+      <PreprocessorDefinitions>%(PreprocessorDefinitions);WIN32;_WINDOWS;SWIG_PYTHON_INTERPRETER_NO_DEBUG;CMAKE_INTDIR="Debug";indices_EXPORTS</PreprocessorDefinitions>
+      <ObjectFileName>$(IntDir)</ObjectFileName>
+    </ClCompile>
+    <ResourceCompile>
+      <PreprocessorDefinitions>%(PreprocessorDefinitions);WIN32;_DEBUG;_WINDOWS;SWIG_PYTHON_INTERPRETER_NO_DEBUG;CMAKE_INTDIR=\"Debug\";indices_EXPORTS</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>D:\a\lungsim\lungsim\lungsim\src\bindings\python\..\c;C:\hostedtoolcache\windows\Python\3.7.9\x64\include;D:\a\lungsim\lungsim\venv\Lib\site-packages\numpy\core\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ResourceCompile>
+    <Midl>
+      <AdditionalIncludeDirectories>D:\a\lungsim\lungsim\lungsim\src\bindings\python\..\c;C:\hostedtoolcache\windows\Python\3.7.9\x64\include;D:\a\lungsim\lungsim\venv\Lib\site-packages\numpy\core\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
+      <HeaderFileName>%(Filename).h</HeaderFileName>
+      <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
+      <InterfaceIdentifierFileName>%(Filename)_i.c</InterfaceIdentifierFileName>
+      <ProxyFileName>%(Filename)_p.c</ProxyFileName>
+    </Midl>
+    <Link>
+      <AdditionalDependencies>C:\hostedtoolcache\windows\Python\3.7.9\x64\libs\python37.lib;..\c\Debug\aether_c.lib;C:\hostedtoolcache\windows\Python\3.7.9\x64\libs\python37.lib;..\c\Debug\aether_c_fortran.lib;..\..\lib\Debug\aether.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;comdlg32.lib;advapi32.lib</AdditionalDependencies>
+      <AdditionalLibraryDirectories>C:/Program Files (x86)/Intel/oneAPI/compiler/2023.1.0/windows/compiler/lib/Intel64_win;C:/Program Files (x86)/Intel/oneAPI/compiler/2023.1.0/windows/compiler/lib/Intel64_win/$(Configuration);%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalOptions>%(AdditionalOptions) /machine:x64</AdditionalOptions>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <IgnoreSpecificDefaultLibraries>%(IgnoreSpecificDefaultLibraries)</IgnoreSpecificDefaultLibraries>
+      <ImportLibrary>D:/a/lungsim/lungsim/build-lungsim/src/bindings/python/Debug/indices.lib</ImportLibrary>
+      <ProgramDataBaseFile>D:/a/lungsim/lungsim/build-lungsim/src/bindings/python/Debug/aether/_indices.pdb</ProgramDataBaseFile>
+      <SubSystem>Console</SubSystem>
+    </Link>
+    <ProjectReference>
+      <LinkLibraryDependencies>false</LinkLibraryDependencies>
+    </ProjectReference>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <ClCompile>
+      <AdditionalIncludeDirectories>D:\a\lungsim\lungsim\lungsim\src\bindings\python\..\c;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalOptions>%(AdditionalOptions) /external:I "C:/hostedtoolcache/windows/Python/3.7.9/x64/include" /external:I "D:/a/lungsim/lungsim/venv/Lib/site-packages/numpy/core/include"</AdditionalOptions>
+      <AssemblerListingLocation>$(IntDir)</AssemblerListingLocation>
+      <ExceptionHandling>
+      </ExceptionHandling>
+      <ExternalWarningLevel>TurnOffAllWarnings</ExternalWarningLevel>
+      <InlineFunctionExpansion>AnySuitable</InlineFunctionExpansion>
+      <Optimization>MaxSpeed</Optimization>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
+      <UseFullPaths>false</UseFullPaths>
+      <WarningLevel>Level3</WarningLevel>
+      <PreprocessorDefinitions>%(PreprocessorDefinitions);WIN32;_WINDOWS;NDEBUG;CMAKE_INTDIR="Release";indices_EXPORTS</PreprocessorDefinitions>
+      <ObjectFileName>$(IntDir)</ObjectFileName>
+      <DebugInformationFormat>
+      </DebugInformationFormat>
+    </ClCompile>
+    <ResourceCompile>
+      <PreprocessorDefinitions>%(PreprocessorDefinitions);WIN32;_WINDOWS;NDEBUG;CMAKE_INTDIR=\"Release\";indices_EXPORTS</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>D:\a\lungsim\lungsim\lungsim\src\bindings\python\..\c;C:\hostedtoolcache\windows\Python\3.7.9\x64\include;D:\a\lungsim\lungsim\venv\Lib\site-packages\numpy\core\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ResourceCompile>
+    <Midl>
+      <AdditionalIncludeDirectories>D:\a\lungsim\lungsim\lungsim\src\bindings\python\..\c;C:\hostedtoolcache\windows\Python\3.7.9\x64\include;D:\a\lungsim\lungsim\venv\Lib\site-packages\numpy\core\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
+      <HeaderFileName>%(Filename).h</HeaderFileName>
+      <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
+      <InterfaceIdentifierFileName>%(Filename)_i.c</InterfaceIdentifierFileName>
+      <ProxyFileName>%(Filename)_p.c</ProxyFileName>
+    </Midl>
+    <Link>
+      <AdditionalDependencies>C:\hostedtoolcache\windows\Python\3.7.9\x64\libs\python37.lib;..\c\Release\aether_c.lib;C:\hostedtoolcache\windows\Python\3.7.9\x64\libs\python37.lib;..\c\Release\aether_c_fortran.lib;..\..\lib\Release\aether.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;comdlg32.lib;advapi32.lib</AdditionalDependencies>
+      <AdditionalLibraryDirectories>C:/Program Files (x86)/Intel/oneAPI/compiler/2023.1.0/windows/compiler/lib/Intel64_win;C:/Program Files (x86)/Intel/oneAPI/compiler/2023.1.0/windows/compiler/lib/Intel64_win/$(Configuration);%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalOptions>%(AdditionalOptions) /machine:x64</AdditionalOptions>
+      <GenerateDebugInformation>false</GenerateDebugInformation>
+      <IgnoreSpecificDefaultLibraries>%(IgnoreSpecificDefaultLibraries)</IgnoreSpecificDefaultLibraries>
+      <ImportLibrary>D:/a/lungsim/lungsim/build-lungsim/src/bindings/python/Release/indices.lib</ImportLibrary>
+      <ProgramDataBaseFile>D:/a/lungsim/lungsim/build-lungsim/src/bindings/python/Release/aether/_indices.pdb</ProgramDataBaseFile>
+      <SubSystem>Console</SubSystem>
+    </Link>
+    <ProjectReference>
+      <LinkLibraryDependencies>false</LinkLibraryDependencies>
+    </ProjectReference>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">
+    <ClCompile>
+      <AdditionalIncludeDirectories>D:\a\lungsim\lungsim\lungsim\src\bindings\python\..\c;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalOptions>%(AdditionalOptions) /external:I "C:/hostedtoolcache/windows/Python/3.7.9/x64/include" /external:I "D:/a/lungsim/lungsim/venv/Lib/site-packages/numpy/core/include"</AdditionalOptions>
+      <AssemblerListingLocation>$(IntDir)</AssemblerListingLocation>
+      <ExceptionHandling>
+      </ExceptionHandling>
+      <ExternalWarningLevel>TurnOffAllWarnings</ExternalWarningLevel>
+      <InlineFunctionExpansion>OnlyExplicitInline</InlineFunctionExpansion>
+      <Optimization>MinSpace</Optimization>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
+      <UseFullPaths>false</UseFullPaths>
+      <WarningLevel>Level3</WarningLevel>
+      <PreprocessorDefinitions>%(PreprocessorDefinitions);WIN32;_WINDOWS;NDEBUG;CMAKE_INTDIR="MinSizeRel";indices_EXPORTS</PreprocessorDefinitions>
+      <ObjectFileName>$(IntDir)</ObjectFileName>
+      <DebugInformationFormat>
+      </DebugInformationFormat>
+    </ClCompile>
+    <ResourceCompile>
+      <PreprocessorDefinitions>%(PreprocessorDefinitions);WIN32;_WINDOWS;NDEBUG;CMAKE_INTDIR=\"MinSizeRel\";indices_EXPORTS</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>D:\a\lungsim\lungsim\lungsim\src\bindings\python\..\c;C:\hostedtoolcache\windows\Python\3.7.9\x64\include;D:\a\lungsim\lungsim\venv\Lib\site-packages\numpy\core\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ResourceCompile>
+    <Midl>
+      <AdditionalIncludeDirectories>D:\a\lungsim\lungsim\lungsim\src\bindings\python\..\c;C:\hostedtoolcache\windows\Python\3.7.9\x64\include;D:\a\lungsim\lungsim\venv\Lib\site-packages\numpy\core\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
+      <HeaderFileName>%(Filename).h</HeaderFileName>
+      <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
+      <InterfaceIdentifierFileName>%(Filename)_i.c</InterfaceIdentifierFileName>
+      <ProxyFileName>%(Filename)_p.c</ProxyFileName>
+    </Midl>
+    <Link>
+      <AdditionalDependencies>C:\hostedtoolcache\windows\Python\3.7.9\x64\libs\python37.lib;..\c\MinSizeRel\aether_c.lib;C:\hostedtoolcache\windows\Python\3.7.9\x64\libs\python37.lib;..\c\MinSizeRel\aether_c_fortran.lib;..\..\lib\MinSizeRel\aether.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;comdlg32.lib;advapi32.lib</AdditionalDependencies>
+      <AdditionalLibraryDirectories>C:/Program Files (x86)/Intel/oneAPI/compiler/2023.1.0/windows/compiler/lib/Intel64_win;C:/Program Files (x86)/Intel/oneAPI/compiler/2023.1.0/windows/compiler/lib/Intel64_win/$(Configuration);%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalOptions>%(AdditionalOptions) /machine:x64</AdditionalOptions>
+      <GenerateDebugInformation>false</GenerateDebugInformation>
+      <IgnoreSpecificDefaultLibraries>%(IgnoreSpecificDefaultLibraries)</IgnoreSpecificDefaultLibraries>
+      <ImportLibrary>D:/a/lungsim/lungsim/build-lungsim/src/bindings/python/MinSizeRel/indices.lib</ImportLibrary>
+      <ProgramDataBaseFile>D:/a/lungsim/lungsim/build-lungsim/src/bindings/python/MinSizeRel/aether/_indices.pdb</ProgramDataBaseFile>
+      <SubSystem>Console</SubSystem>
+    </Link>
+    <ProjectReference>
+      <LinkLibraryDependencies>false</LinkLibraryDependencies>
+    </ProjectReference>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">
+    <ClCompile>
+      <AdditionalIncludeDirectories>D:\a\lungsim\lungsim\lungsim\src\bindings\python\..\c;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalOptions>%(AdditionalOptions) /external:I "C:/hostedtoolcache/windows/Python/3.7.9/x64/include" /external:I "D:/a/lungsim/lungsim/venv/Lib/site-packages/numpy/core/include"</AdditionalOptions>
+      <AssemblerListingLocation>$(IntDir)</AssemblerListingLocation>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+      <ExceptionHandling>
+      </ExceptionHandling>
+      <ExternalWarningLevel>TurnOffAllWarnings</ExternalWarningLevel>
+      <InlineFunctionExpansion>OnlyExplicitInline</InlineFunctionExpansion>
+      <Optimization>MaxSpeed</Optimization>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
+      <UseFullPaths>false</UseFullPaths>
+      <WarningLevel>Level3</WarningLevel>
+      <PreprocessorDefinitions>%(PreprocessorDefinitions);WIN32;_WINDOWS;NDEBUG;CMAKE_INTDIR="RelWithDebInfo";indices_EXPORTS</PreprocessorDefinitions>
+      <ObjectFileName>$(IntDir)</ObjectFileName>
+    </ClCompile>
+    <ResourceCompile>
+      <PreprocessorDefinitions>%(PreprocessorDefinitions);WIN32;_WINDOWS;NDEBUG;CMAKE_INTDIR=\"RelWithDebInfo\";indices_EXPORTS</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>D:\a\lungsim\lungsim\lungsim\src\bindings\python\..\c;C:\hostedtoolcache\windows\Python\3.7.9\x64\include;D:\a\lungsim\lungsim\venv\Lib\site-packages\numpy\core\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ResourceCompile>
+    <Midl>
+      <AdditionalIncludeDirectories>D:\a\lungsim\lungsim\lungsim\src\bindings\python\..\c;C:\hostedtoolcache\windows\Python\3.7.9\x64\include;D:\a\lungsim\lungsim\venv\Lib\site-packages\numpy\core\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
+      <HeaderFileName>%(Filename).h</HeaderFileName>
+      <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
+      <InterfaceIdentifierFileName>%(Filename)_i.c</InterfaceIdentifierFileName>
+      <ProxyFileName>%(Filename)_p.c</ProxyFileName>
+    </Midl>
+    <Link>
+      <AdditionalDependencies>C:\hostedtoolcache\windows\Python\3.7.9\x64\libs\python37.lib;..\c\RelWithDebInfo\aether_c.lib;C:\hostedtoolcache\windows\Python\3.7.9\x64\libs\python37.lib;..\c\RelWithDebInfo\aether_c_fortran.lib;..\..\lib\RelWithDebInfo\aether.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;comdlg32.lib;advapi32.lib</AdditionalDependencies>
+      <AdditionalLibraryDirectories>C:/Program Files (x86)/Intel/oneAPI/compiler/2023.1.0/windows/compiler/lib/Intel64_win;C:/Program Files (x86)/Intel/oneAPI/compiler/2023.1.0/windows/compiler/lib/Intel64_win/$(Configuration);%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalOptions>%(AdditionalOptions) /machine:x64</AdditionalOptions>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <IgnoreSpecificDefaultLibraries>%(IgnoreSpecificDefaultLibraries)</IgnoreSpecificDefaultLibraries>
+      <ImportLibrary>D:/a/lungsim/lungsim/build-lungsim/src/bindings/python/RelWithDebInfo/indices.lib</ImportLibrary>
+      <ProgramDataBaseFile>D:/a/lungsim/lungsim/build-lungsim/src/bindings/python/RelWithDebInfo/aether/_indices.pdb</ProgramDataBaseFile>
+      <SubSystem>Console</SubSystem>
+    </Link>
+    <ProjectReference>
+      <LinkLibraryDependencies>false</LinkLibraryDependencies>
+    </ProjectReference>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <CustomBuild Include="D:\a\lungsim\lungsim\lungsim\src\bindings\interface\indices.i">
+      <Message Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Swig compile ../interface/indices.i for python</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -E make_directory D:/a/lungsim/lungsim/build-lungsim/src/bindings/python/CMakeFiles/indices.dir D:/a/lungsim/lungsim/build-lungsim/src/bindings/python/swig_generated_python_files D:/a/lungsim/lungsim/build-lungsim/src/bindings/python/swig_intermediaries
+if %errorlevel% neq 0 goto :cmEnd
+"C:\Program Files\CMake\bin\cmake.exe" -E env SWIG_LIB=C:/ProgramData/chocolatey/lib/swig/tools/install/swigwin-4.1.1/Lib C:/ProgramData/chocolatey/bin/swig.exe -python -py3 -relativeimport -ID:/a/lungsim/lungsim/lungsim/src/bindings/python/../c -outdir D:/a/lungsim/lungsim/build-lungsim/src/bindings/python/swig_generated_python_files -interface _indices -o D:/a/lungsim/lungsim/build-lungsim/src/bindings/python/swig_intermediaries/indicesPYTHON_wrap.c D:/a/lungsim/lungsim/lungsim/src/bindings/interface/indices.i
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">D:\a\lungsim\lungsim\build-lungsim\src\bindings\python\swig_intermediaries\indicesPYTHON_wrap.c;D:\a\lungsim\lungsim\build-lungsim\src\bindings\python\swig_generated_python_files\indices.py</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</LinkObjects>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Swig compile ../interface/indices.i for python</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|x64'">setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -E make_directory D:/a/lungsim/lungsim/build-lungsim/src/bindings/python/CMakeFiles/indices.dir D:/a/lungsim/lungsim/build-lungsim/src/bindings/python/swig_generated_python_files D:/a/lungsim/lungsim/build-lungsim/src/bindings/python/swig_intermediaries
+if %errorlevel% neq 0 goto :cmEnd
+"C:\Program Files\CMake\bin\cmake.exe" -E env SWIG_LIB=C:/ProgramData/chocolatey/lib/swig/tools/install/swigwin-4.1.1/Lib C:/ProgramData/chocolatey/bin/swig.exe -python -py3 -relativeimport -ID:/a/lungsim/lungsim/lungsim/src/bindings/python/../c -outdir D:/a/lungsim/lungsim/build-lungsim/src/bindings/python/swig_generated_python_files -interface _indices -o D:/a/lungsim/lungsim/build-lungsim/src/bindings/python/swig_intermediaries/indicesPYTHON_wrap.c D:/a/lungsim/lungsim/lungsim/src/bindings/interface/indices.i
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">D:\a\lungsim\lungsim\build-lungsim\src\bindings\python\swig_intermediaries\indicesPYTHON_wrap.c;D:\a\lungsim\lungsim\build-lungsim\src\bindings\python\swig_generated_python_files\indices.py</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</LinkObjects>
+      <Message Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">Swig compile ../interface/indices.i for python</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -E make_directory D:/a/lungsim/lungsim/build-lungsim/src/bindings/python/CMakeFiles/indices.dir D:/a/lungsim/lungsim/build-lungsim/src/bindings/python/swig_generated_python_files D:/a/lungsim/lungsim/build-lungsim/src/bindings/python/swig_intermediaries
+if %errorlevel% neq 0 goto :cmEnd
+"C:\Program Files\CMake\bin\cmake.exe" -E env SWIG_LIB=C:/ProgramData/chocolatey/lib/swig/tools/install/swigwin-4.1.1/Lib C:/ProgramData/chocolatey/bin/swig.exe -python -py3 -relativeimport -ID:/a/lungsim/lungsim/lungsim/src/bindings/python/../c -outdir D:/a/lungsim/lungsim/build-lungsim/src/bindings/python/swig_generated_python_files -interface _indices -o D:/a/lungsim/lungsim/build-lungsim/src/bindings/python/swig_intermediaries/indicesPYTHON_wrap.c D:/a/lungsim/lungsim/lungsim/src/bindings/interface/indices.i
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">D:\a\lungsim\lungsim\build-lungsim\src\bindings\python\swig_intermediaries\indicesPYTHON_wrap.c;D:\a\lungsim\lungsim\build-lungsim\src\bindings\python\swig_generated_python_files\indices.py</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">false</LinkObjects>
+      <Message Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">Swig compile ../interface/indices.i for python</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -E make_directory D:/a/lungsim/lungsim/build-lungsim/src/bindings/python/CMakeFiles/indices.dir D:/a/lungsim/lungsim/build-lungsim/src/bindings/python/swig_generated_python_files D:/a/lungsim/lungsim/build-lungsim/src/bindings/python/swig_intermediaries
+if %errorlevel% neq 0 goto :cmEnd
+"C:\Program Files\CMake\bin\cmake.exe" -E env SWIG_LIB=C:/ProgramData/chocolatey/lib/swig/tools/install/swigwin-4.1.1/Lib C:/ProgramData/chocolatey/bin/swig.exe -python -py3 -relativeimport -ID:/a/lungsim/lungsim/lungsim/src/bindings/python/../c -outdir D:/a/lungsim/lungsim/build-lungsim/src/bindings/python/swig_generated_python_files -interface _indices -o D:/a/lungsim/lungsim/build-lungsim/src/bindings/python/swig_intermediaries/indicesPYTHON_wrap.c D:/a/lungsim/lungsim/lungsim/src/bindings/interface/indices.i
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">D:\a\lungsim\lungsim\build-lungsim\src\bindings\python\swig_intermediaries\indicesPYTHON_wrap.c;D:\a\lungsim\lungsim\build-lungsim\src\bindings\python\swig_generated_python_files\indices.py</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">false</LinkObjects>
+    </CustomBuild>
+  </ItemGroup>
+  <ItemGroup>
+    <CustomBuild Include="D:\a\lungsim\lungsim\lungsim\src\bindings\python\CMakeLists.txt">
+      <UseUtf8Encoding>Always</UseUtf8Encoding>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Building Custom Rule D:/a/lungsim/lungsim/lungsim/src/bindings/python/CMakeLists.txt</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -SD:/a/lungsim/lungsim/lungsim -BD:/a/lungsim/lungsim/build-lungsim --check-stamp-file D:/a/lungsim/lungsim/build-lungsim/src/bindings/python/CMakeFiles/generate.stamp
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">C:\Program Files\CMake\share\cmake-3.26\Modules\UseSWIG.cmake;D:\a\lungsim\lungsim\lungsim\cmake\finalise_python_package.in.cmake;D:\a\lungsim\lungsim\lungsim\src\bindings\python\setup.in.py;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">D:\a\lungsim\lungsim\build-lungsim\src\bindings\python\CMakeFiles\generate.stamp</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</LinkObjects>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Building Custom Rule D:/a/lungsim/lungsim/lungsim/src/bindings/python/CMakeLists.txt</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|x64'">setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -SD:/a/lungsim/lungsim/lungsim -BD:/a/lungsim/lungsim/build-lungsim --check-stamp-file D:/a/lungsim/lungsim/build-lungsim/src/bindings/python/CMakeFiles/generate.stamp
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">C:\Program Files\CMake\share\cmake-3.26\Modules\UseSWIG.cmake;D:\a\lungsim\lungsim\lungsim\cmake\finalise_python_package.in.cmake;D:\a\lungsim\lungsim\lungsim\src\bindings\python\setup.in.py;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">D:\a\lungsim\lungsim\build-lungsim\src\bindings\python\CMakeFiles\generate.stamp</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</LinkObjects>
+      <Message Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">Building Custom Rule D:/a/lungsim/lungsim/lungsim/src/bindings/python/CMakeLists.txt</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -SD:/a/lungsim/lungsim/lungsim -BD:/a/lungsim/lungsim/build-lungsim --check-stamp-file D:/a/lungsim/lungsim/build-lungsim/src/bindings/python/CMakeFiles/generate.stamp
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">C:\Program Files\CMake\share\cmake-3.26\Modules\UseSWIG.cmake;D:\a\lungsim\lungsim\lungsim\cmake\finalise_python_package.in.cmake;D:\a\lungsim\lungsim\lungsim\src\bindings\python\setup.in.py;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">D:\a\lungsim\lungsim\build-lungsim\src\bindings\python\CMakeFiles\generate.stamp</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">false</LinkObjects>
+      <Message Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">Building Custom Rule D:/a/lungsim/lungsim/lungsim/src/bindings/python/CMakeLists.txt</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -SD:/a/lungsim/lungsim/lungsim -BD:/a/lungsim/lungsim/build-lungsim --check-stamp-file D:/a/lungsim/lungsim/build-lungsim/src/bindings/python/CMakeFiles/generate.stamp
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">C:\Program Files\CMake\share\cmake-3.26\Modules\UseSWIG.cmake;D:\a\lungsim\lungsim\lungsim\cmake\finalise_python_package.in.cmake;D:\a\lungsim\lungsim\lungsim\src\bindings\python\setup.in.py;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">D:\a\lungsim\lungsim\build-lungsim\src\bindings\python\CMakeFiles\generate.stamp</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">false</LinkObjects>
+    </CustomBuild>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="D:\a\lungsim\lungsim\build-lungsim\src\bindings\python\swig_intermediaries\indicesPYTHON_wrap.c">
+      <ScanSourceforModuleDependencies Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</ScanSourceforModuleDependencies>
+      <ScanSourceforModuleDependencies Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</ScanSourceforModuleDependencies>
+      <ScanSourceforModuleDependencies Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">false</ScanSourceforModuleDependencies>
+      <ScanSourceforModuleDependencies Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">false</ScanSourceforModuleDependencies>
+    </ClCompile>
+    <None Include="D:\a\lungsim\lungsim\build-lungsim\src\bindings\python\swig_generated_python_files\indices.py">
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="D:\a\lungsim\lungsim\build-lungsim\ZERO_CHECK.vcxproj">
+      <Project>{91CF996A-909C-3C28-8279-EE94301ED1DD}</Project>
+      <Name>ZERO_CHECK</Name>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </ProjectReference>
+    <ProjectReference Include="D:\a\lungsim\lungsim\build-lungsim\src\bindings\c\aether_c.vcxproj">
+      <Project>{66A144AC-C14F-3FA6-96D8-B1924A3AE66A}</Project>
+      <Name>aether_c</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>

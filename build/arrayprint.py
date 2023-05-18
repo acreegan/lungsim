@@ -1,37 +1,19 @@
+from typing import Any, Callable
 import numpy as np
 
-AR = np.arange(10)
-AR.setflags(write=False)
+AR: np.ndarray[Any, Any]
+func_float: Callable[[np.floating[Any]], str]
+func_int: Callable[[np.integer[Any]], str]
 
-with np.printoptions():
-    np.set_printoptions(
-        precision=1,
-        threshold=2,
-        edgeitems=3,
-        linewidth=4,
-        suppress=False,
-        nanstr="Bob",
-        infstr="Bill",
-        formatter={},
-        sign="+",
-        floatmode="unique",
-    )
-    np.get_printoptions()
-    str(AR)
+reveal_type(np.get_printoptions())  # E: TypedDict
+reveal_type(np.array2string(  # E: str
+    AR, formatter={'float_kind': func_float, 'int_kind': func_int}
+))
+reveal_type(np.format_float_scientific(1.0))  # E: str
+reveal_type(np.format_float_positional(1))  # E: str
+reveal_type(np.array_repr(AR))  # E: str
+reveal_type(np.array_str(AR))  # E: str
 
-    np.array2string(
-        AR,
-        max_line_width=5,
-        precision=2,
-        suppress_small=True,
-        separator=";",
-        prefix="test",
-        threshold=5,
-        floatmode="fixed",
-        suffix="?",
-        legacy="1.13",
-    )
-    np.format_float_scientific(1, precision=5)
-    np.format_float_positional(1, trim="k")
-    np.array_repr(AR)
-    np.array_str(AR)
+reveal_type(np.printoptions())  # E: contextlib._GeneratorContextManager
+with np.printoptions() as dct:
+    reveal_type(dct)  # E: TypedDict

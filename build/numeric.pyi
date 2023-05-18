@@ -1,133 +1,243 @@
-"""
-Tests for :mod:`core.numeric`.
+import sys
+from typing import (
+    Any,
+    Optional,
+    Union,
+    Sequence,
+    Tuple,
+    Callable,
+    List,
+    overload,
+    TypeVar,
+    Iterable,
+)
 
-Does not include tests which fall under ``array_constructors``.
+from numpy import ndarray, generic, dtype, bool_, signedinteger, _OrderKACF, _OrderCF
+from numpy.typing import ArrayLike, DTypeLike, _ShapeLike
 
-"""
+if sys.version_info >= (3, 8):
+    from typing import Literal
+else:
+    from typing_extensions import Literal
 
-import numpy as np
-import numpy.typing as npt
+_T = TypeVar("_T")
+_ArrayType = TypeVar("_ArrayType", bound=ndarray)
 
-class SubClass(npt.NDArray[np.int64]):
-    ...
+_CorrelateMode = Literal["valid", "same", "full"]
 
-i8: np.int64
+@overload
+def zeros_like(
+    a: _ArrayType,
+    dtype: None = ...,
+    order: _OrderKACF = ...,
+    subok: Literal[True] = ...,
+    shape: None = ...,
+) -> _ArrayType: ...
+@overload
+def zeros_like(
+    a: ArrayLike,
+    dtype: DTypeLike = ...,
+    order: _OrderKACF = ...,
+    subok: bool = ...,
+    shape: Optional[_ShapeLike] = ...,
+) -> ndarray: ...
 
-AR_b: npt.NDArray[np.bool_]
-AR_u8: npt.NDArray[np.uint64]
-AR_i8: npt.NDArray[np.int64]
-AR_f8: npt.NDArray[np.float64]
-AR_c16: npt.NDArray[np.complex128]
-AR_m: npt.NDArray[np.timedelta64]
-AR_O: npt.NDArray[np.object_]
+def ones(
+    shape: _ShapeLike,
+    dtype: DTypeLike = ...,
+    order: _OrderCF = ...,
+    *,
+    like: ArrayLike = ...,
+) -> ndarray: ...
 
-B: list[int]
-C: SubClass
+@overload
+def ones_like(
+    a: _ArrayType,
+    dtype: None = ...,
+    order: _OrderKACF = ...,
+    subok: Literal[True] = ...,
+    shape: None = ...,
+) -> _ArrayType: ...
+@overload
+def ones_like(
+    a: ArrayLike,
+    dtype: DTypeLike = ...,
+    order: _OrderKACF = ...,
+    subok: bool = ...,
+    shape: Optional[_ShapeLike] = ...,
+) -> ndarray: ...
 
-reveal_type(np.count_nonzero(i8))  # E: int
-reveal_type(np.count_nonzero(AR_i8))  # E: int
-reveal_type(np.count_nonzero(B))  # E: int
-reveal_type(np.count_nonzero(AR_i8, keepdims=True))  # E: Any
-reveal_type(np.count_nonzero(AR_i8, axis=0))  # E: Any
+@overload
+def empty_like(
+    a: _ArrayType,
+    dtype: None = ...,
+    order: _OrderKACF = ...,
+    subok: Literal[True] = ...,
+    shape: None = ...,
+) -> _ArrayType: ...
+@overload
+def empty_like(
+    a: ArrayLike,
+    dtype: DTypeLike = ...,
+    order: _OrderKACF = ...,
+    subok: bool = ...,
+    shape: Optional[_ShapeLike] = ...,
+) -> ndarray: ...
 
-reveal_type(np.isfortran(i8))  # E: bool
-reveal_type(np.isfortran(AR_i8))  # E: bool
+def full(
+    shape: _ShapeLike,
+    fill_value: Any,
+    dtype: DTypeLike = ...,
+    order: _OrderCF = ...,
+    *,
+    like: ArrayLike = ...,
+) -> ndarray: ...
 
-reveal_type(np.argwhere(i8))  # E: ndarray[Any, dtype[{intp}]]
-reveal_type(np.argwhere(AR_i8))  # E: ndarray[Any, dtype[{intp}]]
+@overload
+def full_like(
+    a: _ArrayType,
+    fill_value: Any,
+    dtype: None = ...,
+    order: _OrderKACF = ...,
+    subok: Literal[True] = ...,
+    shape: None = ...,
+) -> _ArrayType: ...
+@overload
+def full_like(
+    a: ArrayLike,
+    fill_value: Any,
+    dtype: DTypeLike = ...,
+    order: _OrderKACF = ...,
+    subok: bool = ...,
+    shape: Optional[_ShapeLike] = ...,
+) -> ndarray: ...
 
-reveal_type(np.flatnonzero(i8))  # E: ndarray[Any, dtype[{intp}]]
-reveal_type(np.flatnonzero(AR_i8))  # E: ndarray[Any, dtype[{intp}]]
+@overload
+def count_nonzero(
+    a: ArrayLike,
+    axis: None = ...,
+    *,
+    keepdims: Literal[False] = ...,
+) -> int: ...
+@overload
+def count_nonzero(
+    a: ArrayLike,
+    axis: _ShapeLike = ...,
+    *,
+    keepdims: bool = ...,
+) -> Any: ...  # TODO: np.intp or ndarray[np.intp]
 
-reveal_type(np.correlate(B, AR_i8, mode="valid"))  # E: ndarray[Any, dtype[signedinteger[Any]]]
-reveal_type(np.correlate(AR_i8, AR_i8, mode="same"))  # E: ndarray[Any, dtype[signedinteger[Any]]]
-reveal_type(np.correlate(AR_b, AR_b))  # E: ndarray[Any, dtype[bool_]]
-reveal_type(np.correlate(AR_b, AR_u8))  # E: ndarray[Any, dtype[unsignedinteger[Any]]]
-reveal_type(np.correlate(AR_i8, AR_b))  # E: ndarray[Any, dtype[signedinteger[Any]]]
-reveal_type(np.correlate(AR_i8, AR_f8))  # E: ndarray[Any, dtype[floating[Any]]]
-reveal_type(np.correlate(AR_i8, AR_c16))  # E: ndarray[Any, dtype[complexfloating[Any, Any]]]
-reveal_type(np.correlate(AR_i8, AR_m))  # E: ndarray[Any, dtype[timedelta64]]
-reveal_type(np.correlate(AR_O, AR_O))  # E: ndarray[Any, dtype[object_]]
+def isfortran(a: Union[ndarray, generic]) -> bool: ...
 
-reveal_type(np.convolve(B, AR_i8, mode="valid"))  # E: ndarray[Any, dtype[signedinteger[Any]]]
-reveal_type(np.convolve(AR_i8, AR_i8, mode="same"))  # E: ndarray[Any, dtype[signedinteger[Any]]]
-reveal_type(np.convolve(AR_b, AR_b))  # E: ndarray[Any, dtype[bool_]]
-reveal_type(np.convolve(AR_b, AR_u8))  # E: ndarray[Any, dtype[unsignedinteger[Any]]]
-reveal_type(np.convolve(AR_i8, AR_b))  # E: ndarray[Any, dtype[signedinteger[Any]]]
-reveal_type(np.convolve(AR_i8, AR_f8))  # E: ndarray[Any, dtype[floating[Any]]]
-reveal_type(np.convolve(AR_i8, AR_c16))  # E: ndarray[Any, dtype[complexfloating[Any, Any]]]
-reveal_type(np.convolve(AR_i8, AR_m))  # E: ndarray[Any, dtype[timedelta64]]
-reveal_type(np.convolve(AR_O, AR_O))  # E: ndarray[Any, dtype[object_]]
+def argwhere(a: ArrayLike) -> ndarray: ...
 
-reveal_type(np.outer(i8, AR_i8))  # E: ndarray[Any, dtype[signedinteger[Any]]]
-reveal_type(np.outer(B, AR_i8))  # E: ndarray[Any, dtype[signedinteger[Any]]]
-reveal_type(np.outer(AR_i8, AR_i8))  # E: ndarray[Any, dtype[signedinteger[Any]]]
-reveal_type(np.outer(AR_i8, AR_i8, out=C))  # E: SubClass
-reveal_type(np.outer(AR_b, AR_b))  # E: ndarray[Any, dtype[bool_]]
-reveal_type(np.outer(AR_b, AR_u8))  # E: ndarray[Any, dtype[unsignedinteger[Any]]]
-reveal_type(np.outer(AR_i8, AR_b))  # E: ndarray[Any, dtype[signedinteger[Any]]]
-reveal_type(np.convolve(AR_i8, AR_f8))  # E: ndarray[Any, dtype[floating[Any]]]
-reveal_type(np.outer(AR_i8, AR_c16))  # E: ndarray[Any, dtype[complexfloating[Any, Any]]]
-reveal_type(np.outer(AR_i8, AR_m))  # E: ndarray[Any, dtype[timedelta64]]
-reveal_type(np.outer(AR_O, AR_O))  # E: ndarray[Any, dtype[object_]]
+def flatnonzero(a: ArrayLike) -> ndarray: ...
 
-reveal_type(np.tensordot(B, AR_i8))  # E: ndarray[Any, dtype[signedinteger[Any]]]
-reveal_type(np.tensordot(AR_i8, AR_i8))  # E: ndarray[Any, dtype[signedinteger[Any]]]
-reveal_type(np.tensordot(AR_i8, AR_i8, axes=0))  # E: ndarray[Any, dtype[signedinteger[Any]]]
-reveal_type(np.tensordot(AR_i8, AR_i8, axes=(0, 1)))  # E: ndarray[Any, dtype[signedinteger[Any]]]
-reveal_type(np.tensordot(AR_b, AR_b))  # E: ndarray[Any, dtype[bool_]]
-reveal_type(np.tensordot(AR_b, AR_u8))  # E: ndarray[Any, dtype[unsignedinteger[Any]]]
-reveal_type(np.tensordot(AR_i8, AR_b))  # E: ndarray[Any, dtype[signedinteger[Any]]]
-reveal_type(np.tensordot(AR_i8, AR_f8))  # E: ndarray[Any, dtype[floating[Any]]]
-reveal_type(np.tensordot(AR_i8, AR_c16))  # E: ndarray[Any, dtype[complexfloating[Any, Any]]]
-reveal_type(np.tensordot(AR_i8, AR_m))  # E: ndarray[Any, dtype[timedelta64]]
-reveal_type(np.tensordot(AR_O, AR_O))  # E: ndarray[Any, dtype[object_]]
+def correlate(
+    a: ArrayLike,
+    v: ArrayLike,
+    mode: _CorrelateMode = ...,
+) -> ndarray: ...
 
-reveal_type(np.isscalar(i8))  # E: bool
-reveal_type(np.isscalar(AR_i8))  # E: bool
-reveal_type(np.isscalar(B))  # E: bool
+def convolve(
+    a: ArrayLike,
+    v: ArrayLike,
+    mode: _CorrelateMode = ...,
+) -> ndarray: ...
 
-reveal_type(np.roll(AR_i8, 1))  # E: ndarray[Any, dtype[{int64}]]
-reveal_type(np.roll(AR_i8, (1, 2)))  # E: ndarray[Any, dtype[{int64}]]
-reveal_type(np.roll(B, 1))  # E: ndarray[Any, dtype[Any]]
+@overload
+def outer(
+    a: ArrayLike,
+    b: ArrayLike,
+    out: None = ...,
+) -> ndarray: ...
+@overload
+def outer(
+    a: ArrayLike,
+    b: ArrayLike,
+    out: _ArrayType = ...,
+) -> _ArrayType: ...
 
-reveal_type(np.rollaxis(AR_i8, 0, 1))  # E: ndarray[Any, dtype[{int64}]]
+def tensordot(
+    a: ArrayLike,
+    b: ArrayLike,
+    axes: Union[int, Tuple[_ShapeLike, _ShapeLike]] = ...,
+) -> ndarray: ...
 
-reveal_type(np.moveaxis(AR_i8, 0, 1))  # E: ndarray[Any, dtype[{int64}]]
-reveal_type(np.moveaxis(AR_i8, (0, 1), (1, 2)))  # E: ndarray[Any, dtype[{int64}]]
+def roll(
+    a: ArrayLike,
+    shift: _ShapeLike,
+    axis: Optional[_ShapeLike] = ...,
+) -> ndarray: ...
 
-reveal_type(np.cross(B, AR_i8))  # E: ndarray[Any, dtype[signedinteger[Any]]]
-reveal_type(np.cross(AR_i8, AR_i8))  # E: ndarray[Any, dtype[signedinteger[Any]]]
-reveal_type(np.cross(AR_b, AR_u8))  # E: ndarray[Any, dtype[unsignedinteger[Any]]]
-reveal_type(np.cross(AR_i8, AR_b))  # E: ndarray[Any, dtype[signedinteger[Any]]]
-reveal_type(np.cross(AR_i8, AR_f8))  # E: ndarray[Any, dtype[floating[Any]]]
-reveal_type(np.cross(AR_i8, AR_c16))  # E: ndarray[Any, dtype[complexfloating[Any, Any]]]
-reveal_type(np.cross(AR_O, AR_O))  # E: ndarray[Any, dtype[object_]]
+def rollaxis(a: ndarray, axis: int, start: int = ...) -> ndarray: ...
 
-reveal_type(np.indices([0, 1, 2]))  # E: ndarray[Any, dtype[{int_}]]
-reveal_type(np.indices([0, 1, 2], sparse=True))  # E: tuple[ndarray[Any, dtype[{int_}]], ...]
-reveal_type(np.indices([0, 1, 2], dtype=np.float64))  # E: ndarray[Any, dtype[{float64}]]
-reveal_type(np.indices([0, 1, 2], sparse=True, dtype=np.float64))  # E: tuple[ndarray[Any, dtype[{float64}]], ...]
-reveal_type(np.indices([0, 1, 2], dtype=float))  # E: ndarray[Any, dtype[Any]]
-reveal_type(np.indices([0, 1, 2], sparse=True, dtype=float))  # E: tuple[ndarray[Any, dtype[Any]], ...]
+def moveaxis(
+    a: ndarray,
+    source: _ShapeLike,
+    destination: _ShapeLike,
+) -> ndarray: ...
 
-reveal_type(np.binary_repr(1))  # E: str
+def cross(
+    a: ArrayLike,
+    b: ArrayLike,
+    axisa: int = ...,
+    axisb: int = ...,
+    axisc: int = ...,
+    axis: Optional[int] = ...,
+) -> ndarray: ...
 
-reveal_type(np.base_repr(1))  # E: str
+@overload
+def indices(
+    dimensions: Sequence[int],
+    dtype: DTypeLike = ...,
+    sparse: Literal[False] = ...,
+) -> ndarray: ...
+@overload
+def indices(
+    dimensions: Sequence[int],
+    dtype: DTypeLike = ...,
+    sparse: Literal[True] = ...,
+) -> Tuple[ndarray, ...]: ...
 
-reveal_type(np.allclose(i8, AR_i8))  # E: bool
-reveal_type(np.allclose(B, AR_i8))  # E: bool
-reveal_type(np.allclose(AR_i8, AR_i8))  # E: bool
+def fromfunction(
+    function: Callable[..., _T],
+    shape: Sequence[int],
+    *,
+    dtype: DTypeLike = ...,
+    like: ArrayLike = ...,
+    **kwargs: Any,
+) -> _T: ...
 
-reveal_type(np.isclose(i8, i8))  # E: bool_
-reveal_type(np.isclose(i8, AR_i8))  # E: ndarray[Any, dtype[bool_]]
-reveal_type(np.isclose(B, AR_i8))  # E: ndarray[Any, dtype[bool_]]
-reveal_type(np.isclose(AR_i8, AR_i8))  # E: ndarray[Any, dtype[bool_]]
+def isscalar(element: Any) -> bool: ...
 
-reveal_type(np.array_equal(i8, AR_i8))  # E: bool
-reveal_type(np.array_equal(B, AR_i8))  # E: bool
-reveal_type(np.array_equal(AR_i8, AR_i8))  # E: bool
+def binary_repr(num: int, width: Optional[int] = ...) -> str: ...
 
-reveal_type(np.array_equiv(i8, AR_i8))  # E: bool
-reveal_type(np.array_equiv(B, AR_i8))  # E: bool
-reveal_type(np.array_equiv(AR_i8, AR_i8))  # E: bool
+def base_repr(number: int, base: int = ..., padding: int = ...) -> str: ...
+
+def identity(
+    n: int,
+    dtype: DTypeLike = ...,
+    *,
+    like: ArrayLike = ...,
+) -> ndarray: ...
+
+def allclose(
+    a: ArrayLike,
+    b: ArrayLike,
+    rtol: float = ...,
+    atol: float = ...,
+    equal_nan: bool = ...,
+) -> bool: ...
+
+def isclose(
+    a: ArrayLike,
+    b: ArrayLike,
+    rtol: float = ...,
+    atol: float = ...,
+    equal_nan: bool = ...,
+) -> Any: ...
+
+def array_equal(a1: ArrayLike, a2: ArrayLike, equal_nan: bool = ...) -> bool: ...
+
+def array_equiv(a1: ArrayLike, a2: ArrayLike) -> bool: ...

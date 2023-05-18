@@ -1,0 +1,20 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="16.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <ClCompile Include="D:\a\lungsim\lungsim\build-lungsim\src\bindings\python\swig_intermediaries\gas_exchangePYTHON_wrap.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <CustomBuild Include="D:\a\lungsim\lungsim\lungsim\src\bindings\interface\gas_exchange.i" />
+    <CustomBuild Include="D:\a\lungsim\lungsim\lungsim\src\bindings\python\CMakeLists.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="D:\a\lungsim\lungsim\build-lungsim\src\bindings\python\swig_generated_python_files\gas_exchange.py" />
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{68AC2C30-5753-3DE9-B3F9-521195CDBC5B}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+</Project>

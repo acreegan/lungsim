@@ -15,117 +15,117 @@ AR = np.array([0, 1, 2], dtype=np.int32)
 AR.setflags(write=False)
 
 
-i8 << i8
-i8 >> i8
-i8 | i8
-i8 ^ i8
-i8 & i8
+reveal_type(i8 << i8)  # E: {int64}
+reveal_type(i8 >> i8)  # E: {int64}
+reveal_type(i8 | i8)  # E: {int64}
+reveal_type(i8 ^ i8)  # E: {int64}
+reveal_type(i8 & i8)  # E: {int64}
 
-i8 << AR
-i8 >> AR
-i8 | AR
-i8 ^ AR
-i8 & AR
+reveal_type(i8 << AR)  # E: Any
+reveal_type(i8 >> AR)  # E: Any
+reveal_type(i8 | AR)  # E: Any
+reveal_type(i8 ^ AR)  # E: Any
+reveal_type(i8 & AR)  # E: Any
 
-i4 << i4
-i4 >> i4
-i4 | i4
-i4 ^ i4
-i4 & i4
+reveal_type(i4 << i4)  # E: {int32}
+reveal_type(i4 >> i4)  # E: {int32}
+reveal_type(i4 | i4)  # E: {int32}
+reveal_type(i4 ^ i4)  # E: {int32}
+reveal_type(i4 & i4)  # E: {int32}
 
-i8 << i4
-i8 >> i4
-i8 | i4
-i8 ^ i4
-i8 & i4
+reveal_type(i8 << i4)  # E: {int64}
+reveal_type(i8 >> i4)  # E: {int64}
+reveal_type(i8 | i4)  # E: {int64}
+reveal_type(i8 ^ i4)  # E: {int64}
+reveal_type(i8 & i4)  # E: {int64}
 
-i8 << i
-i8 >> i
-i8 | i
-i8 ^ i
-i8 & i
+reveal_type(i8 << i)  # E: {int64}
+reveal_type(i8 >> i)  # E: {int64}
+reveal_type(i8 | i)  # E: {int64}
+reveal_type(i8 ^ i)  # E: {int64}
+reveal_type(i8 & i)  # E: {int64}
 
-i8 << b_
-i8 >> b_
-i8 | b_
-i8 ^ b_
-i8 & b_
+reveal_type(i8 << b_)  # E: {int64}
+reveal_type(i8 >> b_)  # E: {int64}
+reveal_type(i8 | b_)  # E: {int64}
+reveal_type(i8 ^ b_)  # E: {int64}
+reveal_type(i8 & b_)  # E: {int64}
 
-i8 << b
-i8 >> b
-i8 | b
-i8 ^ b
-i8 & b
+reveal_type(i8 << b)  # E: {int64}
+reveal_type(i8 >> b)  # E: {int64}
+reveal_type(i8 | b)  # E: {int64}
+reveal_type(i8 ^ b)  # E: {int64}
+reveal_type(i8 & b)  # E: {int64}
 
-u8 << u8
-u8 >> u8
-u8 | u8
-u8 ^ u8
-u8 & u8
+reveal_type(u8 << u8)  # E: {uint64}
+reveal_type(u8 >> u8)  # E: {uint64}
+reveal_type(u8 | u8)  # E: {uint64}
+reveal_type(u8 ^ u8)  # E: {uint64}
+reveal_type(u8 & u8)  # E: {uint64}
 
-u8 << AR
-u8 >> AR
-u8 | AR
-u8 ^ AR
-u8 & AR
+reveal_type(u8 << AR)  # E: Any
+reveal_type(u8 >> AR)  # E: Any
+reveal_type(u8 | AR)  # E: Any
+reveal_type(u8 ^ AR)  # E: Any
+reveal_type(u8 & AR)  # E: Any
 
-u4 << u4
-u4 >> u4
-u4 | u4
-u4 ^ u4
-u4 & u4
+reveal_type(u4 << u4)  # E: {uint32}
+reveal_type(u4 >> u4)  # E: {uint32}
+reveal_type(u4 | u4)  # E: {uint32}
+reveal_type(u4 ^ u4)  # E: {uint32}
+reveal_type(u4 & u4)  # E: {uint32}
 
-u4 << i4
-u4 >> i4
-u4 | i4
-u4 ^ i4
-u4 & i4
+reveal_type(u4 << i4)  # E: numpy.signedinteger[Any]
+reveal_type(u4 >> i4)  # E: numpy.signedinteger[Any]
+reveal_type(u4 | i4)  # E: numpy.signedinteger[Any]
+reveal_type(u4 ^ i4)  # E: numpy.signedinteger[Any]
+reveal_type(u4 & i4)  # E: numpy.signedinteger[Any]
 
-u4 << i
-u4 >> i
-u4 | i
-u4 ^ i
-u4 & i
+reveal_type(u4 << i)  # E: numpy.signedinteger[Any]
+reveal_type(u4 >> i)  # E: numpy.signedinteger[Any]
+reveal_type(u4 | i)  # E: numpy.signedinteger[Any]
+reveal_type(u4 ^ i)  # E: numpy.signedinteger[Any]
+reveal_type(u4 & i)  # E: numpy.signedinteger[Any]
 
-u8 << b_
-u8 >> b_
-u8 | b_
-u8 ^ b_
-u8 & b_
+reveal_type(u8 << b_)  # E: {uint64}
+reveal_type(u8 >> b_)  # E: {uint64}
+reveal_type(u8 | b_)  # E: {uint64}
+reveal_type(u8 ^ b_)  # E: {uint64}
+reveal_type(u8 & b_)  # E: {uint64}
 
-u8 << b
-u8 >> b
-u8 | b
-u8 ^ b
-u8 & b
+reveal_type(u8 << b)  # E: {uint64}
+reveal_type(u8 >> b)  # E: {uint64}
+reveal_type(u8 | b)  # E: {uint64}
+reveal_type(u8 ^ b)  # E: {uint64}
+reveal_type(u8 & b)  # E: {uint64}
 
-b_ << b_
-b_ >> b_
-b_ | b_
-b_ ^ b_
-b_ & b_
+reveal_type(b_ << b_)  # E: {int8}
+reveal_type(b_ >> b_)  # E: {int8}
+reveal_type(b_ | b_)  # E: numpy.bool_
+reveal_type(b_ ^ b_)  # E: numpy.bool_
+reveal_type(b_ & b_)  # E: numpy.bool_
 
-b_ << AR
-b_ >> AR
-b_ | AR
-b_ ^ AR
-b_ & AR
+reveal_type(b_ << AR)  # E: Any
+reveal_type(b_ >> AR)  # E: Any
+reveal_type(b_ | AR)  # E: Any
+reveal_type(b_ ^ AR)  # E: Any
+reveal_type(b_ & AR)  # E: Any
 
-b_ << b
-b_ >> b
-b_ | b
-b_ ^ b
-b_ & b
+reveal_type(b_ << b)  # E: {int8}
+reveal_type(b_ >> b)  # E: {int8}
+reveal_type(b_ | b)  # E: numpy.bool_
+reveal_type(b_ ^ b)  # E: numpy.bool_
+reveal_type(b_ & b)  # E: numpy.bool_
 
-b_ << i
-b_ >> i
-b_ | i
-b_ ^ i
-b_ & i
+reveal_type(b_ << i)  # E: {int_}
+reveal_type(b_ >> i)  # E: {int_}
+reveal_type(b_ | i)  # E: {int_}
+reveal_type(b_ ^ i)  # E: {int_}
+reveal_type(b_ & i)  # E: {int_}
 
-~i8
-~i4
-~u8
-~u4
-~b_
-~AR
+reveal_type(~i8)  # E: {int64}
+reveal_type(~i4)  # E: {int32}
+reveal_type(~u8)  # E: {uint64}
+reveal_type(~u4)  # E: {uint32}
+reveal_type(~b_)  # E: numpy.bool_
+reveal_type(~AR)  # E: Any
