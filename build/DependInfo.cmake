@@ -37,10 +37,12 @@ set(CMAKE_Fortran_SUBMODULE_EXT ".smod")
 
 # The include file search paths:
 set(CMAKE_Fortran_TARGET_INCLUDE_PATH
+  "/usr/include/superlu"
   )
 
 # The set of dependency files which are needed:
 set(CMAKE_DEPENDS_DEPENDENCY_FILES
+  "/home/runner/work/lungsim/lungsim/lungsim/src/lib/c_fortran_dgssv.c" "src/lib/CMakeFiles/aether.dir/c_fortran_dgssv.c.o" "gcc" "src/lib/CMakeFiles/aether.dir/c_fortran_dgssv.c.o.d"
   )
 
 # Targets to which this target links which contain Fortran sources.

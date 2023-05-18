@@ -376,10 +376,10 @@ Python_EXECUTABLE:UNINITIALIZED=/home/runner/work/lungsim/lungsim/venv/bin/pytho
 SPHINX_EXECUTABLE:FILEPATH=SPHINX_EXECUTABLE-NOTFOUND
 
 //Path to a file.
-SUPERLU_INCLUDES:PATH=SUPERLU_INCLUDES-NOTFOUND
+SUPERLU_INCLUDES:PATH=/usr/include/superlu
 
 //Path to a library.
-SUPERLU_LIBRARIES:FILEPATH=SUPERLU_LIBRARIES-NOTFOUND
+SUPERLU_LIBRARIES:FILEPATH=/usr/lib/x86_64-linux-gnu/libsuperlu.so
 
 //Path to a file.
 SWIG_DIR:PATH=/usr/share/swig4.0
@@ -629,10 +629,18 @@ CMAKE_VERBOSE_MAKEFILE-ADVANCED:INTERNAL=1
 FIND_PACKAGE_MESSAGE_DETAILS_BLAS:INTERNAL=[/usr/lib/x86_64-linux-gnu/libblas.so][v()]
 //Details about finding Python
 FIND_PACKAGE_MESSAGE_DETAILS_Python:INTERNAL=[/home/runner/work/lungsim/lungsim/venv/bin/python][/usr/include/python3.8][/usr/lib/x86_64-linux-gnu/libpython3.8.so][/home/runner/work/lungsim/lungsim/venv/lib/python3.8/site-packages/numpy/core/include][cfound components: Interpreter Development NumPy Development.Module Development.Embed ][v3.8.10()]
+//Details about finding SuperLU
+FIND_PACKAGE_MESSAGE_DETAILS_SuperLU:INTERNAL=[/usr/include/superlu][/usr/lib/x86_64-linux-gnu/libsuperlu.so][TRUE][v5.0()]
 //Details about finding Threads
 FIND_PACKAGE_MESSAGE_DETAILS_Threads:INTERNAL=[TRUE][v()]
 //ADVANCED property for variable: SPHINX_EXECUTABLE
 SPHINX_EXECUTABLE-ADVANCED:INTERNAL=1
+//Test SUPERLU_HAS_CLEAN_ENUMS
+SUPERLU_HAS_CLEAN_ENUMS:INTERNAL=1
+//Test SUPERLU_HAS_GLOBALLU_T
+SUPERLU_HAS_GLOBALLU_T:INTERNAL=1
+//Test SUPERLU_HAS_GLOBAL_MEM_USAGE_T
+SUPERLU_HAS_GLOBAL_MEM_USAGE_T:INTERNAL=1
 //ADVANCED property for variable: SUPERLU_INCLUDES
 SUPERLU_INCLUDES-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: SUPERLU_LIBRARIES

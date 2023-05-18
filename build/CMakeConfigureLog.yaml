@@ -34,7 +34,7 @@ events:
       Thread model: posix
       gcc version 9.4.0 (Ubuntu 9.4.0-1ubuntu1~20.04.1) 
       COLLECT_GCC_OPTIONS='-v' '-shared-libgcc' '-mtune=generic' '-march=x86-64'
-       /usr/lib/gcc/x86_64-linux-gnu/9/f951 CMakeFortranCompilerId.F -ffixed-form -cpp=/tmp/ccRwZp2X.f90 -quiet -v -imultiarch x86_64-linux-gnu CMakeFortranCompilerId.F -quiet -dumpbase CMakeFortranCompilerId.F -mtune=generic -march=x86-64 -auxbase CMakeFortranCompilerId -version -fintrinsic-modules-path /usr/lib/gcc/x86_64-linux-gnu/9/finclude -fpre-include=/usr/include/finclude/math-vector-fortran.h -o /tmp/cc0dxVFY.s
+       /usr/lib/gcc/x86_64-linux-gnu/9/f951 CMakeFortranCompilerId.F -ffixed-form -cpp=/tmp/ccrr44Dj.f90 -quiet -v -imultiarch x86_64-linux-gnu CMakeFortranCompilerId.F -quiet -dumpbase CMakeFortranCompilerId.F -mtune=generic -march=x86-64 -auxbase CMakeFortranCompilerId -version -fintrinsic-modules-path /usr/lib/gcc/x86_64-linux-gnu/9/finclude -fpre-include=/usr/include/finclude/math-vector-fortran.h -o /tmp/ccBe79Ej.s
       GNU Fortran (Ubuntu 9.4.0-1ubuntu1~20.04.1) version 9.4.0 (x86_64-linux-gnu)
       	compiled by GNU C version 9.4.0, GMP version 6.2.0, MPFR version 4.0.2, MPC version 1.1.0, isl version isl-0.22.1-GMP
       
@@ -55,7 +55,7 @@ events:
       
       GGC heuristics: --param ggc-min-expand=100 --param ggc-min-heapsize=131072
       COLLECT_GCC_OPTIONS='-v' '-shared-libgcc' '-mtune=generic' '-march=x86-64'
-       as -v --64 -o /tmp/ccofVv4Z.o /tmp/cc0dxVFY.s
+       as -v --64 -o /tmp/ccFl1yMh.o /tmp/ccBe79Ej.s
       GNU assembler version 2.34 (x86_64-linux-gnu) using BFD version (GNU Binutils for Ubuntu) 2.34
       Reading specs from /usr/lib/gcc/x86_64-linux-gnu/9/libgfortran.spec
       rename spec lib to liborig
@@ -63,7 +63,7 @@ events:
       COMPILER_PATH=/usr/lib/gcc/x86_64-linux-gnu/9/:/usr/lib/gcc/x86_64-linux-gnu/9/:/usr/lib/gcc/x86_64-linux-gnu/:/usr/lib/gcc/x86_64-linux-gnu/9/:/usr/lib/gcc/x86_64-linux-gnu/
       LIBRARY_PATH=/usr/lib/gcc/x86_64-linux-gnu/9/:/usr/lib/gcc/x86_64-linux-gnu/9/../../../x86_64-linux-gnu/:/usr/lib/gcc/x86_64-linux-gnu/9/../../../../lib/:/lib/x86_64-linux-gnu/:/lib/../lib/:/usr/lib/x86_64-linux-gnu/:/usr/lib/../lib/:/usr/lib/gcc/x86_64-linux-gnu/9/../../../:/lib/:/usr/lib/
       COLLECT_GCC_OPTIONS='-v' '-shared-libgcc' '-mtune=generic' '-march=x86-64'
-       /usr/lib/gcc/x86_64-linux-gnu/9/collect2 -plugin /usr/lib/gcc/x86_64-linux-gnu/9/liblto_plugin.so -plugin-opt=/usr/lib/gcc/x86_64-linux-gnu/9/lto-wrapper -plugin-opt=-fresolution=/tmp/ccBcMfCY.res -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lquadmath -plugin-opt=-pass-through=-lm -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lc -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lgcc --build-id --eh-frame-hdr -m elf_x86_64 --hash-style=gnu --as-needed -dynamic-linker /lib64/ld-linux-x86-64.so.2 -pie -z now -z relro /usr/lib/gcc/x86_64-linux-gnu/9/../../../x86_64-linux-gnu/Scrt1.o /usr/lib/gcc/x86_64-linux-gnu/9/../../../x86_64-linux-gnu/crti.o /usr/lib/gcc/x86_64-linux-gnu/9/crtbeginS.o -L/usr/lib/gcc/x86_64-linux-gnu/9 -L/usr/lib/gcc/x86_64-linux-gnu/9/../../../x86_64-linux-gnu -L/usr/lib/gcc/x86_64-linux-gnu/9/../../../../lib -L/lib/x86_64-linux-gnu -L/lib/../lib -L/usr/lib/x86_64-linux-gnu -L/usr/lib/../lib -L/usr/lib/gcc/x86_64-linux-gnu/9/../../.. /tmp/ccofVv4Z.o -lgfortran -lm -lgcc_s -lgcc -lquadmath -lm -lgcc_s -lgcc -lc -lgcc_s -lgcc /usr/lib/gcc/x86_64-linux-gnu/9/crtendS.o /usr/lib/gcc/x86_64-linux-gnu/9/../../../x86_64-linux-gnu/crtn.o
+       /usr/lib/gcc/x86_64-linux-gnu/9/collect2 -plugin /usr/lib/gcc/x86_64-linux-gnu/9/liblto_plugin.so -plugin-opt=/usr/lib/gcc/x86_64-linux-gnu/9/lto-wrapper -plugin-opt=-fresolution=/tmp/cc6xNA4g.res -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lquadmath -plugin-opt=-pass-through=-lm -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lc -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lgcc --build-id --eh-frame-hdr -m elf_x86_64 --hash-style=gnu --as-needed -dynamic-linker /lib64/ld-linux-x86-64.so.2 -pie -z now -z relro /usr/lib/gcc/x86_64-linux-gnu/9/../../../x86_64-linux-gnu/Scrt1.o /usr/lib/gcc/x86_64-linux-gnu/9/../../../x86_64-linux-gnu/crti.o /usr/lib/gcc/x86_64-linux-gnu/9/crtbeginS.o -L/usr/lib/gcc/x86_64-linux-gnu/9 -L/usr/lib/gcc/x86_64-linux-gnu/9/../../../x86_64-linux-gnu -L/usr/lib/gcc/x86_64-linux-gnu/9/../../../../lib -L/lib/x86_64-linux-gnu -L/lib/../lib -L/usr/lib/x86_64-linux-gnu -L/usr/lib/../lib -L/usr/lib/gcc/x86_64-linux-gnu/9/../../.. /tmp/ccFl1yMh.o -lgfortran -lm -lgcc_s -lgcc -lquadmath -lm -lgcc_s -lgcc -lc -lgcc_s -lgcc /usr/lib/gcc/x86_64-linux-gnu/9/crtendS.o /usr/lib/gcc/x86_64-linux-gnu/9/../../../x86_64-linux-gnu/crtn.o
       COLLECT_GCC_OPTIONS='-v' '-shared-libgcc' '-mtune=generic' '-march=x86-64'
       
       
@@ -125,8 +125,8 @@ events:
     checks:
       - "Detecting Fortran compiler ABI info"
     directories:
-      source: "/home/runner/work/lungsim/lungsim/build-lungsim/CMakeFiles/CMakeScratch/TryCompile-qHMe7J"
-      binary: "/home/runner/work/lungsim/lungsim/build-lungsim/CMakeFiles/CMakeScratch/TryCompile-qHMe7J"
+      source: "/home/runner/work/lungsim/lungsim/build-lungsim/CMakeFiles/CMakeScratch/TryCompile-upXcf4"
+      binary: "/home/runner/work/lungsim/lungsim/build-lungsim/CMakeFiles/CMakeScratch/TryCompile-upXcf4"
     cmakeVariables:
       CMAKE_EXE_LINKER_FLAGS: ""
       CMAKE_Fortran_FLAGS: ""
@@ -135,12 +135,12 @@ events:
       variable: "CMAKE_Fortran_ABI_COMPILED"
       cached: true
       stdout: |
-        Change Dir: /home/runner/work/lungsim/lungsim/build-lungsim/CMakeFiles/CMakeScratch/TryCompile-qHMe7J
+        Change Dir: /home/runner/work/lungsim/lungsim/build-lungsim/CMakeFiles/CMakeScratch/TryCompile-upXcf4
         
-        Run Build Command(s):/usr/local/bin/cmake -E env VERBOSE=1 /usr/bin/make -f Makefile cmTC_1cb45/fast && /usr/bin/make  -f CMakeFiles/cmTC_1cb45.dir/build.make CMakeFiles/cmTC_1cb45.dir/build
-        make[1]: Entering directory '/home/runner/work/lungsim/lungsim/build-lungsim/CMakeFiles/CMakeScratch/TryCompile-qHMe7J'
-        Building Fortran object CMakeFiles/cmTC_1cb45.dir/CMakeFortranCompilerABI.F90.o
-        /usr/bin/gfortran   -v -c /usr/local/share/cmake-3.26/Modules/CMakeFortranCompilerABI.F90 -o CMakeFiles/cmTC_1cb45.dir/CMakeFortranCompilerABI.F90.o
+        Run Build Command(s):/usr/local/bin/cmake -E env VERBOSE=1 /usr/bin/make -f Makefile cmTC_9eda0/fast && /usr/bin/make  -f CMakeFiles/cmTC_9eda0.dir/build.make CMakeFiles/cmTC_9eda0.dir/build
+        make[1]: Entering directory '/home/runner/work/lungsim/lungsim/build-lungsim/CMakeFiles/CMakeScratch/TryCompile-upXcf4'
+        Building Fortran object CMakeFiles/cmTC_9eda0.dir/CMakeFortranCompilerABI.F90.o
+        /usr/bin/gfortran   -v -c /usr/local/share/cmake-3.26/Modules/CMakeFortranCompilerABI.F90 -o CMakeFiles/cmTC_9eda0.dir/CMakeFortranCompilerABI.F90.o
         Using built-in specs.
         COLLECT_GCC=/usr/bin/gfortran
         OFFLOAD_TARGET_NAMES=nvptx-none:hsa
@@ -149,8 +149,8 @@ events:
         Configured with: ../src/configure -v --with-pkgversion='Ubuntu 9.4.0-1ubuntu1~20.04.1' --with-bugurl=file:///usr/share/doc/gcc-9/README.Bugs --enable-languages=c,ada,c++,go,brig,d,fortran,objc,obj-c++,gm2 --prefix=/usr --with-gcc-major-version-only --program-suffix=-9 --program-prefix=x86_64-linux-gnu- --enable-shared --enable-linker-build-id --libexecdir=/usr/lib --without-included-gettext --enable-threads=posix --libdir=/usr/lib --enable-nls --enable-clocale=gnu --enable-libstdcxx-debug --enable-libstdcxx-time=yes --with-default-libstdcxx-abi=new --enable-gnu-unique-object --disable-vtable-verify --enable-plugin --enable-default-pie --with-system-zlib --with-target-system-zlib=auto --enable-objc-gc=auto --enable-multiarch --disable-werror --with-arch-32=i686 --with-abi=m64 --with-multilib-list=m32,m64,mx32 --enable-multilib --with-tune=generic --enable-offload-targets=nvptx-none=/build/gcc-9-Av3uEd/gcc-9-9.4.0/debian/tmp-nvptx/usr,hsa --without-cuda-driver --enable-checking=release --build=x86_64-linux-gnu --host=x86_64-linux-gnu --target=x86_64-linux-gnu
         Thread model: posix
         gcc version 9.4.0 (Ubuntu 9.4.0-1ubuntu1~20.04.1) 
-        COLLECT_GCC_OPTIONS='-v' '-c' '-o' 'CMakeFiles/cmTC_1cb45.dir/CMakeFortranCompilerABI.F90.o' '-mtune=generic' '-march=x86-64'
-         /usr/lib/gcc/x86_64-linux-gnu/9/f951 /usr/local/share/cmake-3.26/Modules/CMakeFortranCompilerABI.F90 -cpp=/tmp/ccdEMt18.f90 -quiet -v -imultiarch x86_64-linux-gnu /usr/local/share/cmake-3.26/Modules/CMakeFortranCompilerABI.F90 -quiet -dumpbase CMakeFortranCompilerABI.F90 -mtune=generic -march=x86-64 -auxbase-strip CMakeFiles/cmTC_1cb45.dir/CMakeFortranCompilerABI.F90.o -version -fintrinsic-modules-path /usr/lib/gcc/x86_64-linux-gnu/9/finclude -fpre-include=/usr/include/finclude/math-vector-fortran.h -o /tmp/ccFcKOp5.s
+        COLLECT_GCC_OPTIONS='-v' '-c' '-o' 'CMakeFiles/cmTC_9eda0.dir/CMakeFortranCompilerABI.F90.o' '-mtune=generic' '-march=x86-64'
+         /usr/lib/gcc/x86_64-linux-gnu/9/f951 /usr/local/share/cmake-3.26/Modules/CMakeFortranCompilerABI.F90 -cpp=/tmp/cczodmAj.f90 -quiet -v -imultiarch x86_64-linux-gnu /usr/local/share/cmake-3.26/Modules/CMakeFortranCompilerABI.F90 -quiet -dumpbase CMakeFortranCompilerABI.F90 -mtune=generic -march=x86-64 -auxbase-strip CMakeFiles/cmTC_9eda0.dir/CMakeFortranCompilerABI.F90.o -version -fintrinsic-modules-path /usr/lib/gcc/x86_64-linux-gnu/9/finclude -fpre-include=/usr/include/finclude/math-vector-fortran.h -o /tmp/ccskP7zl.s
         GNU Fortran (Ubuntu 9.4.0-1ubuntu1~20.04.1) version 9.4.0 (x86_64-linux-gnu)
         	compiled by GNU C version 9.4.0, GMP version 6.2.0, MPFR version 4.0.2, MPC version 1.1.0, isl version isl-0.22.1-GMP
         
@@ -170,16 +170,16 @@ events:
         	compiled by GNU C version 9.4.0, GMP version 6.2.0, MPFR version 4.0.2, MPC version 1.1.0, isl version isl-0.22.1-GMP
         
         GGC heuristics: --param ggc-min-expand=100 --param ggc-min-heapsize=131072
-        COLLECT_GCC_OPTIONS='-v' '-c' '-o' 'CMakeFiles/cmTC_1cb45.dir/CMakeFortranCompilerABI.F90.o' '-mtune=generic' '-march=x86-64'
-         as -v --64 -o CMakeFiles/cmTC_1cb45.dir/CMakeFortranCompilerABI.F90.o /tmp/ccFcKOp5.s
+        COLLECT_GCC_OPTIONS='-v' '-c' '-o' 'CMakeFiles/cmTC_9eda0.dir/CMakeFortranCompilerABI.F90.o' '-mtune=generic' '-march=x86-64'
+         as -v --64 -o CMakeFiles/cmTC_9eda0.dir/CMakeFortranCompilerABI.F90.o /tmp/ccskP7zl.s
         GNU assembler version 2.34 (x86_64-linux-gnu) using BFD version (GNU Binutils for Ubuntu) 2.34
         COMPILER_PATH=/usr/lib/gcc/x86_64-linux-gnu/9/:/usr/lib/gcc/x86_64-linux-gnu/9/:/usr/lib/gcc/x86_64-linux-gnu/:/usr/lib/gcc/x86_64-linux-gnu/9/:/usr/lib/gcc/x86_64-linux-gnu/
         LIBRARY_PATH=/usr/lib/gcc/x86_64-linux-gnu/9/:/usr/lib/gcc/x86_64-linux-gnu/9/../../../x86_64-linux-gnu/:/usr/lib/gcc/x86_64-linux-gnu/9/../../../../lib/:/lib/x86_64-linux-gnu/:/lib/../lib/:/usr/lib/x86_64-linux-gnu/:/usr/lib/../lib/:/usr/lib/gcc/x86_64-linux-gnu/9/../../../:/lib/:/usr/lib/
-        COLLECT_GCC_OPTIONS='-v' '-c' '-o' 'CMakeFiles/cmTC_1cb45.dir/CMakeFortranCompilerABI.F90.o' '-mtune=generic' '-march=x86-64'
-        Linking Fortran executable cmTC_1cb45
-        /usr/local/bin/cmake -E cmake_link_script CMakeFiles/cmTC_1cb45.dir/link.txt --verbose=1
-        /usr/bin/gfortran  -v CMakeFiles/cmTC_1cb45.dir/CMakeFortranCompilerABI.F90.o -o cmTC_1cb45 
-        Driving: /usr/bin/gfortran -v CMakeFiles/cmTC_1cb45.dir/CMakeFortranCompilerABI.F90.o -o cmTC_1cb45 -l gfortran -l m -shared-libgcc
+        COLLECT_GCC_OPTIONS='-v' '-c' '-o' 'CMakeFiles/cmTC_9eda0.dir/CMakeFortranCompilerABI.F90.o' '-mtune=generic' '-march=x86-64'
+        Linking Fortran executable cmTC_9eda0
+        /usr/local/bin/cmake -E cmake_link_script CMakeFiles/cmTC_9eda0.dir/link.txt --verbose=1
+        /usr/bin/gfortran  -v CMakeFiles/cmTC_9eda0.dir/CMakeFortranCompilerABI.F90.o -o cmTC_9eda0 
+        Driving: /usr/bin/gfortran -v CMakeFiles/cmTC_9eda0.dir/CMakeFortranCompilerABI.F90.o -o cmTC_9eda0 -l gfortran -l m -shared-libgcc
         Using built-in specs.
         COLLECT_GCC=/usr/bin/gfortran
         COLLECT_LTO_WRAPPER=/usr/lib/gcc/x86_64-linux-gnu/9/lto-wrapper
@@ -191,13 +191,13 @@ events:
         gcc version 9.4.0 (Ubuntu 9.4.0-1ubuntu1~20.04.1) 
         Reading specs from /usr/lib/gcc/x86_64-linux-gnu/9/libgfortran.spec
         rename spec lib to liborig
-        COLLECT_GCC_OPTIONS='-v' '-o' 'cmTC_1cb45' '-shared-libgcc' '-mtune=generic' '-march=x86-64'
+        COLLECT_GCC_OPTIONS='-v' '-o' 'cmTC_9eda0' '-shared-libgcc' '-mtune=generic' '-march=x86-64'
         COMPILER_PATH=/usr/lib/gcc/x86_64-linux-gnu/9/:/usr/lib/gcc/x86_64-linux-gnu/9/:/usr/lib/gcc/x86_64-linux-gnu/:/usr/lib/gcc/x86_64-linux-gnu/9/:/usr/lib/gcc/x86_64-linux-gnu/
         LIBRARY_PATH=/usr/lib/gcc/x86_64-linux-gnu/9/:/usr/lib/gcc/x86_64-linux-gnu/9/../../../x86_64-linux-gnu/:/usr/lib/gcc/x86_64-linux-gnu/9/../../../../lib/:/lib/x86_64-linux-gnu/:/lib/../lib/:/usr/lib/x86_64-linux-gnu/:/usr/lib/../lib/:/usr/lib/gcc/x86_64-linux-gnu/9/../../../:/lib/:/usr/lib/
-        COLLECT_GCC_OPTIONS='-v' '-o' 'cmTC_1cb45' '-shared-libgcc' '-mtune=generic' '-march=x86-64'
-         /usr/lib/gcc/x86_64-linux-gnu/9/collect2 -plugin /usr/lib/gcc/x86_64-linux-gnu/9/liblto_plugin.so -plugin-opt=/usr/lib/gcc/x86_64-linux-gnu/9/lto-wrapper -plugin-opt=-fresolution=/tmp/ccg8AZ1y.res -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lquadmath -plugin-opt=-pass-through=-lm -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lc -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lgcc --build-id --eh-frame-hdr -m elf_x86_64 --hash-style=gnu --as-needed -dynamic-linker /lib64/ld-linux-x86-64.so.2 -pie -z now -z relro -o cmTC_1cb45 /usr/lib/gcc/x86_64-linux-gnu/9/../../../x86_64-linux-gnu/Scrt1.o /usr/lib/gcc/x86_64-linux-gnu/9/../../../x86_64-linux-gnu/crti.o /usr/lib/gcc/x86_64-linux-gnu/9/crtbeginS.o -L/usr/lib/gcc/x86_64-linux-gnu/9 -L/usr/lib/gcc/x86_64-linux-gnu/9/../../../x86_64-linux-gnu -L/usr/lib/gcc/x86_64-linux-gnu/9/../../../../lib -L/lib/x86_64-linux-gnu -L/lib/../lib -L/usr/lib/x86_64-linux-gnu -L/usr/lib/../lib -L/usr/lib/gcc/x86_64-linux-gnu/9/../../.. CMakeFiles/cmTC_1cb45.dir/CMakeFortranCompilerABI.F90.o -lgfortran -lm -lgcc_s -lgcc -lquadmath -lm -lgcc_s -lgcc -lc -lgcc_s -lgcc /usr/lib/gcc/x86_64-linux-gnu/9/crtendS.o /usr/lib/gcc/x86_64-linux-gnu/9/../../../x86_64-linux-gnu/crtn.o
-        COLLECT_GCC_OPTIONS='-v' '-o' 'cmTC_1cb45' '-shared-libgcc' '-mtune=generic' '-march=x86-64'
-        make[1]: Leaving directory '/home/runner/work/lungsim/lungsim/build-lungsim/CMakeFiles/CMakeScratch/TryCompile-qHMe7J'
+        COLLECT_GCC_OPTIONS='-v' '-o' 'cmTC_9eda0' '-shared-libgcc' '-mtune=generic' '-march=x86-64'
+         /usr/lib/gcc/x86_64-linux-gnu/9/collect2 -plugin /usr/lib/gcc/x86_64-linux-gnu/9/liblto_plugin.so -plugin-opt=/usr/lib/gcc/x86_64-linux-gnu/9/lto-wrapper -plugin-opt=-fresolution=/tmp/ccVK1NcN.res -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lquadmath -plugin-opt=-pass-through=-lm -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lc -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lgcc --build-id --eh-frame-hdr -m elf_x86_64 --hash-style=gnu --as-needed -dynamic-linker /lib64/ld-linux-x86-64.so.2 -pie -z now -z relro -o cmTC_9eda0 /usr/lib/gcc/x86_64-linux-gnu/9/../../../x86_64-linux-gnu/Scrt1.o /usr/lib/gcc/x86_64-linux-gnu/9/../../../x86_64-linux-gnu/crti.o /usr/lib/gcc/x86_64-linux-gnu/9/crtbeginS.o -L/usr/lib/gcc/x86_64-linux-gnu/9 -L/usr/lib/gcc/x86_64-linux-gnu/9/../../../x86_64-linux-gnu -L/usr/lib/gcc/x86_64-linux-gnu/9/../../../../lib -L/lib/x86_64-linux-gnu -L/lib/../lib -L/usr/lib/x86_64-linux-gnu -L/usr/lib/../lib -L/usr/lib/gcc/x86_64-linux-gnu/9/../../.. CMakeFiles/cmTC_9eda0.dir/CMakeFortranCompilerABI.F90.o -lgfortran -lm -lgcc_s -lgcc -lquadmath -lm -lgcc_s -lgcc -lc -lgcc_s -lgcc /usr/lib/gcc/x86_64-linux-gnu/9/crtendS.o /usr/lib/gcc/x86_64-linux-gnu/9/../../../x86_64-linux-gnu/crtn.o
+        COLLECT_GCC_OPTIONS='-v' '-o' 'cmTC_9eda0' '-shared-libgcc' '-mtune=generic' '-march=x86-64'
+        make[1]: Leaving directory '/home/runner/work/lungsim/lungsim/build-lungsim/CMakeFiles/CMakeScratch/TryCompile-upXcf4'
         
       exitCode: 0
   -
@@ -233,12 +233,12 @@ events:
     message: |
       Parsed Fortran implicit link information:
         link line regex: [^( *|.*[/\\])(ld|CMAKE_LINK_STARTFILE-NOTFOUND|([^/\\]+-)?ld|collect2)[^/\\]*( |$)]
-        ignore line: [Change Dir: /home/runner/work/lungsim/lungsim/build-lungsim/CMakeFiles/CMakeScratch/TryCompile-qHMe7J]
+        ignore line: [Change Dir: /home/runner/work/lungsim/lungsim/build-lungsim/CMakeFiles/CMakeScratch/TryCompile-upXcf4]
         ignore line: []
-        ignore line: [Run Build Command(s):/usr/local/bin/cmake -E env VERBOSE=1 /usr/bin/make -f Makefile cmTC_1cb45/fast && /usr/bin/make  -f CMakeFiles/cmTC_1cb45.dir/build.make CMakeFiles/cmTC_1cb45.dir/build]
-        ignore line: [make[1]: Entering directory '/home/runner/work/lungsim/lungsim/build-lungsim/CMakeFiles/CMakeScratch/TryCompile-qHMe7J']
-        ignore line: [Building Fortran object CMakeFiles/cmTC_1cb45.dir/CMakeFortranCompilerABI.F90.o]
-        ignore line: [/usr/bin/gfortran   -v -c /usr/local/share/cmake-3.26/Modules/CMakeFortranCompilerABI.F90 -o CMakeFiles/cmTC_1cb45.dir/CMakeFortranCompilerABI.F90.o]
+        ignore line: [Run Build Command(s):/usr/local/bin/cmake -E env VERBOSE=1 /usr/bin/make -f Makefile cmTC_9eda0/fast && /usr/bin/make  -f CMakeFiles/cmTC_9eda0.dir/build.make CMakeFiles/cmTC_9eda0.dir/build]
+        ignore line: [make[1]: Entering directory '/home/runner/work/lungsim/lungsim/build-lungsim/CMakeFiles/CMakeScratch/TryCompile-upXcf4']
+        ignore line: [Building Fortran object CMakeFiles/cmTC_9eda0.dir/CMakeFortranCompilerABI.F90.o]
+        ignore line: [/usr/bin/gfortran   -v -c /usr/local/share/cmake-3.26/Modules/CMakeFortranCompilerABI.F90 -o CMakeFiles/cmTC_9eda0.dir/CMakeFortranCompilerABI.F90.o]
         ignore line: [Using built-in specs.]
         ignore line: [COLLECT_GCC=/usr/bin/gfortran]
         ignore line: [OFFLOAD_TARGET_NAMES=nvptx-none:hsa]
@@ -247,8 +247,8 @@ events:
         ignore line: [Configured with: ../src/configure -v --with-pkgversion='Ubuntu 9.4.0-1ubuntu1~20.04.1' --with-bugurl=file:///usr/share/doc/gcc-9/README.Bugs --enable-languages=c ada c++ go brig d fortran objc obj-c++ gm2 --prefix=/usr --with-gcc-major-version-only --program-suffix=-9 --program-prefix=x86_64-linux-gnu- --enable-shared --enable-linker-build-id --libexecdir=/usr/lib --without-included-gettext --enable-threads=posix --libdir=/usr/lib --enable-nls --enable-clocale=gnu --enable-libstdcxx-debug --enable-libstdcxx-time=yes --with-default-libstdcxx-abi=new --enable-gnu-unique-object --disable-vtable-verify --enable-plugin --enable-default-pie --with-system-zlib --with-target-system-zlib=auto --enable-objc-gc=auto --enable-multiarch --disable-werror --with-arch-32=i686 --with-abi=m64 --with-multilib-list=m32 m64 mx32 --enable-multilib --with-tune=generic --enable-offload-targets=nvptx-none=/build/gcc-9-Av3uEd/gcc-9-9.4.0/debian/tmp-nvptx/usr hsa --without-cuda-driver --enable-checking=release --build=x86_64-linux-gnu --host=x86_64-linux-gnu --target=x86_64-linux-gnu]
         ignore line: [Thread model: posix]
         ignore line: [gcc version 9.4.0 (Ubuntu 9.4.0-1ubuntu1~20.04.1) ]
-        ignore line: [COLLECT_GCC_OPTIONS='-v' '-c' '-o' 'CMakeFiles/cmTC_1cb45.dir/CMakeFortranCompilerABI.F90.o' '-mtune=generic' '-march=x86-64']
-        ignore line: [ /usr/lib/gcc/x86_64-linux-gnu/9/f951 /usr/local/share/cmake-3.26/Modules/CMakeFortranCompilerABI.F90 -cpp=/tmp/ccdEMt18.f90 -quiet -v -imultiarch x86_64-linux-gnu /usr/local/share/cmake-3.26/Modules/CMakeFortranCompilerABI.F90 -quiet -dumpbase CMakeFortranCompilerABI.F90 -mtune=generic -march=x86-64 -auxbase-strip CMakeFiles/cmTC_1cb45.dir/CMakeFortranCompilerABI.F90.o -version -fintrinsic-modules-path /usr/lib/gcc/x86_64-linux-gnu/9/finclude -fpre-include=/usr/include/finclude/math-vector-fortran.h -o /tmp/ccFcKOp5.s]
+        ignore line: [COLLECT_GCC_OPTIONS='-v' '-c' '-o' 'CMakeFiles/cmTC_9eda0.dir/CMakeFortranCompilerABI.F90.o' '-mtune=generic' '-march=x86-64']
+        ignore line: [ /usr/lib/gcc/x86_64-linux-gnu/9/f951 /usr/local/share/cmake-3.26/Modules/CMakeFortranCompilerABI.F90 -cpp=/tmp/cczodmAj.f90 -quiet -v -imultiarch x86_64-linux-gnu /usr/local/share/cmake-3.26/Modules/CMakeFortranCompilerABI.F90 -quiet -dumpbase CMakeFortranCompilerABI.F90 -mtune=generic -march=x86-64 -auxbase-strip CMakeFiles/cmTC_9eda0.dir/CMakeFortranCompilerABI.F90.o -version -fintrinsic-modules-path /usr/lib/gcc/x86_64-linux-gnu/9/finclude -fpre-include=/usr/include/finclude/math-vector-fortran.h -o /tmp/ccskP7zl.s]
         ignore line: [GNU Fortran (Ubuntu 9.4.0-1ubuntu1~20.04.1) version 9.4.0 (x86_64-linux-gnu)]
         ignore line: [	compiled by GNU C version 9.4.0  GMP version 6.2.0  MPFR version 4.0.2  MPC version 1.1.0  isl version isl-0.22.1-GMP]
         ignore line: []
@@ -268,16 +268,16 @@ events:
         ignore line: [	compiled by GNU C version 9.4.0  GMP version 6.2.0  MPFR version 4.0.2  MPC version 1.1.0  isl version isl-0.22.1-GMP]
         ignore line: []
         ignore line: [GGC heuristics: --param ggc-min-expand=100 --param ggc-min-heapsize=131072]
-        ignore line: [COLLECT_GCC_OPTIONS='-v' '-c' '-o' 'CMakeFiles/cmTC_1cb45.dir/CMakeFortranCompilerABI.F90.o' '-mtune=generic' '-march=x86-64']
-        ignore line: [ as -v --64 -o CMakeFiles/cmTC_1cb45.dir/CMakeFortranCompilerABI.F90.o /tmp/ccFcKOp5.s]
+        ignore line: [COLLECT_GCC_OPTIONS='-v' '-c' '-o' 'CMakeFiles/cmTC_9eda0.dir/CMakeFortranCompilerABI.F90.o' '-mtune=generic' '-march=x86-64']
+        ignore line: [ as -v --64 -o CMakeFiles/cmTC_9eda0.dir/CMakeFortranCompilerABI.F90.o /tmp/ccskP7zl.s]
         ignore line: [GNU assembler version 2.34 (x86_64-linux-gnu) using BFD version (GNU Binutils for Ubuntu) 2.34]
         ignore line: [COMPILER_PATH=/usr/lib/gcc/x86_64-linux-gnu/9/:/usr/lib/gcc/x86_64-linux-gnu/9/:/usr/lib/gcc/x86_64-linux-gnu/:/usr/lib/gcc/x86_64-linux-gnu/9/:/usr/lib/gcc/x86_64-linux-gnu/]
         ignore line: [LIBRARY_PATH=/usr/lib/gcc/x86_64-linux-gnu/9/:/usr/lib/gcc/x86_64-linux-gnu/9/../../../x86_64-linux-gnu/:/usr/lib/gcc/x86_64-linux-gnu/9/../../../../lib/:/lib/x86_64-linux-gnu/:/lib/../lib/:/usr/lib/x86_64-linux-gnu/:/usr/lib/../lib/:/usr/lib/gcc/x86_64-linux-gnu/9/../../../:/lib/:/usr/lib/]
-        ignore line: [COLLECT_GCC_OPTIONS='-v' '-c' '-o' 'CMakeFiles/cmTC_1cb45.dir/CMakeFortranCompilerABI.F90.o' '-mtune=generic' '-march=x86-64']
-        ignore line: [Linking Fortran executable cmTC_1cb45]
-        ignore line: [/usr/local/bin/cmake -E cmake_link_script CMakeFiles/cmTC_1cb45.dir/link.txt --verbose=1]
-        ignore line: [/usr/bin/gfortran  -v CMakeFiles/cmTC_1cb45.dir/CMakeFortranCompilerABI.F90.o -o cmTC_1cb45 ]
-        ignore line: [Driving: /usr/bin/gfortran -v CMakeFiles/cmTC_1cb45.dir/CMakeFortranCompilerABI.F90.o -o cmTC_1cb45 -l gfortran -l m -shared-libgcc]
+        ignore line: [COLLECT_GCC_OPTIONS='-v' '-c' '-o' 'CMakeFiles/cmTC_9eda0.dir/CMakeFortranCompilerABI.F90.o' '-mtune=generic' '-march=x86-64']
+        ignore line: [Linking Fortran executable cmTC_9eda0]
+        ignore line: [/usr/local/bin/cmake -E cmake_link_script CMakeFiles/cmTC_9eda0.dir/link.txt --verbose=1]
+        ignore line: [/usr/bin/gfortran  -v CMakeFiles/cmTC_9eda0.dir/CMakeFortranCompilerABI.F90.o -o cmTC_9eda0 ]
+        ignore line: [Driving: /usr/bin/gfortran -v CMakeFiles/cmTC_9eda0.dir/CMakeFortranCompilerABI.F90.o -o cmTC_9eda0 -l gfortran -l m -shared-libgcc]
         ignore line: [Using built-in specs.]
         ignore line: [COLLECT_GCC=/usr/bin/gfortran]
         ignore line: [COLLECT_LTO_WRAPPER=/usr/lib/gcc/x86_64-linux-gnu/9/lto-wrapper]
@@ -289,16 +289,16 @@ events:
         ignore line: [gcc version 9.4.0 (Ubuntu 9.4.0-1ubuntu1~20.04.1) ]
         ignore line: [Reading specs from /usr/lib/gcc/x86_64-linux-gnu/9/libgfortran.spec]
         ignore line: [rename spec lib to liborig]
-        ignore line: [COLLECT_GCC_OPTIONS='-v' '-o' 'cmTC_1cb45' '-shared-libgcc' '-mtune=generic' '-march=x86-64']
+        ignore line: [COLLECT_GCC_OPTIONS='-v' '-o' 'cmTC_9eda0' '-shared-libgcc' '-mtune=generic' '-march=x86-64']
         ignore line: [COMPILER_PATH=/usr/lib/gcc/x86_64-linux-gnu/9/:/usr/lib/gcc/x86_64-linux-gnu/9/:/usr/lib/gcc/x86_64-linux-gnu/:/usr/lib/gcc/x86_64-linux-gnu/9/:/usr/lib/gcc/x86_64-linux-gnu/]
         ignore line: [LIBRARY_PATH=/usr/lib/gcc/x86_64-linux-gnu/9/:/usr/lib/gcc/x86_64-linux-gnu/9/../../../x86_64-linux-gnu/:/usr/lib/gcc/x86_64-linux-gnu/9/../../../../lib/:/lib/x86_64-linux-gnu/:/lib/../lib/:/usr/lib/x86_64-linux-gnu/:/usr/lib/../lib/:/usr/lib/gcc/x86_64-linux-gnu/9/../../../:/lib/:/usr/lib/]
-        ignore line: [COLLECT_GCC_OPTIONS='-v' '-o' 'cmTC_1cb45' '-shared-libgcc' '-mtune=generic' '-march=x86-64']
-        link line: [ /usr/lib/gcc/x86_64-linux-gnu/9/collect2 -plugin /usr/lib/gcc/x86_64-linux-gnu/9/liblto_plugin.so -plugin-opt=/usr/lib/gcc/x86_64-linux-gnu/9/lto-wrapper -plugin-opt=-fresolution=/tmp/ccg8AZ1y.res -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lquadmath -plugin-opt=-pass-through=-lm -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lc -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lgcc --build-id --eh-frame-hdr -m elf_x86_64 --hash-style=gnu --as-needed -dynamic-linker /lib64/ld-linux-x86-64.so.2 -pie -z now -z relro -o cmTC_1cb45 /usr/lib/gcc/x86_64-linux-gnu/9/../../../x86_64-linux-gnu/Scrt1.o /usr/lib/gcc/x86_64-linux-gnu/9/../../../x86_64-linux-gnu/crti.o /usr/lib/gcc/x86_64-linux-gnu/9/crtbeginS.o -L/usr/lib/gcc/x86_64-linux-gnu/9 -L/usr/lib/gcc/x86_64-linux-gnu/9/../../../x86_64-linux-gnu -L/usr/lib/gcc/x86_64-linux-gnu/9/../../../../lib -L/lib/x86_64-linux-gnu -L/lib/../lib -L/usr/lib/x86_64-linux-gnu -L/usr/lib/../lib -L/usr/lib/gcc/x86_64-linux-gnu/9/../../.. CMakeFiles/cmTC_1cb45.dir/CMakeFortranCompilerABI.F90.o -lgfortran -lm -lgcc_s -lgcc -lquadmath -lm -lgcc_s -lgcc -lc -lgcc_s -lgcc /usr/lib/gcc/x86_64-linux-gnu/9/crtendS.o /usr/lib/gcc/x86_64-linux-gnu/9/../../../x86_64-linux-gnu/crtn.o]
+        ignore line: [COLLECT_GCC_OPTIONS='-v' '-o' 'cmTC_9eda0' '-shared-libgcc' '-mtune=generic' '-march=x86-64']
+        link line: [ /usr/lib/gcc/x86_64-linux-gnu/9/collect2 -plugin /usr/lib/gcc/x86_64-linux-gnu/9/liblto_plugin.so -plugin-opt=/usr/lib/gcc/x86_64-linux-gnu/9/lto-wrapper -plugin-opt=-fresolution=/tmp/ccVK1NcN.res -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lquadmath -plugin-opt=-pass-through=-lm -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lc -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lgcc --build-id --eh-frame-hdr -m elf_x86_64 --hash-style=gnu --as-needed -dynamic-linker /lib64/ld-linux-x86-64.so.2 -pie -z now -z relro -o cmTC_9eda0 /usr/lib/gcc/x86_64-linux-gnu/9/../../../x86_64-linux-gnu/Scrt1.o /usr/lib/gcc/x86_64-linux-gnu/9/../../../x86_64-linux-gnu/crti.o /usr/lib/gcc/x86_64-linux-gnu/9/crtbeginS.o -L/usr/lib/gcc/x86_64-linux-gnu/9 -L/usr/lib/gcc/x86_64-linux-gnu/9/../../../x86_64-linux-gnu -L/usr/lib/gcc/x86_64-linux-gnu/9/../../../../lib -L/lib/x86_64-linux-gnu -L/lib/../lib -L/usr/lib/x86_64-linux-gnu -L/usr/lib/../lib -L/usr/lib/gcc/x86_64-linux-gnu/9/../../.. CMakeFiles/cmTC_9eda0.dir/CMakeFortranCompilerABI.F90.o -lgfortran -lm -lgcc_s -lgcc -lquadmath -lm -lgcc_s -lgcc -lc -lgcc_s -lgcc /usr/lib/gcc/x86_64-linux-gnu/9/crtendS.o /usr/lib/gcc/x86_64-linux-gnu/9/../../../x86_64-linux-gnu/crtn.o]
           arg [/usr/lib/gcc/x86_64-linux-gnu/9/collect2] ==> ignore
           arg [-plugin] ==> ignore
           arg [/usr/lib/gcc/x86_64-linux-gnu/9/liblto_plugin.so] ==> ignore
           arg [-plugin-opt=/usr/lib/gcc/x86_64-linux-gnu/9/lto-wrapper] ==> ignore
-          arg [-plugin-opt=-fresolution=/tmp/ccg8AZ1y.res] ==> ignore
+          arg [-plugin-opt=-fresolution=/tmp/ccVK1NcN.res] ==> ignore
           arg [-plugin-opt=-pass-through=-lgcc_s] ==> ignore
           arg [-plugin-opt=-pass-through=-lgcc] ==> ignore
           arg [-plugin-opt=-pass-through=-lquadmath] ==> ignore
@@ -320,7 +320,7 @@ events:
           arg [-znow] ==> ignore
           arg [-zrelro] ==> ignore
           arg [-o] ==> ignore
-          arg [cmTC_1cb45] ==> ignore
+          arg [cmTC_9eda0] ==> ignore
           arg [/usr/lib/gcc/x86_64-linux-gnu/9/../../../x86_64-linux-gnu/Scrt1.o] ==> obj [/usr/lib/gcc/x86_64-linux-gnu/9/../../../x86_64-linux-gnu/Scrt1.o]
           arg [/usr/lib/gcc/x86_64-linux-gnu/9/../../../x86_64-linux-gnu/crti.o] ==> obj [/usr/lib/gcc/x86_64-linux-gnu/9/../../../x86_64-linux-gnu/crti.o]
           arg [/usr/lib/gcc/x86_64-linux-gnu/9/crtbeginS.o] ==> obj [/usr/lib/gcc/x86_64-linux-gnu/9/crtbeginS.o]
@@ -332,7 +332,7 @@ events:
           arg [-L/usr/lib/x86_64-linux-gnu] ==> dir [/usr/lib/x86_64-linux-gnu]
           arg [-L/usr/lib/../lib] ==> dir [/usr/lib/../lib]
           arg [-L/usr/lib/gcc/x86_64-linux-gnu/9/../../..] ==> dir [/usr/lib/gcc/x86_64-linux-gnu/9/../../..]
-          arg [CMakeFiles/cmTC_1cb45.dir/CMakeFortranCompilerABI.F90.o] ==> ignore
+          arg [CMakeFiles/cmTC_9eda0.dir/CMakeFortranCompilerABI.F90.o] ==> ignore
           arg [-lgfortran] ==> lib [gfortran]
           arg [-lm] ==> lib [m]
           arg [-lgcc_s] ==> lib [gcc_s]
@@ -372,8 +372,8 @@ events:
     checks:
       - "Detecting C compiler ABI info"
     directories:
-      source: "/home/runner/work/lungsim/lungsim/build-lungsim/CMakeFiles/CMakeScratch/TryCompile-ejQ49K"
-      binary: "/home/runner/work/lungsim/lungsim/build-lungsim/CMakeFiles/CMakeScratch/TryCompile-ejQ49K"
+      source: "/home/runner/work/lungsim/lungsim/build-lungsim/CMakeFiles/CMakeScratch/TryCompile-euik23"
+      binary: "/home/runner/work/lungsim/lungsim/build-lungsim/CMakeFiles/CMakeScratch/TryCompile-euik23"
     cmakeVariables:
       CMAKE_C_FLAGS: ""
       CMAKE_C_FLAGS_DEBUG: "-g"
@@ -382,12 +382,12 @@ events:
       variable: "CMAKE_C_ABI_COMPILED"
       cached: true
       stdout: |
-        Change Dir: /home/runner/work/lungsim/lungsim/build-lungsim/CMakeFiles/CMakeScratch/TryCompile-ejQ49K
+        Change Dir: /home/runner/work/lungsim/lungsim/build-lungsim/CMakeFiles/CMakeScratch/TryCompile-euik23
         
-        Run Build Command(s):/usr/local/bin/cmake -E env VERBOSE=1 /usr/bin/make -f Makefile cmTC_a955c/fast && /usr/bin/make  -f CMakeFiles/cmTC_a955c.dir/build.make CMakeFiles/cmTC_a955c.dir/build
-        make[1]: Entering directory '/home/runner/work/lungsim/lungsim/build-lungsim/CMakeFiles/CMakeScratch/TryCompile-ejQ49K'
-        Building C object CMakeFiles/cmTC_a955c.dir/CMakeCCompilerABI.c.o
-        /usr/bin/cc   -v -o CMakeFiles/cmTC_a955c.dir/CMakeCCompilerABI.c.o -c /usr/local/share/cmake-3.26/Modules/CMakeCCompilerABI.c
+        Run Build Command(s):/usr/local/bin/cmake -E env VERBOSE=1 /usr/bin/make -f Makefile cmTC_ae8ca/fast && /usr/bin/make  -f CMakeFiles/cmTC_ae8ca.dir/build.make CMakeFiles/cmTC_ae8ca.dir/build
+        make[1]: Entering directory '/home/runner/work/lungsim/lungsim/build-lungsim/CMakeFiles/CMakeScratch/TryCompile-euik23'
+        Building C object CMakeFiles/cmTC_ae8ca.dir/CMakeCCompilerABI.c.o
+        /usr/bin/cc   -v -o CMakeFiles/cmTC_ae8ca.dir/CMakeCCompilerABI.c.o -c /usr/local/share/cmake-3.26/Modules/CMakeCCompilerABI.c
         Using built-in specs.
         COLLECT_GCC=/usr/bin/cc
         OFFLOAD_TARGET_NAMES=nvptx-none:hsa
@@ -396,8 +396,8 @@ events:
         Configured with: ../src/configure -v --with-pkgversion='Ubuntu 9.4.0-1ubuntu1~20.04.1' --with-bugurl=file:///usr/share/doc/gcc-9/README.Bugs --enable-languages=c,ada,c++,go,brig,d,fortran,objc,obj-c++,gm2 --prefix=/usr --with-gcc-major-version-only --program-suffix=-9 --program-prefix=x86_64-linux-gnu- --enable-shared --enable-linker-build-id --libexecdir=/usr/lib --without-included-gettext --enable-threads=posix --libdir=/usr/lib --enable-nls --enable-clocale=gnu --enable-libstdcxx-debug --enable-libstdcxx-time=yes --with-default-libstdcxx-abi=new --enable-gnu-unique-object --disable-vtable-verify --enable-plugin --enable-default-pie --with-system-zlib --with-target-system-zlib=auto --enable-objc-gc=auto --enable-multiarch --disable-werror --with-arch-32=i686 --with-abi=m64 --with-multilib-list=m32,m64,mx32 --enable-multilib --with-tune=generic --enable-offload-targets=nvptx-none=/build/gcc-9-Av3uEd/gcc-9-9.4.0/debian/tmp-nvptx/usr,hsa --without-cuda-driver --enable-checking=release --build=x86_64-linux-gnu --host=x86_64-linux-gnu --target=x86_64-linux-gnu
         Thread model: posix
         gcc version 9.4.0 (Ubuntu 9.4.0-1ubuntu1~20.04.1) 
-        COLLECT_GCC_OPTIONS='-v' '-o' 'CMakeFiles/cmTC_a955c.dir/CMakeCCompilerABI.c.o' '-c' '-mtune=generic' '-march=x86-64'
-         /usr/lib/gcc/x86_64-linux-gnu/9/cc1 -quiet -v -imultiarch x86_64-linux-gnu /usr/local/share/cmake-3.26/Modules/CMakeCCompilerABI.c -quiet -dumpbase CMakeCCompilerABI.c -mtune=generic -march=x86-64 -auxbase-strip CMakeFiles/cmTC_a955c.dir/CMakeCCompilerABI.c.o -version -fasynchronous-unwind-tables -fstack-protector-strong -Wformat -Wformat-security -fstack-clash-protection -fcf-protection -o /tmp/ccRpSEMf.s
+        COLLECT_GCC_OPTIONS='-v' '-o' 'CMakeFiles/cmTC_ae8ca.dir/CMakeCCompilerABI.c.o' '-c' '-mtune=generic' '-march=x86-64'
+         /usr/lib/gcc/x86_64-linux-gnu/9/cc1 -quiet -v -imultiarch x86_64-linux-gnu /usr/local/share/cmake-3.26/Modules/CMakeCCompilerABI.c -quiet -dumpbase CMakeCCompilerABI.c -mtune=generic -march=x86-64 -auxbase-strip CMakeFiles/cmTC_ae8ca.dir/CMakeCCompilerABI.c.o -version -fasynchronous-unwind-tables -fstack-protector-strong -Wformat -Wformat-security -fstack-clash-protection -fcf-protection -o /tmp/ccqudoku.s
         GNU C17 (Ubuntu 9.4.0-1ubuntu1~20.04.1) version 9.4.0 (x86_64-linux-gnu)
         	compiled by GNU C version 9.4.0, GMP version 6.2.0, MPFR version 4.0.2, MPC version 1.1.0, isl version isl-0.22.1-GMP
         
@@ -417,15 +417,15 @@ events:
         
         GGC heuristics: --param ggc-min-expand=100 --param ggc-min-heapsize=131072
         Compiler executable checksum: c0c95c0b4209efec1c1892d5ff24030b
-        COLLECT_GCC_OPTIONS='-v' '-o' 'CMakeFiles/cmTC_a955c.dir/CMakeCCompilerABI.c.o' '-c' '-mtune=generic' '-march=x86-64'
-         as -v --64 -o CMakeFiles/cmTC_a955c.dir/CMakeCCompilerABI.c.o /tmp/ccRpSEMf.s
+        COLLECT_GCC_OPTIONS='-v' '-o' 'CMakeFiles/cmTC_ae8ca.dir/CMakeCCompilerABI.c.o' '-c' '-mtune=generic' '-march=x86-64'
+         as -v --64 -o CMakeFiles/cmTC_ae8ca.dir/CMakeCCompilerABI.c.o /tmp/ccqudoku.s
         GNU assembler version 2.34 (x86_64-linux-gnu) using BFD version (GNU Binutils for Ubuntu) 2.34
         COMPILER_PATH=/usr/lib/gcc/x86_64-linux-gnu/9/:/usr/lib/gcc/x86_64-linux-gnu/9/:/usr/lib/gcc/x86_64-linux-gnu/:/usr/lib/gcc/x86_64-linux-gnu/9/:/usr/lib/gcc/x86_64-linux-gnu/
         LIBRARY_PATH=/usr/lib/gcc/x86_64-linux-gnu/9/:/usr/lib/gcc/x86_64-linux-gnu/9/../../../x86_64-linux-gnu/:/usr/lib/gcc/x86_64-linux-gnu/9/../../../../lib/:/lib/x86_64-linux-gnu/:/lib/../lib/:/usr/lib/x86_64-linux-gnu/:/usr/lib/../lib/:/usr/lib/gcc/x86_64-linux-gnu/9/../../../:/lib/:/usr/lib/
-        COLLECT_GCC_OPTIONS='-v' '-o' 'CMakeFiles/cmTC_a955c.dir/CMakeCCompilerABI.c.o' '-c' '-mtune=generic' '-march=x86-64'
-        Linking C executable cmTC_a955c
-        /usr/local/bin/cmake -E cmake_link_script CMakeFiles/cmTC_a955c.dir/link.txt --verbose=1
-        /usr/bin/cc  -v CMakeFiles/cmTC_a955c.dir/CMakeCCompilerABI.c.o -o cmTC_a955c 
+        COLLECT_GCC_OPTIONS='-v' '-o' 'CMakeFiles/cmTC_ae8ca.dir/CMakeCCompilerABI.c.o' '-c' '-mtune=generic' '-march=x86-64'
+        Linking C executable cmTC_ae8ca
+        /usr/local/bin/cmake -E cmake_link_script CMakeFiles/cmTC_ae8ca.dir/link.txt --verbose=1
+        /usr/bin/cc  -v CMakeFiles/cmTC_ae8ca.dir/CMakeCCompilerABI.c.o -o cmTC_ae8ca 
         Using built-in specs.
         COLLECT_GCC=/usr/bin/cc
         COLLECT_LTO_WRAPPER=/usr/lib/gcc/x86_64-linux-gnu/9/lto-wrapper
@@ -437,10 +437,10 @@ events:
         gcc version 9.4.0 (Ubuntu 9.4.0-1ubuntu1~20.04.1) 
         COMPILER_PATH=/usr/lib/gcc/x86_64-linux-gnu/9/:/usr/lib/gcc/x86_64-linux-gnu/9/:/usr/lib/gcc/x86_64-linux-gnu/:/usr/lib/gcc/x86_64-linux-gnu/9/:/usr/lib/gcc/x86_64-linux-gnu/
         LIBRARY_PATH=/usr/lib/gcc/x86_64-linux-gnu/9/:/usr/lib/gcc/x86_64-linux-gnu/9/../../../x86_64-linux-gnu/:/usr/lib/gcc/x86_64-linux-gnu/9/../../../../lib/:/lib/x86_64-linux-gnu/:/lib/../lib/:/usr/lib/x86_64-linux-gnu/:/usr/lib/../lib/:/usr/lib/gcc/x86_64-linux-gnu/9/../../../:/lib/:/usr/lib/
-        COLLECT_GCC_OPTIONS='-v' '-o' 'cmTC_a955c' '-mtune=generic' '-march=x86-64'
-         /usr/lib/gcc/x86_64-linux-gnu/9/collect2 -plugin /usr/lib/gcc/x86_64-linux-gnu/9/liblto_plugin.so -plugin-opt=/usr/lib/gcc/x86_64-linux-gnu/9/lto-wrapper -plugin-opt=-fresolution=/tmp/ccm5tmcG.res -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lc -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lgcc_s --build-id --eh-frame-hdr -m elf_x86_64 --hash-style=gnu --as-needed -dynamic-linker /lib64/ld-linux-x86-64.so.2 -pie -z now -z relro -o cmTC_a955c /usr/lib/gcc/x86_64-linux-gnu/9/../../../x86_64-linux-gnu/Scrt1.o /usr/lib/gcc/x86_64-linux-gnu/9/../../../x86_64-linux-gnu/crti.o /usr/lib/gcc/x86_64-linux-gnu/9/crtbeginS.o -L/usr/lib/gcc/x86_64-linux-gnu/9 -L/usr/lib/gcc/x86_64-linux-gnu/9/../../../x86_64-linux-gnu -L/usr/lib/gcc/x86_64-linux-gnu/9/../../../../lib -L/lib/x86_64-linux-gnu -L/lib/../lib -L/usr/lib/x86_64-linux-gnu -L/usr/lib/../lib -L/usr/lib/gcc/x86_64-linux-gnu/9/../../.. CMakeFiles/cmTC_a955c.dir/CMakeCCompilerABI.c.o -lgcc --push-state --as-needed -lgcc_s --pop-state -lc -lgcc --push-state --as-needed -lgcc_s --pop-state /usr/lib/gcc/x86_64-linux-gnu/9/crtendS.o /usr/lib/gcc/x86_64-linux-gnu/9/../../../x86_64-linux-gnu/crtn.o
-        COLLECT_GCC_OPTIONS='-v' '-o' 'cmTC_a955c' '-mtune=generic' '-march=x86-64'
-        make[1]: Leaving directory '/home/runner/work/lungsim/lungsim/build-lungsim/CMakeFiles/CMakeScratch/TryCompile-ejQ49K'
+        COLLECT_GCC_OPTIONS='-v' '-o' 'cmTC_ae8ca' '-mtune=generic' '-march=x86-64'
+         /usr/lib/gcc/x86_64-linux-gnu/9/collect2 -plugin /usr/lib/gcc/x86_64-linux-gnu/9/liblto_plugin.so -plugin-opt=/usr/lib/gcc/x86_64-linux-gnu/9/lto-wrapper -plugin-opt=-fresolution=/tmp/ccU5HdSU.res -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lc -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lgcc_s --build-id --eh-frame-hdr -m elf_x86_64 --hash-style=gnu --as-needed -dynamic-linker /lib64/ld-linux-x86-64.so.2 -pie -z now -z relro -o cmTC_ae8ca /usr/lib/gcc/x86_64-linux-gnu/9/../../../x86_64-linux-gnu/Scrt1.o /usr/lib/gcc/x86_64-linux-gnu/9/../../../x86_64-linux-gnu/crti.o /usr/lib/gcc/x86_64-linux-gnu/9/crtbeginS.o -L/usr/lib/gcc/x86_64-linux-gnu/9 -L/usr/lib/gcc/x86_64-linux-gnu/9/../../../x86_64-linux-gnu -L/usr/lib/gcc/x86_64-linux-gnu/9/../../../../lib -L/lib/x86_64-linux-gnu -L/lib/../lib -L/usr/lib/x86_64-linux-gnu -L/usr/lib/../lib -L/usr/lib/gcc/x86_64-linux-gnu/9/../../.. CMakeFiles/cmTC_ae8ca.dir/CMakeCCompilerABI.c.o -lgcc --push-state --as-needed -lgcc_s --pop-state -lc -lgcc --push-state --as-needed -lgcc_s --pop-state /usr/lib/gcc/x86_64-linux-gnu/9/crtendS.o /usr/lib/gcc/x86_64-linux-gnu/9/../../../x86_64-linux-gnu/crtn.o
+        COLLECT_GCC_OPTIONS='-v' '-o' 'cmTC_ae8ca' '-mtune=generic' '-march=x86-64'
+        make[1]: Leaving directory '/home/runner/work/lungsim/lungsim/build-lungsim/CMakeFiles/CMakeScratch/TryCompile-euik23'
         
       exitCode: 0
   -
@@ -474,12 +474,12 @@ events:
     message: |
       Parsed C implicit link information:
         link line regex: [^( *|.*[/\\])(ld|CMAKE_LINK_STARTFILE-NOTFOUND|([^/\\]+-)?ld|collect2)[^/\\]*( |$)]
-        ignore line: [Change Dir: /home/runner/work/lungsim/lungsim/build-lungsim/CMakeFiles/CMakeScratch/TryCompile-ejQ49K]
+        ignore line: [Change Dir: /home/runner/work/lungsim/lungsim/build-lungsim/CMakeFiles/CMakeScratch/TryCompile-euik23]
         ignore line: []
-        ignore line: [Run Build Command(s):/usr/local/bin/cmake -E env VERBOSE=1 /usr/bin/make -f Makefile cmTC_a955c/fast && /usr/bin/make  -f CMakeFiles/cmTC_a955c.dir/build.make CMakeFiles/cmTC_a955c.dir/build]
-        ignore line: [make[1]: Entering directory '/home/runner/work/lungsim/lungsim/build-lungsim/CMakeFiles/CMakeScratch/TryCompile-ejQ49K']
-        ignore line: [Building C object CMakeFiles/cmTC_a955c.dir/CMakeCCompilerABI.c.o]
-        ignore line: [/usr/bin/cc   -v -o CMakeFiles/cmTC_a955c.dir/CMakeCCompilerABI.c.o -c /usr/local/share/cmake-3.26/Modules/CMakeCCompilerABI.c]
+        ignore line: [Run Build Command(s):/usr/local/bin/cmake -E env VERBOSE=1 /usr/bin/make -f Makefile cmTC_ae8ca/fast && /usr/bin/make  -f CMakeFiles/cmTC_ae8ca.dir/build.make CMakeFiles/cmTC_ae8ca.dir/build]
+        ignore line: [make[1]: Entering directory '/home/runner/work/lungsim/lungsim/build-lungsim/CMakeFiles/CMakeScratch/TryCompile-euik23']
+        ignore line: [Building C object CMakeFiles/cmTC_ae8ca.dir/CMakeCCompilerABI.c.o]
+        ignore line: [/usr/bin/cc   -v -o CMakeFiles/cmTC_ae8ca.dir/CMakeCCompilerABI.c.o -c /usr/local/share/cmake-3.26/Modules/CMakeCCompilerABI.c]
         ignore line: [Using built-in specs.]
         ignore line: [COLLECT_GCC=/usr/bin/cc]
         ignore line: [OFFLOAD_TARGET_NAMES=nvptx-none:hsa]
@@ -488,8 +488,8 @@ events:
         ignore line: [Configured with: ../src/configure -v --with-pkgversion='Ubuntu 9.4.0-1ubuntu1~20.04.1' --with-bugurl=file:///usr/share/doc/gcc-9/README.Bugs --enable-languages=c ada c++ go brig d fortran objc obj-c++ gm2 --prefix=/usr --with-gcc-major-version-only --program-suffix=-9 --program-prefix=x86_64-linux-gnu- --enable-shared --enable-linker-build-id --libexecdir=/usr/lib --without-included-gettext --enable-threads=posix --libdir=/usr/lib --enable-nls --enable-clocale=gnu --enable-libstdcxx-debug --enable-libstdcxx-time=yes --with-default-libstdcxx-abi=new --enable-gnu-unique-object --disable-vtable-verify --enable-plugin --enable-default-pie --with-system-zlib --with-target-system-zlib=auto --enable-objc-gc=auto --enable-multiarch --disable-werror --with-arch-32=i686 --with-abi=m64 --with-multilib-list=m32 m64 mx32 --enable-multilib --with-tune=generic --enable-offload-targets=nvptx-none=/build/gcc-9-Av3uEd/gcc-9-9.4.0/debian/tmp-nvptx/usr hsa --without-cuda-driver --enable-checking=release --build=x86_64-linux-gnu --host=x86_64-linux-gnu --target=x86_64-linux-gnu]
         ignore line: [Thread model: posix]
         ignore line: [gcc version 9.4.0 (Ubuntu 9.4.0-1ubuntu1~20.04.1) ]
-        ignore line: [COLLECT_GCC_OPTIONS='-v' '-o' 'CMakeFiles/cmTC_a955c.dir/CMakeCCompilerABI.c.o' '-c' '-mtune=generic' '-march=x86-64']
-        ignore line: [ /usr/lib/gcc/x86_64-linux-gnu/9/cc1 -quiet -v -imultiarch x86_64-linux-gnu /usr/local/share/cmake-3.26/Modules/CMakeCCompilerABI.c -quiet -dumpbase CMakeCCompilerABI.c -mtune=generic -march=x86-64 -auxbase-strip CMakeFiles/cmTC_a955c.dir/CMakeCCompilerABI.c.o -version -fasynchronous-unwind-tables -fstack-protector-strong -Wformat -Wformat-security -fstack-clash-protection -fcf-protection -o /tmp/ccRpSEMf.s]
+        ignore line: [COLLECT_GCC_OPTIONS='-v' '-o' 'CMakeFiles/cmTC_ae8ca.dir/CMakeCCompilerABI.c.o' '-c' '-mtune=generic' '-march=x86-64']
+        ignore line: [ /usr/lib/gcc/x86_64-linux-gnu/9/cc1 -quiet -v -imultiarch x86_64-linux-gnu /usr/local/share/cmake-3.26/Modules/CMakeCCompilerABI.c -quiet -dumpbase CMakeCCompilerABI.c -mtune=generic -march=x86-64 -auxbase-strip CMakeFiles/cmTC_ae8ca.dir/CMakeCCompilerABI.c.o -version -fasynchronous-unwind-tables -fstack-protector-strong -Wformat -Wformat-security -fstack-clash-protection -fcf-protection -o /tmp/ccqudoku.s]
         ignore line: [GNU C17 (Ubuntu 9.4.0-1ubuntu1~20.04.1) version 9.4.0 (x86_64-linux-gnu)]
         ignore line: [	compiled by GNU C version 9.4.0  GMP version 6.2.0  MPFR version 4.0.2  MPC version 1.1.0  isl version isl-0.22.1-GMP]
         ignore line: []
@@ -509,15 +509,15 @@ events:
         ignore line: []
         ignore line: [GGC heuristics: --param ggc-min-expand=100 --param ggc-min-heapsize=131072]
         ignore line: [Compiler executable checksum: c0c95c0b4209efec1c1892d5ff24030b]
-        ignore line: [COLLECT_GCC_OPTIONS='-v' '-o' 'CMakeFiles/cmTC_a955c.dir/CMakeCCompilerABI.c.o' '-c' '-mtune=generic' '-march=x86-64']
-        ignore line: [ as -v --64 -o CMakeFiles/cmTC_a955c.dir/CMakeCCompilerABI.c.o /tmp/ccRpSEMf.s]
+        ignore line: [COLLECT_GCC_OPTIONS='-v' '-o' 'CMakeFiles/cmTC_ae8ca.dir/CMakeCCompilerABI.c.o' '-c' '-mtune=generic' '-march=x86-64']
+        ignore line: [ as -v --64 -o CMakeFiles/cmTC_ae8ca.dir/CMakeCCompilerABI.c.o /tmp/ccqudoku.s]
         ignore line: [GNU assembler version 2.34 (x86_64-linux-gnu) using BFD version (GNU Binutils for Ubuntu) 2.34]
         ignore line: [COMPILER_PATH=/usr/lib/gcc/x86_64-linux-gnu/9/:/usr/lib/gcc/x86_64-linux-gnu/9/:/usr/lib/gcc/x86_64-linux-gnu/:/usr/lib/gcc/x86_64-linux-gnu/9/:/usr/lib/gcc/x86_64-linux-gnu/]
         ignore line: [LIBRARY_PATH=/usr/lib/gcc/x86_64-linux-gnu/9/:/usr/lib/gcc/x86_64-linux-gnu/9/../../../x86_64-linux-gnu/:/usr/lib/gcc/x86_64-linux-gnu/9/../../../../lib/:/lib/x86_64-linux-gnu/:/lib/../lib/:/usr/lib/x86_64-linux-gnu/:/usr/lib/../lib/:/usr/lib/gcc/x86_64-linux-gnu/9/../../../:/lib/:/usr/lib/]
-        ignore line: [COLLECT_GCC_OPTIONS='-v' '-o' 'CMakeFiles/cmTC_a955c.dir/CMakeCCompilerABI.c.o' '-c' '-mtune=generic' '-march=x86-64']
-        ignore line: [Linking C executable cmTC_a955c]
-        ignore line: [/usr/local/bin/cmake -E cmake_link_script CMakeFiles/cmTC_a955c.dir/link.txt --verbose=1]
-        ignore line: [/usr/bin/cc  -v CMakeFiles/cmTC_a955c.dir/CMakeCCompilerABI.c.o -o cmTC_a955c ]
+        ignore line: [COLLECT_GCC_OPTIONS='-v' '-o' 'CMakeFiles/cmTC_ae8ca.dir/CMakeCCompilerABI.c.o' '-c' '-mtune=generic' '-march=x86-64']
+        ignore line: [Linking C executable cmTC_ae8ca]
+        ignore line: [/usr/local/bin/cmake -E cmake_link_script CMakeFiles/cmTC_ae8ca.dir/link.txt --verbose=1]
+        ignore line: [/usr/bin/cc  -v CMakeFiles/cmTC_ae8ca.dir/CMakeCCompilerABI.c.o -o cmTC_ae8ca ]
         ignore line: [Using built-in specs.]
         ignore line: [COLLECT_GCC=/usr/bin/cc]
         ignore line: [COLLECT_LTO_WRAPPER=/usr/lib/gcc/x86_64-linux-gnu/9/lto-wrapper]
@@ -529,13 +529,13 @@ events:
         ignore line: [gcc version 9.4.0 (Ubuntu 9.4.0-1ubuntu1~20.04.1) ]
         ignore line: [COMPILER_PATH=/usr/lib/gcc/x86_64-linux-gnu/9/:/usr/lib/gcc/x86_64-linux-gnu/9/:/usr/lib/gcc/x86_64-linux-gnu/:/usr/lib/gcc/x86_64-linux-gnu/9/:/usr/lib/gcc/x86_64-linux-gnu/]
         ignore line: [LIBRARY_PATH=/usr/lib/gcc/x86_64-linux-gnu/9/:/usr/lib/gcc/x86_64-linux-gnu/9/../../../x86_64-linux-gnu/:/usr/lib/gcc/x86_64-linux-gnu/9/../../../../lib/:/lib/x86_64-linux-gnu/:/lib/../lib/:/usr/lib/x86_64-linux-gnu/:/usr/lib/../lib/:/usr/lib/gcc/x86_64-linux-gnu/9/../../../:/lib/:/usr/lib/]
-        ignore line: [COLLECT_GCC_OPTIONS='-v' '-o' 'cmTC_a955c' '-mtune=generic' '-march=x86-64']
-        link line: [ /usr/lib/gcc/x86_64-linux-gnu/9/collect2 -plugin /usr/lib/gcc/x86_64-linux-gnu/9/liblto_plugin.so -plugin-opt=/usr/lib/gcc/x86_64-linux-gnu/9/lto-wrapper -plugin-opt=-fresolution=/tmp/ccm5tmcG.res -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lc -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lgcc_s --build-id --eh-frame-hdr -m elf_x86_64 --hash-style=gnu --as-needed -dynamic-linker /lib64/ld-linux-x86-64.so.2 -pie -z now -z relro -o cmTC_a955c /usr/lib/gcc/x86_64-linux-gnu/9/../../../x86_64-linux-gnu/Scrt1.o /usr/lib/gcc/x86_64-linux-gnu/9/../../../x86_64-linux-gnu/crti.o /usr/lib/gcc/x86_64-linux-gnu/9/crtbeginS.o -L/usr/lib/gcc/x86_64-linux-gnu/9 -L/usr/lib/gcc/x86_64-linux-gnu/9/../../../x86_64-linux-gnu -L/usr/lib/gcc/x86_64-linux-gnu/9/../../../../lib -L/lib/x86_64-linux-gnu -L/lib/../lib -L/usr/lib/x86_64-linux-gnu -L/usr/lib/../lib -L/usr/lib/gcc/x86_64-linux-gnu/9/../../.. CMakeFiles/cmTC_a955c.dir/CMakeCCompilerABI.c.o -lgcc --push-state --as-needed -lgcc_s --pop-state -lc -lgcc --push-state --as-needed -lgcc_s --pop-state /usr/lib/gcc/x86_64-linux-gnu/9/crtendS.o /usr/lib/gcc/x86_64-linux-gnu/9/../../../x86_64-linux-gnu/crtn.o]
+        ignore line: [COLLECT_GCC_OPTIONS='-v' '-o' 'cmTC_ae8ca' '-mtune=generic' '-march=x86-64']
+        link line: [ /usr/lib/gcc/x86_64-linux-gnu/9/collect2 -plugin /usr/lib/gcc/x86_64-linux-gnu/9/liblto_plugin.so -plugin-opt=/usr/lib/gcc/x86_64-linux-gnu/9/lto-wrapper -plugin-opt=-fresolution=/tmp/ccU5HdSU.res -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lc -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lgcc_s --build-id --eh-frame-hdr -m elf_x86_64 --hash-style=gnu --as-needed -dynamic-linker /lib64/ld-linux-x86-64.so.2 -pie -z now -z relro -o cmTC_ae8ca /usr/lib/gcc/x86_64-linux-gnu/9/../../../x86_64-linux-gnu/Scrt1.o /usr/lib/gcc/x86_64-linux-gnu/9/../../../x86_64-linux-gnu/crti.o /usr/lib/gcc/x86_64-linux-gnu/9/crtbeginS.o -L/usr/lib/gcc/x86_64-linux-gnu/9 -L/usr/lib/gcc/x86_64-linux-gnu/9/../../../x86_64-linux-gnu -L/usr/lib/gcc/x86_64-linux-gnu/9/../../../../lib -L/lib/x86_64-linux-gnu -L/lib/../lib -L/usr/lib/x86_64-linux-gnu -L/usr/lib/../lib -L/usr/lib/gcc/x86_64-linux-gnu/9/../../.. CMakeFiles/cmTC_ae8ca.dir/CMakeCCompilerABI.c.o -lgcc --push-state --as-needed -lgcc_s --pop-state -lc -lgcc --push-state --as-needed -lgcc_s --pop-state /usr/lib/gcc/x86_64-linux-gnu/9/crtendS.o /usr/lib/gcc/x86_64-linux-gnu/9/../../../x86_64-linux-gnu/crtn.o]
           arg [/usr/lib/gcc/x86_64-linux-gnu/9/collect2] ==> ignore
           arg [-plugin] ==> ignore
           arg [/usr/lib/gcc/x86_64-linux-gnu/9/liblto_plugin.so] ==> ignore
           arg [-plugin-opt=/usr/lib/gcc/x86_64-linux-gnu/9/lto-wrapper] ==> ignore
-          arg [-plugin-opt=-fresolution=/tmp/ccm5tmcG.res] ==> ignore
+          arg [-plugin-opt=-fresolution=/tmp/ccU5HdSU.res] ==> ignore
           arg [-plugin-opt=-pass-through=-lgcc] ==> ignore
           arg [-plugin-opt=-pass-through=-lgcc_s] ==> ignore
           arg [-plugin-opt=-pass-through=-lc] ==> ignore
@@ -553,7 +553,7 @@ events:
           arg [-znow] ==> ignore
           arg [-zrelro] ==> ignore
           arg [-o] ==> ignore
-          arg [cmTC_a955c] ==> ignore
+          arg [cmTC_ae8ca] ==> ignore
           arg [/usr/lib/gcc/x86_64-linux-gnu/9/../../../x86_64-linux-gnu/Scrt1.o] ==> obj [/usr/lib/gcc/x86_64-linux-gnu/9/../../../x86_64-linux-gnu/Scrt1.o]
           arg [/usr/lib/gcc/x86_64-linux-gnu/9/../../../x86_64-linux-gnu/crti.o] ==> obj [/usr/lib/gcc/x86_64-linux-gnu/9/../../../x86_64-linux-gnu/crti.o]
           arg [/usr/lib/gcc/x86_64-linux-gnu/9/crtbeginS.o] ==> obj [/usr/lib/gcc/x86_64-linux-gnu/9/crtbeginS.o]
@@ -565,7 +565,7 @@ events:
           arg [-L/usr/lib/x86_64-linux-gnu] ==> dir [/usr/lib/x86_64-linux-gnu]
           arg [-L/usr/lib/../lib] ==> dir [/usr/lib/../lib]
           arg [-L/usr/lib/gcc/x86_64-linux-gnu/9/../../..] ==> dir [/usr/lib/gcc/x86_64-linux-gnu/9/../../..]
-          arg [CMakeFiles/cmTC_a955c.dir/CMakeCCompilerABI.c.o] ==> ignore
+          arg [CMakeFiles/cmTC_ae8ca.dir/CMakeCCompilerABI.c.o] ==> ignore
           arg [-lgcc] ==> lib [gcc]
           arg [--push-state] ==> ignore
           arg [--as-needed] ==> ignore
@@ -605,8 +605,8 @@ events:
     checks:
       - "Detecting CXX compiler ABI info"
     directories:
-      source: "/home/runner/work/lungsim/lungsim/build-lungsim/CMakeFiles/CMakeScratch/TryCompile-nA0ZCJ"
-      binary: "/home/runner/work/lungsim/lungsim/build-lungsim/CMakeFiles/CMakeScratch/TryCompile-nA0ZCJ"
+      source: "/home/runner/work/lungsim/lungsim/build-lungsim/CMakeFiles/CMakeScratch/TryCompile-xCUmu3"
+      binary: "/home/runner/work/lungsim/lungsim/build-lungsim/CMakeFiles/CMakeScratch/TryCompile-xCUmu3"
     cmakeVariables:
       CMAKE_CXX_FLAGS: ""
       CMAKE_CXX_FLAGS_DEBUG: "-g"
@@ -615,12 +615,12 @@ events:
       variable: "CMAKE_CXX_ABI_COMPILED"
       cached: true
       stdout: |
-        Change Dir: /home/runner/work/lungsim/lungsim/build-lungsim/CMakeFiles/CMakeScratch/TryCompile-nA0ZCJ
+        Change Dir: /home/runner/work/lungsim/lungsim/build-lungsim/CMakeFiles/CMakeScratch/TryCompile-xCUmu3
         
-        Run Build Command(s):/usr/local/bin/cmake -E env VERBOSE=1 /usr/bin/make -f Makefile cmTC_536c9/fast && /usr/bin/make  -f CMakeFiles/cmTC_536c9.dir/build.make CMakeFiles/cmTC_536c9.dir/build
-        make[1]: Entering directory '/home/runner/work/lungsim/lungsim/build-lungsim/CMakeFiles/CMakeScratch/TryCompile-nA0ZCJ'
-        Building CXX object CMakeFiles/cmTC_536c9.dir/CMakeCXXCompilerABI.cpp.o
-        /usr/bin/c++   -v -o CMakeFiles/cmTC_536c9.dir/CMakeCXXCompilerABI.cpp.o -c /usr/local/share/cmake-3.26/Modules/CMakeCXXCompilerABI.cpp
+        Run Build Command(s):/usr/local/bin/cmake -E env VERBOSE=1 /usr/bin/make -f Makefile cmTC_f4ac8/fast && /usr/bin/make  -f CMakeFiles/cmTC_f4ac8.dir/build.make CMakeFiles/cmTC_f4ac8.dir/build
+        make[1]: Entering directory '/home/runner/work/lungsim/lungsim/build-lungsim/CMakeFiles/CMakeScratch/TryCompile-xCUmu3'
+        Building CXX object CMakeFiles/cmTC_f4ac8.dir/CMakeCXXCompilerABI.cpp.o
+        /usr/bin/c++   -v -o CMakeFiles/cmTC_f4ac8.dir/CMakeCXXCompilerABI.cpp.o -c /usr/local/share/cmake-3.26/Modules/CMakeCXXCompilerABI.cpp
         Using built-in specs.
         COLLECT_GCC=/usr/bin/c++
         OFFLOAD_TARGET_NAMES=nvptx-none:hsa
@@ -629,8 +629,8 @@ events:
         Configured with: ../src/configure -v --with-pkgversion='Ubuntu 9.4.0-1ubuntu1~20.04.1' --with-bugurl=file:///usr/share/doc/gcc-9/README.Bugs --enable-languages=c,ada,c++,go,brig,d,fortran,objc,obj-c++,gm2 --prefix=/usr --with-gcc-major-version-only --program-suffix=-9 --program-prefix=x86_64-linux-gnu- --enable-shared --enable-linker-build-id --libexecdir=/usr/lib --without-included-gettext --enable-threads=posix --libdir=/usr/lib --enable-nls --enable-clocale=gnu --enable-libstdcxx-debug --enable-libstdcxx-time=yes --with-default-libstdcxx-abi=new --enable-gnu-unique-object --disable-vtable-verify --enable-plugin --enable-default-pie --with-system-zlib --with-target-system-zlib=auto --enable-objc-gc=auto --enable-multiarch --disable-werror --with-arch-32=i686 --with-abi=m64 --with-multilib-list=m32,m64,mx32 --enable-multilib --with-tune=generic --enable-offload-targets=nvptx-none=/build/gcc-9-Av3uEd/gcc-9-9.4.0/debian/tmp-nvptx/usr,hsa --without-cuda-driver --enable-checking=release --build=x86_64-linux-gnu --host=x86_64-linux-gnu --target=x86_64-linux-gnu
         Thread model: posix
         gcc version 9.4.0 (Ubuntu 9.4.0-1ubuntu1~20.04.1) 
-        COLLECT_GCC_OPTIONS='-v' '-o' 'CMakeFiles/cmTC_536c9.dir/CMakeCXXCompilerABI.cpp.o' '-c' '-shared-libgcc' '-mtune=generic' '-march=x86-64'
-         /usr/lib/gcc/x86_64-linux-gnu/9/cc1plus -quiet -v -imultiarch x86_64-linux-gnu -D_GNU_SOURCE /usr/local/share/cmake-3.26/Modules/CMakeCXXCompilerABI.cpp -quiet -dumpbase CMakeCXXCompilerABI.cpp -mtune=generic -march=x86-64 -auxbase-strip CMakeFiles/cmTC_536c9.dir/CMakeCXXCompilerABI.cpp.o -version -fasynchronous-unwind-tables -fstack-protector-strong -Wformat -Wformat-security -fstack-clash-protection -fcf-protection -o /tmp/ccqqbHOp.s
+        COLLECT_GCC_OPTIONS='-v' '-o' 'CMakeFiles/cmTC_f4ac8.dir/CMakeCXXCompilerABI.cpp.o' '-c' '-shared-libgcc' '-mtune=generic' '-march=x86-64'
+         /usr/lib/gcc/x86_64-linux-gnu/9/cc1plus -quiet -v -imultiarch x86_64-linux-gnu -D_GNU_SOURCE /usr/local/share/cmake-3.26/Modules/CMakeCXXCompilerABI.cpp -quiet -dumpbase CMakeCXXCompilerABI.cpp -mtune=generic -march=x86-64 -auxbase-strip CMakeFiles/cmTC_f4ac8.dir/CMakeCXXCompilerABI.cpp.o -version -fasynchronous-unwind-tables -fstack-protector-strong -Wformat -Wformat-security -fstack-clash-protection -fcf-protection -o /tmp/cc37SNnD.s
         GNU C++14 (Ubuntu 9.4.0-1ubuntu1~20.04.1) version 9.4.0 (x86_64-linux-gnu)
         	compiled by GNU C version 9.4.0, GMP version 6.2.0, MPFR version 4.0.2, MPC version 1.1.0, isl version isl-0.22.1-GMP
         
@@ -654,15 +654,15 @@ events:
         
         GGC heuristics: --param ggc-min-expand=100 --param ggc-min-heapsize=131072
         Compiler executable checksum: 65fe925b83d3956b533de4aaba7dace0
-        COLLECT_GCC_OPTIONS='-v' '-o' 'CMakeFiles/cmTC_536c9.dir/CMakeCXXCompilerABI.cpp.o' '-c' '-shared-libgcc' '-mtune=generic' '-march=x86-64'
-         as -v --64 -o CMakeFiles/cmTC_536c9.dir/CMakeCXXCompilerABI.cpp.o /tmp/ccqqbHOp.s
+        COLLECT_GCC_OPTIONS='-v' '-o' 'CMakeFiles/cmTC_f4ac8.dir/CMakeCXXCompilerABI.cpp.o' '-c' '-shared-libgcc' '-mtune=generic' '-march=x86-64'
+         as -v --64 -o CMakeFiles/cmTC_f4ac8.dir/CMakeCXXCompilerABI.cpp.o /tmp/cc37SNnD.s
         GNU assembler version 2.34 (x86_64-linux-gnu) using BFD version (GNU Binutils for Ubuntu) 2.34
         COMPILER_PATH=/usr/lib/gcc/x86_64-linux-gnu/9/:/usr/lib/gcc/x86_64-linux-gnu/9/:/usr/lib/gcc/x86_64-linux-gnu/:/usr/lib/gcc/x86_64-linux-gnu/9/:/usr/lib/gcc/x86_64-linux-gnu/
         LIBRARY_PATH=/usr/lib/gcc/x86_64-linux-gnu/9/:/usr/lib/gcc/x86_64-linux-gnu/9/../../../x86_64-linux-gnu/:/usr/lib/gcc/x86_64-linux-gnu/9/../../../../lib/:/lib/x86_64-linux-gnu/:/lib/../lib/:/usr/lib/x86_64-linux-gnu/:/usr/lib/../lib/:/usr/lib/gcc/x86_64-linux-gnu/9/../../../:/lib/:/usr/lib/
-        COLLECT_GCC_OPTIONS='-v' '-o' 'CMakeFiles/cmTC_536c9.dir/CMakeCXXCompilerABI.cpp.o' '-c' '-shared-libgcc' '-mtune=generic' '-march=x86-64'
-        Linking CXX executable cmTC_536c9
-        /usr/local/bin/cmake -E cmake_link_script CMakeFiles/cmTC_536c9.dir/link.txt --verbose=1
-        /usr/bin/c++  -v CMakeFiles/cmTC_536c9.dir/CMakeCXXCompilerABI.cpp.o -o cmTC_536c9 
+        COLLECT_GCC_OPTIONS='-v' '-o' 'CMakeFiles/cmTC_f4ac8.dir/CMakeCXXCompilerABI.cpp.o' '-c' '-shared-libgcc' '-mtune=generic' '-march=x86-64'
+        Linking CXX executable cmTC_f4ac8
+        /usr/local/bin/cmake -E cmake_link_script CMakeFiles/cmTC_f4ac8.dir/link.txt --verbose=1
+        /usr/bin/c++  -v CMakeFiles/cmTC_f4ac8.dir/CMakeCXXCompilerABI.cpp.o -o cmTC_f4ac8 
         Using built-in specs.
         COLLECT_GCC=/usr/bin/c++
         COLLECT_LTO_WRAPPER=/usr/lib/gcc/x86_64-linux-gnu/9/lto-wrapper
@@ -674,10 +674,10 @@ events:
         gcc version 9.4.0 (Ubuntu 9.4.0-1ubuntu1~20.04.1) 
         COMPILER_PATH=/usr/lib/gcc/x86_64-linux-gnu/9/:/usr/lib/gcc/x86_64-linux-gnu/9/:/usr/lib/gcc/x86_64-linux-gnu/:/usr/lib/gcc/x86_64-linux-gnu/9/:/usr/lib/gcc/x86_64-linux-gnu/
         LIBRARY_PATH=/usr/lib/gcc/x86_64-linux-gnu/9/:/usr/lib/gcc/x86_64-linux-gnu/9/../../../x86_64-linux-gnu/:/usr/lib/gcc/x86_64-linux-gnu/9/../../../../lib/:/lib/x86_64-linux-gnu/:/lib/../lib/:/usr/lib/x86_64-linux-gnu/:/usr/lib/../lib/:/usr/lib/gcc/x86_64-linux-gnu/9/../../../:/lib/:/usr/lib/
-        COLLECT_GCC_OPTIONS='-v' '-o' 'cmTC_536c9' '-shared-libgcc' '-mtune=generic' '-march=x86-64'
-         /usr/lib/gcc/x86_64-linux-gnu/9/collect2 -plugin /usr/lib/gcc/x86_64-linux-gnu/9/liblto_plugin.so -plugin-opt=/usr/lib/gcc/x86_64-linux-gnu/9/lto-wrapper -plugin-opt=-fresolution=/tmp/ccob1enR.res -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lc -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lgcc --build-id --eh-frame-hdr -m elf_x86_64 --hash-style=gnu --as-needed -dynamic-linker /lib64/ld-linux-x86-64.so.2 -pie -z now -z relro -o cmTC_536c9 /usr/lib/gcc/x86_64-linux-gnu/9/../../../x86_64-linux-gnu/Scrt1.o /usr/lib/gcc/x86_64-linux-gnu/9/../../../x86_64-linux-gnu/crti.o /usr/lib/gcc/x86_64-linux-gnu/9/crtbeginS.o -L/usr/lib/gcc/x86_64-linux-gnu/9 -L/usr/lib/gcc/x86_64-linux-gnu/9/../../../x86_64-linux-gnu -L/usr/lib/gcc/x86_64-linux-gnu/9/../../../../lib -L/lib/x86_64-linux-gnu -L/lib/../lib -L/usr/lib/x86_64-linux-gnu -L/usr/lib/../lib -L/usr/lib/gcc/x86_64-linux-gnu/9/../../.. CMakeFiles/cmTC_536c9.dir/CMakeCXXCompilerABI.cpp.o -lstdc++ -lm -lgcc_s -lgcc -lc -lgcc_s -lgcc /usr/lib/gcc/x86_64-linux-gnu/9/crtendS.o /usr/lib/gcc/x86_64-linux-gnu/9/../../../x86_64-linux-gnu/crtn.o
-        COLLECT_GCC_OPTIONS='-v' '-o' 'cmTC_536c9' '-shared-libgcc' '-mtune=generic' '-march=x86-64'
-        make[1]: Leaving directory '/home/runner/work/lungsim/lungsim/build-lungsim/CMakeFiles/CMakeScratch/TryCompile-nA0ZCJ'
+        COLLECT_GCC_OPTIONS='-v' '-o' 'cmTC_f4ac8' '-shared-libgcc' '-mtune=generic' '-march=x86-64'
+         /usr/lib/gcc/x86_64-linux-gnu/9/collect2 -plugin /usr/lib/gcc/x86_64-linux-gnu/9/liblto_plugin.so -plugin-opt=/usr/lib/gcc/x86_64-linux-gnu/9/lto-wrapper -plugin-opt=-fresolution=/tmp/ccRTXgJ3.res -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lc -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lgcc --build-id --eh-frame-hdr -m elf_x86_64 --hash-style=gnu --as-needed -dynamic-linker /lib64/ld-linux-x86-64.so.2 -pie -z now -z relro -o cmTC_f4ac8 /usr/lib/gcc/x86_64-linux-gnu/9/../../../x86_64-linux-gnu/Scrt1.o /usr/lib/gcc/x86_64-linux-gnu/9/../../../x86_64-linux-gnu/crti.o /usr/lib/gcc/x86_64-linux-gnu/9/crtbeginS.o -L/usr/lib/gcc/x86_64-linux-gnu/9 -L/usr/lib/gcc/x86_64-linux-gnu/9/../../../x86_64-linux-gnu -L/usr/lib/gcc/x86_64-linux-gnu/9/../../../../lib -L/lib/x86_64-linux-gnu -L/lib/../lib -L/usr/lib/x86_64-linux-gnu -L/usr/lib/../lib -L/usr/lib/gcc/x86_64-linux-gnu/9/../../.. CMakeFiles/cmTC_f4ac8.dir/CMakeCXXCompilerABI.cpp.o -lstdc++ -lm -lgcc_s -lgcc -lc -lgcc_s -lgcc /usr/lib/gcc/x86_64-linux-gnu/9/crtendS.o /usr/lib/gcc/x86_64-linux-gnu/9/../../../x86_64-linux-gnu/crtn.o
+        COLLECT_GCC_OPTIONS='-v' '-o' 'cmTC_f4ac8' '-shared-libgcc' '-mtune=generic' '-march=x86-64'
+        make[1]: Leaving directory '/home/runner/work/lungsim/lungsim/build-lungsim/CMakeFiles/CMakeScratch/TryCompile-xCUmu3'
         
       exitCode: 0
   -
@@ -717,12 +717,12 @@ events:
     message: |
       Parsed CXX implicit link information:
         link line regex: [^( *|.*[/\\])(ld|CMAKE_LINK_STARTFILE-NOTFOUND|([^/\\]+-)?ld|collect2)[^/\\]*( |$)]
-        ignore line: [Change Dir: /home/runner/work/lungsim/lungsim/build-lungsim/CMakeFiles/CMakeScratch/TryCompile-nA0ZCJ]
+        ignore line: [Change Dir: /home/runner/work/lungsim/lungsim/build-lungsim/CMakeFiles/CMakeScratch/TryCompile-xCUmu3]
         ignore line: []
-        ignore line: [Run Build Command(s):/usr/local/bin/cmake -E env VERBOSE=1 /usr/bin/make -f Makefile cmTC_536c9/fast && /usr/bin/make  -f CMakeFiles/cmTC_536c9.dir/build.make CMakeFiles/cmTC_536c9.dir/build]
-        ignore line: [make[1]: Entering directory '/home/runner/work/lungsim/lungsim/build-lungsim/CMakeFiles/CMakeScratch/TryCompile-nA0ZCJ']
-        ignore line: [Building CXX object CMakeFiles/cmTC_536c9.dir/CMakeCXXCompilerABI.cpp.o]
-        ignore line: [/usr/bin/c++   -v -o CMakeFiles/cmTC_536c9.dir/CMakeCXXCompilerABI.cpp.o -c /usr/local/share/cmake-3.26/Modules/CMakeCXXCompilerABI.cpp]
+        ignore line: [Run Build Command(s):/usr/local/bin/cmake -E env VERBOSE=1 /usr/bin/make -f Makefile cmTC_f4ac8/fast && /usr/bin/make  -f CMakeFiles/cmTC_f4ac8.dir/build.make CMakeFiles/cmTC_f4ac8.dir/build]
+        ignore line: [make[1]: Entering directory '/home/runner/work/lungsim/lungsim/build-lungsim/CMakeFiles/CMakeScratch/TryCompile-xCUmu3']
+        ignore line: [Building CXX object CMakeFiles/cmTC_f4ac8.dir/CMakeCXXCompilerABI.cpp.o]
+        ignore line: [/usr/bin/c++   -v -o CMakeFiles/cmTC_f4ac8.dir/CMakeCXXCompilerABI.cpp.o -c /usr/local/share/cmake-3.26/Modules/CMakeCXXCompilerABI.cpp]
         ignore line: [Using built-in specs.]
         ignore line: [COLLECT_GCC=/usr/bin/c++]
         ignore line: [OFFLOAD_TARGET_NAMES=nvptx-none:hsa]
@@ -731,8 +731,8 @@ events:
         ignore line: [Configured with: ../src/configure -v --with-pkgversion='Ubuntu 9.4.0-1ubuntu1~20.04.1' --with-bugurl=file:///usr/share/doc/gcc-9/README.Bugs --enable-languages=c ada c++ go brig d fortran objc obj-c++ gm2 --prefix=/usr --with-gcc-major-version-only --program-suffix=-9 --program-prefix=x86_64-linux-gnu- --enable-shared --enable-linker-build-id --libexecdir=/usr/lib --without-included-gettext --enable-threads=posix --libdir=/usr/lib --enable-nls --enable-clocale=gnu --enable-libstdcxx-debug --enable-libstdcxx-time=yes --with-default-libstdcxx-abi=new --enable-gnu-unique-object --disable-vtable-verify --enable-plugin --enable-default-pie --with-system-zlib --with-target-system-zlib=auto --enable-objc-gc=auto --enable-multiarch --disable-werror --with-arch-32=i686 --with-abi=m64 --with-multilib-list=m32 m64 mx32 --enable-multilib --with-tune=generic --enable-offload-targets=nvptx-none=/build/gcc-9-Av3uEd/gcc-9-9.4.0/debian/tmp-nvptx/usr hsa --without-cuda-driver --enable-checking=release --build=x86_64-linux-gnu --host=x86_64-linux-gnu --target=x86_64-linux-gnu]
         ignore line: [Thread model: posix]
         ignore line: [gcc version 9.4.0 (Ubuntu 9.4.0-1ubuntu1~20.04.1) ]
-        ignore line: [COLLECT_GCC_OPTIONS='-v' '-o' 'CMakeFiles/cmTC_536c9.dir/CMakeCXXCompilerABI.cpp.o' '-c' '-shared-libgcc' '-mtune=generic' '-march=x86-64']
-        ignore line: [ /usr/lib/gcc/x86_64-linux-gnu/9/cc1plus -quiet -v -imultiarch x86_64-linux-gnu -D_GNU_SOURCE /usr/local/share/cmake-3.26/Modules/CMakeCXXCompilerABI.cpp -quiet -dumpbase CMakeCXXCompilerABI.cpp -mtune=generic -march=x86-64 -auxbase-strip CMakeFiles/cmTC_536c9.dir/CMakeCXXCompilerABI.cpp.o -version -fasynchronous-unwind-tables -fstack-protector-strong -Wformat -Wformat-security -fstack-clash-protection -fcf-protection -o /tmp/ccqqbHOp.s]
+        ignore line: [COLLECT_GCC_OPTIONS='-v' '-o' 'CMakeFiles/cmTC_f4ac8.dir/CMakeCXXCompilerABI.cpp.o' '-c' '-shared-libgcc' '-mtune=generic' '-march=x86-64']
+        ignore line: [ /usr/lib/gcc/x86_64-linux-gnu/9/cc1plus -quiet -v -imultiarch x86_64-linux-gnu -D_GNU_SOURCE /usr/local/share/cmake-3.26/Modules/CMakeCXXCompilerABI.cpp -quiet -dumpbase CMakeCXXCompilerABI.cpp -mtune=generic -march=x86-64 -auxbase-strip CMakeFiles/cmTC_f4ac8.dir/CMakeCXXCompilerABI.cpp.o -version -fasynchronous-unwind-tables -fstack-protector-strong -Wformat -Wformat-security -fstack-clash-protection -fcf-protection -o /tmp/cc37SNnD.s]
         ignore line: [GNU C++14 (Ubuntu 9.4.0-1ubuntu1~20.04.1) version 9.4.0 (x86_64-linux-gnu)]
         ignore line: [	compiled by GNU C version 9.4.0  GMP version 6.2.0  MPFR version 4.0.2  MPC version 1.1.0  isl version isl-0.22.1-GMP]
         ignore line: []
@@ -756,15 +756,15 @@ events:
         ignore line: []
         ignore line: [GGC heuristics: --param ggc-min-expand=100 --param ggc-min-heapsize=131072]
         ignore line: [Compiler executable checksum: 65fe925b83d3956b533de4aaba7dace0]
-        ignore line: [COLLECT_GCC_OPTIONS='-v' '-o' 'CMakeFiles/cmTC_536c9.dir/CMakeCXXCompilerABI.cpp.o' '-c' '-shared-libgcc' '-mtune=generic' '-march=x86-64']
-        ignore line: [ as -v --64 -o CMakeFiles/cmTC_536c9.dir/CMakeCXXCompilerABI.cpp.o /tmp/ccqqbHOp.s]
+        ignore line: [COLLECT_GCC_OPTIONS='-v' '-o' 'CMakeFiles/cmTC_f4ac8.dir/CMakeCXXCompilerABI.cpp.o' '-c' '-shared-libgcc' '-mtune=generic' '-march=x86-64']
+        ignore line: [ as -v --64 -o CMakeFiles/cmTC_f4ac8.dir/CMakeCXXCompilerABI.cpp.o /tmp/cc37SNnD.s]
         ignore line: [GNU assembler version 2.34 (x86_64-linux-gnu) using BFD version (GNU Binutils for Ubuntu) 2.34]
         ignore line: [COMPILER_PATH=/usr/lib/gcc/x86_64-linux-gnu/9/:/usr/lib/gcc/x86_64-linux-gnu/9/:/usr/lib/gcc/x86_64-linux-gnu/:/usr/lib/gcc/x86_64-linux-gnu/9/:/usr/lib/gcc/x86_64-linux-gnu/]
         ignore line: [LIBRARY_PATH=/usr/lib/gcc/x86_64-linux-gnu/9/:/usr/lib/gcc/x86_64-linux-gnu/9/../../../x86_64-linux-gnu/:/usr/lib/gcc/x86_64-linux-gnu/9/../../../../lib/:/lib/x86_64-linux-gnu/:/lib/../lib/:/usr/lib/x86_64-linux-gnu/:/usr/lib/../lib/:/usr/lib/gcc/x86_64-linux-gnu/9/../../../:/lib/:/usr/lib/]
-        ignore line: [COLLECT_GCC_OPTIONS='-v' '-o' 'CMakeFiles/cmTC_536c9.dir/CMakeCXXCompilerABI.cpp.o' '-c' '-shared-libgcc' '-mtune=generic' '-march=x86-64']
-        ignore line: [Linking CXX executable cmTC_536c9]
-        ignore line: [/usr/local/bin/cmake -E cmake_link_script CMakeFiles/cmTC_536c9.dir/link.txt --verbose=1]
-        ignore line: [/usr/bin/c++  -v CMakeFiles/cmTC_536c9.dir/CMakeCXXCompilerABI.cpp.o -o cmTC_536c9 ]
+        ignore line: [COLLECT_GCC_OPTIONS='-v' '-o' 'CMakeFiles/cmTC_f4ac8.dir/CMakeCXXCompilerABI.cpp.o' '-c' '-shared-libgcc' '-mtune=generic' '-march=x86-64']
+        ignore line: [Linking CXX executable cmTC_f4ac8]
+        ignore line: [/usr/local/bin/cmake -E cmake_link_script CMakeFiles/cmTC_f4ac8.dir/link.txt --verbose=1]
+        ignore line: [/usr/bin/c++  -v CMakeFiles/cmTC_f4ac8.dir/CMakeCXXCompilerABI.cpp.o -o cmTC_f4ac8 ]
         ignore line: [Using built-in specs.]
         ignore line: [COLLECT_GCC=/usr/bin/c++]
         ignore line: [COLLECT_LTO_WRAPPER=/usr/lib/gcc/x86_64-linux-gnu/9/lto-wrapper]
@@ -776,13 +776,13 @@ events:
         ignore line: [gcc version 9.4.0 (Ubuntu 9.4.0-1ubuntu1~20.04.1) ]
         ignore line: [COMPILER_PATH=/usr/lib/gcc/x86_64-linux-gnu/9/:/usr/lib/gcc/x86_64-linux-gnu/9/:/usr/lib/gcc/x86_64-linux-gnu/:/usr/lib/gcc/x86_64-linux-gnu/9/:/usr/lib/gcc/x86_64-linux-gnu/]
         ignore line: [LIBRARY_PATH=/usr/lib/gcc/x86_64-linux-gnu/9/:/usr/lib/gcc/x86_64-linux-gnu/9/../../../x86_64-linux-gnu/:/usr/lib/gcc/x86_64-linux-gnu/9/../../../../lib/:/lib/x86_64-linux-gnu/:/lib/../lib/:/usr/lib/x86_64-linux-gnu/:/usr/lib/../lib/:/usr/lib/gcc/x86_64-linux-gnu/9/../../../:/lib/:/usr/lib/]
-        ignore line: [COLLECT_GCC_OPTIONS='-v' '-o' 'cmTC_536c9' '-shared-libgcc' '-mtune=generic' '-march=x86-64']
-        link line: [ /usr/lib/gcc/x86_64-linux-gnu/9/collect2 -plugin /usr/lib/gcc/x86_64-linux-gnu/9/liblto_plugin.so -plugin-opt=/usr/lib/gcc/x86_64-linux-gnu/9/lto-wrapper -plugin-opt=-fresolution=/tmp/ccob1enR.res -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lc -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lgcc --build-id --eh-frame-hdr -m elf_x86_64 --hash-style=gnu --as-needed -dynamic-linker /lib64/ld-linux-x86-64.so.2 -pie -z now -z relro -o cmTC_536c9 /usr/lib/gcc/x86_64-linux-gnu/9/../../../x86_64-linux-gnu/Scrt1.o /usr/lib/gcc/x86_64-linux-gnu/9/../../../x86_64-linux-gnu/crti.o /usr/lib/gcc/x86_64-linux-gnu/9/crtbeginS.o -L/usr/lib/gcc/x86_64-linux-gnu/9 -L/usr/lib/gcc/x86_64-linux-gnu/9/../../../x86_64-linux-gnu -L/usr/lib/gcc/x86_64-linux-gnu/9/../../../../lib -L/lib/x86_64-linux-gnu -L/lib/../lib -L/usr/lib/x86_64-linux-gnu -L/usr/lib/../lib -L/usr/lib/gcc/x86_64-linux-gnu/9/../../.. CMakeFiles/cmTC_536c9.dir/CMakeCXXCompilerABI.cpp.o -lstdc++ -lm -lgcc_s -lgcc -lc -lgcc_s -lgcc /usr/lib/gcc/x86_64-linux-gnu/9/crtendS.o /usr/lib/gcc/x86_64-linux-gnu/9/../../../x86_64-linux-gnu/crtn.o]
+        ignore line: [COLLECT_GCC_OPTIONS='-v' '-o' 'cmTC_f4ac8' '-shared-libgcc' '-mtune=generic' '-march=x86-64']
+        link line: [ /usr/lib/gcc/x86_64-linux-gnu/9/collect2 -plugin /usr/lib/gcc/x86_64-linux-gnu/9/liblto_plugin.so -plugin-opt=/usr/lib/gcc/x86_64-linux-gnu/9/lto-wrapper -plugin-opt=-fresolution=/tmp/ccRTXgJ3.res -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lc -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lgcc --build-id --eh-frame-hdr -m elf_x86_64 --hash-style=gnu --as-needed -dynamic-linker /lib64/ld-linux-x86-64.so.2 -pie -z now -z relro -o cmTC_f4ac8 /usr/lib/gcc/x86_64-linux-gnu/9/../../../x86_64-linux-gnu/Scrt1.o /usr/lib/gcc/x86_64-linux-gnu/9/../../../x86_64-linux-gnu/crti.o /usr/lib/gcc/x86_64-linux-gnu/9/crtbeginS.o -L/usr/lib/gcc/x86_64-linux-gnu/9 -L/usr/lib/gcc/x86_64-linux-gnu/9/../../../x86_64-linux-gnu -L/usr/lib/gcc/x86_64-linux-gnu/9/../../../../lib -L/lib/x86_64-linux-gnu -L/lib/../lib -L/usr/lib/x86_64-linux-gnu -L/usr/lib/../lib -L/usr/lib/gcc/x86_64-linux-gnu/9/../../.. CMakeFiles/cmTC_f4ac8.dir/CMakeCXXCompilerABI.cpp.o -lstdc++ -lm -lgcc_s -lgcc -lc -lgcc_s -lgcc /usr/lib/gcc/x86_64-linux-gnu/9/crtendS.o /usr/lib/gcc/x86_64-linux-gnu/9/../../../x86_64-linux-gnu/crtn.o]
           arg [/usr/lib/gcc/x86_64-linux-gnu/9/collect2] ==> ignore
           arg [-plugin] ==> ignore
           arg [/usr/lib/gcc/x86_64-linux-gnu/9/liblto_plugin.so] ==> ignore
           arg [-plugin-opt=/usr/lib/gcc/x86_64-linux-gnu/9/lto-wrapper] ==> ignore
-          arg [-plugin-opt=-fresolution=/tmp/ccob1enR.res] ==> ignore
+          arg [-plugin-opt=-fresolution=/tmp/ccRTXgJ3.res] ==> ignore
           arg [-plugin-opt=-pass-through=-lgcc_s] ==> ignore
           arg [-plugin-opt=-pass-through=-lgcc] ==> ignore
           arg [-plugin-opt=-pass-through=-lc] ==> ignore
@@ -800,7 +800,7 @@ events:
           arg [-znow] ==> ignore
           arg [-zrelro] ==> ignore
           arg [-o] ==> ignore
-          arg [cmTC_536c9] ==> ignore
+          arg [cmTC_f4ac8] ==> ignore
           arg [/usr/lib/gcc/x86_64-linux-gnu/9/../../../x86_64-linux-gnu/Scrt1.o] ==> obj [/usr/lib/gcc/x86_64-linux-gnu/9/../../../x86_64-linux-gnu/Scrt1.o]
           arg [/usr/lib/gcc/x86_64-linux-gnu/9/../../../x86_64-linux-gnu/crti.o] ==> obj [/usr/lib/gcc/x86_64-linux-gnu/9/../../../x86_64-linux-gnu/crti.o]
           arg [/usr/lib/gcc/x86_64-linux-gnu/9/crtbeginS.o] ==> obj [/usr/lib/gcc/x86_64-linux-gnu/9/crtbeginS.o]
@@ -812,7 +812,7 @@ events:
           arg [-L/usr/lib/x86_64-linux-gnu] ==> dir [/usr/lib/x86_64-linux-gnu]
           arg [-L/usr/lib/../lib] ==> dir [/usr/lib/../lib]
           arg [-L/usr/lib/gcc/x86_64-linux-gnu/9/../../..] ==> dir [/usr/lib/gcc/x86_64-linux-gnu/9/../../..]
-          arg [CMakeFiles/cmTC_536c9.dir/CMakeCXXCompilerABI.cpp.o] ==> ignore
+          arg [CMakeFiles/cmTC_f4ac8.dir/CMakeCXXCompilerABI.cpp.o] ==> ignore
           arg [-lstdc++] ==> lib [stdc++]
           arg [-lm] ==> lib [m]
           arg [-lgcc_s] ==> lib [gcc_s]
@@ -851,8 +851,8 @@ events:
     checks:
       - "Looking for Fortran sgemm"
     directories:
-      source: "/home/runner/work/lungsim/lungsim/build-lungsim/CMakeFiles/CMakeScratch/TryCompile-MoAP1J"
-      binary: "/home/runner/work/lungsim/lungsim/build-lungsim/CMakeFiles/CMakeScratch/TryCompile-MoAP1J"
+      source: "/home/runner/work/lungsim/lungsim/build-lungsim/CMakeFiles/CMakeScratch/TryCompile-zK6fK2"
+      binary: "/home/runner/work/lungsim/lungsim/build-lungsim/CMakeFiles/CMakeScratch/TryCompile-zK6fK2"
     cmakeVariables:
       CMAKE_EXE_LINKER_FLAGS: ""
       CMAKE_Fortran_FLAGS: ""
@@ -862,21 +862,21 @@ events:
       variable: "BLAS_WORKS"
       cached: true
       stdout: |
-        Change Dir: /home/runner/work/lungsim/lungsim/build-lungsim/CMakeFiles/CMakeScratch/TryCompile-MoAP1J
+        Change Dir: /home/runner/work/lungsim/lungsim/build-lungsim/CMakeFiles/CMakeScratch/TryCompile-zK6fK2
         
-        Run Build Command(s):/usr/local/bin/cmake -E env VERBOSE=1 /usr/bin/make -f Makefile cmTC_ad406/fast && /usr/bin/make  -f CMakeFiles/cmTC_ad406.dir/build.make CMakeFiles/cmTC_ad406.dir/build
-        make[1]: Entering directory '/home/runner/work/lungsim/lungsim/build-lungsim/CMakeFiles/CMakeScratch/TryCompile-MoAP1J'
-        Building Fortran object CMakeFiles/cmTC_ad406.dir/testFortranCompiler.f.o
-        /usr/bin/gfortran    -c /home/runner/work/lungsim/lungsim/build-lungsim/CMakeFiles/CMakeScratch/TryCompile-MoAP1J/testFortranCompiler.f -o CMakeFiles/cmTC_ad406.dir/testFortranCompiler.f.o
-        Linking Fortran executable cmTC_ad406
-        /usr/local/bin/cmake -E cmake_link_script CMakeFiles/cmTC_ad406.dir/link.txt --verbose=1
-        /usr/bin/gfortran CMakeFiles/cmTC_ad406.dir/testFortranCompiler.f.o -o cmTC_ad406 
-        /usr/bin/ld: CMakeFiles/cmTC_ad406.dir/testFortranCompiler.f.o: in function `MAIN__':
+        Run Build Command(s):/usr/local/bin/cmake -E env VERBOSE=1 /usr/bin/make -f Makefile cmTC_2716c/fast && /usr/bin/make  -f CMakeFiles/cmTC_2716c.dir/build.make CMakeFiles/cmTC_2716c.dir/build
+        make[1]: Entering directory '/home/runner/work/lungsim/lungsim/build-lungsim/CMakeFiles/CMakeScratch/TryCompile-zK6fK2'
+        Building Fortran object CMakeFiles/cmTC_2716c.dir/testFortranCompiler.f.o
+        /usr/bin/gfortran    -c /home/runner/work/lungsim/lungsim/build-lungsim/CMakeFiles/CMakeScratch/TryCompile-zK6fK2/testFortranCompiler.f -o CMakeFiles/cmTC_2716c.dir/testFortranCompiler.f.o
+        Linking Fortran executable cmTC_2716c
+        /usr/local/bin/cmake -E cmake_link_script CMakeFiles/cmTC_2716c.dir/link.txt --verbose=1
+        /usr/bin/gfortran CMakeFiles/cmTC_2716c.dir/testFortranCompiler.f.o -o cmTC_2716c 
+        /usr/bin/ld: CMakeFiles/cmTC_2716c.dir/testFortranCompiler.f.o: in function `MAIN__':
         testFortranCompiler.f:(.text+0xa): undefined reference to `sgemm_'
         collect2: error: ld returned 1 exit status
-        make[1]: *** [CMakeFiles/cmTC_ad406.dir/build.make:99: cmTC_ad406] Error 1
-        make[1]: Leaving directory '/home/runner/work/lungsim/lungsim/build-lungsim/CMakeFiles/CMakeScratch/TryCompile-MoAP1J'
-        make: *** [Makefile:127: cmTC_ad406/fast] Error 2
+        make[1]: *** [CMakeFiles/cmTC_2716c.dir/build.make:99: cmTC_2716c] Error 1
+        make[1]: Leaving directory '/home/runner/work/lungsim/lungsim/build-lungsim/CMakeFiles/CMakeScratch/TryCompile-zK6fK2'
+        make: *** [Makefile:127: cmTC_2716c/fast] Error 2
         
       exitCode: 2
   -
@@ -893,8 +893,8 @@ events:
     checks:
       - "Performing Test CMAKE_HAVE_LIBC_PTHREAD"
     directories:
-      source: "/home/runner/work/lungsim/lungsim/build-lungsim/CMakeFiles/CMakeScratch/TryCompile-cRXHOJ"
-      binary: "/home/runner/work/lungsim/lungsim/build-lungsim/CMakeFiles/CMakeScratch/TryCompile-cRXHOJ"
+      source: "/home/runner/work/lungsim/lungsim/build-lungsim/CMakeFiles/CMakeScratch/TryCompile-yfwq23"
+      binary: "/home/runner/work/lungsim/lungsim/build-lungsim/CMakeFiles/CMakeScratch/TryCompile-yfwq23"
     cmakeVariables:
       CMAKE_C_FLAGS: ""
       CMAKE_C_FLAGS_DEBUG: "-g"
@@ -904,24 +904,24 @@ events:
       variable: "CMAKE_HAVE_LIBC_PTHREAD"
       cached: true
       stdout: |
-        Change Dir: /home/runner/work/lungsim/lungsim/build-lungsim/CMakeFiles/CMakeScratch/TryCompile-cRXHOJ
+        Change Dir: /home/runner/work/lungsim/lungsim/build-lungsim/CMakeFiles/CMakeScratch/TryCompile-yfwq23
         
-        Run Build Command(s):/usr/local/bin/cmake -E env VERBOSE=1 /usr/bin/make -f Makefile cmTC_2a80b/fast && /usr/bin/make  -f CMakeFiles/cmTC_2a80b.dir/build.make CMakeFiles/cmTC_2a80b.dir/build
-        make[1]: Entering directory '/home/runner/work/lungsim/lungsim/build-lungsim/CMakeFiles/CMakeScratch/TryCompile-cRXHOJ'
-        Building C object CMakeFiles/cmTC_2a80b.dir/src.c.o
-        /usr/bin/cc -DCMAKE_HAVE_LIBC_PTHREAD   -o CMakeFiles/cmTC_2a80b.dir/src.c.o -c /home/runner/work/lungsim/lungsim/build-lungsim/CMakeFiles/CMakeScratch/TryCompile-cRXHOJ/src.c
-        Linking C executable cmTC_2a80b
-        /usr/local/bin/cmake -E cmake_link_script CMakeFiles/cmTC_2a80b.dir/link.txt --verbose=1
-        /usr/bin/cc CMakeFiles/cmTC_2a80b.dir/src.c.o -o cmTC_2a80b 
-        /usr/bin/ld: CMakeFiles/cmTC_2a80b.dir/src.c.o: in function `main':
+        Run Build Command(s):/usr/local/bin/cmake -E env VERBOSE=1 /usr/bin/make -f Makefile cmTC_df8c8/fast && /usr/bin/make  -f CMakeFiles/cmTC_df8c8.dir/build.make CMakeFiles/cmTC_df8c8.dir/build
+        make[1]: Entering directory '/home/runner/work/lungsim/lungsim/build-lungsim/CMakeFiles/CMakeScratch/TryCompile-yfwq23'
+        Building C object CMakeFiles/cmTC_df8c8.dir/src.c.o
+        /usr/bin/cc -DCMAKE_HAVE_LIBC_PTHREAD   -o CMakeFiles/cmTC_df8c8.dir/src.c.o -c /home/runner/work/lungsim/lungsim/build-lungsim/CMakeFiles/CMakeScratch/TryCompile-yfwq23/src.c
+        Linking C executable cmTC_df8c8
+        /usr/local/bin/cmake -E cmake_link_script CMakeFiles/cmTC_df8c8.dir/link.txt --verbose=1
+        /usr/bin/cc CMakeFiles/cmTC_df8c8.dir/src.c.o -o cmTC_df8c8 
+        /usr/bin/ld: CMakeFiles/cmTC_df8c8.dir/src.c.o: in function `main':
         src.c:(.text+0x46): undefined reference to `pthread_create'
         /usr/bin/ld: src.c:(.text+0x52): undefined reference to `pthread_detach'
         /usr/bin/ld: src.c:(.text+0x5e): undefined reference to `pthread_cancel'
         /usr/bin/ld: src.c:(.text+0x6f): undefined reference to `pthread_join'
         collect2: error: ld returned 1 exit status
-        make[1]: *** [CMakeFiles/cmTC_2a80b.dir/build.make:99: cmTC_2a80b] Error 1
-        make[1]: Leaving directory '/home/runner/work/lungsim/lungsim/build-lungsim/CMakeFiles/CMakeScratch/TryCompile-cRXHOJ'
-        make: *** [Makefile:127: cmTC_2a80b/fast] Error 2
+        make[1]: *** [CMakeFiles/cmTC_df8c8.dir/build.make:99: cmTC_df8c8] Error 1
+        make[1]: Leaving directory '/home/runner/work/lungsim/lungsim/build-lungsim/CMakeFiles/CMakeScratch/TryCompile-yfwq23'
+        make: *** [Makefile:127: cmTC_df8c8/fast] Error 2
         
       exitCode: 2
   -
@@ -937,8 +937,8 @@ events:
     checks:
       - "Looking for pthread_create in pthreads"
     directories:
-      source: "/home/runner/work/lungsim/lungsim/build-lungsim/CMakeFiles/CMakeScratch/TryCompile-AlymYJ"
-      binary: "/home/runner/work/lungsim/lungsim/build-lungsim/CMakeFiles/CMakeScratch/TryCompile-AlymYJ"
+      source: "/home/runner/work/lungsim/lungsim/build-lungsim/CMakeFiles/CMakeScratch/TryCompile-gvKKW4"
+      binary: "/home/runner/work/lungsim/lungsim/build-lungsim/CMakeFiles/CMakeScratch/TryCompile-gvKKW4"
     cmakeVariables:
       CMAKE_C_FLAGS: ""
       CMAKE_C_FLAGS_DEBUG: "-g"
@@ -948,20 +948,20 @@ events:
       variable: "CMAKE_HAVE_PTHREADS_CREATE"
       cached: true
       stdout: |
-        Change Dir: /home/runner/work/lungsim/lungsim/build-lungsim/CMakeFiles/CMakeScratch/TryCompile-AlymYJ
+        Change Dir: /home/runner/work/lungsim/lungsim/build-lungsim/CMakeFiles/CMakeScratch/TryCompile-gvKKW4
         
-        Run Build Command(s):/usr/local/bin/cmake -E env VERBOSE=1 /usr/bin/make -f Makefile cmTC_2a698/fast && /usr/bin/make  -f CMakeFiles/cmTC_2a698.dir/build.make CMakeFiles/cmTC_2a698.dir/build
-        make[1]: Entering directory '/home/runner/work/lungsim/lungsim/build-lungsim/CMakeFiles/CMakeScratch/TryCompile-AlymYJ'
-        Building C object CMakeFiles/cmTC_2a698.dir/CheckFunctionExists.c.o
-        /usr/bin/cc   -DCHECK_FUNCTION_EXISTS=pthread_create -o CMakeFiles/cmTC_2a698.dir/CheckFunctionExists.c.o -c /home/runner/work/lungsim/lungsim/build-lungsim/CMakeFiles/CMakeScratch/TryCompile-AlymYJ/CheckFunctionExists.c
-        Linking C executable cmTC_2a698
-        /usr/local/bin/cmake -E cmake_link_script CMakeFiles/cmTC_2a698.dir/link.txt --verbose=1
-        /usr/bin/cc  -DCHECK_FUNCTION_EXISTS=pthread_create CMakeFiles/cmTC_2a698.dir/CheckFunctionExists.c.o -o cmTC_2a698  -lpthreads 
+        Run Build Command(s):/usr/local/bin/cmake -E env VERBOSE=1 /usr/bin/make -f Makefile cmTC_6967a/fast && /usr/bin/make  -f CMakeFiles/cmTC_6967a.dir/build.make CMakeFiles/cmTC_6967a.dir/build
+        make[1]: Entering directory '/home/runner/work/lungsim/lungsim/build-lungsim/CMakeFiles/CMakeScratch/TryCompile-gvKKW4'
+        Building C object CMakeFiles/cmTC_6967a.dir/CheckFunctionExists.c.o
+        /usr/bin/cc   -DCHECK_FUNCTION_EXISTS=pthread_create -o CMakeFiles/cmTC_6967a.dir/CheckFunctionExists.c.o -c /home/runner/work/lungsim/lungsim/build-lungsim/CMakeFiles/CMakeScratch/TryCompile-gvKKW4/CheckFunctionExists.c
+        Linking C executable cmTC_6967a
+        /usr/local/bin/cmake -E cmake_link_script CMakeFiles/cmTC_6967a.dir/link.txt --verbose=1
+        /usr/bin/cc  -DCHECK_FUNCTION_EXISTS=pthread_create CMakeFiles/cmTC_6967a.dir/CheckFunctionExists.c.o -o cmTC_6967a  -lpthreads 
         /usr/bin/ld: cannot find -lpthreads
         collect2: error: ld returned 1 exit status
-        make[1]: *** [CMakeFiles/cmTC_2a698.dir/build.make:99: cmTC_2a698] Error 1
-        make[1]: Leaving directory '/home/runner/work/lungsim/lungsim/build-lungsim/CMakeFiles/CMakeScratch/TryCompile-AlymYJ'
-        make: *** [Makefile:127: cmTC_2a698/fast] Error 2
+        make[1]: *** [CMakeFiles/cmTC_6967a.dir/build.make:99: cmTC_6967a] Error 1
+        make[1]: Leaving directory '/home/runner/work/lungsim/lungsim/build-lungsim/CMakeFiles/CMakeScratch/TryCompile-gvKKW4'
+        make: *** [Makefile:127: cmTC_6967a/fast] Error 2
         
       exitCode: 2
   -
@@ -977,8 +977,8 @@ events:
     checks:
       - "Looking for pthread_create in pthread"
     directories:
-      source: "/home/runner/work/lungsim/lungsim/build-lungsim/CMakeFiles/CMakeScratch/TryCompile-Nv73tN"
-      binary: "/home/runner/work/lungsim/lungsim/build-lungsim/CMakeFiles/CMakeScratch/TryCompile-Nv73tN"
+      source: "/home/runner/work/lungsim/lungsim/build-lungsim/CMakeFiles/CMakeScratch/TryCompile-FgDc63"
+      binary: "/home/runner/work/lungsim/lungsim/build-lungsim/CMakeFiles/CMakeScratch/TryCompile-FgDc63"
     cmakeVariables:
       CMAKE_C_FLAGS: ""
       CMAKE_C_FLAGS_DEBUG: "-g"
@@ -988,16 +988,16 @@ events:
       variable: "CMAKE_HAVE_PTHREAD_CREATE"
       cached: true
       stdout: |
-        Change Dir: /home/runner/work/lungsim/lungsim/build-lungsim/CMakeFiles/CMakeScratch/TryCompile-Nv73tN
+        Change Dir: /home/runner/work/lungsim/lungsim/build-lungsim/CMakeFiles/CMakeScratch/TryCompile-FgDc63
         
-        Run Build Command(s):/usr/local/bin/cmake -E env VERBOSE=1 /usr/bin/make -f Makefile cmTC_0d400/fast && /usr/bin/make  -f CMakeFiles/cmTC_0d400.dir/build.make CMakeFiles/cmTC_0d400.dir/build
-        make[1]: Entering directory '/home/runner/work/lungsim/lungsim/build-lungsim/CMakeFiles/CMakeScratch/TryCompile-Nv73tN'
-        Building C object CMakeFiles/cmTC_0d400.dir/CheckFunctionExists.c.o
-        /usr/bin/cc   -DCHECK_FUNCTION_EXISTS=pthread_create -o CMakeFiles/cmTC_0d400.dir/CheckFunctionExists.c.o -c /home/runner/work/lungsim/lungsim/build-lungsim/CMakeFiles/CMakeScratch/TryCompile-Nv73tN/CheckFunctionExists.c
-        Linking C executable cmTC_0d400
-        /usr/local/bin/cmake -E cmake_link_script CMakeFiles/cmTC_0d400.dir/link.txt --verbose=1
-        /usr/bin/cc  -DCHECK_FUNCTION_EXISTS=pthread_create CMakeFiles/cmTC_0d400.dir/CheckFunctionExists.c.o -o cmTC_0d400  -lpthread 
-        make[1]: Leaving directory '/home/runner/work/lungsim/lungsim/build-lungsim/CMakeFiles/CMakeScratch/TryCompile-Nv73tN'
+        Run Build Command(s):/usr/local/bin/cmake -E env VERBOSE=1 /usr/bin/make -f Makefile cmTC_a485b/fast && /usr/bin/make  -f CMakeFiles/cmTC_a485b.dir/build.make CMakeFiles/cmTC_a485b.dir/build
+        make[1]: Entering directory '/home/runner/work/lungsim/lungsim/build-lungsim/CMakeFiles/CMakeScratch/TryCompile-FgDc63'
+        Building C object CMakeFiles/cmTC_a485b.dir/CheckFunctionExists.c.o
+        /usr/bin/cc   -DCHECK_FUNCTION_EXISTS=pthread_create -o CMakeFiles/cmTC_a485b.dir/CheckFunctionExists.c.o -c /home/runner/work/lungsim/lungsim/build-lungsim/CMakeFiles/CMakeScratch/TryCompile-FgDc63/CheckFunctionExists.c
+        Linking C executable cmTC_a485b
+        /usr/local/bin/cmake -E cmake_link_script CMakeFiles/cmTC_a485b.dir/link.txt --verbose=1
+        /usr/bin/cc  -DCHECK_FUNCTION_EXISTS=pthread_create CMakeFiles/cmTC_a485b.dir/CheckFunctionExists.c.o -o cmTC_a485b  -lpthread 
+        make[1]: Leaving directory '/home/runner/work/lungsim/lungsim/build-lungsim/CMakeFiles/CMakeScratch/TryCompile-FgDc63'
         
       exitCode: 0
   -
@@ -1012,8 +1012,8 @@ events:
     checks:
       - "Looking for Fortran sgemm"
     directories:
-      source: "/home/runner/work/lungsim/lungsim/build-lungsim/CMakeFiles/CMakeScratch/TryCompile-HfmLMN"
-      binary: "/home/runner/work/lungsim/lungsim/build-lungsim/CMakeFiles/CMakeScratch/TryCompile-HfmLMN"
+      source: "/home/runner/work/lungsim/lungsim/build-lungsim/CMakeFiles/CMakeScratch/TryCompile-BHtWE6"
+      binary: "/home/runner/work/lungsim/lungsim/build-lungsim/CMakeFiles/CMakeScratch/TryCompile-BHtWE6"
     cmakeVariables:
       CMAKE_EXE_LINKER_FLAGS: ""
       CMAKE_Fortran_FLAGS: ""
@@ -1023,16 +1023,115 @@ events:
       variable: "BLAS_blas_WORKS"
       cached: true
       stdout: |
-        Change Dir: /home/runner/work/lungsim/lungsim/build-lungsim/CMakeFiles/CMakeScratch/TryCompile-HfmLMN
+        Change Dir: /home/runner/work/lungsim/lungsim/build-lungsim/CMakeFiles/CMakeScratch/TryCompile-BHtWE6
         
-        Run Build Command(s):/usr/local/bin/cmake -E env VERBOSE=1 /usr/bin/make -f Makefile cmTC_74330/fast && /usr/bin/make  -f CMakeFiles/cmTC_74330.dir/build.make CMakeFiles/cmTC_74330.dir/build
-        make[1]: Entering directory '/home/runner/work/lungsim/lungsim/build-lungsim/CMakeFiles/CMakeScratch/TryCompile-HfmLMN'
-        Building Fortran object CMakeFiles/cmTC_74330.dir/testFortranCompiler.f.o
-        /usr/bin/gfortran    -c /home/runner/work/lungsim/lungsim/build-lungsim/CMakeFiles/CMakeScratch/TryCompile-HfmLMN/testFortranCompiler.f -o CMakeFiles/cmTC_74330.dir/testFortranCompiler.f.o
-        Linking Fortran executable cmTC_74330
-        /usr/local/bin/cmake -E cmake_link_script CMakeFiles/cmTC_74330.dir/link.txt --verbose=1
-        /usr/bin/gfortran CMakeFiles/cmTC_74330.dir/testFortranCompiler.f.o -o cmTC_74330  /usr/lib/x86_64-linux-gnu/libblas.so 
-        make[1]: Leaving directory '/home/runner/work/lungsim/lungsim/build-lungsim/CMakeFiles/CMakeScratch/TryCompile-HfmLMN'
+        Run Build Command(s):/usr/local/bin/cmake -E env VERBOSE=1 /usr/bin/make -f Makefile cmTC_ac715/fast && /usr/bin/make  -f CMakeFiles/cmTC_ac715.dir/build.make CMakeFiles/cmTC_ac715.dir/build
+        make[1]: Entering directory '/home/runner/work/lungsim/lungsim/build-lungsim/CMakeFiles/CMakeScratch/TryCompile-BHtWE6'
+        Building Fortran object CMakeFiles/cmTC_ac715.dir/testFortranCompiler.f.o
+        /usr/bin/gfortran    -c /home/runner/work/lungsim/lungsim/build-lungsim/CMakeFiles/CMakeScratch/TryCompile-BHtWE6/testFortranCompiler.f -o CMakeFiles/cmTC_ac715.dir/testFortranCompiler.f.o
+        Linking Fortran executable cmTC_ac715
+        /usr/local/bin/cmake -E cmake_link_script CMakeFiles/cmTC_ac715.dir/link.txt --verbose=1
+        /usr/bin/gfortran CMakeFiles/cmTC_ac715.dir/testFortranCompiler.f.o -o cmTC_ac715  /usr/lib/x86_64-linux-gnu/libblas.so 
+        make[1]: Leaving directory '/home/runner/work/lungsim/lungsim/build-lungsim/CMakeFiles/CMakeScratch/TryCompile-BHtWE6'
+        
+      exitCode: 0
+  -
+    kind: "try_compile-v1"
+    backtrace:
+      - "/usr/local/share/cmake-3.26/Modules/Internal/CheckSourceCompiles.cmake:101 (try_compile)"
+      - "/usr/local/share/cmake-3.26/Modules/CheckCXXSourceCompiles.cmake:76 (cmake_check_source_compiles)"
+      - "cmake/FindSuperLU.cmake:51 (check_cxx_source_compiles)"
+      - "src/CMakeLists.txt:3 (find_package)"
+    checks:
+      - "Performing Test SUPERLU_HAS_GLOBAL_MEM_USAGE_T"
+    directories:
+      source: "/home/runner/work/lungsim/lungsim/build-lungsim/CMakeFiles/CMakeScratch/TryCompile-PdcZy3"
+      binary: "/home/runner/work/lungsim/lungsim/build-lungsim/CMakeFiles/CMakeScratch/TryCompile-PdcZy3"
+    cmakeVariables:
+      CMAKE_CXX_FLAGS: ""
+      CMAKE_CXX_FLAGS_DEBUG: "-g"
+      CMAKE_EXE_LINKER_FLAGS: ""
+      CMAKE_MODULE_PATH: "/home/runner/work/lungsim/lungsim/lungsim/cmake"
+    buildResult:
+      variable: "SUPERLU_HAS_GLOBAL_MEM_USAGE_T"
+      cached: true
+      stdout: |
+        Change Dir: /home/runner/work/lungsim/lungsim/build-lungsim/CMakeFiles/CMakeScratch/TryCompile-PdcZy3
+        
+        Run Build Command(s):/usr/local/bin/cmake -E env VERBOSE=1 /usr/bin/make -f Makefile cmTC_97052/fast && /usr/bin/make  -f CMakeFiles/cmTC_97052.dir/build.make CMakeFiles/cmTC_97052.dir/build
+        make[1]: Entering directory '/home/runner/work/lungsim/lungsim/build-lungsim/CMakeFiles/CMakeScratch/TryCompile-PdcZy3'
+        Building CXX object CMakeFiles/cmTC_97052.dir/src.cxx.o
+        /usr/bin/c++ -DSUPERLU_HAS_GLOBAL_MEM_USAGE_T -I/usr/include/superlu  -o CMakeFiles/cmTC_97052.dir/src.cxx.o -c /home/runner/work/lungsim/lungsim/build-lungsim/CMakeFiles/CMakeScratch/TryCompile-PdcZy3/src.cxx
+        Linking CXX executable cmTC_97052
+        /usr/local/bin/cmake -E cmake_link_script CMakeFiles/cmTC_97052.dir/link.txt --verbose=1
+        /usr/bin/c++ CMakeFiles/cmTC_97052.dir/src.cxx.o -o cmTC_97052 
+        make[1]: Leaving directory '/home/runner/work/lungsim/lungsim/build-lungsim/CMakeFiles/CMakeScratch/TryCompile-PdcZy3'
+        
+      exitCode: 0
+  -
+    kind: "try_compile-v1"
+    backtrace:
+      - "/usr/local/share/cmake-3.26/Modules/Internal/CheckSourceCompiles.cmake:101 (try_compile)"
+      - "/usr/local/share/cmake-3.26/Modules/CheckCXXSourceCompiles.cmake:76 (cmake_check_source_compiles)"
+      - "cmake/FindSuperLU.cmake:62 (check_cxx_source_compiles)"
+      - "src/CMakeLists.txt:3 (find_package)"
+    checks:
+      - "Performing Test SUPERLU_HAS_CLEAN_ENUMS"
+    directories:
+      source: "/home/runner/work/lungsim/lungsim/build-lungsim/CMakeFiles/CMakeScratch/TryCompile-sAlel6"
+      binary: "/home/runner/work/lungsim/lungsim/build-lungsim/CMakeFiles/CMakeScratch/TryCompile-sAlel6"
+    cmakeVariables:
+      CMAKE_CXX_FLAGS: ""
+      CMAKE_CXX_FLAGS_DEBUG: "-g"
+      CMAKE_EXE_LINKER_FLAGS: ""
+      CMAKE_MODULE_PATH: "/home/runner/work/lungsim/lungsim/lungsim/cmake"
+    buildResult:
+      variable: "SUPERLU_HAS_CLEAN_ENUMS"
+      cached: true
+      stdout: |
+        Change Dir: /home/runner/work/lungsim/lungsim/build-lungsim/CMakeFiles/CMakeScratch/TryCompile-sAlel6
+        
+        Run Build Command(s):/usr/local/bin/cmake -E env VERBOSE=1 /usr/bin/make -f Makefile cmTC_89974/fast && /usr/bin/make  -f CMakeFiles/cmTC_89974.dir/build.make CMakeFiles/cmTC_89974.dir/build
+        make[1]: Entering directory '/home/runner/work/lungsim/lungsim/build-lungsim/CMakeFiles/CMakeScratch/TryCompile-sAlel6'
+        Building CXX object CMakeFiles/cmTC_89974.dir/src.cxx.o
+        /usr/bin/c++ -DSUPERLU_HAS_CLEAN_ENUMS -I/usr/include/superlu  -o CMakeFiles/cmTC_89974.dir/src.cxx.o -c /home/runner/work/lungsim/lungsim/build-lungsim/CMakeFiles/CMakeScratch/TryCompile-sAlel6/src.cxx
+        Linking CXX executable cmTC_89974
+        /usr/local/bin/cmake -E cmake_link_script CMakeFiles/cmTC_89974.dir/link.txt --verbose=1
+        /usr/bin/c++ CMakeFiles/cmTC_89974.dir/src.cxx.o -o cmTC_89974 
+        make[1]: Leaving directory '/home/runner/work/lungsim/lungsim/build-lungsim/CMakeFiles/CMakeScratch/TryCompile-sAlel6'
+        
+      exitCode: 0
+  -
+    kind: "try_compile-v1"
+    backtrace:
+      - "/usr/local/share/cmake-3.26/Modules/Internal/CheckSourceCompiles.cmake:101 (try_compile)"
+      - "/usr/local/share/cmake-3.26/Modules/CheckCXXSourceCompiles.cmake:76 (cmake_check_source_compiles)"
+      - "cmake/FindSuperLU.cmake:71 (check_cxx_source_compiles)"
+      - "src/CMakeLists.txt:3 (find_package)"
+    checks:
+      - "Performing Test SUPERLU_HAS_GLOBALLU_T"
+    directories:
+      source: "/home/runner/work/lungsim/lungsim/build-lungsim/CMakeFiles/CMakeScratch/TryCompile-KTNRd4"
+      binary: "/home/runner/work/lungsim/lungsim/build-lungsim/CMakeFiles/CMakeScratch/TryCompile-KTNRd4"
+    cmakeVariables:
+      CMAKE_CXX_FLAGS: ""
+      CMAKE_CXX_FLAGS_DEBUG: "-g"
+      CMAKE_EXE_LINKER_FLAGS: ""
+      CMAKE_MODULE_PATH: "/home/runner/work/lungsim/lungsim/lungsim/cmake"
+    buildResult:
+      variable: "SUPERLU_HAS_GLOBALLU_T"
+      cached: true
+      stdout: |
+        Change Dir: /home/runner/work/lungsim/lungsim/build-lungsim/CMakeFiles/CMakeScratch/TryCompile-KTNRd4
+        
+        Run Build Command(s):/usr/local/bin/cmake -E env VERBOSE=1 /usr/bin/make -f Makefile cmTC_5b890/fast && /usr/bin/make  -f CMakeFiles/cmTC_5b890.dir/build.make CMakeFiles/cmTC_5b890.dir/build
+        make[1]: Entering directory '/home/runner/work/lungsim/lungsim/build-lungsim/CMakeFiles/CMakeScratch/TryCompile-KTNRd4'
+        Building CXX object CMakeFiles/cmTC_5b890.dir/src.cxx.o
+        /usr/bin/c++ -DSUPERLU_HAS_GLOBALLU_T -I/usr/include/superlu  -o CMakeFiles/cmTC_5b890.dir/src.cxx.o -c /home/runner/work/lungsim/lungsim/build-lungsim/CMakeFiles/CMakeScratch/TryCompile-KTNRd4/src.cxx
+        Linking CXX executable cmTC_5b890
+        /usr/local/bin/cmake -E cmake_link_script CMakeFiles/cmTC_5b890.dir/link.txt --verbose=1
+        /usr/bin/c++ CMakeFiles/cmTC_5b890.dir/src.cxx.o -o cmTC_5b890 
+        make[1]: Leaving directory '/home/runner/work/lungsim/lungsim/build-lungsim/CMakeFiles/CMakeScratch/TryCompile-KTNRd4'
         
       exitCode: 0
 ...
