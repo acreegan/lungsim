@@ -1,6 +1,0 @@
-﻿  Swig compile ../interface/filenames.i for python
-  Deprecated command line option: -py3. Ignored, this option is no longer supported.
-  Building Custom Rule D:/a/lungsim/lungsim/lungsim/src/bindings/python/CMakeLists.txt
-  filenamesPYTHON_wrap.c
-     Creating library D:/a/lungsim/lungsim/build-lungsim/src/bindings/python/Release/filenames.lib and object D:/a/lungsim/lungsim/build-lungsim/src/bindings/python/Release/filenames.exp
-  filenames.vcxproj -> D:\a\lungsim\lungsim\build-lungsim\src\bindings\python\Release\aether\_filenames.pyd

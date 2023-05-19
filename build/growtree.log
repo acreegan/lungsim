@@ -1,7 +1,0 @@
-﻿  Swig compile ../interface/growtree.i for python
-  Deprecated command line option: -py3. Ignored, this option is no longer supported.
-  Building Custom Rule D:/a/lungsim/lungsim/lungsim/src/bindings/python/CMakeLists.txt
-  growtreePYTHON_wrap.c
-D:\a\lungsim\lungsim\build-lungsim\src\bindings\python\swig_intermediaries\growtreePYTHON_wrap.c(3201,36): warning C4244: '=': conversion from 'Py_ssize_t' to 'int', possible loss of data
-     Creating library D:/a/lungsim/lungsim/build-lungsim/src/bindings/python/Release/growtree.lib and object D:/a/lungsim/lungsim/build-lungsim/src/bindings/python/Release/growtree.exp
-  growtree.vcxproj -> D:\a\lungsim\lungsim\build-lungsim\src\bindings\python\Release\aether\_growtree.pyd

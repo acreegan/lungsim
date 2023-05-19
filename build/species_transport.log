@@ -1,6 +1,0 @@
-﻿  Swig compile ../interface/species_transport.i for python
-  Deprecated command line option: -py3. Ignored, this option is no longer supported.
-  Building Custom Rule D:/a/lungsim/lungsim/lungsim/src/bindings/python/CMakeLists.txt
-  species_transportPYTHON_wrap.c
-     Creating library D:/a/lungsim/lungsim/build-lungsim/src/bindings/python/Release/species_transport.lib and object D:/a/lungsim/lungsim/build-lungsim/src/bindings/python/Release/species_transport.exp
-  species_transport.vcxproj -> D:\a\lungsim\lungsim\build-lungsim\src\bindings\python\Release\aether\_species_transport.pyd

@@ -1,6 +1,0 @@
-﻿  Swig compile ../interface/pressure_resistance_flow.i for python
-  Deprecated command line option: -py3. Ignored, this option is no longer supported.
-  Building Custom Rule D:/a/lungsim/lungsim/lungsim/src/bindings/python/CMakeLists.txt
-  pressure_resistance_flowPYTHON_wrap.c
-     Creating library D:/a/lungsim/lungsim/build-lungsim/src/bindings/python/Release/pressure_resistance_flow.lib and object D:/a/lungsim/lungsim/build-lungsim/src/bindings/python/Release/pressure_resistance_flow.exp
-  pressure_resistance_flow.vcxproj -> D:\a\lungsim\lungsim\build-lungsim\src\bindings\python\Release\aether\_pressure_resistance_flow.pyd

@@ -1,6 +1,0 @@
-﻿  Swig compile ../interface/indices.i for python
-  Deprecated command line option: -py3. Ignored, this option is no longer supported.
-  Building Custom Rule D:/a/lungsim/lungsim/lungsim/src/bindings/python/CMakeLists.txt
-  indicesPYTHON_wrap.c
-     Creating library D:/a/lungsim/lungsim/build-lungsim/src/bindings/python/Release/indices.lib and object D:/a/lungsim/lungsim/build-lungsim/src/bindings/python/Release/indices.exp
-  indices.vcxproj -> D:\a\lungsim\lungsim\build-lungsim\src\bindings\python\Release\aether\_indices.pyd
