@@ -1,0 +1,1 @@
+/usr/bin/cc -fPIC -O3 -DNDEBUG -shared  -o aether/_wave_transmission.so CMakeFiles/wave_transmission.dir/swig_intermediaries/wave_transmissionPYTHON_wrap.c.o  -Wl,-rpath,/home/runner/work/lungsim/lungsim/build-lungsim/src/bindings/c: /usr/lib/x86_64-linux-gnu/libpython3.8.so ../c/libaether_c.so ../c/libaether_c_fortran.a ../../lib/libaether.a -lgfortran -lm -lquadmath -lm 
